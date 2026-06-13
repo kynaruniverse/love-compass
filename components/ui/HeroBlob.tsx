@@ -41,8 +41,6 @@ function Heart() {
 
   // Track elapsed time to drive the spin-down curve
   const clock = useRef(0);
-  // Resting Y rotation after spin settles
-  const restingY = useRef(0);
 
   useFrame((state, delta) => {
     if (!meshRef.current) return;
@@ -60,7 +58,6 @@ function Heart() {
       const k = Math.log(initialSpeed / 0.004) / SPIN_DURATION; // ≈ 0.756
       const spinSpeed = initialSpeed * Math.exp(-k * t);
       meshRef.current.rotation.y += spinSpeed * delta;
-      restingY.current = meshRef.current.rotation.y;
     } else {
       // Post-spin: gentle idle drift + pointer tracking
       const idleSpeed = 0.004;
@@ -90,7 +87,7 @@ function Heart() {
 
 export default function HeroBlob() {
   return (
-    <div className="hero-canvas" aria-hidden="true">
+    <div className="hero-canvas" aria-hidden="true" style={{ opacity: 0.35, zIndex: 0 }}>
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <ambientLight intensity={0.7} />
         <directionalLight position={[3, 3, 4]} intensity={1.1} color="#ffffff" />

@@ -16,8 +16,8 @@ export default function HomePage() {
             Love Compass
           </h1>
           <p className="text-xl opacity-70 max-w-xl leading-relaxed mt-4">
-            Understand how you love, how you need to be loved, and how those
-            two things shape every relationship you're in.
+            Most people spend years in relationships not quite understanding
+            themselves. Love Compass exists to change that.
           </p>
           <div className="flex flex-wrap gap-3 pt-6">
             <Link href="/assessments">
@@ -35,27 +35,69 @@ export default function HomePage() {
       </section>
 
       {/* -- Assessment cards -- */}
-      <section className="max-w-4xl mx-auto px-4 pb-24 space-y-4">
+      <section className="max-w-4xl mx-auto px-4 pb-24 space-y-10">
         <h2 className="text-2xl font-semibold tracking-tight">
-          Choose Your Assessment
+          Where do you want to start?
         </h2>
-        <div className="grid sm:grid-cols-3 gap-4">
-          {assessments.map((a, i) => (
-            <Link
-              key={a.slug}
-              href={`/assessments/${a.slug}`}
-              className={`relative block p-5 border transition-all bg-[var(--surface)] border-[var(--border-soft)] hover:border-[var(--primary)] hover:shadow-lg hover:-translate-y-0.5 overflow-hidden shadow-sm ${
-                i % 2 === 0 ? "rounded-3xl" : "organic-edge"
-              }`}
-            >
-              <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-              <div className="relative">
-                <h3 className="font-serif font-semibold text-lg mb-1">{a.title}</h3>
-                <p className="text-sm opacity-60">{a.description}</p>
-              </div>
-            </Link>
-          ))}
+
+        {/* Receiving group */}
+        <div className="space-y-3">
+          <p className="text-xs font-medium uppercase tracking-widest text-[var(--primary)] opacity-60">
+            Receiving — how you need to be loved
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {assessments.filter(a => a.mode === "receiving").map((a, i) => (
+              <Link
+                key={a.slug}
+                href={`/assessments/${a.slug}`}
+                className={`relative block p-5 border transition-all bg-[var(--primary-soft)] border-[var(--primary-soft)] hover:border-[var(--primary)] hover:shadow-lg hover:-translate-y-0.5 overflow-hidden shadow-sm ${
+                  i % 2 === 0 ? "rounded-3xl" : "organic-edge"
+                }`}
+              >
+                <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-1">
+                    <h3 className="font-serif font-semibold text-lg">{a.title}</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--primary-soft)] text-[var(--primary)] border border-[var(--primary)] border-opacity-20 flex-shrink-0">
+                      Receiving
+                    </span>
+                  </div>
+                  <p className="text-sm opacity-60">{a.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
+
+        {/* Giving group */}
+        <div className="space-y-3">
+          <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] opacity-60">
+            Giving — how you naturally love
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {assessments.filter(a => a.mode === "giving").map((a, i) => (
+              <Link
+                key={a.slug}
+                href={`/assessments/${a.slug}`}
+                className={`relative block p-5 border transition-all bg-[var(--accent-soft)] border-[var(--accent-soft)] hover:border-[var(--accent)] hover:shadow-lg hover:-translate-y-0.5 overflow-hidden shadow-sm ${
+                  i % 2 === 0 ? "rounded-3xl" : "organic-edge"
+                }`}
+              >
+                <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-1">
+                    <h3 className="font-serif font-semibold text-lg">{a.title}</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] border-opacity-20 flex-shrink-0">
+                      Giving
+                    </span>
+                  </div>
+                  <p className="text-sm opacity-60">{a.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
       </section>
 
     </main>

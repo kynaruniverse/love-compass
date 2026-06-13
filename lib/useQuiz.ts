@@ -55,7 +55,7 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
   }
 
   function progress() {
-    return Math.round(((index + 1) / questions.length) * 100);
+    return Math.round((index / questions.length) * 100);
   }
 
   const isComplete = index >= questions.length;

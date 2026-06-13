@@ -260,8 +260,8 @@ export default function FAQPage() {
             Common questions
           </h1>
           <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-            Everything you might want to know about how Love Compass works,
-            what your results mean, and how to use them.
+            Honest answers to the questions most people have before, during,
+            and after taking an assessment. No filler.
           </p>
         </div>
 
@@ -288,7 +288,7 @@ export default function FAQPage() {
             </p>
             <p className="text-sm opacity-60 mt-1">
               The best way to understand your results is to take an assessment and
-              sit with what comes up. There's no wrong place to start.
+              sit with what comes up. Most people find it more revealing than they expected.
             </p>
             <a
               href="/assessments"

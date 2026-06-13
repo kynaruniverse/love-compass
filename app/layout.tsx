@@ -21,12 +21,22 @@ export const metadata: Metadata = {
     default: "Love Compass",
     template: "%s | Love Compass"
   },
-  description: "A deeper look at love, intimacy, and connection.",
+  description: "Discover how you give and receive love. Love Compass is a free self-reflection tool built around six structured assessments — no sign-up required.",
+  keywords: ["love languages", "relationship assessment", "intimacy style", "self-reflection", "love quiz", "relationship quiz"],
   openGraph: {
     title: "Love Compass",
-    description: "A deeper look at love, intimacy, and connection.",
+    description: "Discover how you give and receive love. Free assessments, no sign-up required.",
     type: "website",
-    url: "https://lovecompass.app"
+    url: "https://lovecompass.app",
+    siteName: "Love Compass",
+  },
+  twitter: {
+    card: "summary",
+    title: "Love Compass",
+    description: "Discover how you give and receive love. Free assessments, no sign-up required.",
+  },
+  alternates: {
+    canonical: "https://lovecompass.app",
   },
   robots: {
     index: true,

@@ -62,13 +62,6 @@ export interface CategoryResult {
   angle: number;       // position in degrees around the compass rose
 }
 
-export interface AssessmentResult {
-  category: string;
-  score: number;
-  percentage: number;
-}
-
-/** Likert scale labels (index 0 = value 1, index 4 = value 5) */
 /** Likert scale labels (index 0 = value 1, index 4 = value 5) */
 export const LIKERT_LABELS = [
   "Not at all like me",

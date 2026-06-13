@@ -99,12 +99,3 @@ export function getBlend(profile: CategoryResult[], threshold = 8): CategoryResu
 export function rankedScores(scores: ScoreMap): [string, number][] {
   return Object.entries(scores).sort((a, b) => b[1] - a[1]);
 }
-
-/**
- * Legacy: categories within 1 raw point of the highest score.
- */
-export function balancedCategories(scores: ScoreMap): [string, number][] {
-  const ranked = rankedScores(scores);
-  const highest = ranked[0][1];
-  return ranked.filter(([, score]) => highest - score <= 1);
-}

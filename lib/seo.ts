@@ -1,26 +1,42 @@
 export const siteMeta = {
   title: "Love Compass",
-  description: "A deeper look at love, intimacy, and connection.",
-  url: "https://lovecompass.app"
+  description:
+    "Discover how you give and receive love. Love Compass is a free self-reflection tool built around six structured assessments — no sign-up required.",
+  url: "https://lovecompass.app",
+  siteName: "Love Compass",
+  twitterHandle: "@lovecompassapp",
 };
 
 export function generateMeta({
   title,
-  description
+  description,
+  path = "",
 }: {
   title: string;
   description?: string;
+  path?: string;
 }) {
   const desc = description ?? siteMeta.description;
+  const url = `${siteMeta.url}${path}`;
 
   return {
-    title: `${title} | Love Compass`,
+    title: `${title} | ${siteMeta.title}`,
     description: desc,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title,
+      title: `${title} | ${siteMeta.title}`,
       description: desc,
-      type: "website",
-      url: siteMeta.url
-    }
+      type: "website" as const,
+      url,
+      siteName: siteMeta.siteName,
+    },
+    twitter: {
+      card: "summary" as const,
+      title: `${title} | ${siteMeta.title}`,
+      description: desc,
+      creator: siteMeta.twitterHandle,
+    },
   };
 }

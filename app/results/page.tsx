@@ -15,14 +15,13 @@ import { isGivingMode } from "@/data/assessments";
 import { buildProfile, pickArchetype, getBlend } from "@/lib/resultBuilder";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
 import ScoreBars from "@/components/charts/ScoreBars";
-import RadarProfile from "@/components/charts/RadarProfile";
 import CompassProfile from "@/components/charts/CompassProfile";
 import Button from "@/components/ui/Button";
 import { exportText, exportMarkdown } from "@/lib/export";
 import { CategoryResult } from "@/types/quiz";
 import ShareCard from "@/components/quiz/ShareCard";
 
-type ViewMode = "bars" | "radar" | "compass";
+type ViewMode = "bars" | "compass";
 
 export default function ResultsPage() {
   const router = useRouter();
@@ -150,11 +149,14 @@ export default function ResultsPage() {
     <main className="max-w-3xl mx-auto px-4 py-12 space-y-12">
 
       {/* -- Header -- */}
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">
+      <div className="space-y-3">
+        <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
           Your Result
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
+          Here's who you are<br />in love.
         </h1>
-        <p className="opacity-60 text-sm">
+        <p className="opacity-60 text-sm leading-relaxed max-w-xl">
           Based on your{" "}
           {quizType === "love"
             ? "Love Preference"
@@ -167,15 +169,16 @@ export default function ResultsPage() {
             : quizType === "intimacy-giving"
             ? "Desire Expression"
             : "Full Expression Profile"}{" "}
-          assessment.
+          assessment. Sit with this — most people find it more accurate than they expected.
         </p>
 
         {isGivingMode(quizType) && (
           <div className="mt-3 p-4 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] text-sm leading-relaxed">
-            <p className="font-medium text-[var(--foreground)] mb-1">This is your giving profile.</p>
+            <p className="font-medium text-[var(--foreground)] mb-1">You're looking at how you give.</p>
             <p className="opacity-80">
-              These results describe how you naturally express love and desire — and the kind of
-              partner whose receiving style will match what you give most naturally.{" "}
+              This is how you naturally express love and desire — the specific way you show up for
+              a partner without even thinking about it. The interesting part is what happens when
+              you compare this to how you need to receive.{" "}
               <a
                 href="/assessments"
                 className="underline text-[var(--primary)] hover:opacity-80 transition-opacity"
@@ -193,7 +196,7 @@ export default function ResultsPage() {
       {/* ── Chart toggle ── */}
       <div className="space-y-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
-          <h2 className="text-xl font-semibold font-serif">Visual Profile</h2>
+          <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">Visual Profile</h2>
           <div className="flex gap-2">
             <Button
               variant={view === "compass" ? "primary" : "ghost"}
@@ -207,12 +210,6 @@ export default function ResultsPage() {
             >
               Bar Chart
             </Button>
-            <Button
-              variant={view === "radar" ? "primary" : "ghost"}
-              onClick={() => setView("radar")}
-            >
-              Radar
-            </Button>
           </div>
         </div>
 
@@ -221,10 +218,8 @@ export default function ResultsPage() {
           <div className="relative">
             {view === "compass" ? (
               <CompassProfile profile={profile} />
-            ) : view === "bars" ? (
-              <ScoreBars profile={profile} />
             ) : (
-              <RadarProfile profile={profile} />
+              <ScoreBars profile={profile} />
             )}
           </div>
         </div>
@@ -232,25 +227,35 @@ export default function ResultsPage() {
 
       {/* ── Share ── */}
       <div className="space-y-2">
-        <h2 className="text-xl font-semibold font-serif">Share Your Result</h2>
+        <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">Share Your Result</h2>
         <ShareCard result={result} profile={profile} quizType={quizType} />
       </div>
 
       {/* ── Actions ── */}
       <div className="flex flex-wrap gap-3">
-        <Button onClick={handleExportTXT} variant="secondary">
-          Export TXT
-        </Button>
-        <Button onClick={handleExportMD} variant="secondary">
-          Export Markdown
-        </Button>
         <Button
           onClick={() => router.push("/assessments")}
-          variant="ghost"
+          variant="primary"
         >
           Take Another Assessment
         </Button>
       </div>
+
+      {/* ── Save results ── */}
+      <details className="group">
+        <summary className="cursor-pointer text-sm opacity-50 hover:opacity-70 transition-opacity list-none flex items-center gap-2">
+          <span className="group-open:hidden">↓ Save your results</span>
+          <span className="hidden group-open:inline">↑ Save your results</span>
+        </summary>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <Button onClick={handleExportTXT} variant="secondary">
+            Export TXT
+          </Button>
+          <Button onClick={handleExportMD} variant="secondary">
+            Export Markdown
+          </Button>
+        </div>
+      </details>
 
       {/* ── Disclaimer ── */}
       <p className="text-xs opacity-40 text-center leading-relaxed">
