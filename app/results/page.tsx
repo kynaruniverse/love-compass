@@ -4,9 +4,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ScoreMap, QuizQuestion, NarrativeResult } from "@/types/quiz";
 import { LOVE_CATEGORIES, INTIMACY_CATEGORIES, HYBRID_CATEGORIES } from "@/data/categories";
+import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES, HYBRID_GIVING_CATEGORIES } from "@/data/categories-giving";
 import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "@/data/archetypes-love";
 import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "@/data/archetypes-intimacy";
 import { HYBRID_ARCHETYPES, HYBRID_FLAVORS } from "@/data/archetypes-hybrid";
+import { LOVE_GIVING_ARCHETYPES, LOVE_GIVING_FLAVORS } from "@/data/archetypes-love-giving";
+import { INTIMACY_GIVING_ARCHETYPES, INTIMACY_GIVING_FLAVORS } from "@/data/archetypes-intimacy-giving";
+import { HYBRID_GIVING_ARCHETYPES, HYBRID_GIVING_FLAVORS } from "@/data/archetypes-hybrid-giving";
+import { isGivingMode } from "@/data/assessments";
 import { buildProfile, pickArchetype, getBlend } from "@/lib/resultBuilder";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
 import ScoreBars from "@/components/charts/ScoreBars";
@@ -36,7 +41,7 @@ export default function ResultsPage() {
     const scores: ScoreMap = JSON.parse(rawScores);
     const questions: QuizQuestion[] = JSON.parse(rawQuestions);
 
-    // Pick correct category map + archetype library based on quiz type
+    // Pick correct category map + archetype library based on quiz type + mode
     let categoryMap = LOVE_CATEGORIES;
     let archetypes = LOVE_ARCHETYPES;
     let flavors = LOVE_FLAVORS;
@@ -49,6 +54,18 @@ export default function ResultsPage() {
       categoryMap = HYBRID_CATEGORIES;
       archetypes = HYBRID_ARCHETYPES;
       flavors = HYBRID_FLAVORS;
+    } else if (type === "love-giving") {
+      categoryMap = LOVE_GIVING_CATEGORIES;
+      archetypes = LOVE_GIVING_ARCHETYPES;
+      flavors = LOVE_GIVING_FLAVORS;
+    } else if (type === "intimacy-giving") {
+      categoryMap = INTIMACY_GIVING_CATEGORIES;
+      archetypes = INTIMACY_GIVING_ARCHETYPES;
+      flavors = INTIMACY_GIVING_FLAVORS;
+    } else if (type === "hybrid-giving") {
+      categoryMap = HYBRID_GIVING_CATEGORIES;
+      archetypes = HYBRID_GIVING_ARCHETYPES;
+      flavors = HYBRID_GIVING_FLAVORS;
     }
 
     const built = buildProfile(scores, questions, categoryMap);
@@ -142,9 +159,31 @@ export default function ResultsPage() {
             ? "Love Preference"
             : quizType === "intimacy"
             ? "Intimacy Style"
-            : "Full Profile"}{" "}
+            : quizType === "hybrid"
+            ? "Full Profile"
+            : quizType === "love-giving"
+            ? "How You Love"
+            : quizType === "intimacy-giving"
+            ? "How You Desire"
+            : "Full Expression Profile"}{" "}
           assessment.
         </p>
+
+        {isGivingMode(quizType) && (
+          <div className="mt-3 p-4 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] text-sm leading-relaxed">
+            <p className="font-medium text-[var(--foreground)] mb-1">This is your giving profile.</p>
+            <p className="opacity-80">
+              These results describe how you naturally express love and desire — and the kind of
+              partner whose receiving style will match what you give most naturally.{" "}
+              <a
+                href="/assessments"
+                className="underline text-[var(--primary)] hover:opacity-80 transition-opacity"
+              >
+                Take a receiving test →
+              </a>
+            </p>
+          </div>
+        )}
       </div>
 
       {/* ── Narrative result + breakdown ── */}

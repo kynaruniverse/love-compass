@@ -15,7 +15,10 @@ export default function sitemap() {
   const assessmentRoutes = [
     "/assessments/love",
     "/assessments/intimacy",
-    "/assessments/hybrid"
+    "/assessments/hybrid",
+    "/assessments/love-giving",
+    "/assessments/intimacy-giving",
+    "/assessments/hybrid-giving"
   ];
 
   return [...staticRoutes, ...assessmentRoutes].map(route => ({

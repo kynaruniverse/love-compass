@@ -4,6 +4,9 @@ import { useParams, useRouter } from "next/navigation";
 import { generalLoveQuestions } from "@/data/general-love";
 import { intimacyQuestions } from "@/data/intimacy";
 import { hybridQuestions } from "@/data/hybrid";
+import { generalLoveGivingQuestions } from "@/data/general-love-giving";
+import { intimacyGivingQuestions } from "@/data/intimacy-giving";
+import { hybridGivingQuestions } from "@/data/hybrid-giving";
 import { useQuiz } from "@/lib/useQuiz";
 import QuizCard from "@/components/quiz/QuizCard";
 import { tallyAnswers } from "@/lib/scoring";
@@ -17,6 +20,12 @@ function getQuestions(slug: string): QuizQuestion[] {
       return intimacyQuestions;
     case "hybrid":
       return hybridQuestions;
+    case "love-giving":
+      return generalLoveGivingQuestions;
+    case "intimacy-giving":
+      return intimacyGivingQuestions;
+    case "hybrid-giving":
+      return hybridGivingQuestions;
     default:
       return generalLoveQuestions;
   }
