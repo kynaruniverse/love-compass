@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${lora.variable} ${inter.variable}`}>
+    <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body>
         <Navbar />
           {children}
