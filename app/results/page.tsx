@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ScoreMap, QuizQuestion } from "@/types/quiz";
-import { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "@/data/categories";
-import { buildProfile, dominantCategories } from "@/lib/resultBuilder";
+import { ScoreMap, QuizQuestion, NarrativeResult } from "@/types/quiz";
+import { LOVE_CATEGORIES, INTIMACY_CATEGORIES, HYBRID_CATEGORIES } from "@/data/categories";
+import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "@/data/archetypes-love";
+import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "@/data/archetypes-intimacy";
+import { HYBRID_ARCHETYPES, HYBRID_FLAVORS } from "@/data/archetypes-hybrid";
+import { buildProfile, pickArchetype } from "@/lib/resultBuilder";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
 import ScoreBars from "@/components/charts/ScoreBars";
 import RadarProfile from "@/components/charts/RadarProfile";
@@ -17,6 +20,7 @@ type ViewMode = "bars" | "radar";
 export default function ResultsPage() {
   const router = useRouter();
   const [profile, setProfile] = useState<CategoryResult[] | null>(null);
+  const [result, setResult] = useState<NarrativeResult | null>(null);
   const [quizType, setQuizType] = useState<string>("love");
   const [view, setView] = useState<ViewMode>("bars");
 
@@ -30,16 +34,28 @@ export default function ResultsPage() {
     const scores: ScoreMap = JSON.parse(rawScores);
     const questions: QuizQuestion[] = JSON.parse(rawQuestions);
 
-    // Pick correct category map based on quiz type
-    const categoryMap =
-      type === "intimacy" ? INTIMACY_CATEGORIES : LOVE_CATEGORIES;
+    // Pick correct category map + archetype library based on quiz type
+    let categoryMap = LOVE_CATEGORIES;
+    let archetypes = LOVE_ARCHETYPES;
+    let flavors = LOVE_FLAVORS;
+
+    if (type === "intimacy") {
+      categoryMap = INTIMACY_CATEGORIES;
+      archetypes = INTIMACY_ARCHETYPES;
+      flavors = INTIMACY_FLAVORS;
+    } else if (type === "hybrid") {
+      categoryMap = HYBRID_CATEGORIES;
+      archetypes = HYBRID_ARCHETYPES;
+      flavors = HYBRID_FLAVORS;
+    }
 
     const built = buildProfile(scores, questions, categoryMap);
     setProfile(built);
+    setResult(pickArchetype(built, archetypes, flavors));
     setQuizType(type);
   }, []);
 
-  if (!profile) {
+  if (!profile || !result) {
     return (
       <main className="max-w-3xl mx-auto px-4 py-16 text-center space-y-4">
         <p className="opacity-60">No results found.</p>
@@ -50,25 +66,40 @@ export default function ResultsPage() {
     );
   }
 
-  const dominant = dominantCategories(profile);
-  const spotlightCount = Math.min(dominant.length + 1, 3);
-
   function handleExportTXT() {
-    const text = profile!
-      .slice(0, 3)
-      .map(c => `${c.title}: ${c.percentage}%`)
-      .join("\n");
-    exportText("love-compass-results.txt", text);
+    const lines = [
+      result!.primary.name,
+      result!.primary.tagline,
+      "",
+      ...result!.primary.narrative,
+      "",
+      "Strengths:",
+      ...result!.primary.strengths.map(s => `- ${s}`),
+      "",
+      "Watch For:",
+      ...result!.primary.watchOuts.map(s => `- ${s}`),
+      "",
+      "From a Partner:",
+      ...result!.primary.partnerNeeds.map(s => `- ${s}`),
+    ];
+    exportText("love-compass-results.txt", lines.join("\n"));
   }
 
   function handleExportMD() {
     const lines = [
-      `# Love Compass Results`,
+      `# ${result!.primary.name}`,
       ``,
-      `## Top Preferences`,
-      ...profile!.slice(0, 3).map(
-        c => `- **${c.title}**: ${c.percentage}%\n  ${c.description}`
-      ),
+      `_${result!.primary.tagline}_`,
+      ``,
+      ...result!.primary.narrative.map(p => `${p}\n`),
+      `## Strengths`,
+      ...result!.primary.strengths.map(s => `- ${s}`),
+      ``,
+      `## Watch For`,
+      ...result!.primary.watchOuts.map(s => `- ${s}`),
+      ``,
+      `## From a Partner`,
+      ...result!.primary.partnerNeeds.map(s => `- ${s}`),
       ``,
       `## Full Profile`,
       ...profile!.map(c => `- ${c.title}: ${c.percentage}%`)
@@ -82,7 +113,7 @@ export default function ResultsPage() {
       {/* -- Header -- */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">
-          Your Love Profile
+          Your Result
         </h1>
         <p className="opacity-60 text-sm">
           Based on your{" "}
@@ -95,13 +126,13 @@ export default function ResultsPage() {
         </p>
       </div>
 
-      {/* ── Spotlight + full profile list ── */}
-      <ResultsProfile profile={profile} spotlight={spotlightCount} />
+      {/* ── Narrative result + breakdown ── */}
+      <ResultsProfile profile={profile} result={result} />
 
       {/* ── Chart toggle ── */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Visual Profile</h2>
+          <h2 className="text-xl font-semibold font-serif">Visual Profile</h2>
           <div className="flex gap-2">
             <Button
               variant={view === "bars" ? "primary" : "ghost"}
@@ -117,10 +148,8 @@ export default function ResultsPage() {
             </Button>
           </div>
         </div>
-      </div>
 
-        <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60">
-          <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden shadow-sm">
+        <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden shadow-sm">
           <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
           <div className="relative">
             {view === "bars" ? (

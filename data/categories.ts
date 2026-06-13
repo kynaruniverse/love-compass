@@ -115,3 +115,61 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
       "You value fairness, balance, and mutual contribution."
   }
 };
+
+export const HYBRID_CATEGORIES: Record<string, Category> = {
+  A: {
+    id: "A",
+    title: "Spoken Connection",
+    description:
+      "You feel most loved and most desired when both are communicated clearly, out loud, in words."
+  },
+
+  B: {
+    id: "B",
+    title: "Unhurried Presence",
+    description:
+      "You feel closest to a partner during slow, undistracted, shared time — emotionally and physically."
+  },
+
+  C: {
+    id: "C",
+    title: "Physical Closeness",
+    description:
+      "Touch and physical nearness are central to how you feel both loved and wanted."
+  },
+
+  D: {
+    id: "D",
+    title: "Reliable Action",
+    description:
+      "You feel cared for and desired through what a partner does — consistent, dependable follow-through."
+  },
+
+  E: {
+    id: "E",
+    title: "Attentive Gestures",
+    description:
+      "You feel most seen through small, specific gestures that show a partner is paying attention."
+  },
+
+  F: {
+    id: "F",
+    title: "Emotional Grounding",
+    description:
+      "Feeling safe and emotionally steady is the foundation both your emotional and physical connection are built on."
+  },
+
+  G: {
+    id: "G",
+    title: "Mutual Growth",
+    description:
+      "You feel most connected — emotionally and intimately — within a relationship that's actively growing."
+  },
+
+  H: {
+    id: "H",
+    title: "Shared Partnership",
+    description:
+      "Fairness and shared responsibility underpin how secure and connected you feel, in and out of the bedroom."
+  }
+};

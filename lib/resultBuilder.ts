@@ -1,4 +1,4 @@
-import { ScoreMap, CategoryResult, OptionLetter } from "@/types/quiz";
+import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult } from "@/types/quiz";
 import { QuizQuestion } from "@/types/quiz";
 import { normalizeScores } from "./scoring";
 
@@ -40,6 +40,36 @@ export function dominantCategories(
   if (profile.length === 0) return [];
   const top = profile[0].percentage;
   return profile.filter(c => top - c.percentage <= threshold);
+}
+
+/**
+ * Picks the primary archetype (highest-scoring category) and, if there's
+ * a clear second-place category (not a near-tie with first), a secondary
+ * flavor blurb to layer on top of the primary narrative.
+ *
+ * "Clear second place" = the gap between #1 and #2 is less than `tieThreshold`
+ * points difference AND #2 itself is meaningfully above the rest (at least
+ * `minSecondaryScore` percentage points). This avoids attaching a flavor
+ * blurb when the top category is overwhelmingly dominant and the "second
+ * place" is essentially noise.
+ */
+export function pickArchetype(
+  profile: CategoryResult[],
+  archetypes: Record<string, Archetype>,
+  flavors: Record<string, ArchetypeFlavor>,
+  minSecondaryScore = 40
+): NarrativeResult {
+  const top = profile[0];
+  const second = profile[1];
+
+  const primary = archetypes[top.key];
+
+  let secondary: ArchetypeFlavor | null = null;
+  if (second && second.percentage >= minSecondaryScore && second.key !== top.key) {
+    secondary = flavors[second.key] ?? null;
+  }
+
+  return { primary, secondary };
 }
 
 /**

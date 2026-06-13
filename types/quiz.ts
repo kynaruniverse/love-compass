@@ -66,6 +66,7 @@ export interface AssessmentResult {
 }
 
 /** Likert scale labels (index 0 = value 1, index 4 = value 5) */
+/** Likert scale labels (index 0 = value 1, index 4 = value 5) */
 export const LIKERT_LABELS = [
   "Not at all like me",
   "Slightly like me",
@@ -73,3 +74,32 @@ export const LIKERT_LABELS = [
   "Quite a lot like me",
   "Exactly like me"
 ] as const;
+
+/** A full narrative result profile tied to a dominant category */
+export interface Archetype {
+  key: OptionLetter;
+  /** Display name, e.g. "The Devoted Anchor" */
+  name: string;
+  /** Short one-line tagline shown under the name */
+  tagline: string;
+  /** 2-3 paragraph narrative description, written in second person */
+  narrative: string[];
+  /** Bullet list of strengths */
+  strengths: string[];
+  /** Bullet list of things to watch out for / growth edges */
+  watchOuts: string[];
+  /** Bullet list of what this person tends to need from a partner */
+  partnerNeeds: string[];
+}
+
+/** Short secondary "flavor" text describing the second-highest category */
+export interface ArchetypeFlavor {
+  key: OptionLetter;
+  /** 1-2 sentence blurb, written in second person, meant to follow "with a strong streak of..." */
+  blurb: string;
+}
+
+export interface NarrativeResult {
+  primary: Archetype;
+  secondary: ArchetypeFlavor | null;
+}
