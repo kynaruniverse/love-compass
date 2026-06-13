@@ -10,19 +10,21 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold">About Love Compass</h1>
 
       <p>
-        Love Compass is a structured self-reflection tool designed
-        to help you understand how you experience love, intimacy,
-        and emotional connection.
+        Love Compass is a self-reflection tool for people who want to understand
+        themselves in relationships — not just who they're attracted to, but how
+        they love, how they need to be loved, and how those two things interact.
       </p>
 
       <p>
-        It is not a personality test and does not assign labels.
-        Instead, it maps preference patterns across multiple
-        dimensions of relationship experience.
+        Each assessment maps your preferences across eight relational dimensions,
+        giving you a profile that's genuinely yours — not a generic type, not a
+        fixed label. The receiving tests show how you feel most loved and desired.
+        The giving tests show how you naturally express love and desire to a partner.
       </p>
 
       <p>
-        The goal is clarity — not classification.
+        The goal is clarity — about yourself, and about what you actually need
+        from a relationship.
       </p>
     </main>
   );

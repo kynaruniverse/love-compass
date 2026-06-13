@@ -1,10 +1,9 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState, useMemo } from "react";
+import { useRef, useMemo } from "react";
 import * as THREE from "three";
 
-// Builds a 3D heart shape by extruding a 2D heart outline
 function useHeartGeometry() {
   return useMemo(() => {
     const shape = new THREE.Shape();
@@ -38,21 +37,41 @@ function useHeartGeometry() {
 function Heart() {
   const meshRef = useRef<THREE.Mesh>(null);
   const { viewport } = useThree();
-  const [target, setTarget] = useState({ x: 0, y: 0 });
   const geometry = useHeartGeometry();
 
-  useFrame((state) => {
+  // Track elapsed time to drive the spin-down curve
+  const clock = useRef(0);
+  // Resting Y rotation after spin settles
+  const restingY = useRef(0);
+
+  useFrame((state, delta) => {
     if (!meshRef.current) return;
 
-    // Gentle continuous rotation
-    meshRef.current.rotation.y += 0.0035;
+    clock.current += delta;
+    const t = clock.current;
 
-    // React to pointer position smoothly
-    const pointer = state.pointer;
-    setTarget({ x: pointer.y * 0.35, y: pointer.x * 0.4 });
+    // Spin phase: 0–10s
+    // Speed starts at ~8 rad/s and decelerates exponentially to ~0.004 rad/s
+    const SPIN_DURATION = 10;
+    if (t < SPIN_DURATION) {
+      // Exponential decay: speed = initialSpeed * e^(-k*t)
+      // k chosen so speed at t=10 ≈ 0.004 (effectively stopped)
+      const initialSpeed = 8;
+      const k = Math.log(initialSpeed / 0.004) / SPIN_DURATION; // ≈ 0.756
+      const spinSpeed = initialSpeed * Math.exp(-k * t);
+      meshRef.current.rotation.y += spinSpeed * delta;
+      restingY.current = meshRef.current.rotation.y;
+    } else {
+      // Post-spin: gentle idle drift + pointer tracking
+      const idleSpeed = 0.004;
+      meshRef.current.rotation.y += idleSpeed;
 
-    meshRef.current.rotation.x += (target.x - meshRef.current.rotation.x) * 0.03;
-    meshRef.current.rotation.y += (target.y - meshRef.current.rotation.y) * 0.03;
+      const pointer = state.pointer;
+      const targetX = pointer.y * 0.35;
+      const targetY = meshRef.current.rotation.y + pointer.x * 0.4;
+      meshRef.current.rotation.x += (targetX - meshRef.current.rotation.x) * 0.03;
+      meshRef.current.rotation.y += (targetY - meshRef.current.rotation.y) * 0.03;
+    }
   });
 
   const scale = viewport.width < 6 ? 1.1 : 1.5;

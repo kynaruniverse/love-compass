@@ -14,8 +14,8 @@ export default function AssessmentsPage() {
           Choose Your Assessment
         </h1>
         <p className="opacity-60">
-          Each assessment takes 5–10 minutes. Your answers are
-          never stored or transmitted.
+          Each assessment takes 5–10 minutes. Your answers stay in your
+          browser — nothing is stored or transmitted.
         </p>
       </div>
 

@@ -11,13 +11,13 @@ export default function HomePage() {
       <section className="relative max-w-4xl mx-auto px-4 py-28 sm:py-36 space-y-6 overflow-hidden min-h-[480px] flex flex-col justify-center">
         <HeroBlob />
 
-        <div className="relative z-10 bg-[var(--background)]/70 backdrop-blur-sm rounded-3xl p-2 -m-2 sm:bg-transparent sm:backdrop-blur-none sm:p-0 sm:m-0">
+        <div className="relative z-10">
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
             Love Compass
           </h1>
           <p className="text-xl opacity-70 max-w-xl leading-relaxed mt-4">
-            A deeper look at how you experience love, intimacy, and
-            connection — mapped across eight dimensions.
+            Understand how you love, how you need to be loved, and how those
+            two things shape every relationship you're in.
           </p>
           <div className="flex flex-wrap gap-3 pt-6">
             <Link href="/assessments">

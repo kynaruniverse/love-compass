@@ -20,6 +20,7 @@ import CompassProfile from "@/components/charts/CompassProfile";
 import Button from "@/components/ui/Button";
 import { exportText, exportMarkdown } from "@/lib/export";
 import { CategoryResult } from "@/types/quiz";
+import ShareCard from "@/components/quiz/ShareCard";
 
 type ViewMode = "bars" | "radar" | "compass";
 
@@ -162,9 +163,9 @@ export default function ResultsPage() {
             : quizType === "hybrid"
             ? "Full Profile"
             : quizType === "love-giving"
-            ? "How You Love"
+            ? "Love Expression"
             : quizType === "intimacy-giving"
-            ? "How You Desire"
+            ? "Desire Expression"
             : "Full Expression Profile"}{" "}
           assessment.
         </p>
@@ -187,7 +188,7 @@ export default function ResultsPage() {
       </div>
 
       {/* ── Narrative result + breakdown ── */}
-      <ResultsProfile profile={profile} result={result} blend={blend} />
+      <ResultsProfile profile={profile} result={result} blend={blend} mode={isGivingMode(quizType) ? "giving" : "receiving"} />
 
       {/* ── Chart toggle ── */}
       <div className="space-y-4">
@@ -229,6 +230,12 @@ export default function ResultsPage() {
         </div>
       </div>
 
+      {/* ── Share ── */}
+      <div className="space-y-2">
+        <h2 className="text-xl font-semibold font-serif">Share Your Result</h2>
+        <ShareCard result={result} profile={profile} quizType={quizType} />
+      </div>
+
       {/* ── Actions ── */}
       <div className="flex flex-wrap gap-3">
         <Button onClick={handleExportTXT} variant="secondary">
@@ -247,8 +254,8 @@ export default function ResultsPage() {
 
       {/* ── Disclaimer ── */}
       <p className="text-xs opacity-40 text-center leading-relaxed">
-        Love Compass is a self-reflection tool, not a psychological assessment.
-        Results reflect preferences, not fixed traits, and may change over time.
+        Love Compass is a self-reflection tool, not a clinical or psychological assessment.
+        Results reflect patterns and preferences — not fixed traits — and may shift over time.
       </p>
 
     </main>

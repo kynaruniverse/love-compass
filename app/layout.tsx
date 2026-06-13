@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -43,11 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${lora.variable} ${inter.variable}`}>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <Navbar />
+        <Navbar />
           {children}
           <Footer />
-        </ThemeProvider>
       </body>
     </html>
   );

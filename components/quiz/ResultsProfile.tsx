@@ -5,11 +5,13 @@ import { getIntensity } from "@/lib/resultBuilder";
 export default function ResultsProfile({
   profile,
   result,
-  blend
+  blend,
+  mode = "receiving"
 }: {
   profile: CategoryResult[];
   result: NarrativeResult;
   blend: CategoryResult[];
+  mode?: "receiving" | "giving";
 }) {
   const { primary, secondary } = result;
   const rest = profile.filter(c => c.key !== primary.key);
@@ -67,7 +69,7 @@ export default function ResultsProfile({
               {blendRest.length === 2 && (
                 <> — but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
               )}
-              {" "}Rather than a single fixed label, think of your results as a blend — these dimensions work alongside your primary type in how you experience love and connection.
+              {" "}Rather than a single fixed label, think of your results as a blend — these dimensions work alongside your primary type in how you {mode === "giving" ? "naturally express love and desire" : "experience love and connection"}.
             </p>
           </div>
         </div>
@@ -108,7 +110,7 @@ export default function ResultsProfile({
         <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
           <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
           <div className="relative space-y-3">
-            <h3 className="font-serif font-semibold text-[var(--primary)]">From a Partner</h3>
+            <h3 className="font-serif font-semibold text-[var(--primary)]">{mode === "giving" ? "Who Receives You Best" : "From a Partner"}</h3>
             <ul className="space-y-2 text-sm opacity-80">
               {primary.partnerNeeds.map((s, i) => (
                 <li key={i} className="flex gap-2">
