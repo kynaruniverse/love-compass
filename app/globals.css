@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Base neutrals — warm cream / taupe (light only) */
-  --background: #faf6f1;
-  --foreground: #2e2722;
+  /* Base neutrals — crisp off-white, cool grey */
+  --background: #f7f8f9;
+  --foreground: #20262b;
   --surface: #ffffff;
-  --surface-muted: #f3ece4;
-  --border-soft: #e6dcd1;
+  --surface-muted: #eef0f2;
+  --border-soft: #e2e6ea;
 
   /* Accents */
-  --primary: #4d6a52;        /* forest green */
-  --primary-soft: #e3ebe4;   /* pale forest tint for hover/badges */
-  --accent: #c1693b;         /* terracotta */
-  --accent-soft: #f3e1d4;    /* pale terracotta tint */
-  --blush: #f1ddd8;          /* blush highlight */
+  --primary: #5e3a73;        /* deep plum */
+  --primary-soft: #ece3f0;   /* pale plum tint for hover/badges */
+  --accent: #c9a14a;         /* warm gold */
+  --accent-soft: #f6eed8;    /* pale gold tint */
+  --blush: #f0e6e9;          /* soft mauve highlight */
 }
 
 body {

@@ -50,8 +50,8 @@ export default function ScoreBars({
           {data.map((_, index) => (
             <Cell
               key={index}
-              fill={index < 3 ? "#4d6a52" : "#c1693b"}
-              fillOpacity={index < 3 ? 1 : 0.55}
+              fill={index < 3 ? "#5e3a73" : "#c9a14a"}
+              fillOpacity={index < 3 ? 1 : 0.7}
             />
           ))}
         </Bar>

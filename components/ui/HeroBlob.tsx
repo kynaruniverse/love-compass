@@ -28,9 +28,9 @@ function Blob() {
     <mesh ref={meshRef} scale={viewport.width < 6 ? 1.4 : 2}>
       <icosahedronGeometry args={[1.4, 1]} />
       <meshStandardMaterial
-        color="#a9c2ad"
+        color="#caa8d6"
         roughness={0.35}
-        metalness={0.1}
+        metalness={0.15}
         flatShading
       />
     </mesh>
@@ -42,8 +42,8 @@ export default function HeroBlob() {
     <div className="hero-canvas" aria-hidden="true">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <ambientLight intensity={0.7} />
-        <directionalLight position={[3, 3, 4]} intensity={1.1} color="#fff7ec" />
-        <directionalLight position={[-3, -2, -2]} intensity={0.4} color="#c1693b" />
+        <directionalLight position={[3, 3, 4]} intensity={1.1} color="#ffffff" />
+        <directionalLight position={[-3, -2, -2]} intensity={0.4} color="#c9a14a" />
         <Blob />
       </Canvas>
     </div>
