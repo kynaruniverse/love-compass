@@ -43,7 +43,7 @@ export default function QuizPage() {
   }
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-10">
+    <main className="px-4 py-4">
       <QuizCard quiz={quiz} />
     </main>
   );

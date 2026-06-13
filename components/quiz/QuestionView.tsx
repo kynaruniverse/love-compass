@@ -1,6 +1,5 @@
 "use client";
 
-import Card from "@/components/ui/Card";
 import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
 
 export default function QuestionView({
@@ -14,14 +13,14 @@ export default function QuestionView({
   const isScale = type === "likert" || type === "reverse";
 
   return (
-    <Card className="max-w-2xl mx-auto">
+    <div className="max-w-xl mx-auto w-full px-4">
       {isScale && (
-        <span className="inline-block mb-3 px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+        <span className="inline-block mb-4 px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
           {type === "reverse" ? "Reverse question" : "Rate how much this applies to you"}
         </span>
       )}
 
-      <h2 className="text-xl font-serif font-semibold mb-6 leading-snug">
+      <h2 className="text-3xl sm:text-4xl font-serif font-semibold mb-10 leading-snug text-center">
         {question.question}
       </h2>
 
@@ -34,12 +33,12 @@ export default function QuestionView({
               <button
                 key={value}
                 onClick={() => onAnswer(value)}
-                className="w-full text-left p-3 rounded-2xl border border-[var(--border-soft)] hover:border-[var(--primary)] hover:bg-[var(--primary-soft)] transition-all flex items-center gap-3 group"
+                className="w-full text-left p-4 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] hover:border-[var(--primary)] hover:bg-[var(--primary-soft)] hover:shadow-md transition-all flex items-center gap-4 group"
               >
-                <span className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[var(--border-soft)] group-hover:border-[var(--primary)] flex items-center justify-center text-xs font-bold opacity-60 group-hover:text-[var(--primary)] group-hover:opacity-100 transition-colors">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[var(--border-soft)] group-hover:border-[var(--primary)] flex items-center justify-center text-sm font-bold opacity-60 group-hover:text-[var(--primary)] group-hover:opacity-100 transition-colors">
                   {value}
                 </span>
-                <span className="text-sm">{label}</span>
+                <span className="text-base">{label}</span>
               </button>
             );
           })}
@@ -51,16 +50,16 @@ export default function QuestionView({
             <button
               key={opt.letter}
               onClick={() => onAnswer(opt.letter)}
-              className="w-full text-left p-3 rounded-2xl border border-[var(--border-soft)] hover:border-[var(--primary)] hover:bg-[var(--primary-soft)] transition-all flex items-center gap-3 group"
+              className="w-full text-left p-4 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] hover:border-[var(--primary)] hover:bg-[var(--primary-soft)] hover:shadow-md transition-all flex items-center gap-4 group"
             >
-              <span className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[var(--border-soft)] group-hover:border-[var(--primary)] flex items-center justify-center text-xs font-bold opacity-60 group-hover:text-[var(--primary)] group-hover:opacity-100 transition-colors">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[var(--border-soft)] group-hover:border-[var(--primary)] flex items-center justify-center text-sm font-bold opacity-60 group-hover:text-[var(--primary)] group-hover:opacity-100 transition-colors">
                 {opt.letter}
               </span>
-              <span className="text-sm">{opt.text}</span>
+              <span className="text-base">{opt.text}</span>
             </button>
           ))}
         </div>
       )}
-    </Card>
+    </div>
   );
 }
