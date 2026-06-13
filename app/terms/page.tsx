@@ -6,8 +6,8 @@ export const metadata = generateMeta({
 
 export default function TermsPage() {
   return (
-    <main className="max-w-3xl mx-auto p-6 space-y-6">
-      <h1 className="text-3xl font-bold">Terms of Use</h1>
+    <main className="max-w-3xl mx-auto px-6 py-12 space-y-6">
+      <h1 className="text-3xl font-bold"><span className="squiggle-underline">Terms of Use</span></h1>
 
       <p>
         This website is provided for informational and self-reflection purposes only.

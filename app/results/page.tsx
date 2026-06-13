@@ -79,10 +79,10 @@ export default function ResultsPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-12 space-y-12">
 
-      {/* ── Header ── */}
+      {/* -- Header -- */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">
-          Your Love Profile
+          <span className="squiggle-underline">Your Love Profile</span>
         </h1>
         <p className="opacity-60 text-sm">
           Based on your{" "}
@@ -118,12 +118,14 @@ export default function ResultsPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 bg-white dark:bg-slate-900">
-          {view === "bars" ? (
-            <ScoreBars profile={profile} />
-          ) : (
-            <RadarProfile profile={profile} />
-          )}
+        <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60">
+          <div className="relative">
+            {view === "bars" ? (
+              <ScoreBars profile={profile} />
+            ) : (
+              <RadarProfile profile={profile} />
+            )}
+          </div>
         </div>
       </div>
 

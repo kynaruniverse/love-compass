@@ -12,7 +12,7 @@ export default function Error({
   return (
     <main className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center space-y-4 max-w-md">
-        <h2 className="text-2xl font-bold">Something went wrong</h2>
+        <h2 className="text-2xl font-bold font-serif">Something went wrong</h2>
         <p className="text-sm opacity-60">
           {error.message || "An unexpected error occurred."}
         </p>

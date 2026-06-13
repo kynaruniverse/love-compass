@@ -16,24 +16,26 @@ export default function ResultsProfile({
       {/* ── Spotlight: top N categories with full description ── */}
       <div className="space-y-6">
         <h2 className="text-2xl font-bold tracking-tight">
-          Your Top Preferences
+          <span className="squiggle-underline">Your Top Preferences</span>
         </h2>
         {top.map((cat, i) => (
           <div
             key={cat.key}
-            className="rounded-2xl p-6 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm space-y-3"
+            className="relative organic-edge p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm space-y-3 overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60"
           >
-            <div className="flex items-center gap-3">
-              <span className="w-7 h-7 rounded-full bg-[var(--primary)] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">
+            <div className="relative flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-[var(--primary)] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-sm">
                 {i + 1}
               </span>
-              <h3 className="text-lg font-semibold">{cat.title}</h3>
-              <span className="ml-auto text-sm font-medium text-[var(--primary)]">
+              <h3 className="font-serif text-lg font-semibold">{cat.title}</h3>
+              <span className="ml-auto text-sm font-medium px-2 py-0.5 rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
                 {cat.percentage}%
               </span>
             </div>
-            <ProgressBar value={cat.percentage} />
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <div className="relative">
+              <ProgressBar value={cat.percentage} />
+            </div>
+            <p className="relative text-sm opacity-70 leading-relaxed">
               {cat.description}
             </p>
           </div>
@@ -51,7 +53,7 @@ export default function ResultsProfile({
               <div key={cat.key} className="space-y-1">
                 <div className="flex justify-between text-sm">
                   <span className="font-medium">{cat.title}</span>
-                  <span className="text-slate-500">{cat.percentage}%</span>
+                  <span className="opacity-50">{cat.percentage}%</span>
                 </div>
                 <ProgressBar value={cat.percentage} />
               </div>

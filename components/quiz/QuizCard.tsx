@@ -7,7 +7,7 @@ import { QuizState } from "@/lib/useQuiz";
 export default function QuizCard({ quiz }: { quiz: QuizState }) {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
-      <div className="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+      <div className="flex items-center justify-between text-sm opacity-60">
         <span>
           Question {Math.min(quiz.index + 1, quiz.total)} of {quiz.total}
         </span>

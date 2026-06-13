@@ -6,13 +6,13 @@ export const metadata = generateMeta({
 
 export default function FAQPage() {
   return (
-    <main className="max-w-3xl mx-auto p-6 space-y-6">
-      <h1 className="text-3xl font-bold">FAQ</h1>
+    <main className="max-w-3xl mx-auto px-6 py-12 space-y-6">
+      <h1 className="text-3xl font-bold"><span className="squiggle-underline">FAQ</span></h1>
 
       <div className="space-y-4">
 
         <div>
-          <h2 className="font-semibold">
+          <h2 className="font-semibold font-serif text-[var(--primary)]">
             Is this scientifically validated?
           </h2>
           <p>
@@ -22,7 +22,7 @@ export default function FAQPage() {
         </div>
 
         <div>
-          <h2 className="font-semibold">
+          <h2 className="font-semibold font-serif text-[var(--primary)]">
             Why do I see multiple top results?
           </h2>
           <p>
@@ -32,7 +32,7 @@ export default function FAQPage() {
         </div>
 
         <div>
-          <h2 className="font-semibold">
+          <h2 className="font-semibold font-serif text-[var(--primary)]">
             Can my results change over time?
           </h2>
           <p>

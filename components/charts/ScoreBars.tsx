@@ -46,11 +46,12 @@ export default function ScoreBars({
             props.payload.fullName
           ]}
         />
-        <Bar dataKey="score" radius={[4, 4, 0, 0]}>
+        <Bar dataKey="score" radius={[6, 6, 0, 0]}>
           {data.map((_, index) => (
             <Cell
               key={index}
-              fill={index < 3 ? "#7c3aed" : "#c4b5fd"}
+              fill={index < 3 ? "#4d6a52" : "#c1693b"}
+              fillOpacity={index < 3 ? 1 : 0.55}
             />
           ))}
         </Bar>

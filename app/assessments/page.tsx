@@ -11,7 +11,7 @@ export default function AssessmentsPage() {
     <main className="max-w-3xl mx-auto px-4 py-16 space-y-8">
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">
-          Choose Your Assessment
+          <span className="squiggle-underline">Choose Your Assessment</span>
         </h1>
         <p className="opacity-60">
           Each assessment takes 5–10 minutes. Your answers are
@@ -24,10 +24,12 @@ export default function AssessmentsPage() {
           <Link
             key={a.slug}
             href={`/assessments/${a.slug}`}
-            className="block p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-[var(--primary)] hover:shadow-md transition-all bg-white dark:bg-slate-900"
+            className="relative block p-6 rounded-3xl border border-[var(--border-soft)] hover:border-[var(--primary)] hover:shadow-md transition-all bg-[var(--surface)] overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60"
           >
-            <h2 className="font-semibold text-lg mb-1">{a.title}</h2>
-            <p className="text-sm opacity-60">{a.description}</p>
+            <div className="relative">
+              <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
+              <p className="text-sm opacity-60">{a.description}</p>
+            </div>
           </Link>
         ))}
       </div>
