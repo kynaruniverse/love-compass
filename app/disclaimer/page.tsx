@@ -7,7 +7,7 @@ export const metadata = generateMeta({
 export default function DisclaimerPage() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-12 space-y-6">
-      <h1 className="text-3xl font-bold"><span className="squiggle-underline">Disclaimer</span></h1>
+      <h1 className="text-3xl font-bold">Disclaimer</h1>
 
       <p>
         Love Compass is a self-reflection tool, not a psychological

@@ -82,7 +82,7 @@ export default function ResultsPage() {
       {/* -- Header -- */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">
-          <span className="squiggle-underline">Your Love Profile</span>
+          Your Love Profile
         </h1>
         <p className="opacity-60 text-sm">
           Based on your{" "}
@@ -119,6 +119,8 @@ export default function ResultsPage() {
         </div>
 
         <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60">
+          <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden shadow-sm">
+          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
           <div className="relative">
             {view === "bars" ? (
               <ScoreBars profile={profile} />

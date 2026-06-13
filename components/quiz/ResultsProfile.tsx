@@ -16,13 +16,14 @@ export default function ResultsProfile({
       {/* ── Spotlight: top N categories with full description ── */}
       <div className="space-y-6">
         <h2 className="text-2xl font-bold tracking-tight">
-          <span className="squiggle-underline">Your Top Preferences</span>
+          Your Top Preferences
         </h2>
         {top.map((cat, i) => (
           <div
             key={cat.key}
-            className="relative organic-edge p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm space-y-3 overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60"
+            className="relative organic-edge p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm space-y-3 overflow-hidden"
           >
+            <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
             <div className="relative flex items-center gap-3">
               <span className="w-8 h-8 rounded-full bg-[var(--primary)] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-sm">
                 {i + 1}

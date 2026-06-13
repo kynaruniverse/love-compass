@@ -7,7 +7,7 @@ export const metadata = generateMeta({
 export default function AboutPage() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-12 space-y-6">
-      <h1 className="text-3xl font-bold"><span className="squiggle-underline">About Love Compass</span></h1>
+      <h1 className="text-3xl font-bold">About Love Compass</h1>
 
       <p>
         Love Compass is a structured self-reflection tool designed

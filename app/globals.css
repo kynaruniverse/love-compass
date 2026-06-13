@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  /* Base neutrals — warm cream / taupe */
+  /* Base neutrals — warm cream / taupe (light only) */
   --background: #faf6f1;
   --foreground: #2e2722;
   --surface: #ffffff;
-  --surface-muted: #f3ecE4;
+  --surface-muted: #f3ece4;
   --border-soft: #e6dcd1;
 
   /* Accents */
@@ -14,20 +14,6 @@
   --accent: #c1693b;         /* terracotta */
   --accent-soft: #f3e1d4;    /* pale terracotta tint */
   --blush: #f1ddd8;          /* blush highlight */
-}
-
-.dark {
-  --background: #221f1c;
-  --foreground: #f3ecE4;
-  --surface: #2c2723;
-  --surface-muted: #34302b;
-  --border-soft: #423c36;
-
-  --primary: #8db897;
-  --primary-soft: #364238;
-  --accent: #e08a5e;
-  --accent-soft: #4a352a;
-  --blush: #4a3a37;
 }
 
 body {
@@ -49,48 +35,9 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* ── Signature squiggle underline ── */
-.squiggle-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.squiggle-underline::after {
-  content: "";
-  position: absolute;
-  left: 2%;
-  right: 2%;
-  bottom: -0.18em;
-  height: 0.5em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 8 0, 16 6 T 32 6 T 48 6 T 64 6 T 80 6 T 96 6 T 112 6' fill='none' stroke='%23c1693b' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: 48px 12px;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.dark .squiggle-underline::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 8 0, 16 6 T 32 6 T 48 6 T 64 6 T 80 6 T 96 6 T 112 6' fill='none' stroke='%23e08a5e' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  opacity: 0.8;
-}
-
 /* ── Subtle paper texture for cards ── */
 .paper-texture {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' result='noise'/%3E%3CfeColorMatrix in='noise' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* ── Organic blob shape for hero ── */
-.hero-blob {
-  position: absolute;
-  z-index: -1;
-  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-  background: linear-gradient(135deg, var(--blush) 0%, var(--primary-soft) 100%);
-  filter: blur(2px);
-}
-
-.dark .hero-blob {
-  background: linear-gradient(135deg, var(--blush) 0%, var(--primary-soft) 100%);
-  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' result='noise'/%3E%3CfeColorMatrix in='noise' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ── Asymmetric hero card edge (organic) ── */
@@ -102,4 +49,11 @@ h1, h2, h3 {
 .stamp-badge {
   border: 1.5px dashed currentColor;
   border-radius: 9999px;
+}
+
+/* ── 3D hero canvas container ── */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
