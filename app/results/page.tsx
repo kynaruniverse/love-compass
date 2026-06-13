@@ -117,6 +117,7 @@ export default function ResultsPage() {
             </Button>
           </div>
         </div>
+      </div>
 
         <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden before:absolute before:inset-0 before:paper-texture before:pointer-events-none before:opacity-60">
           <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden shadow-sm">
