@@ -28,6 +28,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Specific, sincere verbal affirmation — not generic compliments, but ones that show you were really paying attention.",
       "A partner willing to say things out loud rather than assuming they're understood.",
       "Open, honest conversation as a regular part of the relationship, not just during conflict."
+    ],
+    pairings: {
+      bestWith: "The Co-Pilot tends to pair well with you — they're naturally generous with encouragement and tend to say what they're thinking, which matches how you experience love.",
+      frictionWith: "The Quiet Helper can create friction at first — their care shows up as action rather than words, so it's worth both of you learning to translate."
+    },
+    tryThis: [
+      "Next time you feel unheard, try naming it directly — 'I'd love to hear how you're feeling about this' — rather than waiting for it to be offered unprompted.",
+      "Try affirming someone's actions, not just their words — it builds a bridge for partners who show love differently than they say it."
     ]
   },
 
@@ -54,6 +62,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Regular, undistracted time together — even if it's brief, it needs to be genuinely present.",
       "A partner who treats shared time as a priority worth protecting, not just filling gaps in a schedule.",
       "Shared activities or rituals that become 'yours' as a couple."
+    ],
+    pairings: {
+      bestWith: "The Affirmer often pairs well with you — they'll happily fill quiet, present moments with the kind of warm words that deepen the connection you're already building.",
+      frictionWith: "The Co-Pilot can create friction — their focus on momentum and future goals can feel, to you, like it's pulling attention away from the present moment you value most."
+    },
+    tryThis: [
+      "Try naming what 'quality time' looks like for you specifically — a quiet evening with no agenda counts just as much as a planned outing, but not everyone assumes that.",
+      "Next time plans get rescheduled, try checking in about the reason before reading it as a signal about priorities."
     ]
   },
 
@@ -80,6 +96,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Regular physical affection — not necessarily sexual, but consistent small gestures of closeness.",
       "A partner who is comfortable with casual touch as part of everyday life.",
       "Reassurance through presence — sitting close, holding hands, being physically near."
+    ],
+    pairings: {
+      bestWith: "The Anchor often pairs naturally with you — quiet, present closeness and physical affection tend to go hand in hand, quite literally.",
+      frictionWith: "The Affirmer can create friction at first — if words are their main language, physical closeness alone might not feel like 'enough' to them, even when it's everything to you."
+    },
+    tryThis: [
+      "Try pairing a touch with a few words — a hand on the shoulder plus 'I'm glad you're here' can help a partner who needs both register what you're communicating.",
+      "If physical affection feels missing, try naming it specifically rather than waiting — 'I'd love a hug right now' is a small, clear ask."
     ]
   },
 
@@ -106,6 +130,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "A partner who follows through on what they say — consistency between words and actions matters a great deal.",
       "Practical support and shared responsibility, especially during stressful periods.",
       "Occasional acknowledgment of effort — not constant praise, but enough to know it's seen."
+    ],
+    pairings: {
+      bestWith: "The Balanced Partner pairs especially well with you — you both think in terms of shared responsibility, and your styles reinforce each other rather than competing.",
+      frictionWith: "The Affirmer can create friction — if 'I love you' isn't followed by action, it may register to you as words without weight, even when it's genuinely meant."
+    },
+    tryThis: [
+      "Try voicing appreciation out loud when someone follows through for you — even a simple acknowledgment helps a partner whose primary language is words feel the connection too.",
+      "Next time you do something practical for someone, try briefly naming it — 'I took care of X so you wouldn't have to' — rather than letting it go unnoticed."
     ]
   },
 
@@ -132,6 +164,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Thoughtful gestures, even small ones — the effort and attention matter more than the gesture itself.",
       "A partner who pays attention to the details you share, even in passing.",
       "Occasional surprises that show someone was thinking about you when you weren't around."
+    ],
+    pairings: {
+      bestWith: "The Co-Pilot tends to pair well with you — they notice things about you and act on them, which lines up closely with how you experience being thought of.",
+      frictionWith: "The Quiet Helper can create friction — their practical, task-focused care might overlook the smaller, symbolic gestures that mean the most to you."
+    },
+    tryThis: [
+      "Try explaining what a gesture means to you in the moment — 'this means a lot because you remembered I mentioned it' helps a partner learn what to notice.",
+      "If gestures feel one-sided, try asking what would feel meaningful to your partner — their version of 'thoughtful' might look different from yours."
     ]
   },
 
@@ -158,6 +198,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Consistency — in communication, behavior, and follow-through — more than grand gestures.",
       "A partner who can sit with difficult emotions calmly rather than escalating or withdrawing.",
       "Clear, honest communication that reduces ambiguity, especially during conflict."
+    ],
+    pairings: {
+      bestWith: "The Balanced Partner pairs well with you — their proactive, fair approach tends to create exactly the kind of predictability that helps you feel settled.",
+      frictionWith: "The Thoughtful Curator can occasionally create friction — surprises, even nice ones, can read as unpredictability if you're not expecting them."
+    },
+    tryThis: [
+      "If something feels unsettling, try naming the specific behavior rather than the overall feeling — 'when plans change last-minute it throws me off' is easier for a partner to act on than 'I feel anxious'.",
+      "Try distinguishing excitement from instability out loud — telling a partner 'this is a good kind of unpredictable' can help recalibrate your own response too."
     ]
   },
 
@@ -184,6 +232,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "A partner who takes genuine interest in your goals and ambitions, not just as small talk.",
       "Encouragement and belief, especially during periods of self-doubt.",
       "A relationship that has room to grow and evolve rather than staying static."
+    ],
+    pairings: {
+      bestWith: "The Affirmer pairs naturally with you — encouragement said out loud is exactly the fuel that growth-oriented momentum runs on.",
+      frictionWith: "The Anchor can create friction — their focus on present, settled time together might read to you as comfortable but static, even when it isn't intended that way."
+    },
+    tryThis: [
+      "Try asking what 'growth' looks like for your partner right now — sometimes the most supportive thing is simply being present while someone rests, not pushing forward.",
+      "Next time you notice progress in someone, try naming the specific thing you noticed — it lands more than general encouragement."
     ]
   },
 
@@ -210,6 +266,14 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "A partner who proactively shares responsibility rather than needing to be asked repeatedly.",
       "Open conversations about how labor — emotional, logistical, practical — is divided.",
       "A genuine sense of teamwork, where both people feel invested in the relationship's day-to-day functioning."
+    ],
+    pairings: {
+      bestWith: "The Quiet Helper pairs especially well with you — their instinct to quietly take care of things lines up directly with the kind of shared effort you value most.",
+      frictionWith: "The Thoughtful Curator can create friction — if gestures substitute for follow-through on shared responsibilities, the imbalance you notice can feel at odds with otherwise generous intentions."
+    },
+    tryThis: [
+      "Try raising imbalance as a logistics conversation rather than a complaint — 'can we look at how we're splitting X' tends to land better than letting it build up silently.",
+      "Next time a partner takes something off your plate, try naming it specifically — it reinforces the pattern and makes invisible labor a little more visible."
     ]
   }
 };

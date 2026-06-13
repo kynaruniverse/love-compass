@@ -37,6 +37,8 @@ export interface Category {
   id: OptionLetter;
   title: string;
   description: string;
+  /** Position in degrees (0-360) around the compass rose, evenly spaced A-H */
+  angle: number;
 }
 
 export interface ScoreMap {
@@ -57,6 +59,7 @@ export interface CategoryResult {
   description: string;
   score: number;       // raw weighted score
   percentage: number;  // 0-100 normalized
+  angle: number;       // position in degrees around the compass rose
 }
 
 export interface AssessmentResult {
@@ -90,6 +93,15 @@ export interface Archetype {
   watchOuts: string[];
   /** Bullet list of what this person tends to need from a partner */
   partnerNeeds: string[];
+  /** How this type tends to pair with others */
+  pairings: {
+    /** Archetype name this type tends to pair well with, + why */
+    bestWith: string;
+    /** Archetype name this type may experience friction with, + why */
+    frictionWith: string;
+  };
+  /** 1-2 short, concrete, actionable suggestions */
+  tryThis: string[];
 }
 
 /** Short secondary "flavor" text describing the second-highest category */

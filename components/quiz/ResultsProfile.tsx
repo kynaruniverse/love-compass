@@ -1,15 +1,19 @@
 import { CategoryResult, NarrativeResult } from "@/types/quiz";
 import ProgressBar from "@/components/ui/ProgressBar";
+import { getIntensity } from "@/lib/resultBuilder";
 
 export default function ResultsProfile({
   profile,
-  result
+  result,
+  blend
 }: {
   profile: CategoryResult[];
   result: NarrativeResult;
+  blend: CategoryResult[];
 }) {
   const { primary, secondary } = result;
   const rest = profile.filter(c => c.key !== primary.key);
+  const blendRest = blend.filter(c => c.key !== primary.key);
 
   return (
     <div className="space-y-10">
@@ -30,6 +34,10 @@ export default function ResultsProfile({
             </p>
           </div>
 
+          <p className="text-sm font-medium text-[var(--primary)]">
+            {getIntensity(profile[0].percentage)}
+          </p>
+
           <div className="space-y-4">
             {primary.narrative.map((para, i) => (
               <p key={i} className="leading-relaxed opacity-90">
@@ -44,6 +52,26 @@ export default function ResultsProfile({
           </div>
         </div>
       </div>
+
+      {/* ── Your Profile Mix (top 2-3 categories blended) ── */}
+      {blendRest.length > 0 && (
+        <div className="relative rounded-3xl p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
+          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+          <div className="relative space-y-3">
+            <h3 className="font-serif font-semibold text-[var(--primary)]">Your Profile Mix</h3>
+            <p className="text-sm leading-relaxed opacity-80">
+              You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
+              {blendRest.length === 1 && (
+                <> — but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
+              )}
+              {blendRest.length === 2 && (
+                <> — but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
+              )}
+              {" "}Rather than a single fixed label, think of your results as a blend — these dimensions work alongside your primary type in how you experience love and connection.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* ── Strengths / Watch-outs / Partner needs ── */}
       <div className="grid sm:grid-cols-3 gap-4">
@@ -89,6 +117,40 @@ export default function ResultsProfile({
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Try This ── */}
+      <div className="relative rounded-3xl p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
+        <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+        <div className="relative space-y-3">
+          <h3 className="font-serif font-semibold text-[var(--accent)]">Try This</h3>
+          <ul className="space-y-2 text-sm opacity-80">
+            {primary.tryThis.map((s, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="text-[var(--accent)] flex-shrink-0">•</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* ── Pairings ── */}
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
+          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+          <div className="relative space-y-2">
+            <h3 className="font-serif font-semibold text-[var(--primary)]">Best With</h3>
+            <p className="text-sm leading-relaxed opacity-80">{primary.pairings.bestWith}</p>
+          </div>
+        </div>
+        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
+          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+          <div className="relative space-y-2">
+            <h3 className="font-serif font-semibold text-[var(--accent)]">Friction With</h3>
+            <p className="text-sm leading-relaxed opacity-80">{primary.pairings.frictionWith}</p>
           </div>
         </div>
       </div>

@@ -28,6 +28,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner willing to communicate openly about desire, attraction, and preferences — including saying things that might feel vulnerable to say.",
       "Verbal check-ins and feedback, especially around what's working and what you'd like more of.",
       "Honesty over politeness when it comes to talking about intimacy."
+    ],
+    pairings: {
+      bestWith: "The Initiator tends to pair well with you — confident, direct communication and confident initiation reinforce each other naturally.",
+      frictionWith: "The Slow Burn can create friction at first — their unhurried, less verbal approach might leave you wanting more spoken confirmation than naturally comes their way."
+    },
+    tryThis: [
+      "Try asking directly for what you want to hear — 'it would mean a lot if you told me X' gives a less verbal partner a clear way to meet you.",
+      "Notice when a partner expresses desire nonverbally, and try naming it out loud yourself — 'I can tell you want this' can bridge the gap."
     ]
   },
 
@@ -54,6 +62,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner who doesn't rush — who values lingering closeness as much as any destination.",
       "Patience and attentiveness, especially in how physical intimacy unfolds.",
       "An environment (time, space, mindset) that allows for unhurried connection rather than constantly fitting it into small windows."
+    ],
+    pairings: {
+      bestWith: "The Grounded Connection pairs especially well with you — emotional safety and unhurried pacing tend to build on each other.",
+      frictionWith: "The Initiator can create friction — their confident, decisive energy might feel like it's skipping the slow build-up you value most, even when enthusiasm is the intention."
+    },
+    tryThis: [
+      "Try naming your pace preference directly — 'I love when we take our time' helps a partner understand that slowness is a preference, not hesitation.",
+      "If things feel rushed, try suggesting a specific unhurried activity rather than just feeling the absence of one."
     ]
   },
 
@@ -80,6 +96,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner who's comfortable being pursued, and who responds to confidence with warmth rather than feeling overwhelmed.",
       "Mutual enthusiasm — feeling like initiation is welcomed, not just tolerated.",
       "Open communication about pacing so confidence and consent are always aligned."
+    ],
+    pairings: {
+      bestWith: "The Verbal Spark pairs well with you — clear words and confident action reinforce each other, reducing ambiguity on both sides.",
+      frictionWith: "The Slow Burn can create friction — your confident, decisive energy might read as rushing to a partner who experiences intimacy as a gradient rather than a moment."
+    },
+    tryThis: [
+      "Try checking in verbally alongside initiating — 'how does this feel?' keeps confidence and consent moving together.",
+      "If a partner initiates less often, try making space for it explicitly — 'I'd love it if you took the lead sometime' removes some of the pressure."
     ]
   },
 
@@ -106,6 +130,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner willing to make ongoing effort — small gestures of pursuit, even well into a relationship.",
       "Occasional novelty or surprise that signals active interest, not just established routine.",
       "Reassurance, expressed through action, that desire hasn't faded into the background."
+    ],
+    pairings: {
+      bestWith: "The Explorer pairs especially well with you — their appetite for novelty naturally generates the kind of ongoing interest and surprise that keeps things feeling alive for you.",
+      frictionWith: "The Equal Partner can create friction — their instinct toward consistent, mutual effort might read as comfortable routine to you, even when it's meant as genuine investment."
+    },
+    tryThis: [
+      "If you want more pursuit, try naming it playfully rather than waiting — 'I miss feeling chased a little' is an easy invitation, not a complaint.",
+      "Try reciprocating with small gestures of your own — pursuit tends to work best when it goes both directions."
     ]
   },
 
@@ -132,6 +164,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner who's open to conversation about trying new things, even if the answer is sometimes 'not for me, but I'm glad you asked'.",
       "A judgment-free space to express curiosity without it being treated as a problem.",
       "Mutual willingness to occasionally step outside routine, even in small ways."
+    ],
+    pairings: {
+      bestWith: "The Pursued pairs naturally with you — novelty and anticipation feed each other, keeping things feeling alive for both of you.",
+      frictionWith: "The Grounded Connection can create friction at first — their need for established safety before trying something new might feel, to you, like curiosity is being held back, even when it's just a different starting point."
+    },
+    tryThis: [
+      "Try framing new ideas as low-stakes invitations — 'no pressure, just curious if this sounds interesting to you' takes the weight off.",
+      "If a partner says no to something, try treating it as information rather than rejection — there's usually still plenty of room to explore together."
     ]
   },
 
@@ -158,6 +198,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner who prioritizes resolving emotional tension rather than letting it sit unaddressed.",
       "Consistency and trustworthiness as an ongoing foundation, not just during good moments.",
       "Open communication about emotional state — checking in, not just assuming things are fine."
+    ],
+    pairings: {
+      bestWith: "The Equal Partner pairs well with you — mutual investment and emotional safety reinforce each other, building the kind of foundation you both value.",
+      frictionWith: "The Initiator can create friction — their confident, in-the-moment energy might move faster than feels comfortable if emotional tension hasn't been addressed yet."
+    },
+    tryThis: [
+      "Try naming what 'feeling safe' looks like for you in concrete terms — 'I need us to talk through X before I can really relax' gives a partner something specific to work with.",
+      "If tension is unresolved, try addressing it directly rather than waiting for things to settle on their own — sometimes the conversation is what creates the safety, not the other way around."
     ]
   },
 
@@ -184,6 +232,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner who offers genuine, specific affirmation — not just generically reassuring, but noticing real things.",
       "Patience around days when confidence is lower than usual.",
       "A relationship that feels like a source of support for self-esteem, not a source of pressure."
+    ],
+    pairings: {
+      bestWith: "The Verbal Spark pairs especially well with you — specific, spoken affirmation is exactly the kind of support that lands most for you.",
+      frictionWith: "The Initiator can create friction — their confident, low-overthinking energy is great in itself, but might not naturally include the reassurance you sometimes need."
+    },
+    tryThis: [
+      "Try naming what kind of affirmation actually helps — general reassurance lands differently than something specific a partner noticed.",
+      "On lower-confidence days, try sharing that directly rather than withdrawing — 'I'm feeling a bit insecure today' invites support rather than leaving a partner guessing."
     ]
   },
 
@@ -210,6 +266,14 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
       "A partner who takes initiative in intimacy at least some of the time, rather than consistently leaving it to you.",
       "Open conversation about how both people experience effort and investment, intimately and otherwise.",
       "A genuine sense that both people care about the quality of the connection, not just one person managing it."
+    ],
+    pairings: {
+      bestWith: "The Grounded Connection pairs well with you — mutual investment and emotional safety naturally reinforce each other.",
+      frictionWith: "The Pursued can create friction — their enjoyment of being sought after might read, to you, as one-sided effort, even when it's simply how they experience being wanted."
+    },
+    tryThis: [
+      "If imbalance feels like a recurring pattern, try naming it directly and gently — 'I'd love it if you initiated sometime' is a clear, low-pressure way to raise it.",
+      "Try noticing and naming effort when a partner does initiate or contribute — it reinforces exactly the pattern you're hoping for."
     ]
   }
 };

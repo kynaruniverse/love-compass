@@ -29,6 +29,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "A partner willing to communicate openly — about love, about desire, about the relationship as a whole.",
       "Specific, genuine affirmation rather than vague reassurance.",
       "A relationship culture where talking about feelings (and wants) is normal, not loaded."
+    ],
+    pairings: {
+      bestWith: "The Growth-Oriented pairs well with you — open conversation and forward momentum naturally support each other.",
+      frictionWith: "The Reliable One can create friction at first — if their care shows up mainly through action, you might find yourself wanting more said out loud than naturally comes their way."
+    },
+    tryThis: [
+      "Try noticing and naming a partner's actions out loud — 'I saw what you did there, thank you' bridges the gap if words aren't their first language.",
+      "When something feels unsaid, try asking directly rather than waiting — 'can we talk about X?' tends to open things up quickly for you."
     ]
   },
 
@@ -55,6 +63,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "Genuinely undistracted time together — both for emotional connection and physical intimacy.",
       "A partner who treats presence as something worth protecting, not an automatic given.",
       "Patience with pacing — rushing either form of connection tends to undercut it for you."
+    ],
+    pairings: {
+      bestWith: "The Physically Present pairs especially well with you — unhurried time and physical closeness reinforce each other naturally.",
+      frictionWith: "The Growth-Oriented can create friction — their focus on momentum and what's next might feel, to you, like it's cutting short the unhurried presence you value most."
+    },
+    tryThis: [
+      "Try protecting small windows of undistracted time deliberately — even 20 minutes with phones away can meet this need.",
+      "If a busy season is making time scarce, try naming it as temporary explicitly — 'this week is hectic but I still want our time together' reassures without requiring more time than exists."
     ]
   },
 
@@ -81,6 +97,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "Regular physical affection, both everyday and intimate — for you these reinforce each other.",
       "A partner who's comfortable with casual touch as a normal part of life, not just a precursor to something else.",
       "Reassurance through closeness, especially during stressful times."
+    ],
+    pairings: {
+      bestWith: "The Present One pairs especially well with you — unhurried time together gives physical affection room to happen naturally, without pressure.",
+      frictionWith: "The Open Communicator can create friction at first — if words are their main channel, physical affection alone might not feel like the full picture to them."
+    },
+    tryThis: [
+      "Try pairing touch with a few words occasionally — 'I just wanted to be close to you' helps a more verbal partner understand what the gesture means.",
+      "If physical affection feels separate from desire for a partner, try talking about it directly — it can help both of you understand how the other experiences closeness."
     ]
   },
 
@@ -107,6 +131,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "A partner whose words and actions are generally aligned — consistency matters more to you than grand gestures.",
       "Follow-through on commitments, both small and large.",
       "Reliability as an ongoing pattern, which becomes the foundation for both emotional security and desire."
+    ],
+    pairings: {
+      bestWith: "The True Partner pairs especially well with you — fairness and follow-through reinforce each other, building exactly the kind of trust you value.",
+      frictionWith: "The Open Communicator can create friction — if reassurance comes mainly through words before actions catch up, it might feel, to you, like a gap rather than a promise."
+    },
+    tryThis: [
+      "Try acknowledging effort verbally when you notice it — even a small 'thank you for following through on that' helps a partner whose love language is words feel seen too.",
+      "If a partner's words come before action, try giving it a little time before reading it as a gap — sometimes intention genuinely precedes follow-through."
     ]
   },
 
@@ -133,6 +165,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "A partner who notices details — about you, your preferences, what you've mentioned — and occasionally acts on them.",
       "Gestures (big or small) that feel specifically chosen for you, not generic.",
       "A sense of being individually seen, both emotionally and in terms of attraction."
+    ],
+    pairings: {
+      bestWith: "The Growth-Oriented pairs well with you — their genuine interest in who you're becoming naturally includes the kind of attentiveness you value.",
+      frictionWith: "The Reliable One can create friction — their consistent, dependable style might overlook the small specific details that mean the most to you, even while the bigger picture is solid."
+    },
+    tryThis: [
+      "Try telling a partner what you noticed and why it mattered — it teaches them what kind of attention lands for you.",
+      "If gestures feel generic, try sharing a specific example of something that felt personal — it gives a clearer template than 'be more thoughtful'."
     ]
   },
 
@@ -159,6 +199,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "Consistency — in words, actions, and emotional availability — as an ongoing foundation.",
       "A partner who can navigate difficult conversations calmly, without escalation or withdrawal.",
       "Reassurance that the relationship is stable, especially during uncertain moments."
+    ],
+    pairings: {
+      bestWith: "The True Partner pairs especially well with you — fairness and consistency build the kind of steady foundation you both rely on.",
+      frictionWith: "The Growth-Oriented can create friction at first — their drive toward what's next might feel, to you, like it's moving before the ground beneath you feels fully settled."
+    },
+    tryThis: [
+      "Try naming what 'feeling safe' looks like in concrete terms — it's easier for a partner to act on 'I need us to resolve X first' than on a general sense of unease.",
+      "If something feels unresolved, try raising it directly rather than waiting for calm to return on its own — sometimes the conversation is what creates the calm."
     ]
   },
 
@@ -185,6 +233,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "A partner who takes genuine interest in your growth — and shares their own.",
       "A relationship that feels like it has room to evolve, rather than staying static.",
       "Encouragement and belief, especially during periods of change or uncertainty."
+    ],
+    pairings: {
+      bestWith: "The Open Communicator pairs well with you — open conversation about goals and feelings keeps momentum and connection moving together.",
+      frictionWith: "The Present One can create friction at first — their focus on unhurried, settled time might feel, to you, like it's pulling against the forward motion you're drawn to, even when both have real value."
+    },
+    tryThis: [
+      "Try asking what season a partner is in before assuming they want to focus on growth right now — sometimes rest is exactly what's needed, and that's not the same as stagnation.",
+      "Try celebrating small, ordinary moments of presence too — not everything needs to be 'progress' to matter."
     ]
   },
 
@@ -211,6 +267,14 @@ export const HYBRID_ARCHETYPES: Record<string, Archetype> = {
       "A partner who proactively shares responsibility — emotionally, practically, and intimately.",
       "Open conversations about balance across the relationship, not just one specific area.",
       "A genuine sense of being on the same team, invested in the whole relationship together."
+    ],
+    pairings: {
+      bestWith: "The Reliable One pairs especially well with you — consistent follow-through and fairness reinforce each other, building real trust over time.",
+      frictionWith: "The Attentive One can create friction — their focus on small, specific gestures is meaningful, but might not always translate into the broader shared effort you're tracking."
+    },
+    tryThis: [
+      "Try raising imbalance as a team conversation — 'how are we both feeling about how things are split lately?' invites collaboration rather than defensiveness.",
+      "Try naming specific things a partner does well across the relationship, not just what's missing — it reinforces the partnership framing you both value."
     ]
   }
 };
