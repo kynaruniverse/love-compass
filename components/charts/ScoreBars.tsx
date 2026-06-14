@@ -41,9 +41,9 @@ export default function ScoreBars({
           tickFormatter={v => `${v}%`}
         />
         <Tooltip
-          formatter={(value: number, _: string, props: { payload: { fullName: string } }) => [
+          formatter={(value: number, _: string, props: { payload?: { fullName: string } }) => [
             `${value}%`,
-            props.payload.fullName
+            props.payload?.fullName ?? ""
           ]}
         />
         <Bar dataKey="score" radius={[6, 6, 0, 0]}>
