@@ -82,9 +82,8 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
         a: "It shows how consistently that dimension appeared across your answers, measured against the maximum it could have scored. Think of it as signal strength, not a grade. A high percentage means that category came through loudly and repeatedly. Lower doesn't mean absent — just quieter. And none of these numbers are a measure of how loveable or desirable you are. That's not what we're measuring."
       },
       {
-        q: "What does the secondary flavour in my result mean?",
-        a: "It's the dimension that came in second — close enough to matter, strong enough to shape how your primary type actually shows up in real life. Two people can share a primary archetype and feel completely different to love or be loved by, because their secondary flavours pull in different directions. Pay attention to it. It's where most of the nuance lives."
-      },
+        q: "What does the secondary flavor in my result mean?",
+        a: "It's the dimension that came in second — close enough to matter, strong enough to shape how your primary type actually shows up in real life. Two people can share a primary archetype and feel completely different to love or be loved by, because their secondary flavors pull in different directions. Pay attention to it. It's where most of the nuance lives.",
       {
         q: "Can my results change over time?",
         a: "Yes — and if they don't across many years, that might be the more interesting thing to examine. Attachment patterns shift. Old damage heals or deepens. A result you got at 22 and one you get at 35 can look almost nothing alike, and both can be entirely true for who you were at that moment. Think of it less as a one-time test and more as a periodic check-in with yourself."

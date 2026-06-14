@@ -81,7 +81,7 @@ export default function TermsPage() {
         </p>
         <p className="opacity-80 leading-relaxed">
           Results from Love Compass are not a substitute for therapy,
-          counselling, or professional relationship advice.
+          counseling, or professional relationship advice.
         </p>
       </Section>
 

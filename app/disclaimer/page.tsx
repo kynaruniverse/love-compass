@@ -52,7 +52,7 @@ export default function DisclaimerPage() {
           If you're dealing with mental health challenges, relationship trauma,
           attachment difficulties, or anything that feels beyond self-reflection,
           please seek support from a qualified professional. Love Compass is not
-          a substitute for therapy or counselling.
+          a substitute for therapy or counseling.
         </p>
       </Section>
 

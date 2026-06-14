@@ -51,7 +51,7 @@ export default function AssessmentsPage() {
       {/* Giving group */}
       <div className="space-y-3">
         <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] opacity-60">
-          How you naturally give it
+          How you naturally love
         </p>
         <div className="space-y-3">
           {assessments.filter(a => a.mode === "giving").map(a => (

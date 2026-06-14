@@ -45,7 +45,7 @@ export default function AboutPage() {
             Understanding how you love
           </h1>
           <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-            Most people move through relationships collecting evidence about other people. Rarely about themselves. Love Compass is the other kind of mirror.
+            Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it — specific to you, built from your real answers, not the ones that sound well-adjusted.
           </p>
         </div>
 

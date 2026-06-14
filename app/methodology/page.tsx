@@ -92,7 +92,7 @@ export default function MethodologyPage() {
 
       {/* Archetypes */}
       <Section>
-        <SectionHeading>Archetypes and flavours</SectionHeading>
+        <SectionHeading>Archetypes and flavors</SectionHeading>
         <p className="opacity-80 leading-relaxed">
           Once your profile is scored, it's matched to an archetype — a named
           pattern that captures how your top dimensions combine in practice.
@@ -102,9 +102,9 @@ export default function MethodologyPage() {
         </p>
         <p className="opacity-80 leading-relaxed">
           Your secondary dimension — the one that scored closest behind your
-          primary — is called your flavour. It's where a lot of the nuance
+          primary — is called your flavor. It's where a lot of the nuance
           lives. Two people with the same primary archetype can feel very
-          different to be in a relationship with, because their flavours pull
+          different to be in a relationship with, because their flavors pull
           in different directions. Pay attention to it.
         </p>
       </Section>
@@ -135,7 +135,7 @@ export default function MethodologyPage() {
           psychological diagnosis, professional relationship advice, or any
           clinical purpose. It is a self-reflection tool, built carefully and
           grounded in relationship research — but it is not a substitute for
-          therapy, counselling, or professional support.
+          therapy, counseling, or professional support.
         </p>
         <p className="opacity-80 leading-relaxed">
           Self-report tools have well-documented limits. People don't always

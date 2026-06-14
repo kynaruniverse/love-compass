@@ -130,6 +130,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
     pairings: {
       bestWith: "The Pursued (receiving) — someone who feels most desired when actively sought out will feel completely wanted by your intentional pursuit.",
       frictionWith: "The Open Road (receiving) — someone who values equal, unscripted connection may experience your pursuit-focused dynamic as a role they didn't sign up for."
+    },
     tryThis: [
       "Let your partner know what you're building toward — a message that says 'I've been thinking about you all day' gives them the experience of being wanted before you're even together.",
       "Ask occasionally what kind of pursuit feels best to them — some partners want bold moves, others want subtlety — so your intention lands exactly right."
