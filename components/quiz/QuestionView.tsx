@@ -16,7 +16,7 @@ export default function QuestionView({
     <div className="max-w-xl mx-auto w-full px-4">
       {isScale && (
         <span className="inline-block mb-4 px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
-          {type === "reverse" ? "Reverse question" : "Rate how much this applies to you"}
+          Rate how much this applies to you
         </span>
       )}
 

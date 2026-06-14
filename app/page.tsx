@@ -1,7 +1,9 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { assessments } from "@/data/assessments";
 import Button from "@/components/ui/Button";
-import HeroBlob from "@/components/ui/HeroBlob";
+
+const HeroBlob = dynamic(() => import("@/components/ui/HeroBlob"), { ssr: false });
 
 export default function HomePage() {
   return (
@@ -16,8 +18,7 @@ export default function HomePage() {
             Love Compass
           </h1>
           <p className="text-xl opacity-70 max-w-xl leading-relaxed mt-4">
-            Most people spend years in relationships not quite understanding
-            themselves. Love Compass exists to change that.
+            Most people move through relationships collecting evidence about other people. Rarely about themselves. Love Compass is the other kind of mirror.
           </p>
           <div className="flex flex-wrap gap-3 pt-6">
             <Link href="/assessments">
@@ -27,7 +28,7 @@ export default function HomePage() {
             </Link>
             <Link href="/about">
               <Button variant="ghost">
-                Learn More
+                What is this?
               </Button>
             </Link>
           </div>
@@ -37,13 +38,13 @@ export default function HomePage() {
       {/* -- Assessment cards -- */}
       <section className="max-w-4xl mx-auto px-4 pb-24 space-y-10">
         <h2 className="text-2xl font-semibold tracking-tight">
-          Where do you want to start?
+          Two questions worth sitting with.
         </h2>
 
         {/* Receiving group */}
         <div className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-widest text-[var(--primary)] opacity-60">
-            Receiving — how you need to be loved
+            How you need to be loved
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
             {assessments.filter(a => a.mode === "receiving").map((a, i) => (
@@ -72,7 +73,7 @@ export default function HomePage() {
         {/* Giving group */}
         <div className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] opacity-60">
-            Giving — how you naturally love
+            How you naturally love
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
             {assessments.filter(a => a.mode === "giving").map((a, i) => (

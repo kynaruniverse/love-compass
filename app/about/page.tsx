@@ -1,132 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-
-// ── Particle canvas ──────────────────────────────────────────────────────────
-
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  opacity: number;
-  type: "heart" | "dot";
-  wobble: number;
-  wobbleSpeed: number;
-}
-
-function ParticleCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId: number;
-    let particles: Particle[] = [];
-
-    function resize() {
-      canvas!.width = window.innerWidth;
-      canvas!.height = document.documentElement.scrollHeight;
-    }
-
-    function spawnParticle(): Particle {
-      return {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * document.documentElement.scrollHeight,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: -Math.random() * 0.4 - 0.1,
-        size: Math.random() * 7 + 3,
-        opacity: Math.random() * 0.18 + 0.04,
-        type: Math.random() > 0.45 ? "heart" : "dot",
-        wobble: Math.random() * Math.PI * 2,
-        wobbleSpeed: Math.random() * 0.012 + 0.004,
-      };
-    }
-
-    function drawHeart(ctx: CanvasRenderingContext2D, x: number, y: number, size: number) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(size / 10, size / 10);
-      ctx.beginPath();
-      ctx.moveTo(0, -3);
-      ctx.bezierCurveTo(0, -6, -5, -6, -5, -2);
-      ctx.bezierCurveTo(-5, 1, 0, 5, 0, 7);
-      ctx.bezierCurveTo(0, 5, 5, 1, 5, -2);
-      ctx.bezierCurveTo(5, -6, 0, -6, 0, -3);
-      ctx.closePath();
-      ctx.restore();
-    }
-
-    function init() {
-      resize();
-      particles = Array.from({ length: 55 }, spawnParticle);
-    }
-
-    function tick() {
-      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-
-      for (const p of particles) {
-        p.wobble += p.wobbleSpeed;
-        p.x += p.vx + Math.sin(p.wobble) * 0.25;
-        p.y += p.vy;
-
-        if (p.y < -20) {
-          p.y = canvas!.height + 20;
-          p.x = Math.random() * canvas!.width;
-        }
-
-        ctx!.save();
-        ctx!.globalAlpha = p.opacity;
-        ctx!.fillStyle = "#5e3a73";
-
-        if (p.type === "heart") {
-          drawHeart(ctx!, p.x, p.y, p.size);
-          ctx!.fill();
-        } else {
-          ctx!.beginPath();
-          ctx!.arc(p.x, p.y, p.size * 0.35, 0, Math.PI * 2);
-          ctx!.fill();
-        }
-
-        ctx!.restore();
-      }
-
-      animId = requestAnimationFrame(tick);
-    }
-
-    init();
-    tick();
-
-    const onResize = () => { resize(); };
-    window.addEventListener("resize", onResize);
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        zIndex: 0,
-      }}
-    />
-  );
-}
-
+import ParticleCanvas from "@/components/ui/ParticleCanvas";
 // ── Section card ─────────────────────────────────────────────────────────────
 
 function Section({ children, accent = false }: { children: React.ReactNode; accent?: boolean }) {
@@ -170,8 +45,7 @@ export default function AboutPage() {
             Understanding how you love
           </h1>
           <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-            Most people spend years in relationships not quite understanding themselves.
-            Love Compass exists to change that.
+            Most people move through relationships collecting evidence about other people. Rarely about themselves. Love Compass is the other kind of mirror.
           </p>
         </div>
 
@@ -184,16 +58,10 @@ export default function AboutPage() {
             give it. That distinction sounds small. It isn't.
           </p>
           <p className="opacity-80 leading-relaxed">
-            Most relationship tools stay at the surface. Shared interests, attraction,
-            timing — as if relationships fail because people didn't like the same films.
-            Love Compass goes somewhere more honest. It maps your relational patterns
-            across eight dimensions and gives you a profile built on your real patterns,
-            not your aspirational ones.
+            Most tools stay at the surface. Shared interests, compatible temperaments, timing. As if relationships fail because two people chose the wrong restaurant. Love Compass goes somewhere more honest. It maps your relational patterns across eight dimensions and returns a profile built from your real tendencies — not the ones you aspire to, not the ones that sound well-adjusted.
           </p>
           <p className="opacity-80 leading-relaxed">
-            The output isn't a label to put in your dating app bio. It's a map — and a
-            genuinely useful one. Most people find it uncomfortable and illuminating in
-            roughly equal measure.
+            The result isn't a label to put in a bio. It's a map. And like any good map, it's most useful when the territory turns out to be different from what you assumed.
           </p>
         </Section>
 
@@ -201,40 +69,29 @@ export default function AboutPage() {
         <Section>
           <SectionHeading>What can you do here?</SectionHeading>
           <p className="opacity-80 leading-relaxed">
-            There are six assessments, each designed to surface a different dimension
-            of your relational self. You can take one, or take them all.
+            Four assessments. Each one surfaces a different dimension of your relational self.
           </p>
           <div className="grid sm:grid-cols-2 gap-4 pt-1">
             {[
               {
                 label: "Love Preference Test",
                 tag: "Receiving",
-                desc: "Discover how you feel most loved — which expressions of care land deepest for you.",
+                desc: "How love needs to arrive for you to feel it.",
               },
               {
                 label: "How You Love",
                 tag: "Giving",
-                desc: "Understand how you naturally express love — and who will feel most loved by what you give.",
+                desc: "How you express love without thinking about it — and who feels it.",
               },
               {
                 label: "Intimacy Style Test",
                 tag: "Receiving",
-                desc: "Explore how you experience desire and physical connection — what makes you feel truly wanted.",
+                desc: "What makes you feel genuinely desired. How sex and closeness actually work for you.",
               },
               {
                 label: "How You Desire",
                 tag: "Giving",
-                desc: "Understand how you express desire — how you naturally show attraction and build intimacy.",
-              },
-              {
-                label: "Full Profile Test",
-                tag: "Receiving",
-                desc: "A combined love and intimacy assessment giving you your most complete receiving profile.",
-              },
-              {
-                label: "Full Expression Profile",
-                tag: "Giving",
-                desc: "Your complete giving picture — love and desire combined into one unified expression profile.",
+                desc: "How you communicate want. What you naturally reach for.",
               },
             ].map(item => (
               <div
@@ -323,8 +180,7 @@ export default function AboutPage() {
 
         {/* Disclaimer note */}
         <p className="text-xs opacity-40 text-center leading-relaxed pb-4">
-          Love Compass is a self-reflection tool, not a clinical or psychological
-          assessment. Results reflect patterns and preferences, not fixed traits.
+          Love Compass is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change. Check back.
         </p>
 
       </main>

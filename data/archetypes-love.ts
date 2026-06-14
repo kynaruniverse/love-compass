@@ -7,8 +7,8 @@ import { Archetype, ArchetypeFlavor } from "@/types/quiz";
 export const LOVE_ARCHETYPES: Record<string, Archetype> = {
   A: {
     key: "A",
-    name: "The Affirmer",
-    tagline: "You love out loud, and you need to hear it too.",
+    name: "The Verbal Heart",
+    tagline: "You need to hear it to believe it.",
     narrative: [
       "Words carry weight for you — not as decoration, but as proof. When someone tells you they love you, admire you, or are proud of you, it lands somewhere real. You don't just hear it, you keep it. A specific compliment, a heartfelt thank-you, an unprompted 'I'm glad you're mine' — these aren't small things to you, they're the currency of connection.",
       "This isn't about needing constant praise or being unable to function without validation. It's that language is how you build a felt sense of being known. Silence, to you, can feel ambiguous — even when everything is objectively fine, the absence of words can leave a quiet question mark hanging in the air. You'd rather things be said than assumed.",
@@ -30,8 +30,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Open, honest conversation as a regular part of the relationship, not just during conflict."
     ],
     pairings: {
-      bestWith: "The Co-Pilot tends to pair well with you — they're naturally generous with encouragement and tend to say what they're thinking, which matches how you experience love.",
-      frictionWith: "The Quiet Helper can create friction at first — their care shows up as action rather than words, so it's worth both of you learning to translate."
+      bestWith: "The Growth Partner tends to pair well with you — they're naturally generous with encouragement and tend to say what they're thinking, which matches how you experience love.",
+      frictionWith: "The One Who Acts can create friction at first — their care shows up as action rather than words, so it's worth both of you learning to translate."
     },
     tryThis: [
       "Next time you feel unheard, try naming it directly — 'I'd love to hear how you're feeling about this' — rather than waiting for it to be offered unprompted.",
@@ -41,8 +41,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   B: {
     key: "B",
-    name: "The Anchor",
-    tagline: "Presence is the whole point.",
+    name: "The Chosen One",
+    tagline: "You need to feel chosen, again and again.",
     narrative: [
       "For you, love isn't loud — it's continuous. It's the choice someone makes, again and again, to put their phone down, sit across from you, and actually be there. You'd take one uninterrupted evening over a grand gesture any day, because what you're really looking for isn't a moment, it's attention sustained over time.",
       "You probably notice — more than most — when someone is physically present but mentally elsewhere. A partner scrolling during a conversation, or rescheduling plans 'just this once' too often, registers as something more than an inconvenience. It reads as a quiet signal about priorities, even when that's not the intention.",
@@ -64,8 +64,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Shared activities or rituals that become 'yours' as a couple."
     ],
     pairings: {
-      bestWith: "The Affirmer often pairs well with you — they'll happily fill quiet, present moments with the kind of warm words that deepen the connection you're already building.",
-      frictionWith: "The Co-Pilot can create friction — their focus on momentum and future goals can feel, to you, like it's pulling attention away from the present moment you value most."
+      bestWith: "The Verbal Heart often pairs well with you — they'll happily fill quiet, present moments with the kind of warm words that deepen the connection you're already building.",
+      frictionWith: "The Growth Partner can create friction — their focus on momentum and future goals can feel, to you, like it's pulling attention away from the present moment you value most."
     },
     tryThis: [
       "Try naming what 'quality time' looks like for you specifically — a quiet evening with no agenda counts just as much as a planned outing, but not everyone assumes that.",
@@ -75,8 +75,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   C: {
     key: "C",
-    name: "The Warm Hand",
-    tagline: "Closeness, quite literally.",
+    name: "The Somatic Lover",
+    tagline: "You feel love in your body first.",
     narrative: [
       "There's a kind of reassurance that only touch can give you. A hand on your shoulder, an arm pulled around you on the sofa, a hug that lasts a beat longer than expected — these aren't just nice, they're grounding. For you, physical affection is often the fastest, most direct route to feeling safe and connected.",
       "This doesn't have to be about anything romantic or charged. Often it's the small, unspoken stuff: sitting close rather than across the room, a hand finding yours without a word, the simple fact of someone's physical presence nearby. When that's missing, even a relationship that's emotionally fine can start to feel oddly distant.",
@@ -98,8 +98,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Reassurance through presence — sitting close, holding hands, being physically near."
     ],
     pairings: {
-      bestWith: "The Anchor often pairs naturally with you — quiet, present closeness and physical affection tend to go hand in hand, quite literally.",
-      frictionWith: "The Affirmer can create friction at first — if words are their main language, physical closeness alone might not feel like 'enough' to them, even when it's everything to you."
+      bestWith: "The Chosen One often pairs naturally with you — quiet, present closeness and physical affection tend to go hand in hand, quite literally.",
+      frictionWith: "The Verbal Heart can create friction at first — if words are their main language, physical closeness alone might not feel like 'enough' to them, even when it's everything to you."
     },
     tryThis: [
       "Try pairing a touch with a few words — a hand on the shoulder plus 'I'm glad you're here' can help a partner who needs both register what you're communicating.",
@@ -109,8 +109,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   D: {
     key: "D",
-    name: "The Quiet Helper",
-    tagline: "Love looks like one less thing to worry about.",
+    name: "The One Who Acts",
+    tagline: "You show love by doing, not saying.",
     narrative: [
       "You tend to notice what needs doing before anyone says it out loud — and for you, doing it is how care gets expressed. A partner who quietly handles something so you don't have to carry it is, in your eyes, saying something significant. Actions aren't a substitute for love; for you, they often are the clearest version of it.",
       "This means you might feel a flicker of disappointment when someone offers warm words but doesn't follow through on small commitments — when 'I've got this' doesn't actually translate into anything getting done. It's not that words don't matter, it's that for you, the proof tends to be in what changes.",
@@ -132,8 +132,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Occasional acknowledgment of effort — not constant praise, but enough to know it's seen."
     ],
     pairings: {
-      bestWith: "The Balanced Partner pairs especially well with you — you both think in terms of shared responsibility, and your styles reinforce each other rather than competing.",
-      frictionWith: "The Affirmer can create friction — if 'I love you' isn't followed by action, it may register to you as words without weight, even when it's genuinely meant."
+      bestWith: "The Equal Measure pairs especially well with you — you both think in terms of shared responsibility, and your styles reinforce each other rather than competing.",
+      frictionWith: "The Verbal Heart can create friction — if 'I love you' isn't followed by action, it may register to you as words without weight, even when it's genuinely meant."
     },
     tryThis: [
       "Try voicing appreciation out loud when someone follows through for you — even a simple acknowledgment helps a partner whose primary language is words feel the connection too.",
@@ -143,8 +143,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   E: {
     key: "E",
-    name: "The Thoughtful Curator",
-    tagline: "It's never really about the object.",
+    name: "The Detailed Keeper",
+    tagline: "You notice everything — and remember it.",
     narrative: [
       "A small, well-chosen gift means something to you that's hard to fully explain to people who don't share this — it's not about the value of the object, it's about what it proves. Someone was thinking of you when you weren't there. They paid attention to something you mentioned once. They translated that attention into something tangible.",
       "This can get unfairly stereotyped as materialism, but for you it's closer to the opposite: it's about being known well enough that someone can choose something specifically for you. A thoughtful, inexpensive item chosen with you in mind will land far better than something expensive and generic.",
@@ -166,8 +166,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Occasional surprises that show someone was thinking about you when you weren't around."
     ],
     pairings: {
-      bestWith: "The Co-Pilot tends to pair well with you — they notice things about you and act on them, which lines up closely with how you experience being thought of.",
-      frictionWith: "The Quiet Helper can create friction — their practical, task-focused care might overlook the smaller, symbolic gestures that mean the most to you."
+      bestWith: "The Growth Partner tends to pair well with you — they notice things about you and act on them, which lines up closely with how you experience being thought of.",
+      frictionWith: "The One Who Acts can create friction — their practical, task-focused care might overlook the smaller, symbolic gestures that mean the most to you."
     },
     tryThis: [
       "Try explaining what a gesture means to you in the moment — 'this means a lot because you remembered I mentioned it' helps a partner learn what to notice.",
@@ -177,8 +177,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   F: {
     key: "F",
-    name: "The Steady Ground",
-    tagline: "What you need most is to exhale.",
+    name: "The Stability Seeker",
+    tagline: "You need to know the ground won't shift.",
     narrative: [
       "More than excitement, more than grand declarations, what you're really looking for is the feeling of being able to fully relax around someone — to stop bracing, stop managing, stop performing. Emotional safety, to you, isn't a baseline assumption; it's something built, carefully, over time, and it's the foundation everything else stands on.",
       "You probably notice instability quickly — mixed signals, inconsistency, hot-and-cold behavior — and these things land harder on you than they might on someone else, because they directly threaten the sense of groundedness you need. A relationship that feels unpredictable, even in small ways, can be quietly exhausting no matter how exciting it might otherwise be.",
@@ -200,8 +200,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "Clear, honest communication that reduces ambiguity, especially during conflict."
     ],
     pairings: {
-      bestWith: "The Balanced Partner pairs well with you — their proactive, fair approach tends to create exactly the kind of predictability that helps you feel settled.",
-      frictionWith: "The Thoughtful Curator can occasionally create friction — surprises, even nice ones, can read as unpredictability if you're not expecting them."
+      bestWith: "The Equal Measure pairs well with you — their proactive, fair approach tends to create exactly the kind of predictability that helps you feel settled.",
+      frictionWith: "The Detailed Keeper can occasionally create friction — surprises, even nice ones, can read as unpredictability if you're not expecting them."
     },
     tryThis: [
       "If something feels unsettling, try naming the specific behavior rather than the overall feeling — 'when plans change last-minute it throws me off' is easier for a partner to act on than 'I feel anxious'.",
@@ -211,8 +211,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   G: {
     key: "G",
-    name: "The Co-Pilot",
-    tagline: "You want someone in your corner, not just by your side.",
+    name: "The Growth Partner",
+    tagline: "You love best when you're both growing.",
     narrative: [
       "You're drawn to relationships that move — where both people are becoming someone, not just staying comfortable. A partner who asks about your goals, remembers what you're working toward, and genuinely roots for your growth (even when it doesn't directly involve them) is doing something that matters enormously to you.",
       "This isn't about needing a partner to be a life coach. It's that stagnation, for you, can feel like a quiet kind of loneliness — even within a relationship. You want to feel like you're heading somewhere, and you want someone walking alongside you while you do, celebrating the wins and helping you up after the setbacks.",
@@ -234,8 +234,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "A relationship that has room to grow and evolve rather than staying static."
     ],
     pairings: {
-      bestWith: "The Affirmer pairs naturally with you — encouragement said out loud is exactly the fuel that growth-oriented momentum runs on.",
-      frictionWith: "The Anchor can create friction — their focus on present, settled time together might read to you as comfortable but static, even when it isn't intended that way."
+      bestWith: "The Verbal Heart pairs naturally with you — encouragement said out loud is exactly the fuel that growth-oriented momentum runs on.",
+      frictionWith: "The Chosen One can create friction — their focus on present, settled time together might read to you as comfortable but static, even when it isn't intended that way."
     },
     tryThis: [
       "Try asking what 'growth' looks like for your partner right now — sometimes the most supportive thing is simply being present while someone rests, not pushing forward.",
@@ -245,8 +245,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 
   H: {
     key: "H",
-    name: "The Balanced Partner",
-    tagline: "Fairness isn't unromantic — it's foundational.",
+    name: "The Equal Measure",
+    tagline: "You need it to feel genuinely fair.",
     narrative: [
       "For you, love includes logistics — and that's not a compromise, it's part of the point. A partner who shares the mental load, who remembers things without being reminded, who notices what needs doing and steps in without a negotiation, is showing you something real about how much they value the partnership.",
       "You may have noticed that imbalance in shared responsibility creates a particular kind of friction — not always dramatic, but persistent, like background noise that never fully goes away. Even in relationships that are loving in every other respect, an uneven division of mental and logistical labor can quietly wear at the connection.",
@@ -268,8 +268,8 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
       "A genuine sense of teamwork, where both people feel invested in the relationship's day-to-day functioning."
     ],
     pairings: {
-      bestWith: "The Quiet Helper pairs especially well with you — their instinct to quietly take care of things lines up directly with the kind of shared effort you value most.",
-      frictionWith: "The Thoughtful Curator can create friction — if gestures substitute for follow-through on shared responsibilities, the imbalance you notice can feel at odds with otherwise generous intentions."
+      bestWith: "The One Who Acts pairs especially well with you — their instinct to quietly take care of things lines up directly with the kind of shared effort you value most.",
+      frictionWith: "The Detailed Keeper can create friction — if gestures substitute for follow-through on shared responsibilities, the imbalance you notice can feel at odds with otherwise generous intentions."
     },
     tryThis: [
       "Try raising imbalance as a logistics conversation rather than a complaint — 'can we look at how we're splitting X' tends to land better than letting it build up silently.",
@@ -286,34 +286,34 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 export const LOVE_FLAVORS: Record<string, ArchetypeFlavor> = {
   A: {
     key: "A",
-    blurb: "You also light up when people put feelings into words — a heartfelt message or an unexpected compliment carries extra weight for you."
+    blurb: "You also light up when people put feelings into words — a heartfelt message or an unexpected compliment carries extra weight for you. It doesn't have to be elaborate. Specific and sincere lands every time, and you keep those moments longer than most people realise."
   },
   B: {
     key: "B",
-    blurb: "You also place real value on undistracted time together — presence, not just words or actions, rounds out how you feel cared for."
+    blurb: "You also place real value on undistracted time together — presence, not just words or actions, rounds out how you feel cared for. Not scheduled time, necessarily. Just someone choosing to be fully there, without the pull of everything else competing for their attention."
   },
   C: {
     key: "C",
-    blurb: "You also respond strongly to physical closeness — a hug or a hand to hold adds something words alone can't."
+    blurb: "You also respond strongly to physical closeness — a hug or a hand to hold adds something words alone can't. It's not about grand displays. The small, instinctive gestures — moving closer, a touch on the arm, sitting side by side — register as something real."
   },
   D: {
     key: "D",
-    blurb: "You also notice and appreciate practical support — when someone follows through on the small stuff, it adds up for you."
+    blurb: "You also notice and appreciate practical support — when someone follows through on the small stuff, it adds up for you. Actions that remove friction from your life, done quietly and without fanfare, communicate care in a language you understand immediately."
   },
   E: {
     key: "E",
-    blurb: "You also have a soft spot for thoughtful gestures — a small, well-chosen surprise goes further with you than people might expect."
+    blurb: "You also have a soft spot for thoughtful gestures — a small, well-chosen surprise goes further with you than people might expect. What moves you isn't the gesture itself but the evidence behind it: someone was paying attention, remembered, and acted on it."
   },
   F: {
     key: "F",
-    blurb: "You also need a baseline of emotional steadiness — consistency and reassurance matter to you more than you might let on."
+    blurb: "You also need a baseline of emotional steadiness — consistency and reassurance matter to you more than you might let on. Not constant check-ins, just the quiet knowledge that the ground beneath the relationship is solid and won't shift without warning."
   },
   G: {
     key: "G",
-    blurb: "You also want to feel like you're growing — encouragement and shared momentum add an extra layer to how connected you feel."
+    blurb: "You also want to feel like you're growing — encouragement and shared momentum add an extra layer to how connected you feel. A partner who remembers what you're working toward and asks about it unprompted does something for you that comfort alone can't replicate."
   },
   H: {
     key: "H",
-    blurb: "You also care about fairness in the everyday details — shared effort behind the scenes means more to you than it might seem."
+    blurb: "You also care about fairness in the everyday details — shared effort behind the scenes means more to you than it might seem. When both people are genuinely invested in the whole picture, not just their half of it, you feel the relationship more fully."
   }
 };

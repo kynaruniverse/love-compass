@@ -4,7 +4,7 @@ export const siteMeta = {
     "Discover how you give and receive love. Love Compass is a free self-reflection tool built around six structured assessments — no sign-up required.",
   url: "https://lovecompass.app",
   siteName: "Love Compass",
-  twitterHandle: "@lovecompassapp",
+  
 };
 
 export function generateMeta({
@@ -36,7 +36,6 @@ export function generateMeta({
       card: "summary" as const,
       title: `${title} | ${siteMeta.title}`,
       description: desc,
-      creator: siteMeta.twitterHandle,
     },
   };
 }

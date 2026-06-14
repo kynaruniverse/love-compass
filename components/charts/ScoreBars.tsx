@@ -41,7 +41,7 @@ export default function ScoreBars({
           tickFormatter={v => `${v}%`}
         />
         <Tooltip
-          formatter={(value: number, _: string, props: any) => [
+          formatter={(value: number, _: string, props: { payload: { fullName: string } }) => [
             `${value}%`,
             props.payload.fullName
           ]}
@@ -50,8 +50,8 @@ export default function ScoreBars({
           {data.map((_, index) => (
             <Cell
               key={index}
-              fill={index < 3 ? "#5e3a73" : "#c9a14a"}
-              fillOpacity={index < 3 ? 1 : 0.7}
+              fill="#5e3a73"
+              fillOpacity={index === 0 ? 1 : index < 3 ? 0.5 : 0.25}
             />
           ))}
         </Bar>

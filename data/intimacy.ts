@@ -106,14 +106,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "What makes me feel most desired is:",
     options: [
-      { letter: "A", text: "Verbal affirmation of attraction." },
-      { letter: "B", text: "Sensual, deliberate touch." },
-      { letter: "C", text: "Passionate initiation." },
-      { letter: "D", text: "Being deliberately pursued." },
-      { letter: "E", text: "Mutual exploration." },
-      { letter: "F", text: "Emotional safety." },
-      { letter: "G", text: "Confidence being supported." },
-      { letter: "H", text: "Shared effort." }
+      { letter: "A", text: "Hearing it — specifically, what they find attractive about me." },
+      { letter: "B", text: "Deliberate, unhurried touch that builds slowly." },
+      { letter: "C", text: "Someone who initiates with real passion and energy." },
+      { letter: "D", text: "Being deliberately, unmistakably pursued." },
+      { letter: "E", text: "Genuine mutual curiosity — exploring together." },
+      { letter: "F", text: "Feeling emotionally safe enough to be fully present." },
+      { letter: "G", text: "A partner who makes me feel confident in myself." },
+      { letter: "H", text: "Both of us showing up equally." }
     ]
   },
   {
@@ -122,14 +122,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "In intimate moments, I value:",
     options: [
-      { letter: "A", text: "Clear, direct verbal expression." },
-      { letter: "B", text: "Warm, gentle, unhurried closeness." },
-      { letter: "C", text: "Passionate energy." },
-      { letter: "D", text: "Anticipation and being sought." },
-      { letter: "E", text: "Curiosity and balance." },
-      { letter: "F", text: "Trust and emotional safety." },
-      { letter: "G", text: "Growth and confidence." },
-      { letter: "H", text: "Shared responsibility." }
+      { letter: "A", text: "Things being said — desire and attraction spoken clearly." },
+      { letter: "B", text: "Warmth that builds — slow, close, unhurried." },
+      { letter: "C", text: "Real passion and energy — someone who means it." },
+      { letter: "D", text: "The feeling of being sought out and anticipated." },
+      { letter: "E", text: "Mutual curiosity — no script, genuine discovery." },
+      { letter: "F", text: "Deep trust — feeling completely safe to be myself." },
+      { letter: "G", text: "Feeling confident and at ease in my own skin." },
+      { letter: "H", text: "Equal investment — both of us fully there." }
     ]
   },
   {
@@ -154,14 +154,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "I feel most satisfied when intimacy is:",
     options: [
-      { letter: "A", text: "Verbally clear and expressive." },
-      { letter: "B", text: "Slow and tender." },
-      { letter: "C", text: "Passionate and direct." },
-      { letter: "D", text: "Anticipatory and pursuing." },
-      { letter: "E", text: "Balanced and curious." },
-      { letter: "F", text: "Safe and trusted." },
-      { letter: "G", text: "Confident and supported." },
-      { letter: "H", text: "Shared and balanced." }
+      { letter: "A", text: "Verbally expressive — desire and attraction said out loud." },
+      { letter: "B", text: "Slow and tender — warmth built over time." },
+      { letter: "C", text: "Passionate and direct — clear want, clear energy." },
+      { letter: "D", text: "Anticipatory — I feel sought out and thought about." },
+      { letter: "E", text: "Mutually curious — both of us genuinely exploring." },
+      { letter: "F", text: "Safe — I feel completely trusted and emotionally grounded." },
+      { letter: "G", text: "Empowering — I feel confident and celebrated." },
+      { letter: "H", text: "Equal — both of us fully invested, fully present." }
     ]
   },
   {
@@ -170,14 +170,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "What helps me enjoy intimacy most is:",
     options: [
-      { letter: "A", text: "Verbal expression of desire." },
-      { letter: "B", text: "Gentle, building touch." },
-      { letter: "C", text: "Clear, passionate energy." },
-      { letter: "D", text: "Being deliberately sought out." },
-      { letter: "E", text: "Mutual discovery." },
-      { letter: "F", text: "Emotional safety." },
-      { letter: "G", text: "Confidence being supported." },
-      { letter: "H", text: "Shared effort and equality." }
+      { letter: "A", text: "Desire spoken — clearly and without being prompted." },
+      { letter: "B", text: "Touch that builds slowly and stays warm." },
+      { letter: "C", text: "Clear, confident energy from a partner who means it." },
+      { letter: "D", text: "The feeling that I've been thought about and sought out." },
+      { letter: "E", text: "Genuine mutual discovery — neither of us on autopilot." },
+      { letter: "F", text: "Feeling emotionally safe enough to stop thinking." },
+      { letter: "G", text: "Feeling good about myself in the moment." },
+      { letter: "H", text: "Both of us equally engaged and present." }
     ]
   },
   {

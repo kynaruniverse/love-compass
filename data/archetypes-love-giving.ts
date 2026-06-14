@@ -26,7 +26,7 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who won't mistake your expressiveness for neediness, but will match your openness."
     ],
     pairings: {
-      bestWith: "The Affirmer (receiving) — someone who needs to hear love spoken will receive everything you give and reflect it back in kind.",
+      bestWith: "The Naming Heart (receiving) — someone who needs to hear love spoken will receive everything you give and reflect it back in kind.",
       frictionWith: "The Quiet Helper (receiving) — their primary language is action, not words, and they may not naturally meet your verbal expressiveness with the same."
     },
     tryThis: [
@@ -60,7 +60,7 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who communicates clearly about how they need you to show up, so your presence can be most meaningful."
     ],
     pairings: {
-      bestWith: "The Anchor (receiving) — someone who needs consistent, undivided time will feel completely loved by your natural generosity with presence.",
+      bestWith: "The Still Point (receiving) — someone who needs consistent, undivided time will feel completely loved by your natural generosity with presence.",
       frictionWith: "The Co-Pilot (receiving) — their forward momentum and independence may make it harder to create the shared time you give most naturally."
     },
     tryThis: [
@@ -71,8 +71,8 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
 
   C: {
     key: "C",
-    name: "The Warm Hand",
-    tagline: "Your love is felt before it's heard.",
+    name: "The Reaching Hand",
+    tagline: "Physical affection is your first language.",
     narrative: [
       "You are naturally, instinctively physically warm. Touch isn't something you think about giving — it just comes out of you. A hand on someone's arm when they're talking. A hug that lasts a moment longer than expected. Moving close when you're sitting together. For you, physical closeness isn't a supplement to love, it's often the primary way it moves from inside you to the person you love.",
       "There's something quietly profound in this. In a world where people often communicate at a distance — through screens, through words, through space — you close the gap. Your love is tactile and immediate. It doesn't wait to be communicated; it arrives through the body.",
@@ -94,8 +94,8 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who understands that your touch is how you speak, not just how you act."
     ],
     pairings: {
-      bestWith: "The Warm Hand (receiving) — someone who primarily feels loved through touch will experience your natural affection as a continuous expression of love.",
-      frictionWith: "The Verbal Spark (receiving) — someone who primarily needs words may feel that your physical warmth, while welcome, doesn't fully satisfy their need to hear it."
+      bestWith: "The Warm Hand (receiving) — someone who primarily feels loved through touch will experience your natural reaching affection as a continuous expression of love.",
+      frictionWith: "The Naming Heart (receiving) — someone who primarily needs words may feel that your physical warmth, while welcome, doesn't fully satisfy their need to hear it."
     },
     tryThis: [
       "Combine touch with words occasionally — a hug paired with 'I love you' creates two channels at once for partners who need both.",
@@ -128,8 +128,8 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who expresses gratitude for what you do, so your efforts feel received and valued."
     ],
     pairings: {
-      bestWith: "The Steady Doer (receiving) — someone who feels most loved when a partner takes action will feel completely cared for by your natural instincts.",
-      frictionWith: "The Affirmer (receiving) — someone who primarily needs verbal affirmation may not fully receive your action-based love without translation."
+      bestWith: "The Quiet Helper (receiving) — someone who feels most loved when a partner takes action will feel completely cared for by your natural instincts.",
+      frictionWith: "The Naming Heart (receiving) — someone who primarily needs verbal affirmation may not fully receive your action-based love without translation."
     },
     tryThis: [
       "Occasionally name what you're doing and why — 'I handled that because I wanted you to have one less thing to think about' — so the love behind the action lands clearly.",
@@ -162,8 +162,8 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who reciprocates in ways that show they've been paying attention to you too."
     ],
     pairings: {
-      bestWith: "The Thoughtful Receiver (receiving) — someone who experiences gifts as proof of knowing will receive your love exactly as you intend it.",
-      frictionWith: "The Steady Doer (receiving) — someone who primarily feels loved through action may appreciate your gestures but still feel something missing."
+      bestWith: "The Thoughtful Curator (receiving) — someone who experiences gifts as proof of knowing will receive your love exactly as you intend it.",
+      frictionWith: "The Quiet Helper (receiving) — someone who primarily feels loved through action may appreciate your gestures but still feel something missing."
     },
     tryThis: [
       "Pair your gesture with words about why — 'I saw this and thought of you because...' amplifies the love it carries.",
@@ -196,8 +196,8 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who also creates safety for you — not just receives it from you."
     ],
     pairings: {
-      bestWith: "The Safe Harbour (receiving) — someone who needs emotional safety above all else will feel completely held by your natural steadiness.",
-      frictionWith: "The Vocal Heart (receiving) — someone who primarily needs verbal affirmation may find your quiet, steady love doesn't fully land without more explicit expression."
+      bestWith: "The Steady Ground (receiving) — someone who needs emotional safety above all else will feel completely held by your natural steadiness.",
+      frictionWith: "The Naming Heart (receiving) — someone who primarily needs verbal affirmation may find your quiet, steady love doesn't fully land without more explicit expression."
     },
     tryThis: [
       "Occasionally name your steadiness — 'I'm not going anywhere' or 'you can bring me anything' makes your constancy visible rather than assumed.",
@@ -230,8 +230,8 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who gives the same investment back — who believes in your growth as much as you believe in theirs."
     ],
     pairings: {
-      bestWith: "The Rising One (receiving) — someone who feels most loved when a partner supports their development will feel completely seen by your natural investment in their growth.",
-      frictionWith: "The Safe Harbour (receiving) — someone whose primary need is emotional stability may experience your forward-focused energy as unsettling rather than loving."
+      bestWith: "The Co-Pilot (receiving) — someone who feels most loved when a partner supports their development will feel completely seen by your natural investment in their growth.",
+      frictionWith: "The Steady Ground (receiving) — someone whose primary need is emotional stability may experience your forward-focused energy as unsettling rather than loving."
     },
     tryThis: [
       "Ask 'what would be most helpful right now — encouragement or just someone to listen?' so your investment lands the way it's needed.",
@@ -264,7 +264,7 @@ export const LOVE_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who notices and appreciates your investment in balance, so your effort feels seen."
     ],
     pairings: {
-      bestWith: "The Load-Sharer (receiving) — someone who feels most loved when responsibilities are genuinely equal will feel completely respected and cared for by you.",
+      bestWith: "The Equal Weight (receiving) — someone who feels most loved when responsibilities are genuinely equal will feel completely respected and cared for by you.",
       frictionWith: "The Thoughtful Curator (receiving) — someone who primarily experiences love through gifts and gestures may not feel that your fairness, while valued, speaks their primary language."
     },
     tryThis: [

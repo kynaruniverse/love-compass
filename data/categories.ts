@@ -6,7 +6,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 0,
     title: "Words of Affirmation",
     description:
-      "You feel most loved when your partner praises, encourages, and uses words to show appreciation. You value messages that communicate that you are wanted, valued, and seen."
+      "You feel most loved when your partner says it out loud — not just once, but consistently. Praise, appreciation, and words that name exactly what they value about you land deeper than most gestures ever could. Silence, even well-meaning silence, leaves you uncertain."
   },
 
   B: {
@@ -14,7 +14,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 45,
     title: "Quality Time",
     description:
-      "You feel most loved when your partner gives you their full attention. You value undistracted time, presence, and shared experiences."
+      "You feel most loved when your partner is fully present — phone down, attention undivided, genuinely there. Shared experiences matter, but what you're really after is the feeling that you are the priority. Distracted togetherness doesn't count."
   },
 
   C: {
@@ -22,7 +22,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 90,
     title: "Physical Touch",
     description:
-      "You feel most loved through warm, affectionate touch. You value hugs, holding, cuddling, and gentle closeness."
+      "You feel most loved through physical closeness — a hand on your back, an arm around you, the kind of warmth that says 'I'm here' without needing words. Affectionate touch isn't a bonus for you. It's how love registers in your body."
   },
 
   D: {
@@ -30,7 +30,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 135,
     title: "Acts of Service",
     description:
-      "You feel most loved when your partner takes practical burdens off your plate. You value actions that make daily life easier."
+      "You feel most loved when your partner does things — not grand gestures, but the quiet, practical actions that make your life easier. Someone who notices what needs doing and does it without being asked is communicating care in a language you deeply understand."
   },
 
   E: {
@@ -38,7 +38,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 180,
     title: "Receiving Gifts",
     description:
-      "You feel most loved through thoughtful tokens that show attention and care."
+      "You feel most loved through tokens that show someone was thinking of you when you weren't there. It's not about cost or size — it's about the specific attention behind the choice. A gift that reflects who you actually are tells you that you are truly known."
   },
 
   F: {
@@ -46,7 +46,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 225,
     title: "Emotional Security",
     description:
-      "You feel most loved when your partner creates emotional safety, steadiness, and reliability."
+      "You feel most loved when a partner is steady — when you know where you stand, when conflict doesn't spiral into abandonment, when reliability is something you can feel rather than just assume. Safety isn't a given for you. It has to be built and maintained."
   },
 
   G: {
@@ -54,7 +54,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 270,
     title: "Shared Growth",
     description:
-      "You feel most loved when your partner supports your growth and mutual development."
+      "You feel most loved within a relationship that's going somewhere. A partner who encourages your ambitions, challenges you to grow, and treats the relationship itself as something worth developing — that's what love looks like to you. Stagnation feels like distance."
   },
 
   H: {
@@ -62,7 +62,7 @@ export const LOVE_CATEGORIES: Record<string, Category> = {
     angle: 315,
     title: "Shared Mental Load",
     description:
-      "You feel most loved when planning, organising, and responsibility are shared fairly."
+      "You feel most loved when the invisible work of life is carried together — not just the big decisions, but the planning, tracking, and remembering that keeps everything running. When that weight is shared without negotiation, you feel genuinely partnered."
   }
 };
 
@@ -72,7 +72,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 0,
     title: "Verbal Erotic Affirmation",
     description:
-      "You feel most desired when attraction and desire are communicated clearly through words."
+      "You feel most desired when attraction is spoken out loud — clearly, specifically, without ambiguity. Words that name what a partner finds irresistible about you don't just turn you on. They make you feel genuinely wanted in a way that body language alone rarely achieves."
   },
 
   B: {
@@ -80,7 +80,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 45,
     title: "Tender Sensual Touch",
     description:
-      "You feel most desired through slow, warm, affectionate physical closeness."
+      "You feel most desired through slow, deliberate physical closeness — touch that isn't rushing toward anything, that lingers and pays attention. Warmth and gentleness communicate desire more powerfully to you than intensity or urgency ever could."
   },
 
   C: {
@@ -88,7 +88,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 90,
     title: "Passionate Initiation",
     description:
-      "You feel most desired when your partner initiates with confidence and enthusiasm."
+      "You feel most desired when a partner reaches for you with unmistakable intention — when there's no ambiguity about being wanted. Confident, enthusiastic initiation tells you something that careful, tentative approaches never quite do: that the desire is real and unguarded."
   },
 
   D: {
@@ -96,7 +96,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 135,
     title: "Being Pursued",
     description:
-      "You feel most desired when a partner actively seeks you out and builds anticipation."
+      "You feel most desired when a partner actively seeks you out — builds anticipation, creates moments, makes you feel like something worth pursuing rather than something assumed. The chase matters to you, not as a game, but as a signal that you are genuinely wanted."
   },
 
   E: {
@@ -104,7 +104,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 180,
     title: "Mutual Exploration",
     description:
-      "You value curiosity, discovery, and equal participation."
+      "You feel most desired within intimacy that feels like a genuine collaboration — where both people are curious, present, and equally invested. One-sided encounters leave you cold. What you're drawn to is the sense that you're discovering something together."
   },
 
   F: {
@@ -112,7 +112,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 225,
     title: "Emotional Safety During Intimacy",
     description:
-      "You feel most connected when intimacy feels safe, trusted, and emotionally grounded."
+      "You feel most desired when intimacy feels safe enough to be fully present in — when trust is the foundation rather than an afterthought. Without emotional grounding, physical closeness feels hollow. Connection for you starts in the body but requires the heart to be open first."
   },
 
   G: {
@@ -120,7 +120,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 270,
     title: "Confidence & Growth Support",
     description:
-      "You feel most desired when your confidence and self-belief are supported."
+      "You feel most desired when a partner sees and affirms your strength — when your confidence is encouraged rather than threatened. Intimacy that makes you feel capable, expanding, and fully yourself is intimacy that works for you. You need to feel like your best self to fully open up."
   },
 
   H: {
@@ -128,72 +128,7 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
     angle: 315,
     title: "Shared Effort & Responsibility",
     description:
-      "You value fairness, balance, and mutual contribution."
+      "You feel most desired within intimacy that feels equitable — where both people initiate, both people invest, and neither person is carrying the connection alone. Imbalance disrupts your ability to be fully present. Fairness isn't a condition you impose — it's what makes you feel genuinely met."
   }
 };
 
-export const HYBRID_CATEGORIES: Record<string, Category> = {
-  A: {
-    id: "A",
-    angle: 0,
-    title: "Spoken Connection",
-    description:
-      "You feel most loved and most desired when both are communicated clearly, out loud, in words."
-  },
-
-  B: {
-    id: "B",
-    angle: 45,
-    title: "Unhurried Presence",
-    description:
-      "You feel closest to a partner during slow, undistracted, shared time — emotionally and physically."
-  },
-
-  C: {
-    id: "C",
-    angle: 90,
-    title: "Physical Closeness",
-    description:
-      "Touch and physical nearness are central to how you feel both loved and wanted."
-  },
-
-  D: {
-    id: "D",
-    angle: 135,
-    title: "Reliable Action",
-    description:
-      "You feel cared for and desired through what a partner does — consistent, dependable follow-through."
-  },
-
-  E: {
-    id: "E",
-    angle: 180,
-    title: "Attentive Gestures",
-    description:
-      "You feel most seen through small, specific gestures that show a partner is paying attention."
-  },
-
-  F: {
-    id: "F",
-    angle: 225,
-    title: "Emotional Grounding",
-    description:
-      "Feeling safe and emotionally steady is the foundation both your emotional and physical connection are built on."
-  },
-
-  G: {
-    id: "G",
-    angle: 270,
-    title: "Mutual Growth",
-    description:
-      "You feel most connected — emotionally and intimately — within a relationship that's actively growing."
-  },
-
-  H: {
-    id: "H",
-    angle: 315,
-    title: "Shared Partnership",
-    description:
-      "Fairness and shared responsibility underpin how secure and connected you feel, in and out of the bedroom."
-  }
-};

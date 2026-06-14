@@ -27,7 +27,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
     ],
     pairings: {
       bestWith: "The Verbal Spark (receiving) — someone who needs to hear desire spoken will feel completely wanted by your natural directness.",
-      frictionWith: "The Silent Feeler (receiving) — a partner who expresses and receives desire primarily through action or touch may find your verbal focus feels misaligned."
+      frictionWith: "The Slow Burn (receiving) — a partner who expresses and receives desire primarily through unhurried physical warmth may find your verbal directness moves faster than they naturally follow."
     },
     tryThis: [
       "Stay specific — 'I find this particular thing about you incredibly attractive' lands deeper than general praise.",
@@ -37,7 +37,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
 
   B: {
     key: "B",
-    name: "The Slow Burn",
+    name: "The Tender Current",
     tagline: "You build desire through warmth, not speed.",
     narrative: [
       "You understand something that many people miss: intimacy isn't a destination, it's a temperature. And you raise it slowly. You move close before you move faster. You linger in warmth, in touch, in the quiet build that makes what comes next feel inevitable rather than rushed. Your desire expresses itself through attention, through closeness, through the kind of unhurried physical presence that communicates want without urgency.",
@@ -60,8 +60,8 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who communicates their pace preferences clearly, so you can attune to them."
     ],
     pairings: {
-      bestWith: "The Tender One (receiving) — someone who feels most desired through slow, warm build-up will feel completely attuned to by your natural approach.",
-      frictionWith: "The Passionate Initiator (receiving) — someone who feels most desired when a partner initiates with clear energy may find your gradual approach doesn't fully signal your desire."
+      bestWith: "The Slow Burn (receiving) — someone who feels most desired through unhurried, warm build-up will feel completely attuned to by your natural approach.",
+      frictionWith: "The Initiator (receiving) — someone who feels most desired when a partner initiates with clear, confident energy may find your gradual approach doesn't fully signal your desire."
     },
     tryThis: [
       "Pair your slow approach with a clear verbal signal of desire — warmth plus directness creates the best of both.",
@@ -71,7 +71,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
 
   C: {
     key: "C",
-    name: "The Initiator",
+    name: "The First Move",
     tagline: "You make desire unmistakable.",
     narrative: [
       "You don't hint. You don't wait and hope it's picked up on. When you want someone, you move toward them — clearly, confidently, with energy that makes your desire impossible to misread. There's no ambiguity in your initiation, and for a partner who needs to feel actively wanted, that clarity is everything.",
@@ -94,8 +94,8 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who also initiates sometimes — so the dynamic stays mutual and neither person always carries the role."
     ],
     pairings: {
-      bestWith: "The Receiver (Being Pursued) — someone who feels most desired when actively sought out will feel completely wanted by your natural confident initiation.",
-      frictionWith: "The Mutual Explorer (receiving) — someone who values equal, unscripted initiation may feel that your directed approach creates a dynamic they'd prefer to be more balanced."
+      bestWith: "The Pursued (receiving) — someone who feels most desired when actively sought out will feel completely wanted by your natural confident initiation.",
+      frictionWith: "The Open Road (receiving) — someone who values equal, unscripted initiation may feel that your directed approach creates a dynamic they'd prefer to be more balanced."
     },
     tryThis: [
       "Check in occasionally — 'is this good?' or 'what do you want?' — to ensure your confidence stays connected to your partner's present experience.",
@@ -129,8 +129,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
     ],
     pairings: {
       bestWith: "The Pursued (receiving) — someone who feels most desired when actively sought out will feel completely wanted by your intentional pursuit.",
-      frictionWith: "The Mutual Explorer (receiving) — someone who values equal, unscripted connection may experience your pursuit-focused dynamic as a role they didn't sign up for."
-    },
+      frictionWith: "The Open Road (receiving) — someone who values equal, unscripted connection may experience your pursuit-focused dynamic as a role they didn't sign up for."
     tryThis: [
       "Let your partner know what you're building toward — a message that says 'I've been thinking about you all day' gives them the experience of being wanted before you're even together.",
       "Ask occasionally what kind of pursuit feels best to them — some partners want bold moves, others want subtlety — so your intention lands exactly right."
@@ -162,8 +161,8 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who stays equally curious and invested over time."
     ],
     pairings: {
-      bestWith: "The Curious One (receiving) — someone who values mutual discovery and equal participation will feel completely at home with your approach.",
-      frictionWith: "The Receiver (Being Pursued) — someone who primarily feels desired when actively sought out may need more directional energy than your exploratory style naturally provides."
+      bestWith: "The Open Road (receiving) — someone who values mutual discovery and equal participation will feel completely at home with your approach.",
+      frictionWith: "The Pursued (receiving) — someone who primarily feels desired when actively sought out may need more directional energy than your exploratory style naturally provides."
     },
     tryThis: [
       "Occasionally be the one to suggest or initiate something specific — your curiosity is wonderful, but directness alongside it creates real electricity.",
@@ -196,8 +195,8 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who creates emotional safety for you in return, so the dynamic is mutual."
     ],
     pairings: {
-      bestWith: "The Safe Receiver (receiving) — someone who needs emotional safety before they can be fully intimate will feel completely held and desired by what you give.",
-      frictionWith: "The Passionate Initiator (receiving) — someone whose primary need is confident, direct pursuit may find your safety-first approach doesn't carry the energy they most need to feel desired."
+      bestWith: "The Safe Harbour (receiving) — someone who needs emotional safety before they can be fully intimate will feel completely held and desired by what you give.",
+      frictionWith: "The Initiator (receiving) — someone whose primary need is confident, direct pursuit may find your safety-first approach doesn't carry the energy they most need to feel desired."
     },
     tryThis: [
       "Express desire explicitly alongside the safety you create — 'you're completely safe with me, and I want you' gives a partner both what they need.",
@@ -207,7 +206,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
 
   G: {
     key: "G",
-    name: "The Confidence Builder",
+    name: "The Revealer",
     tagline: "You make a partner feel like the most attractive version of themselves.",
     narrative: [
       "You have a particular quality in intimacy: you make people feel good about themselves. Not through flattery, but through the specific way you direct your attention, your words, your energy. A partner who feels self-conscious, inhibited, or uncertain about themselves often finds something changes when they're with you — because you see them clearly and you show that seeing in how you engage with them.",
@@ -230,8 +229,8 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who also makes you feel attractive and confident, so the dynamic stays mutual."
     ],
     pairings: {
-      bestWith: "The Blooming One (receiving) — someone who feels most desired when their confidence is actively supported will feel completely celebrated by what you give.",
-      frictionWith: "The Vocal Spark (receiving) — someone whose primary need is verbal desire expressed aloud may feel that your confidence-building, while wonderful, doesn't fully scratch the itch."
+      bestWith: "The Mirror (receiving) — someone who feels most desired when their confidence is actively supported will feel completely celebrated by what you give.",
+      frictionWith: "The Verbal Spark (receiving) — someone whose primary need is verbal desire expressed aloud may feel that your confidence-building, while wonderful, doesn't fully satisfy that need."
     },
     tryThis: [
       "Stay specific — 'I find this particular thing about you incredibly attractive right now' is more powerful than general praise.",
@@ -264,7 +263,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
       "A partner who stays equally invested over time and communicates when the balance shifts."
     ],
     pairings: {
-      bestWith: "The Equal Partner (receiving) — someone who feels most desired in genuinely mutual intimacy will feel completely met by your natural investment.",
+      bestWith: "The Even Flame (receiving) — someone who feels most desired in genuinely mutual intimacy will feel completely met by your natural investment.",
       frictionWith: "The Pursuer (receiving) — someone who primarily feels desired when being sought out may find that your equality-focused approach doesn't give them the directed pursuit they most need."
     },
     tryThis: [
@@ -275,12 +274,12 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
 };
 
 export const INTIMACY_GIVING_FLAVORS: Record<string, ArchetypeFlavor> = {
-  A: { key: "A", blurb: "Running alongside this, you also express desire verbally — what you want and find attractive comes out in words naturally." },
-  B: { key: "B", blurb: "Woven through this is a natural warmth — you build desire through slow, tender physical closeness." },
-  C: { key: "C", blurb: "Alongside this, you bring confident initiation — your desire is rarely ambiguous or left to implication." },
-  D: { key: "D", blurb: "Running through this is a pursuit quality — you build anticipation and make moves that show you were thinking about a partner." },
-  E: { key: "E", blurb: "Woven in is genuine mutual curiosity — you stay interested in a partner's experience and keep intimacy exploratory." },
-  F: { key: "F", blurb: "Alongside this, you create safety — emotional groundedness is part of how you express desire." },
-  G: { key: "G", blurb: "Running through this is confidence-building — you make a partner feel attractive and celebrated alongside your primary way of desiring." },
-  H: { key: "H", blurb: "Woven through this is a commitment to equality — you want intimacy to feel genuinely mutual and fully invested on both sides." }
+  A: { key: "A", blurb: "Running alongside this, you also express desire verbally — what you want and find attractive comes out in words naturally. You don't leave attraction implied when you could say it, and that directness tends to land." },
+  B: { key: "B", blurb: "Woven through this is a natural warmth — you build desire through slow, tender physical closeness. The unhurried approach isn't hesitation; it's how you communicate that someone is worth taking time over." },
+  C: { key: "C", blurb: "Alongside this, you bring confident initiation — your desire is rarely ambiguous or left to implication. When you want something, you move toward it, and that clarity is a gift to a partner who needs to feel actively chosen." },
+  D: { key: "D", blurb: "Running through this is a pursuit quality — you build anticipation and make moves that show you were thinking about a partner. The desire arrives before you do, and a partner who needs to feel thought about will feel it." },
+  E: { key: "E", blurb: "Woven in is genuine mutual curiosity — you stay interested in a partner's experience and keep intimacy exploratory. You ask rather than assume, and that active interest makes a partner feel attended to rather than moved through." },
+  F: { key: "F", blurb: "Alongside this, you create safety — emotional groundedness is part of how you express desire. A partner senses that they can be fully themselves here, and that permission is itself a form of wanting them." },
+  G: { key: "G", blurb: "Running through this is confidence-building — you make a partner feel attractive and celebrated alongside your primary way of desiring. The way you direct your attention quietens their inner critic in a way they probably didn't expect." },
+  H: { key: "H", blurb: "Woven through this is a commitment to equality — you want intimacy to feel genuinely mutual and fully invested on both sides. When the effort is matched, something opens in you that one-sided intimacy simply doesn't reach." }
 };

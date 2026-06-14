@@ -20,7 +20,7 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
 
   return (
     <div className="flex flex-col min-h-[calc(100vh-160px)]">
-      <div className="pt-6 pb-10">
+      <div className="pt-6 pb-5">
         <DotProgress total={quiz.total} current={quiz.index} />
       </div>
 
@@ -38,17 +38,6 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
           />
         </div>
       </div>
-
-      <style>{`
-        @keyframes quiz-slide-in-left {
-          from { opacity: 0; transform: translateX(40px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes quiz-slide-in-right {
-          from { opacity: 0; transform: translateX(-40px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-      `}</style>
     </div>
   );
 }

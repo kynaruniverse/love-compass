@@ -9,20 +9,22 @@ export const metadata = generateMeta({
 export default function AssessmentsPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-16 space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Where do you want to start?
+      <div className="space-y-3 pb-2">
+        <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+          Assessments
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
+          Know yourself first.
         </h1>
-        <p className="opacity-60">
-          Each assessment takes 5–10 minutes. Your answers stay in your
-          browser — nothing is stored or transmitted.
+        <p className="text-lg opacity-70 leading-relaxed max-w-xl">
+          Four assessments. Two sides of the same question — how you need to be loved, and how you love in return. Start anywhere. Most people find the other side more surprising than the first.
         </p>
       </div>
 
       {/* Receiving group */}
       <div className="space-y-3">
         <p className="text-xs font-medium uppercase tracking-widest text-[var(--primary)] opacity-60">
-          Receiving — how you need to be loved
+          How you need to be loved
         </p>
         <div className="space-y-3">
           {assessments.filter(a => a.mode === "receiving").map(a => (
@@ -49,7 +51,7 @@ export default function AssessmentsPage() {
       {/* Giving group */}
       <div className="space-y-3">
         <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] opacity-60">
-          Giving — how you naturally love
+          How you naturally give it
         </p>
         <div className="space-y-3">
           {assessments.filter(a => a.mode === "giving").map(a => (
@@ -73,9 +75,8 @@ export default function AssessmentsPage() {
         </div>
       </div>
 
-      <p className="text-xs opacity-40 text-center">
-        All responses are stored in your browser session only and
-        deleted when you close the tab.
+      <p className="text-xs opacity-40 text-center leading-relaxed">
+        Each assessment takes 5–10 minutes. Nothing you answer leaves your browser. No account. No record. Just you.
       </p>
     </main>
   );

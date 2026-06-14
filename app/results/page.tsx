@@ -3,14 +3,12 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ScoreMap, QuizQuestion, NarrativeResult } from "@/types/quiz";
-import { LOVE_CATEGORIES, INTIMACY_CATEGORIES, HYBRID_CATEGORIES } from "@/data/categories";
-import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES, HYBRID_GIVING_CATEGORIES } from "@/data/categories-giving";
+import { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "@/data/categories";
+import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories-giving";
 import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "@/data/archetypes-love";
 import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "@/data/archetypes-intimacy";
-import { HYBRID_ARCHETYPES, HYBRID_FLAVORS } from "@/data/archetypes-hybrid";
 import { LOVE_GIVING_ARCHETYPES, LOVE_GIVING_FLAVORS } from "@/data/archetypes-love-giving";
 import { INTIMACY_GIVING_ARCHETYPES, INTIMACY_GIVING_FLAVORS } from "@/data/archetypes-intimacy-giving";
-import { HYBRID_GIVING_ARCHETYPES, HYBRID_GIVING_FLAVORS } from "@/data/archetypes-hybrid-giving";
 import { isGivingMode } from "@/data/assessments";
 import { buildProfile, pickArchetype, getBlend } from "@/lib/resultBuilder";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
@@ -38,41 +36,37 @@ export default function ResultsPage() {
 
     if (!rawScores || !rawQuestions) return;
 
-    const scores: ScoreMap = JSON.parse(rawScores);
-    const questions: QuizQuestion[] = JSON.parse(rawQuestions);
+    try {
+      const scores: ScoreMap = JSON.parse(rawScores);
+      const questions: QuizQuestion[] = JSON.parse(rawQuestions);
 
-    // Pick correct category map + archetype library based on quiz type + mode
-    let categoryMap = LOVE_CATEGORIES;
-    let archetypes = LOVE_ARCHETYPES;
-    let flavors = LOVE_FLAVORS;
+      // Pick correct category map + archetype library based on quiz type + mode
+      let categoryMap = LOVE_CATEGORIES;
+      let archetypes = LOVE_ARCHETYPES;
+      let flavors = LOVE_FLAVORS;
 
-    if (type === "intimacy") {
-      categoryMap = INTIMACY_CATEGORIES;
-      archetypes = INTIMACY_ARCHETYPES;
-      flavors = INTIMACY_FLAVORS;
-    } else if (type === "hybrid") {
-      categoryMap = HYBRID_CATEGORIES;
-      archetypes = HYBRID_ARCHETYPES;
-      flavors = HYBRID_FLAVORS;
-    } else if (type === "love-giving") {
-      categoryMap = LOVE_GIVING_CATEGORIES;
-      archetypes = LOVE_GIVING_ARCHETYPES;
-      flavors = LOVE_GIVING_FLAVORS;
-    } else if (type === "intimacy-giving") {
-      categoryMap = INTIMACY_GIVING_CATEGORIES;
-      archetypes = INTIMACY_GIVING_ARCHETYPES;
-      flavors = INTIMACY_GIVING_FLAVORS;
-    } else if (type === "hybrid-giving") {
-      categoryMap = HYBRID_GIVING_CATEGORIES;
-      archetypes = HYBRID_GIVING_ARCHETYPES;
-      flavors = HYBRID_GIVING_FLAVORS;
+      if (type === "intimacy") {
+        categoryMap = INTIMACY_CATEGORIES;
+        archetypes = INTIMACY_ARCHETYPES;
+        flavors = INTIMACY_FLAVORS;
+      } else if (type === "love-giving") {
+        categoryMap = LOVE_GIVING_CATEGORIES;
+        archetypes = LOVE_GIVING_ARCHETYPES;
+        flavors = LOVE_GIVING_FLAVORS;
+      } else if (type === "intimacy-giving") {
+        categoryMap = INTIMACY_GIVING_CATEGORIES;
+        archetypes = INTIMACY_GIVING_ARCHETYPES;
+        flavors = INTIMACY_GIVING_FLAVORS;
+      }
+
+      const built = buildProfile(scores, questions, categoryMap);
+      setProfile(built);
+      setResult(pickArchetype(built, archetypes, flavors));
+      setBlend(getBlend(built));
+      setQuizType(type);
+    } catch {
+      // Corrupted or stale sessionStorage data — fall back to "No results found"
     }
-
-    const built = buildProfile(scores, questions, categoryMap);
-    setProfile(built);
-    setResult(pickArchetype(built, archetypes, flavors));
-    setBlend(getBlend(built));
-    setQuizType(type);
   }, []);
 
   if (!profile || !result) {
@@ -162,13 +156,11 @@ export default function ResultsPage() {
             ? "Love Preference"
             : quizType === "intimacy"
             ? "Intimacy Style"
-            : quizType === "hybrid"
-            ? "Full Profile"
             : quizType === "love-giving"
             ? "Love Expression"
             : quizType === "intimacy-giving"
             ? "Desire Expression"
-            : "Full Expression Profile"}{" "}
+            : "Love Preference"}{" "}
           assessment. Sit with this — most people find it more accurate than they expected.
         </p>
 

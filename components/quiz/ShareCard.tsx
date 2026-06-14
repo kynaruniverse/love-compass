@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import Button from "@/components/ui/Button";
 
@@ -14,10 +14,8 @@ function getModeLabel(quizType: string): string {
   switch (quizType) {
     case "love": return "Love Preference";
     case "intimacy": return "Intimacy Style";
-    case "hybrid": return "Full Profile";
     case "love-giving": return "Love Expression";
     case "intimacy-giving": return "Desire Expression";
-    case "hybrid-giving": return "Full Expression";
     default: return "Love Preference";
   }
 }
@@ -28,13 +26,16 @@ function isGiving(quizType: string): boolean {
 
 export default function ShareCard({ result, profile, quizType }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [copiedText, setCopiedText] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
   const top3 = profile.slice(0, 3);
   const modeLabel = getModeLabel(quizType);
   const giving = isGiving(quizType);
 
   function handleCopyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
-      alert("Link copied to clipboard!");
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
     });
   }
 
@@ -56,7 +57,8 @@ export default function ShareCard({ result, profile, quizType }: Props) {
     ].join("\n");
 
     navigator.clipboard.writeText(text).then(() => {
-      alert("Result copied to clipboard — paste it anywhere!");
+      setCopiedText(true);
+      setTimeout(() => setCopiedText(false), 2000);
     });
   }
 
@@ -119,15 +121,15 @@ export default function ShareCard({ result, profile, quizType }: Props) {
       {/* Share actions */}
       <div className="flex flex-wrap gap-3 justify-center">
         <Button onClick={handleCopyText} variant="primary">
-          Copy Result to Share
+          {copiedText ? "Copied ✓" : "Copy Result to Share"}
         </Button>
         <Button onClick={handleCopyLink} variant="secondary">
-          Copy Link
+          {copiedLink ? "Copied ✓" : "Copy Link"}
         </Button>
       </div>
 
       <p className="text-xs opacity-40 text-center">
-        Share your result with a partner or friend — and ask them to take theirs.
+        Send it to a partner. Ask them to take theirs. See where you match — and where you don't.
       </p>
     </div>
   );

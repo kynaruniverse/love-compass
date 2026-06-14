@@ -25,9 +25,6 @@ export default function ResultsProfile({
         <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
         <div className="relative space-y-5">
           <div>
-            <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)] mb-3">
-              Your Result
-            </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[var(--primary)]">
               {primary.name}
             </h2>
@@ -160,7 +157,7 @@ export default function ResultsProfile({
       {/* ── Full profile breakdown ── */}
       {rest.length > 0 && (
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold tracking-tight font-serif">
+          <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">
             Full Profile Breakdown
           </h2>
           <div className="space-y-3">

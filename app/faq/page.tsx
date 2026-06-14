@@ -1,122 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-// ── Particle canvas (shared with About) ──────────────────────────────────────
-
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  opacity: number;
-  type: "heart" | "dot";
-  wobble: number;
-  wobbleSpeed: number;
-}
-
-function ParticleCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId: number;
-    let particles: Particle[] = [];
-
-    function resize() {
-      canvas!.width = window.innerWidth;
-      canvas!.height = document.documentElement.scrollHeight;
-    }
-
-    function spawnParticle(): Particle {
-      return {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * document.documentElement.scrollHeight,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: -Math.random() * 0.4 - 0.1,
-        size: Math.random() * 7 + 3,
-        opacity: Math.random() * 0.18 + 0.04,
-        type: Math.random() > 0.45 ? "heart" : "dot",
-        wobble: Math.random() * Math.PI * 2,
-        wobbleSpeed: Math.random() * 0.012 + 0.004,
-      };
-    }
-
-    function drawHeart(ctx: CanvasRenderingContext2D, x: number, y: number, size: number) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(size / 10, size / 10);
-      ctx.beginPath();
-      ctx.moveTo(0, -3);
-      ctx.bezierCurveTo(0, -6, -5, -6, -5, -2);
-      ctx.bezierCurveTo(-5, 1, 0, 5, 0, 7);
-      ctx.bezierCurveTo(0, 5, 5, 1, 5, -2);
-      ctx.bezierCurveTo(5, -6, 0, -6, 0, -3);
-      ctx.closePath();
-      ctx.restore();
-    }
-
-    function init() {
-      resize();
-      particles = Array.from({ length: 55 }, spawnParticle);
-    }
-
-    function tick() {
-      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-      for (const p of particles) {
-        p.wobble += p.wobbleSpeed;
-        p.x += p.vx + Math.sin(p.wobble) * 0.25;
-        p.y += p.vy;
-        if (p.y < -20) {
-          p.y = canvas!.height + 20;
-          p.x = Math.random() * canvas!.width;
-        }
-        ctx!.save();
-        ctx!.globalAlpha = p.opacity;
-        ctx!.fillStyle = "#5e3a73";
-        if (p.type === "heart") {
-          drawHeart(ctx!, p.x, p.y, p.size);
-          ctx!.fill();
-        } else {
-          ctx!.beginPath();
-          ctx!.arc(p.x, p.y, p.size * 0.35, 0, Math.PI * 2);
-          ctx!.fill();
-        }
-        ctx!.restore();
-      }
-      animId = requestAnimationFrame(tick);
-    }
-
-    init();
-    tick();
-    const onResize = () => resize();
-    window.addEventListener("resize", onResize);
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        zIndex: 0,
-      }}
-    />
-  );
-}
+import { useState } from "react";
+import ParticleCanvas from "@/components/ui/ParticleCanvas";
 
 // ── Accordion item ────────────────────────────────────────────────────────────
 
@@ -161,23 +46,23 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
     items: [
       {
         q: "Is this scientifically validated?",
-        a: "No — and honestly, let's be real about what that question even means. Science is exceptional at measuring observable, repeatable phenomena. Love is neither. No lab has ever successfully bottled what makes one person feel completely seen by a partner and completely invisible with another. Love is subjective, personal, and stubbornly individual — and any tool that claims to have scientifically cracked it is selling you something. What Love Compass does is give you a structured mirror. The frameworks it draws on are grounded in decades of relationship research, but the real validation isn't clinical — it's whether the results make you think, recognise yourself, and understand something you didn't before. That's the only measure that matters here."
+        a: "No — and let's be honest about what that question is really asking. Science is exceptional at measuring repeatable, observable phenomena. Love is neither. No lab has successfully bottled why one person can feel completely known by a partner and completely invisible with another who, on paper, ticks every box. Love Compass doesn't claim clinical validation. What it does is give you a structured mirror — built on frameworks grounded in decades of relationship research, filtered through the one variable that actually matters: whether the results make you recognise something true about yourself. That's the only measure worth having here."
       },
       {
         q: "What's the difference between the receiving and giving tests?",
-        a: "The receiving tests are about what you need — how you feel most loved and desired, and what a partner needs to give you for you to feel truly seen. The giving tests are about what you naturally offer — how you express love and desire without even thinking about it, and which kind of partner will feel most loved by exactly that. Most people have taken tests like this before and only ever seen half the picture. Taking both sides is where it gets genuinely interesting."
+        a: "The receiving tests are about what you need — how love and desire need to arrive for you to feel them. The giving tests are about what you naturally offer — how you express care and want without even thinking about it, and which kind of partner will feel most seen by exactly that. Most people have taken tests like this before and only ever seen one side. Taking both is where it gets genuinely interesting — and sometimes uncomfortable."
       },
       {
         q: "How long does each assessment take?",
-        a: "5 to 10 minutes for most. The Full Profile tests run a little longer. But honestly — the time it takes is the least interesting thing about it. Sit with each question properly rather than clicking through on autopilot. The answers you give quickly are often the least true ones."
+        a: "Five to ten minutes. But the time is the least interesting thing about it. Sit with each question properly rather than clicking through on instinct. The answers that come quickest are often the least honest ones."
       },
       {
         q: "Should I answer based on how I am, or how I want to be?",
-        a: "How you actually are. Every time. It's tempting to answer as the version of yourself you're working toward — the more secure, more generous, more emotionally available one. But that person doesn't need the results. You do. The most useful thing you can bring to this is honesty, even when the honest answer is a little uncomfortable to admit."
+        a: "How you actually are. Every time. It's tempting to answer as the version of yourself you're working toward — more secure, more generous, more emotionally available. But that person doesn't need the results. You do. The most useful thing you can bring to this is honesty, even when the honest answer is a little uncomfortable to look at."
       },
       {
         q: "Can I take the tests more than once?",
-        a: "As many times as you like. Nothing is saved between sessions, so each time is a clean slate. People often find their results shift after a significant relationship, a period of therapy, or simply a few years of living differently. Who you are in relationships at 25 and at 35 can be genuinely different people — it's worth checking in."
+        a: "As many times as you like. Nothing is saved between sessions — each visit is a clean slate. People often find their results shift meaningfully after a significant relationship, a period of therapy, or simply a few years of living differently. Who you are at 24, coming out of your first real relationship, and who you are at 36 having genuinely learned some things — they can look almost nothing alike. Both can be accurate. It's worth checking in."
       },
     ]
   },
@@ -186,23 +71,23 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
     items: [
       {
         q: "Why do I have multiple top results instead of one clear answer?",
-        a: "Because you're not one thing — and any tool that tells you otherwise is oversimplifying you for its own convenience. Human beings are layered. Relational preferences are almost always a blend, and your profile mix is usually more accurate and more interesting than a single tidy label. If two categories are close, that's not a flaw in the results. That's the results being honest about you."
+        a: "Because you're not one thing. Any tool that tells you otherwise is simplifying you for its own convenience. Relational preferences are almost always a blend, and your profile mix is usually more accurate and more interesting than a single tidy label. If two categories are close, that's not a flaw in the results. That's the results being honest about you."
       },
       {
         q: "My result doesn't feel accurate — what should I do?",
-        a: "First, honest question: did you answer as you actually are, or as you wish you were? That gap is where most inaccurate results come from. If you're genuinely confident your answers were honest and it still feels off — sit with it a little longer before dismissing it. Sometimes the results that feel wrong are the most revealing ones. If after all that it still doesn't fit, try the Full Profile test. It casts a wider net and often gives a more complete picture."
+        a: "First, honest question: did you answer as you actually are, or as you'd prefer to be? That gap is where most inaccurate results come from. If you're genuinely confident your answers were honest and it still feels off — sit with it a little longer before dismissing it. Sometimes the result that feels wrong is the most revealing one. The Intimacy test in particular has a way of returning things people weren't quite ready to see."
       },
       {
         q: "What does the percentage next to each category mean?",
-        a: "It shows how consistently that dimension showed up across your answers, measured against the maximum it could possibly score. Think of it less as a grade and more as a signal strength. A high percentage means that category came through loudly and repeatedly. A lower one doesn't mean it's absent just quieter. And for the avoidance of doubt: none of these numbers are a rating of how loveable or desirable you are. That's not what we're measuring."
+        a: "It shows how consistently that dimension appeared across your answers, measured against the maximum it could have scored. Think of it as signal strength, not a grade. A high percentage means that category came through loudly and repeatedly. Lower doesn't mean absent — just quieter. And none of these numbers are a measure of how loveable or desirable you are. That's not what we're measuring."
       },
       {
         q: "What does the secondary flavour in my result mean?",
-        a: "It's the dimension that came in second — close enough to matter, strong enough to shape how your primary type actually shows up in real life. Two people can share the same primary archetype and feel completely different to love or be loved by, because their secondary flavours are different. It's where the nuance lives. Pay attention to it."
+        a: "It's the dimension that came in second — close enough to matter, strong enough to shape how your primary type actually shows up in real life. Two people can share a primary archetype and feel completely different to love or be loved by, because their secondary flavours pull in different directions. Pay attention to it. It's where most of the nuance lives."
       },
       {
         q: "Can my results change over time?",
-        a: "Yes — and if they don't, that might be worth examining in itself. The people we are in relationships evolve. Attachment patterns shift. Old wounds heal or deepen. A result at 22 coming out of your first serious relationship and a result at 35 after a decade of genuinely knowing yourself can look almost nothing alike, and both can be completely accurate for who you were at that moment. This isn't a one-time test. Think of it more like a check-in."
+        a: "Yes — and if they don't across many years, that might be the more interesting thing to examine. Attachment patterns shift. Old damage heals or deepens. A result you got at 22 and one you get at 35 can look almost nothing alike, and both can be entirely true for who you were at that moment. Think of it less as a one-time test and more as a periodic check-in with yourself."
       },
     ]
   },
@@ -211,7 +96,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
     items: [
       {
         q: "Is my data stored anywhere?",
-        a: "No. Your answers live only in your browser session and disappear the moment you close the tab. Nothing is sent to a server. Nothing sits in a database. No account, no tracking, no aggregate data collection. We genuinely cannot see your answers — and that's by design, not just policy."
+        a: "No. Your answers live only in your browser session and disappear the moment you close the tab. Nothing is sent to a server. Nothing sits in a database. We genuinely cannot see your answers — and that's by design, not just policy."
       },
       {
         q: "Do I need to create an account?",
@@ -219,7 +104,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
       },
       {
         q: "Is Love Compass free?",
-        a: "Every assessment is completely free. No paywalls, no premium results, no 'unlock your full profile' gates. What you see is what you get."
+        a: "Completely free. No paywalls, no premium tier, no 'unlock your full results' gate. What you see is what you get."
       },
     ]
   },
@@ -260,8 +145,7 @@ export default function FAQPage() {
             Common questions
           </h1>
           <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-            Honest answers to the questions most people have before, during,
-            and after taking an assessment. No filler.
+            Honest answers. No filler. No upsell at the bottom.
           </p>
         </div>
 

@@ -11,37 +11,25 @@ export const assessments: Assessment[] = [
   {
     slug: "love",
     title: "Love Preference Test",
-    description: "How you feel loved in relationships.",
+    description: "What does love actually feel like when it lands for you? This maps where you really live.",
     mode: "receiving"
   },
   {
     slug: "intimacy",
     title: "Intimacy Style Test",
-    description: "How you experience desire and connection.",
-    mode: "receiving"
-  },
-  {
-    slug: "hybrid",
-    title: "Full Profile Test",
-    description: "Combined love + intimacy assessment.",
+    description: "Desire has a grammar. This finds yours.",
     mode: "receiving"
   },
   {
     slug: "love-giving",
     title: "How You Love",
-    description: "How you naturally express love to a partner.",
+    description: "The love you give without thinking about it — and who it reaches.",
     mode: "giving"
   },
   {
     slug: "intimacy-giving",
     title: "How You Desire",
-    description: "How you naturally express desire and intimacy.",
-    mode: "giving"
-  },
-  {
-    slug: "hybrid-giving",
-    title: "Your Full Expression Profile",
-    description: "How you love and desire — your complete giving profile.",
+    description: "How you communicate want. What you reach for. What your body already knows.",
     mode: "giving"
   }
 ];

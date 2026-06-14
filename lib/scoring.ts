@@ -5,26 +5,34 @@ export function createEmptyScores(): ScoreMap {
 }
 
 /**
- * Maximum possible score per category given a question bank.
+ * Maximum possible score, per category, given a question bank.
  * Used for normalization.
- * - forced-choice: each question contributes (weight) to exactly one category
- *   so max per category = sum of all weights (best case all go to one bucket)
- * - likert: max = 5 × weight to the target category
+ * - forced-choice: every question can theoretically go to any single
+ *   category, so its weight counts toward every category's ceiling.
+ * - likert: max = 5 × weight, but only toward that question's own
+ *   category — a likert question can never inflate another category's max.
  * - reverse: max contribution is 0 (reverse can only subtract, never add)
  */
-export function maxPossibleScore(questions: QuizQuestion[]): number {
-  let total = 0;
+export function maxPossibleScores(questions: QuizQuestion[]): ScoreMap {
+  let forcedChoiceTotal = 0;
+  const likertMaxByCategory = createEmptyScores();
+
   for (const q of questions) {
     const type: QuestionType = q.type ?? "forced-choice";
     const weight = q.weight ?? 1;
     if (type === "forced-choice") {
-      total += weight;
-    } else if (type === "likert") {
-      total += 5 * weight;
+      forcedChoiceTotal += weight;
+    } else if (type === "likert" && q.category) {
+      likertMaxByCategory[q.category] += 5 * weight;
     }
     // reverse questions can only reduce scores, never increase max
   }
-  return total;
+
+  const max = createEmptyScores();
+  (Object.keys(max) as (keyof ScoreMap)[]).forEach(k => {
+    max[k] = forcedChoiceTotal + likertMaxByCategory[k];
+  });
+  return max;
 }
 
 /**
@@ -76,18 +84,19 @@ export function tallyAnswers(
 
 /**
  * Normalize raw scores to 0-100 percentages.
- * Uses the actual max possible score across all questions as the ceiling.
+ * Each category is normalized against its own achievable ceiling, so a
+ * category reachable only via forced-choice answers (no likert question)
+ * is scaled fairly against one backed by both forced-choice and likert.
  */
 export function normalizeScores(
   scores: ScoreMap,
   questions: QuizQuestion[]
 ): ScoreMap {
-  const max = maxPossibleScore(questions);
-  if (max === 0) return scores;
+  const max = maxPossibleScores(questions);
 
   const normalized = createEmptyScores();
   (Object.keys(scores) as (keyof ScoreMap)[]).forEach(k => {
-    normalized[k] = Math.round((scores[k] / max) * 100);
+    normalized[k] = max[k] === 0 ? 0 : Math.round((scores[k] / max[k]) * 100);
   });
   return normalized;
 }

@@ -15,10 +15,8 @@ export default function sitemap() {
   const assessmentRoutes = [
     "/assessments/love",
     "/assessments/intimacy",
-    "/assessments/hybrid",
     "/assessments/love-giving",
-    "/assessments/intimacy-giving",
-    "/assessments/hybrid-giving"
+    "/assessments/intimacy-giving"
   ];
 
   const staticPriorities: Record<string, { changeFrequency: string; priority: number }> = {

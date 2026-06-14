@@ -29,11 +29,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://lovecompass.app",
     siteName: "Love Compass",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Love Compass" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Love Compass",
     description: "Discover how you give and receive love. Free assessments, no sign-up required.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://lovecompass.app",
@@ -53,8 +55,8 @@ export default function RootLayout({
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body>
         <Navbar />
-          {children}
-          <Footer />
+        {children}
+        <Footer />
       </body>
     </html>
   );

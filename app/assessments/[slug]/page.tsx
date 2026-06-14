@@ -1,33 +1,28 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useParams, useRouter, notFound } from "next/navigation";
 import { generalLoveQuestions } from "@/data/general-love";
 import { intimacyQuestions } from "@/data/intimacy";
-import { hybridQuestions } from "@/data/hybrid";
 import { generalLoveGivingQuestions } from "@/data/general-love-giving";
 import { intimacyGivingQuestions } from "@/data/intimacy-giving";
-import { hybridGivingQuestions } from "@/data/hybrid-giving";
 import { useQuiz } from "@/lib/useQuiz";
 import QuizCard from "@/components/quiz/QuizCard";
 import { tallyAnswers } from "@/lib/scoring";
 import { QuizQuestion } from "@/types/quiz";
 
-function getQuestions(slug: string): QuizQuestion[] {
+function getQuestions(slug: string): QuizQuestion[] | null {
   switch (slug) {
     case "love":
       return generalLoveQuestions;
     case "intimacy":
       return intimacyQuestions;
-    case "hybrid":
-      return hybridQuestions;
     case "love-giving":
       return generalLoveGivingQuestions;
     case "intimacy-giving":
       return intimacyGivingQuestions;
-    case "hybrid-giving":
-      return hybridGivingQuestions;
     default:
-      return generalLoveQuestions;
+      return null;
   }
 }
 
@@ -36,18 +31,24 @@ export default function QuizPage() {
   const router = useRouter();
 
   const questions = getQuestions(slug as string);
+
+  if (!questions) {
+    notFound();
+  }
+
   const quiz = useQuiz(questions);
 
-  if (quiz.isComplete) {
+  useEffect(() => {
+    if (!quiz.isComplete) return;
+
     const results = tallyAnswers(quiz.answers, questions);
-
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem("results", JSON.stringify(results));
-      sessionStorage.setItem("questions", JSON.stringify(questions));
-      sessionStorage.setItem("type", slug as string);
-    }
-
+    sessionStorage.setItem("results", JSON.stringify(results));
+    sessionStorage.setItem("questions", JSON.stringify(questions));
+    sessionStorage.setItem("type", slug as string);
     router.push("/results");
+  }, [quiz.isComplete, quiz.answers, questions, slug, router]);
+
+  if (quiz.isComplete) {
     return null;
   }
 
