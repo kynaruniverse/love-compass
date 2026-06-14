@@ -1,20 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import ParticleCanvas from "@/components/ui/ParticleCanvas";
+
 // ── Section card ─────────────────────────────────────────────────────────────
 
-function Section({ children, accent = false }: { children: React.ReactNode; accent?: boolean }) {
+function Section({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className={`relative rounded-3xl border overflow-hidden shadow-sm p-7 sm:p-9 ${
-        accent
-          ? "border-[var(--accent)] bg-[var(--accent-soft)]"
-          : "border-[var(--border-soft)] bg-[var(--surface)]"
-      }`}
-    >
+    <div className="relative rounded-3xl border border-[var(--border-soft)] bg-[var(--surface)] overflow-hidden shadow-sm p-7 sm:p-9">
       <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
-      <div className="relative space-y-4">{children}</div>
+      <div className="relative space-y-5">{children}</div>
     </div>
   );
 }
@@ -31,17 +25,14 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 export default function AboutPage() {
   return (
-    <>
-      <ParticleCanvas />
-
-      <main className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-8">
+    <main className="max-w-3xl mx-auto px-5 py-16 space-y-8">
 
         {/* Hero heading */}
-        <div className="space-y-3 pb-2">
+        <div className="space-y-4 pb-4">
           <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
             About
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
             Understanding how you love
           </h1>
           <p className="text-lg opacity-70 leading-relaxed max-w-xl">
@@ -69,41 +60,45 @@ export default function AboutPage() {
         <Section>
           <SectionHeading>What can you do here?</SectionHeading>
           <p className="opacity-80 leading-relaxed">
-            Four assessments. Each one surfaces a different dimension of your relational self.
+            Four assessments. Two sides of the same question — how you need to be loved, and how you love in return.
           </p>
-          <div className="grid sm:grid-cols-2 gap-4 pt-1">
+          <div className="grid grid-cols-2 gap-3 pt-2">
             {[
               {
+                icon: "♡",
                 label: "Love Preference Test",
                 tag: "Receiving",
-                desc: "How love needs to arrive for you to feel it.",
+                desc: "How love needs to arrive for you to actually feel it.",
               },
               {
+                icon: "✦",
                 label: "How You Love",
                 tag: "Giving",
-                desc: "How you express love without thinking about it — and who feels it.",
+                desc: "How you express love without thinking about it.",
               },
               {
+                icon: "◎",
                 label: "Intimacy Style Test",
                 tag: "Receiving",
-                desc: "What makes you feel genuinely desired. How sex and closeness actually work for you.",
+                desc: "What makes you feel genuinely desired.",
               },
               {
+                icon: "⟡",
                 label: "How You Desire",
                 tag: "Giving",
-                desc: "How you communicate want. What you naturally reach for.",
+                desc: "How you communicate want and reach for connection.",
               },
             ].map(item => (
               <div
                 key={item.label}
-                className="relative rounded-2xl border border-[var(--border-soft)] bg-[var(--background)] p-4 space-y-1.5 overflow-hidden"
+                className="relative rounded-2xl border border-[var(--border-soft)] bg-[var(--background)] p-4 space-y-3 overflow-hidden"
               >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-serif font-semibold text-sm text-[var(--primary)]">
-                    {item.label}
+                <div className="flex items-start justify-between gap-2">
+                  <span className="text-2xl leading-none text-[var(--primary)] opacity-60">
+                    {item.icon}
                   </span>
                   <span
-                    className={`flex-shrink-0 text-xs px-2 py-0.5 rounded-full font-medium ${
+                    className={`flex-shrink-0 text-xs px-2 py-0.5 rounded-full font-medium mt-0.5 ${
                       item.tag === "Giving"
                         ? "bg-[var(--accent-soft)] text-[var(--accent)]"
                         : "bg-[var(--primary-soft)] text-[var(--primary)]"
@@ -112,7 +107,12 @@ export default function AboutPage() {
                     {item.tag}
                   </span>
                 </div>
-                <p className="text-xs opacity-60 leading-relaxed">{item.desc}</p>
+                <div className="space-y-1">
+                  <p className="font-serif font-semibold text-sm text-[var(--primary)] leading-snug">
+                    {item.label}
+                  </p>
+                  <p className="text-xs opacity-60 leading-relaxed">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
         </Section>
 
         {/* Love & intimacy — the editorial section */}
-        <Section accent>
+        <Section>
           <SectionHeading>On love, intimacy, and why they matter</SectionHeading>
           <p className="opacity-85 leading-relaxed">
             Love and intimacy are two of the most overused words in the English language
@@ -184,6 +184,5 @@ export default function AboutPage() {
         </p>
 
       </main>
-    </>
   );
 }
