@@ -12,17 +12,22 @@ export default function HomePage() {
     <main className="min-h-screen">
 
       {/* -- Hero -- */}
-      <section className="relative max-w-4xl mx-auto px-4 py-28 sm:py-36 space-y-6 overflow-hidden min-h-[480px] flex flex-col justify-center">
-        <HeroBlob />
+      <section className="relative w-full overflow-hidden min-h-[420px] flex flex-col justify-center px-6 py-16 sm:py-20">
+        {/* Full-bleed blob background */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <div className="w-[90%] aspect-square max-w-2xl">
+            <HeroBlob />
+          </div>
+        </div>
 
-        <div className="relative z-10">
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
-            Love Compass
-          </h1>
-          <p className="text-xl opacity-70 max-w-xl leading-relaxed mt-4">
-            Most people move through relationships collecting evidence about other people. Rarely about themselves. Love Compass is the other kind of mirror.
+        <div className="relative z-10 max-w-xl">
+          <p className="text-2xl sm:text-3xl font-serif leading-snug opacity-90 mb-6">
+            Most people move through relationships collecting evidence about other people. Rarely about themselves.
           </p>
-          <div className="flex flex-wrap gap-3 pt-6">
+          <p className="text-lg sm:text-xl font-semibold text-[var(--primary)] mb-8">
+            Love Compass is the other kind of mirror.
+          </p>
+          <div className="flex flex-wrap gap-3">
             <Link href="/assessments">
               <Button variant="primary">
                 Take an Assessment →

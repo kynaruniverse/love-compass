@@ -71,7 +71,7 @@ function Heart() {
     }
   });
 
-  const scale = viewport.width < 6 ? 1.1 : 1.5;
+  const scale = viewport.width < 6 ? 2.2 : 2.8;
 
   return (
     <mesh ref={meshRef} geometry={geometry} scale={scale}>
@@ -87,8 +87,8 @@ function Heart() {
 
 export default function HeroBlob() {
   return (
-    <div className="hero-canvas" aria-hidden="true" style={{ opacity: 0.35, zIndex: 0 }}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+    <div className="hero-canvas" aria-hidden="true" style={{ opacity: 0.55, zIndex: 0 }}>
+      <Canvas camera={{ position: [0, 0, 5], fov: 55 }}>
         <ambientLight intensity={0.7} />
         <directionalLight position={[3, 3, 4]} intensity={1.1} color="#ffffff" />
         <directionalLight position={[-3, -2, -2]} intensity={0.5} color="#c9a14a" />

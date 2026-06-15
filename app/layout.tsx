@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -54,6 +55,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <body>
+        {/* Frosted glass top header */}
+        <header className="w-full px-6 py-4 flex items-center backdrop-blur-md bg-white/60 border-b border-white/30 z-50">
+          <Link href="/" className="flex items-center gap-3">
+            <img src="/logo.png" alt="Love Compass logo" height={32} style={{ height: "32px", width: "auto" }} />
+            <span className="font-serif font-bold text-xl text-[var(--primary)] tracking-tight">Love Compass</span>
+          </Link>
+        </header>
         <Navbar />
         {children}
         <Footer />
