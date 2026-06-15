@@ -51,25 +51,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={lora.variable}>
       <body>
-        {/* Frosted glass top header */}
-        <header className="w-full px-5 flex items-center" style={{ borderBottom: "1px solid rgba(201,161,74,0.12)" }}>
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-            style={{
-              minHeight: 56,
-              WebkitTapHighlightColor: "transparent",
-            }}
-          >
-            <img src="/logo.png" alt="Love Compass logo" style={{ height: 36, width: "auto" }} />
-            <span
-              className="font-serif font-bold tracking-tight"
-              style={{ fontSize: 18, color: "var(--primary)" }}
-            >
-              Love Compass
-            </span>
-          </Link>
-        </header>
         <Navbar />
         {children}
         <Footer />
