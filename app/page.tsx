@@ -43,67 +43,41 @@ export default function HomePage() {
       </section>
 
       {/* -- Assessment cards -- */}
-      <section className="max-w-4xl mx-auto px-4 pb-24 space-y-10">
-        <h2 className="text-2xl font-semibold tracking-tight">
+      <section className="max-w-4xl mx-auto px-4 pb-24" style={{ background: "var(--canvas-base)" }}>
+        <h2 className="text-2xl font-semibold tracking-tight pt-10 pb-2">
           Two questions worth sitting with.
         </h2>
 
         {/* Receiving group */}
-        <div className="space-y-3">
-          <p className="text-xs font-medium uppercase tracking-widest text-[var(--primary)] opacity-60">
+        <div className="mt-8">
+          <p className="text-xs font-medium uppercase tracking-widest opacity-60 mb-2" style={{ color: "var(--color-receiving-dark)" }}>
             How you need to be loved
           </p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {assessments.filter(a => a.mode === "receiving").map((a, i) => (
-              <Link
-                key={a.slug}
-                href={`/assessments/${a.slug}`}
-                className={`relative block p-5 border transition-all bg-[var(--primary-soft)] border-[var(--primary-soft)] hover:border-[var(--primary)] hover:shadow-lg hover:-translate-y-0.5 overflow-hidden shadow-sm ${
-                  i % 2 === 0 ? "rounded-3xl" : "organic-edge"
-                }`}
-              >
-                <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-                <div className="relative">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="font-serif font-semibold text-lg">{a.title}</h3>
-                    <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--primary-soft)] text-[var(--primary)] border border-[var(--primary)] border-opacity-20 flex-shrink-0">
-                      Receiving
-                    </span>
-                  </div>
-                  <p className="text-sm opacity-60">{a.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {assessments.filter(a => a.mode === "receiving").map((a) => (
+            <Link key={a.slug} href={`/assessments/${a.slug}`} className="block">
+              <div className="lc-assessment-card" data-type="receiving">
+                <span className="lc-card-badge">Receiving</span>
+                <h3 className="lc-card-title">{a.title}</h3>
+                <p className="lc-card-description">{a.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
 
         {/* Giving group */}
-        <div className="space-y-3">
-          <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] opacity-60">
+        <div className="mt-8">
+          <p className="text-xs font-medium uppercase tracking-widest opacity-60 mb-2" style={{ color: "var(--color-giving-dark)" }}>
             How you naturally love
           </p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {assessments.filter(a => a.mode === "giving").map((a, i) => (
-              <Link
-                key={a.slug}
-                href={`/assessments/${a.slug}`}
-                className={`relative block p-5 border transition-all bg-[var(--accent-soft)] border-[var(--accent-soft)] hover:border-[var(--accent)] hover:shadow-lg hover:-translate-y-0.5 overflow-hidden shadow-sm ${
-                  i % 2 === 0 ? "rounded-3xl" : "organic-edge"
-                }`}
-              >
-                <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-                <div className="relative">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="font-serif font-semibold text-lg">{a.title}</h3>
-                    <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] border-opacity-20 flex-shrink-0">
-                      Giving
-                    </span>
-                  </div>
-                  <p className="text-sm opacity-60">{a.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {assessments.filter(a => a.mode === "giving").map((a) => (
+            <Link key={a.slug} href={`/assessments/${a.slug}`} className="block">
+              <div className="lc-assessment-card" data-type="giving">
+                <span className="lc-card-badge">Giving</span>
+                <h3 className="lc-card-title">{a.title}</h3>
+                <p className="lc-card-description">{a.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
 
       </section>
