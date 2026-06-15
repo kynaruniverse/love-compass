@@ -58,7 +58,7 @@ export default function RootLayout({
         {/* Frosted glass top header */}
         <header className="w-full px-6 py-4 flex items-center backdrop-blur-md bg-white/60 border-b border-white/30 z-50">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Love Compass logo" height={32} style={{ height: "32px", width: "auto" }} />
+            <img src="/logo.png" alt="Love Compass logo" height={56} style={{ height: "56px", width: "auto" }} />
             <span className="font-serif font-bold text-xl text-[var(--primary)] tracking-tight">Love Compass</span>
           </Link>
         </header>
