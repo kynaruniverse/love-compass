@@ -8,7 +8,7 @@ import { generalLoveGivingQuestions } from "@/data/general-love-giving";
 import { intimacyGivingQuestions } from "@/data/intimacy-giving";
 import { useQuiz } from "@/lib/useQuiz";
 import QuizCard from "@/components/quiz/QuizCard";
-import ParticleCanvas from "@/components/ParticleCanvas";
+import ParticleCanvas from "@/components/ui/ParticleCanvas";
 import { tallyAnswers } from "@/lib/scoring";
 import { QuizQuestion } from "@/types/quiz";
 
