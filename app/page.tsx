@@ -180,20 +180,21 @@ export default function HomePage() {
 
           <FadeIn delay={120}>
             <h1 className="lc-hero-h1">
-              You know how they<br />
-              make you feel.
+              Understanding yourself is<br />
+              the most loving thing<br />
+              you can do.
             </h1>
           </FadeIn>
 
           <FadeIn delay={240}>
             <p className="lc-hero-sub">
-              You've never asked why.
+              For you. For them. For whoever comes next.
             </p>
           </FadeIn>
 
           <FadeIn delay={360}>
             <p className="lc-hero-body">
-              Love Compass is a set of quiet assessments that turn the mirror around — no sign-up, no diagnosis, just honest reflection.
+              Most of us love people the way we want to be loved. Love Compass helps you close that gap — four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
             </p>
           </FadeIn>
 
@@ -201,12 +202,12 @@ export default function HomePage() {
             <div className="lc-hero-ctas">
               <Link href="/assessments">
                 <Button variant="primary" className="lc-cta-primary">
-                  Begin Your Assessment →
+                  Start exploring →
                 </Button>
               </Link>
               <Link href="/about">
                 <Button variant="ghost" className="lc-cta-ghost">
-                  What is this?
+                  How it works
                 </Button>
               </Link>
             </div>
@@ -227,8 +228,9 @@ export default function HomePage() {
               How you need to be loved
             </p>
             <h2 className="lc-section-h2">Receiving</h2>
+            <p className="lc-section-subtitle">How love finds you</p>
             <p className="lc-section-sub">
-              These assessments map the ways love lands for you — how affection, intimacy, and connection actually register.
+              Not all love lands the same way. These assessments help you understand what actually reaches you — the affection, closeness, and connection that makes you feel genuinely held.
             </p>
           </div>
         </FadeIn>
@@ -245,8 +247,9 @@ export default function HomePage() {
               How you naturally love
             </p>
             <h2 className="lc-section-h2">Giving</h2>
+            <p className="lc-section-subtitle">How you love others</p>
             <p className="lc-section-sub">
-              These reveal the love you offer without thinking — your instincts, your reach, what your body already knows.
+              The love you give without thinking is often the truest thing about you. These assessments bring it into focus.
             </p>
           </div>
         </FadeIn>
