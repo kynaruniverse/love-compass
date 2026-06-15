@@ -32,23 +32,14 @@ export default function ShareCard({ result, profile, quizType }: Props) {
   const modeLabel = getModeLabel(quizType);
   const giving = isGiving(quizType);
 
-  function triggerBloom(el: HTMLElement | null) {
-    if (!el) return;
-    el.classList.remove("lc-btn-bloom");
-    void el.offsetWidth;
-    el.classList.add("lc-btn-bloom");
-    el.addEventListener("animationend", () => el.classList.remove("lc-btn-bloom"), { once: true });
-  }
-
-  function handleCopyLink(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleCopyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
       setCopiedLink(true);
-      triggerBloom(e.currentTarget);
       setTimeout(() => setCopiedLink(false), 2000);
     });
   }
 
-  function handleCopyText(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleCopyText() {
     const text = [
       `My Love Compass Result — ${modeLabel}`,
       ``,
@@ -159,10 +150,10 @@ export default function ShareCard({ result, profile, quizType }: Props) {
 
       {/* Share actions */}
       <div className="flex flex-wrap gap-3 justify-center">
-        <Button onClick={(e) => handleCopyText(e as React.MouseEvent<HTMLButtonElement>)} variant="primary">
+        <Button onClick={handleCopyText} variant="primary">
           {copiedText ? "Copied ✓" : "Copy Result to Share"}
         </Button>
-        <Button onClick={(e) => handleCopyLink(e as React.MouseEvent<HTMLButtonElement>)} variant="secondary">
+        <Button onClick={handleCopyLink} variant="secondary">
           {copiedLink ? "Copied ✓" : "Copy Link"}
         </Button>
       </div>
