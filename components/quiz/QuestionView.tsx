@@ -41,23 +41,23 @@ export default function QuestionView({
                   minHeight: 56,
                   border: "1.5px solid var(--border-soft)",
                   background: "linear-gradient(135deg, var(--surface) 80%, var(--primary-soft) 100%)",
-                  boxShadow: "0 1px 4px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
+                  boxShadow: "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
                   WebkitTapHighlightColor: "transparent",
                 }}
                 onPointerDown={e => {
                   (e.currentTarget as HTMLButtonElement).style.borderColor = "#c9a14a";
                   (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                    "0 4px 16px rgba(94,58,115,0.13), inset 0 1px 2px rgba(255,255,255,0.6)";
+                    "0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6)";
                 }}
                 onPointerUp={e => {
                   (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-soft)";
                   (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                    "0 1px 4px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
+                    "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
                 }}
                 onPointerLeave={e => {
                   (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-soft)";
                   (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                    "0 1px 4px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
+                    "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
                 }}
               >
                 {/* Gold number badge */}
@@ -65,7 +65,7 @@ export default function QuestionView({
                   className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-serif"
                   style={{
                     background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-                    color: "#1a0a2e",
+                    color: "#1C0A0E",
                     boxShadow: "0 1px 4px rgba(201,161,74,0.3)",
                   }}
                 >
@@ -90,23 +90,23 @@ export default function QuestionView({
                 minHeight: 56,
                 border: "1.5px solid var(--border-soft)",
                 background: "linear-gradient(135deg, var(--surface) 80%, var(--primary-soft) 100%)",
-                boxShadow: "0 1px 4px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
+                boxShadow: "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
                 WebkitTapHighlightColor: "transparent",
               }}
               onPointerDown={e => {
                 (e.currentTarget as HTMLButtonElement).style.borderColor = "#c9a14a";
                 (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                  "0 4px 16px rgba(94,58,115,0.13), inset 0 1px 2px rgba(255,255,255,0.6)";
+                  "0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6)";
               }}
               onPointerUp={e => {
                 (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-soft)";
                 (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                  "0 1px 4px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
+                  "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
               }}
               onPointerLeave={e => {
                 (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-soft)";
                 (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                  "0 1px 4px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
+                  "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)";
               }}
             >
               {/* Gold letter badge */}
@@ -114,7 +114,7 @@ export default function QuestionView({
                 className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-serif"
                 style={{
                   background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-                  color: "#1a0a2e",
+                  color: "#1C0A0E",
                   boxShadow: "0 1px 4px rgba(201,161,74,0.3)",
                 }}
               >

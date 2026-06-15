@@ -11,7 +11,7 @@ function Section({ children }: { children: React.ReactNode }) {
       style={{
         border: "1.5px solid rgba(201,161,74,0.25)",
         background: "var(--surface)",
-        boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+        boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
       }}
     >
       <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 style={{
                   border: "1.5px solid rgba(201,161,74,0.2)",
                   background: "var(--surface)",
-                  boxShadow: "0 1px 8px rgba(94,58,115,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
+                  boxShadow: "0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
                 }}
               >
                 <div className="flex items-start justify-between gap-2">
@@ -147,8 +147,8 @@ export default function AboutPage() {
               style={{
                 padding: "0.75rem 1.75rem",
                 minHeight: 48,
-                background: "linear-gradient(160deg, #7a4d96 0%, #5e3a73 100%)",
-                boxShadow: "0 4px 0 0 rgba(94,58,115,0.35)",
+                background: "linear-gradient(160deg, #C45070 0%, #9E3B4E 100%)",
+                boxShadow: "0 4px 0 0 rgba(158,59,78,0.35)",
                 WebkitTapHighlightColor: "transparent",
               }}
             >

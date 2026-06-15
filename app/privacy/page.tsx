@@ -11,7 +11,7 @@ function Section({ children }: { children: React.ReactNode }) {
       style={{
         border: "1.5px solid rgba(201,161,74,0.25)",
         background: "var(--surface)",
-        boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+        boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
       }}
     >
       <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />

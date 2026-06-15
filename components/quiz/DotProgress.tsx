@@ -30,7 +30,7 @@ export default function DotProgress({
           height: 6,
           borderRadius: 9999,
           background: "var(--surface-muted)",
-          boxShadow: "inset 0 1px 3px rgba(94,58,115,0.13)",
+          boxShadow: "inset 0 1px 3px rgba(158,59,78,0.13)",
         }}
       >
         <div
@@ -38,7 +38,7 @@ export default function DotProgress({
           style={{
             width: `${pct}%`,
             borderRadius: 9999,
-            background: "linear-gradient(90deg, #5e3a73 0%, #7a4d96 50%, #5e3a73 100%)",
+            background: "linear-gradient(90deg, #9E3B4E 0%, #C45070 50%, #9E3B4E 100%)",
             boxShadow: pct > 0 ? "1px 0 0 0 #c9a14a" : "none",
           }}
         />

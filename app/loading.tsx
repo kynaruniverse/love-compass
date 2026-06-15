@@ -17,7 +17,7 @@ export default function Loading() {
             <defs>
               <radialGradient id="loading-heart-grad" cx="40%" cy="35%" r="60%">
                 <stop offset="0%" stopColor="#a06ebe" stopOpacity="1" />
-                <stop offset="55%" stopColor="#5e3a73" stopOpacity="0.95" />
+                <stop offset="55%" stopColor="#9E3B4E" stopOpacity="0.95" />
                 <stop offset="100%" stopColor="#32144a" stopOpacity="0.7" />
               </radialGradient>
             </defs>

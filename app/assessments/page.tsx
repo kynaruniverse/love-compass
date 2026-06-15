@@ -41,9 +41,9 @@ export default function AssessmentsPage() {
               href={`/assessments/${a.slug}`}
               className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98]"
               style={{
-                border: "1.5px solid rgba(94,58,115,0.18)",
+                border: "1.5px solid rgba(158,59,78,0.18)",
                 background: "var(--primary-soft)",
-                boxShadow: "0 2px 16px rgba(94,58,115,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+                boxShadow: "0 2px 16px rgba(158,59,78,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
                 WebkitTapHighlightColor: "transparent",
               }}
             >

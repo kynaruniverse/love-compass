@@ -14,7 +14,7 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
       style={{
         border: "1.5px solid rgba(201,161,74,0.22)",
         background: "var(--surface)",
-        boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+        boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
       }}
     >
       <div className="absolute inset-0 paper-texture opacity-[0.25] pointer-events-none" />
@@ -191,9 +191,9 @@ export default function FAQPage() {
         <div
           className="relative rounded-3xl p-7 text-center space-y-3 overflow-hidden"
           style={{
-            border: "1.5px solid rgba(94,58,115,0.18)",
+            border: "1.5px solid rgba(158,59,78,0.18)",
             background: "var(--primary-soft)",
-            boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+            boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
           }}
         >
           <div className="absolute inset-0 paper-texture opacity-[0.25] pointer-events-none" />
@@ -211,8 +211,8 @@ export default function FAQPage() {
               style={{
                 padding: "0.75rem 1.75rem",
                 minHeight: 48,
-                background: "linear-gradient(160deg, #7a4d96 0%, #5e3a73 100%)",
-                boxShadow: "0 4px 0 0 rgba(94,58,115,0.35)",
+                background: "linear-gradient(160deg, #C45070 0%, #9E3B4E 100%)",
+                boxShadow: "0 4px 0 0 rgba(158,59,78,0.35)",
                 WebkitTapHighlightColor: "transparent",
               }}
             >

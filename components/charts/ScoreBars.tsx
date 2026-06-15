@@ -37,7 +37,7 @@ function ScoreBar({ result, rank, delay }: {
     ? "linear-gradient(90deg, #8a5fc0 0%, #c9a14a 100%)"
     : isSecond
     ? "linear-gradient(90deg, #6b3f8a 0%, #a07838 100%)"
-    : "linear-gradient(90deg, #5e3a73 0%, #7a5290 100%)";
+    : "linear-gradient(90deg, #9E3B4E 0%, #C45070 100%)";
 
   const barOpacity = isTop ? 1 : isSecond ? 0.82 : Math.max(0.4, result.percentage / 100 * 0.75 + 0.2);
 

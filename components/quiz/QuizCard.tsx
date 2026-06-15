@@ -24,7 +24,7 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
       style={{
         minHeight: "calc(100dvh - 160px)",
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
-        background: "radial-gradient(ellipse at 50% 30%, rgba(94,58,115,0.04) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse at 50% 30%, rgba(158,59,78,0.04) 0%, transparent 70%)",
       }}
     >
       <div className="pt-4 pb-3">

@@ -81,8 +81,8 @@ export default function CompassProfile({
         <defs>
           {/* Compass background glow */}
           <radialGradient id="compass-bg" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#5e3a73" stopOpacity="0.07" />
-            <stop offset="100%" stopColor="#5e3a73" stopOpacity="0" />
+            <stop offset="0%" stopColor="#9E3B4E" stopOpacity="0.07" />
+            <stop offset="100%" stopColor="#9E3B4E" stopOpacity="0" />
           </radialGradient>
 
           {/* Gold metallic needle gradient */}
@@ -103,7 +103,7 @@ export default function CompassProfile({
           <radialGradient id="jewel-center" cx="40%" cy="35%" r="60%">
             <stop offset="0%"   stopColor="#fff8e0" stopOpacity="0.95" />
             <stop offset="45%"  stopColor="#c9a14a" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#5e3a73" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#9E3B4E" stopOpacity="0.3" />
           </radialGradient>
 
           {/* Needle glow */}
@@ -114,7 +114,7 @@ export default function CompassProfile({
 
           {/* Callout bubble filter */}
           <filter id="callout-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#5e3a73" floodOpacity="0.18" />
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#9E3B4E" floodOpacity="0.18" />
           </filter>
         </defs>
 
@@ -122,10 +122,10 @@ export default function CompassProfile({
         <circle cx={center} cy={center} r={outerRadius} fill="url(#compass-bg)" />
 
         {/* Outer decorative rings */}
-        <circle cx={center} cy={center} r={outerRadius + 12} fill="none" stroke="#5e3a73" strokeWidth={1} strokeDasharray="2 6" strokeOpacity={0.25} />
-        <circle cx={center} cy={center} r={outerRadius} fill="none" stroke="#5e3a73" strokeWidth={1.5} strokeOpacity={0.3} />
-        <circle cx={center} cy={center} r={outerRadius * 0.66} fill="none" stroke="#5e3a73" strokeWidth={1} strokeDasharray="3 5" strokeOpacity={0.15} />
-        <circle cx={center} cy={center} r={outerRadius * 0.33} fill="none" stroke="#5e3a73" strokeWidth={1} strokeDasharray="3 5" strokeOpacity={0.15} />
+        <circle cx={center} cy={center} r={outerRadius + 12} fill="none" stroke="#9E3B4E" strokeWidth={1} strokeDasharray="2 6" strokeOpacity={0.25} />
+        <circle cx={center} cy={center} r={outerRadius} fill="none" stroke="#9E3B4E" strokeWidth={1.5} strokeOpacity={0.3} />
+        <circle cx={center} cy={center} r={outerRadius * 0.66} fill="none" stroke="#9E3B4E" strokeWidth={1} strokeDasharray="3 5" strokeOpacity={0.15} />
+        <circle cx={center} cy={center} r={outerRadius * 0.33} fill="none" stroke="#9E3B4E" strokeWidth={1} strokeDasharray="3 5" strokeOpacity={0.15} />
 
         {/* Tick mark ring */}
         {Array.from({ length: 36 }).map((_, i) => {
@@ -163,7 +163,7 @@ export default function CompassProfile({
               <line
                 x1={center} y1={center}
                 x2={spokeEnd.x} y2={spokeEnd.y}
-                stroke="#5e3a73"
+                stroke="#9E3B4E"
                 strokeWidth={isPrimary ? 1.5 : 1}
                 strokeOpacity={isPrimary ? 0.45 : 0.2}
               />
@@ -173,7 +173,7 @@ export default function CompassProfile({
                 cx={dotPos.x}
                 cy={dotPos.y}
                 r={isPrimary ? 6 : 4}
-                fill={isPrimary ? "#c9a14a" : "#5e3a73"}
+                fill={isPrimary ? "#c9a14a" : "#9E3B4E"}
                 fillOpacity={isPrimary ? 1 : 0.5}
               >
                 {isPrimary && mounted && !hasInteracted && (
@@ -273,7 +273,7 @@ export default function CompassProfile({
               width={76}
               height={36}
               rx={8}
-              fill="#5e3a73"
+              fill="#9E3B4E"
               fillOpacity={0.93}
               filter="url(#callout-shadow)"
             />

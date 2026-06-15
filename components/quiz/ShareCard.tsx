@@ -72,7 +72,7 @@ export default function ShareCard({ result, profile, quizType }: Props) {
           minHeight: 280,
           border: "1.5px solid #c9a14a",
           background: "var(--surface)",
-          boxShadow: "0 4px 32px rgba(94,58,115,0.13), 0 1px 4px rgba(94,58,115,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+          boxShadow: "0 4px 32px rgba(158,59,78,0.13), 0 1px 4px rgba(158,59,78,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
         }}
       >
         <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
@@ -123,7 +123,7 @@ export default function ShareCard({ result, profile, quizType }: Props) {
                     className="h-full rounded-full relative"
                     style={{
                       width: `${c.percentage}%`,
-                      background: "linear-gradient(90deg, #5e3a73 0%, #7a4d96 100%)",
+                      background: "linear-gradient(90deg, #9E3B4E 0%, #C45070 100%)",
                     }}
                   >
                     <span
