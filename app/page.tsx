@@ -4,28 +4,28 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { assessments } from "@/data/assessments";
 import Button from "@/components/ui/Button";
-
-const HeroBlob = dynamic(() => import("@/components/ui/HeroBlob"), { ssr: false });
+import InkCanvas from "@/components/ui/InkCanvas";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen">
 
       {/* -- Hero -- */}
-      <section className="relative w-full overflow-hidden min-h-[420px] flex flex-col justify-center px-6 py-16 sm:py-20">
-        {/* Full-bleed blob background */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <div className="w-[90%] aspect-square max-w-2xl">
-            <HeroBlob />
-          </div>
+      <section className="relative w-full overflow-hidden min-h-[520px] flex flex-col justify-center px-6 py-20 sm:py-28" style={{ background: "#1a0a2e" }}>
+        {/* Ink bleed animation */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <InkCanvas />
         </div>
 
-        <div className="relative z-10 max-w-xl">
-          <p className="text-2xl sm:text-3xl font-serif leading-snug opacity-90 mb-6">
-            Most people move through relationships collecting evidence about other people. Rarely about themselves.
+        <div className="relative z-10 max-w-lg">
+          <p className="text-3xl sm:text-4xl font-serif leading-tight mb-4" style={{ color: "#f5f0e8" }}>
+            You know how they make you feel.
           </p>
-          <p className="text-lg sm:text-xl font-semibold text-[var(--primary)] mb-8">
-            Love Compass is the other kind of mirror.
+          <p className="text-3xl sm:text-4xl font-serif leading-tight mb-8" style={{ color: "#c9a14a" }}>
+            You've never asked why.
+          </p>
+          <p className="text-base sm:text-lg mb-10 leading-relaxed" style={{ color: "#c4b8d4", opacity: 0.85 }}>
+            Love Compass is a set of quiet assessments that turn the mirror around.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/assessments">
