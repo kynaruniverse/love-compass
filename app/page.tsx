@@ -33,7 +33,7 @@ function FadeIn({
           obs.disconnect();
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.08 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -45,8 +45,8 @@ function FadeIn({
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
       }}
     >
       {children}
@@ -54,107 +54,65 @@ function FadeIn({
   );
 }
 
-// ── Swipeable card deck ────────────────────────────────────────────────────
-function CardDeck({
-  items,
+// ── Assessment card (vertical stack) ──────────────────────────────────────
+function AssessmentCard({
+  slug,
+  title,
+  description,
   mode,
+  index,
 }: {
-  items: typeof assessments;
+  slug: string;
+  title: string;
+  description: string;
   mode: "receiving" | "giving";
+  index: number;
 }) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
   const isReceiving = mode === "receiving";
-  const accentColor = isReceiving ? "var(--primary)" : "var(--accent)";
-  const softBg = isReceiving ? "var(--primary-soft)" : "var(--accent-soft)";
-  const modeLabel = isReceiving ? "Receiving" : "Giving";
-
-  function scrollTo(i: number) {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.children[i] as HTMLElement;
-    if (!card) return;
-    track.scrollTo({ left: card.offsetLeft - 16, behavior: "smooth" });
-    setActive(i);
-  }
-
-  // Update active dot on scroll
-  function handleScroll() {
-    const track = trackRef.current;
-    if (!track) return;
-    const cards = Array.from(track.children) as HTMLElement[];
-    let closest = 0;
-    let minDist = Infinity;
-    cards.forEach((card, i) => {
-      const dist = Math.abs(card.offsetLeft - track.scrollLeft - 16);
-      if (dist < minDist) {
-        minDist = dist;
-        closest = i;
-      }
-    });
-    setActive(closest);
-  }
 
   return (
-    <div className="lc-deck">
-      {/* Track */}
-      <div
-        ref={trackRef}
-        onScroll={handleScroll}
-        className="lc-deck-track"
-        style={{ scrollSnapType: "x mandatory", overflowX: "auto" }}
+    <FadeIn delay={index * 80}>
+      <Link
+        href={`/assessments/${slug}`}
+        className="lc-acard"
+        style={{ WebkitTapHighlightColor: "transparent" }}
       >
-        {items.map((a) => (
-          <Link
-            key={a.slug}
-            href={`/assessments/${a.slug}`}
-            className="lc-card"
+        {/* Left accent bar */}
+        <span
+          className="lc-acard-bar"
+          style={{
+            background: isReceiving ? "var(--primary)" : "var(--accent)",
+          }}
+        />
+
+        <div className="lc-acard-body">
+          {/* Mode tag */}
+          <span
+            className="lc-acard-tag"
             style={{
-              scrollSnapAlign: "start",
-              background: isReceiving ? "#F5E0E5" : "#f0e6c8",
-              border: `1.5px solid ${isReceiving ? "rgba(158,59,78,0.25)" : "rgba(201,161,74,0.35)"}`,
-              boxShadow: "0 4px 20px rgba(158,59,78,0.1), inset 0 1px 2px rgba(255,255,255,0.5)",
-              WebkitTapHighlightColor: "transparent",
+              color: isReceiving ? "var(--primary)" : "var(--accent)",
+              background: isReceiving ? "var(--primary-soft)" : "var(--accent-soft)",
             }}
           >
-            <div className="lc-card-inner">
-              {/* Mode badge */}
-              <span
-                className="lc-badge"
-                style={{ color: accentColor, borderColor: accentColor }}
-              >
-                {modeLabel}
-              </span>
+            {isReceiving ? "Receiving" : "Giving"}
+          </span>
 
-              <h3 className="lc-card-title">{a.title}</h3>
-              <p className="lc-card-desc">{a.description}</p>
-
-              <span className="lc-card-cta" style={{ color: accentColor }}>
-                Begin →
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      {/* Dots */}
-      {items.length > 1 && (
-        <div className="lc-dots">
-          {items.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Card ${i + 1}`}
-              onClick={() => scrollTo(i)}
-              className="lc-dot"
-              style={{
-                background: i === active ? accentColor : "rgba(0,0,0,0.15)",
-                transform: i === active ? "scale(1.3)" : "scale(1)",
-              }}
-            />
-          ))}
+          <h3 className="lc-acard-title">{title}</h3>
+          <p className="lc-acard-desc">{description}</p>
         </div>
-      )}
+
+        {/* Arrow */}
+        <span className="lc-acard-arrow" aria-hidden="true">→</span>
+      </Link>
+    </FadeIn>
+  );
+}
+
+// ── Section divider ────────────────────────────────────────────────────────
+function Divider() {
+  return (
+    <div className="lc-divider" aria-hidden="true">
+      <span />
     </div>
   );
 }
@@ -169,7 +127,9 @@ export default function HomePage() {
 
       {/* ── Hero ── */}
       <section className="lc-hero">
-        <div className="lc-hero-canvas">
+
+        {/* Canvas — decorative, right-side only on mobile */}
+        <div className="lc-hero-canvas" aria-hidden="true">
           <CompassCanvas />
         </div>
 
@@ -178,27 +138,25 @@ export default function HomePage() {
             <p className="lc-hero-eyebrow">Self-discovery · Relationships</p>
           </FadeIn>
 
-          <FadeIn delay={120}>
+          <FadeIn delay={100}>
             <h1 className="lc-hero-h1">
-              Understanding yourself is<br />
-              the most loving thing<br />
-              you can do.
+              Understanding yourself is the most loving thing you can do.
             </h1>
           </FadeIn>
 
-          <FadeIn delay={240}>
+          <FadeIn delay={200}>
             <p className="lc-hero-sub">
               For you. For them. For whoever comes next.
             </p>
           </FadeIn>
 
-          <FadeIn delay={360}>
+          <FadeIn delay={300}>
             <p className="lc-hero-body">
               Most of us love people the way we want to be loved. Love Compass helps you close that gap — four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
             </p>
           </FadeIn>
 
-          <FadeIn delay={480}>
+          <FadeIn delay={400}>
             <div className="lc-hero-ctas">
               <Link href="/assessments">
                 <Button variant="primary" className="lc-cta-primary">
@@ -214,64 +172,56 @@ export default function HomePage() {
           </FadeIn>
         </div>
 
-        {/* Scroll hint */}
         <div className="lc-scroll-hint" aria-hidden="true">
           <span />
         </div>
       </section>
 
-      {/* ── Receiving deck ── */}
-      <section className="lc-section">
-        <FadeIn>
-          <div className="lc-section-header">
-            <p className="lc-section-eyebrow" style={{ color: "var(--primary)" }}>
-              How you need to be loved
-            </p>
-            <h2 className="lc-section-h2">Receiving</h2>
-            <p className="lc-section-subtitle">How love finds you</p>
-            <p className="lc-section-sub">
-              Not all love lands the same way. These assessments help you understand what actually reaches you — the affection, closeness, and connection that makes you feel genuinely held.
-            </p>
-          </div>
-        </FadeIn>
-        <FadeIn delay={100}>
-          <CardDeck items={receiving} mode="receiving" />
-        </FadeIn>
-      </section>
+      {/* ── Assessments ── */}
+      <section className="lc-assessments">
+        <div className="lc-assessments-inner">
 
-      {/* ── Giving deck ── */}
-      <section className="lc-section lc-section-giving">
-        <FadeIn>
-          <div className="lc-section-header">
-            <p className="lc-section-eyebrow" style={{ color: "var(--accent)" }}>
-              How you naturally love
-            </p>
-            <h2 className="lc-section-h2">Giving</h2>
-            <p className="lc-section-subtitle">How you love others</p>
-            <p className="lc-section-sub">
-              The love you give without thinking is often the truest thing about you. These assessments bring it into focus.
-            </p>
-          </div>
-        </FadeIn>
-        <FadeIn delay={100}>
-          <CardDeck items={giving} mode="giving" />
-        </FadeIn>
-      </section>
+          {/* Receiving */}
+          <FadeIn>
+            <div className="lc-group-header">
+              <p className="lc-group-eyebrow" style={{ color: "var(--primary)" }}>
+                How you need to be loved
+              </p>
+              <h2 className="lc-group-h2">Receiving</h2>
+              <p className="lc-group-sub">
+                Not all love lands the same way. These assessments help you understand what actually reaches you — the affection, closeness, and connection that makes you feel genuinely held.
+              </p>
+            </div>
+          </FadeIn>
 
-      {/* ── Trust section ── */}
-      <section className="lc-trust">
-        <FadeIn>
-          <div className="lc-trust-inner">
-            <p className="lc-trust-icon" aria-hidden="true">◈</p>
-            <h2 className="lc-trust-h2">A tool for reflection.</h2>
-            <p className="lc-trust-body">
-              Love Compass is not a clinical evaluation. Results are personal insights — a language for patterns you already live, made visible. No account required. Nothing stored.
-            </p>
-            <Link href="/methodology">
-              <span className="lc-trust-link">Read our methodology →</span>
-            </Link>
+          <div className="lc-card-stack">
+            {receiving.map((a, i) => (
+              <AssessmentCard key={a.slug} {...a} index={i} />
+            ))}
           </div>
-        </FadeIn>
+
+          <Divider />
+
+          {/* Giving */}
+          <FadeIn>
+            <div className="lc-group-header">
+              <p className="lc-group-eyebrow" style={{ color: "var(--accent)" }}>
+                How you naturally love
+              </p>
+              <h2 className="lc-group-h2">Giving</h2>
+              <p className="lc-group-sub">
+                The love you give without thinking is often the truest thing about you. These assessments bring it into focus.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="lc-card-stack">
+            {giving.map((a, i) => (
+              <AssessmentCard key={a.slug} {...a} index={i} />
+            ))}
+          </div>
+
+        </div>
       </section>
 
       {/* ── Final CTA ── */}
@@ -281,9 +231,12 @@ export default function HomePage() {
           <p className="lc-final-sub">Four assessments. No sign-up. Take as many or as few as you like.</p>
           <Link href="/assessments">
             <Button variant="primary" className="lc-cta-primary">
-              Begin Your Assessment →
+              Start exploring →
             </Button>
           </Link>
+          <p className="lc-final-note">
+            Not a clinical evaluation. No account required. Nothing stored.
+          </p>
         </FadeIn>
       </section>
 

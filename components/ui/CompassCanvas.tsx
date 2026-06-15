@@ -25,12 +25,12 @@ export default function CompassCanvas() {
     resize();
     window.addEventListener("resize", resize);
 
-    // Aurora ribbons — speeds are now in radians/second (tiny values = slow drift)
+    // Aurora ribbons — warm gold and rose tones only, very subtle
     const ribbons = [
-      { phase: 0,   speed: 0.18, color: "rgba(201,161,74,",  amp: 0.10, freq: 0.9, yBase: 0.38, opacity: 0.13 },
-      { phase: 2.1, speed: 0.12, color: "rgba(126,87,150,",  amp: 0.08, freq: 0.6, yBase: 0.58, opacity: 0.16 },
-      { phase: 4.2, speed: 0.22, color: "rgba(201,161,74,",  amp: 0.06, freq: 1.1, yBase: 0.72, opacity: 0.09 },
-      { phase: 1.0, speed: 0.09, color: "rgba(180,130,220,", amp: 0.07, freq: 0.5, yBase: 0.22, opacity: 0.11 },
+      { phase: 0,   speed: 0.18, color: "rgba(201,161,74,",  amp: 0.10, freq: 0.9, yBase: 0.38, opacity: 0.07 },
+      { phase: 2.1, speed: 0.12, color: "rgba(158,59,78,",   amp: 0.08, freq: 0.6, yBase: 0.58, opacity: 0.06 },
+      { phase: 4.2, speed: 0.22, color: "rgba(201,161,74,",  amp: 0.06, freq: 1.1, yBase: 0.72, opacity: 0.05 },
+      { phase: 1.0, speed: 0.09, color: "rgba(201,161,74,",  amp: 0.07, freq: 0.5, yBase: 0.22, opacity: 0.04 },
     ];
 
     function drawAurora(w: number, h: number, t: number) {
@@ -178,13 +178,8 @@ export default function CompassCanvas() {
 
       ctx!.clearRect(0, 0, w, h);
 
-      // Background
-      const bg = ctx!.createLinearGradient(0, 0, w * 0.3, h);
-      bg.addColorStop(0,   "#1C0A0E");
-      bg.addColorStop(0.5, "#120820");
-      bg.addColorStop(1,   "#0d0618");
-      ctx!.fillStyle = bg;
-      ctx!.fillRect(0, 0, w, h);
+      // Background — transparent so it sits on the cream hero
+      ctx!.clearRect(0, 0, w, h);
 
       drawAurora(w, h, t);
       drawParticles(w, h, t);
