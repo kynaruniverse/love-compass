@@ -86,7 +86,7 @@ export default function ParticleCanvas() {
       const grad = ctx.createRadialGradient(-1, -2, 0, 0, 0, 8);
       if (color === "plum") {
         grad.addColorStop(0, "rgba(160,110,190,1)");
-        grad.addColorStop(0.5, "rgba(94,58,115,0.85)");
+        grad.addColorStop(0.5, "rgba(158,59,78,0.85)");
         grad.addColorStop(1, "rgba(50,20,70,0.6)");
       } else {
         grad.addColorStop(0, "rgba(245,225,153,1)");
@@ -109,7 +109,7 @@ export default function ParticleCanvas() {
       const grad = ctx.createRadialGradient(x - r * 0.3, y - r * 0.3, 0, x, y, r);
       if (color === "plum") {
         grad.addColorStop(0, "rgba(160,110,190,1)");
-        grad.addColorStop(1, "rgba(94,58,115,0.4)");
+        grad.addColorStop(1, "rgba(158,59,78,0.4)");
       } else {
         grad.addColorStop(0, "rgba(245,225,153,1)");
         grad.addColorStop(1, "rgba(201,161,74,0.3)");

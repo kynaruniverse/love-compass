@@ -180,7 +180,7 @@ export default function CompassCanvas() {
 
       // Background
       const bg = ctx!.createLinearGradient(0, 0, w * 0.3, h);
-      bg.addColorStop(0,   "#1a0a2e");
+      bg.addColorStop(0,   "#1C0A0E");
       bg.addColorStop(0.5, "#120820");
       bg.addColorStop(1,   "#0d0618");
       ctx!.fillStyle = bg;

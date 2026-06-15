@@ -26,7 +26,7 @@ export default function Button({
       disabled={disabled}
       aria-disabled={disabled}
       style={variant === "primary" ? {
-        background: "linear-gradient(160deg, #7a4d96 0%, #5e3a73 100%)",
+        background: "linear-gradient(160deg, #C45070 0%, #9E3B4E 100%)",
         WebkitTapHighlightColor: "transparent",
       } : { WebkitTapHighlightColor: "transparent" }}
       className={clsx(
@@ -39,7 +39,7 @@ export default function Button({
 
         variant === "primary" && [
           "text-white",
-          "shadow-[0_4px_0_0_rgba(94,58,115,0.35)]",
+          "shadow-[0_4px_0_0_rgba(158,59,78,0.35)]",
           "active:shadow-none active:translate-y-0.5",
         ],
 
