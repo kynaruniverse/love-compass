@@ -500,3 +500,409 @@ h1, h2, h3 {
     opacity: 0.4;
   }
 }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.lc-footer-inner {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 7rem; /* bottom clears the nav bar */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Brand */
+.lc-footer-brand {
+  margin-bottom: 1.75rem;
+}
+
+.lc-footer-logo {
+  display: inline-block;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f5f0e8;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.lc-footer-logo:hover {
+  color: var(--accent);
+}
+
+.lc-footer-tagline {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #c4b8d4;
+  opacity: 0.65;
+  max-width: 30ch;
+  font-style: italic;
+}
+
+/* CTA button */
+.lc-footer-cta {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a0a2e;
+  background: var(--accent);
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  box-shadow: 0 4px 16px rgba(201, 161, 74, 0.25);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.lc-footer-cta:hover,
+.lc-footer-cta:active {
+  box-shadow: 0 6px 24px rgba(201, 161, 74, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Divider */
+.lc-footer-divider {
+  height: 1px;
+  background: rgba(201, 161, 74, 0.12);
+  margin: 0 0 1.75rem;
+}
+
+/* Methodology row */
+.lc-footer-methodology-row {
+  margin-bottom: 1.75rem;
+}
+
+.lc-footer-methodology {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  min-height: 44px;
+  letter-spacing: 0.01em;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.lc-footer-methodology:hover,
+.lc-footer-methodology:active {
+  opacity: 1;
+}
+
+.lc-footer-methodology-sub {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.75rem;
+  color: #c4b8d4;
+  opacity: 0.45;
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+  padding-left: 1.2rem; /* indent under the ◈ icon */
+}
+
+/* Bottom row */
+.lc-footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lc-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.lc-footer-link {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.78rem;
+  color: #c4b8d4;
+  opacity: 0.4;
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.lc-footer-link:hover,
+.lc-footer-link:active {
+  opacity: 0.9;
+  color: var(--accent);
+}
+
+.lc-footer-copy {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.72rem;
+  color: #c4b8d4;
+  opacity: 0.2;
+}
+
+@media (min-width: 640px) {
+  .lc-footer-inner {
+    padding: 4rem 2.5rem 5rem;
+  }
+
+  .lc-footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ══════════════════════════════════════════
+   NAVBAR — FLOATING PILL
+══════════════════════════════════════════ */
+
+/* Pill wrapper — fixed, centred above bottom edge */
+.lc-nav-wrap {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  z-index: 50;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity  0.35s ease;
+  will-change: transform, opacity;
+}
+
+/* The pill itself */
+.lc-nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(18, 8, 32, 0.82);
+  border: 1px solid rgba(201, 161, 74, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Each nav button / link */
+.lc-nav-icon-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Bloom on tap */
+.lc-nav-icon-btn:active {
+  transform: scale(0.9);
+}
+
+/* Soft aura behind active item */
+.lc-nav-aura {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(201, 161, 74, 0.18) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.lc-nav-aura--active {
+  opacity: 1;
+}
+
+/* Icon label (tiny, beneath icon) */
+.lc-nav-label {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: inherit;
+  white-space: nowrap;
+}
+
+/* Text-only nav links (Assessments, About) */
+.lc-nav-text-label {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: inherit;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Thin vertical divider between links and hamburger */
+.lc-nav-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(201, 161, 74, 0.18);
+  margin: 0 0.15rem;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════
+   NAVBAR — SLIDE-UP MENU SHEET
+══════════════════════════════════════════ */
+.lc-nav-sheet {
+  position: fixed;
+  bottom: 5.5rem; /* sits just above the pill */
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  z-index: 49;
+  min-width: 200px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 1.25rem;
+  background: rgba(18, 8, 32, 0.92);
+  border: 1px solid rgba(201, 161, 74, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lc-nav-sheet-link {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.65);
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lc-nav-sheet-link:hover,
+.lc-nav-sheet-link:active {
+  color: var(--accent);
+  background: rgba(201, 161, 74, 0.08);
+}
+
+.lc-nav-sheet-link--active {
+  color: var(--accent);
+}
+
+/* Scroll-hide: override the centering transform cleanly */
+/* The translateX(-50%) is on .lc-nav-wrap via inline style,
+   scroll visibility uses a separate translateY via inline style too —
+   both are applied in the component directly */
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-nav-wrap,
+  .lc-nav-sheet,
+  .lc-nav-icon-btn,
+  .lc-nav-aura {
+    transition: none;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   SCOREBARS — HORIZONTAL INSIGHT LIST
+══════════════════════════════════════════ */
+.lc-scorebars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  padding: 0.25rem 0;
+}
+
+.lc-scorebar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* Label row — title left, percentage right */
+.lc-scorebar-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.lc-scorebar-title {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--foreground);
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+
+.lc-scorebar-crown {
+  color: var(--accent);
+  font-size: 0.7rem;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+}
+
+.lc-scorebar-pct {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--foreground);
+  opacity: 0.55;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+/* Track */
+.lc-scorebar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--surface-muted);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+/* Fill — width animated via JS, gradient via inline style */
+.lc-scorebar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-scorebar-fill {
+    transition: none;
+  }
+}
+

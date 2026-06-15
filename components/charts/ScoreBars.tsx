@@ -1,61 +1,91 @@
 "use client";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  Cell
-} from "recharts";
+import { useEffect, useRef, useState } from "react";
 import { CategoryResult } from "@/types/quiz";
 
-export default function ScoreBars({
-  profile
-}: {
-  profile: CategoryResult[];
+function ScoreBar({ result, rank, delay }: {
+  result: CategoryResult;
+  rank: number;
+  delay: number;
 }) {
-  const data = profile.map(c => ({
-    name: c.title.split(" ").slice(0, 2).join(" "),
-    fullName: c.title,
-    score: c.percentage
-  }));
+  const [filled, setFilled] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Animate in on scroll into view
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setFilled(true), delay);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [delay]);
+
+  const isTop    = rank === 0;
+  const isSecond = rank === 1;
+
+  // Gradient: deeper plum at low scores, brightens toward gold at high scores
+  // Top scorer gets full gold treatment
+  const barGradient = isTop
+    ? "linear-gradient(90deg, #8a5fc0 0%, #c9a14a 100%)"
+    : isSecond
+    ? "linear-gradient(90deg, #6b3f8a 0%, #a07838 100%)"
+    : "linear-gradient(90deg, #5e3a73 0%, #7a5290 100%)";
+
+  const barOpacity = isTop ? 1 : isSecond ? 0.82 : Math.max(0.4, result.percentage / 100 * 0.75 + 0.2);
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <BarChart
-        data={data}
-        margin={{ top: 5, right: 10, left: 0, bottom: 60 }}
-      >
-        <XAxis
-          dataKey="name"
-          tick={{ fontSize: 11 }}
-          angle={-35}
-          textAnchor="end"
-          interval={0}
+    <div ref={ref} className="lc-scorebar-row">
+      {/* Label row */}
+      <div className="lc-scorebar-label-row">
+        <span className="lc-scorebar-title">
+          {isTop && <span className="lc-scorebar-crown" aria-hidden="true">◆ </span>}
+          {result.title}
+        </span>
+        <span
+          className="lc-scorebar-pct"
+          style={{ color: isTop ? "var(--accent)" : undefined }}
+        >
+          {result.percentage}%
+        </span>
+      </div>
+
+      {/* Track + fill */}
+      <div className="lc-scorebar-track">
+        <div
+          className="lc-scorebar-fill"
+          style={{
+            width: filled ? `${result.percentage}%` : "0%",
+            background: barGradient,
+            opacity: barOpacity,
+          }}
         />
-        <YAxis
-          domain={[0, 100]}
-          tick={{ fontSize: 11 }}
-          tickFormatter={v => `${v}%`}
+      </div>
+    </div>
+  );
+}
+
+export default function ScoreBars({ profile }: { profile: CategoryResult[] }) {
+  // Sort highest to lowest
+  const sorted = [...profile].sort((a, b) => b.percentage - a.percentage);
+
+  return (
+    <div className="lc-scorebars">
+      {sorted.map((result, i) => (
+        <ScoreBar
+          key={result.key}
+          result={result}
+          rank={i}
+          delay={i * 80}
         />
-        <Tooltip
-          formatter={(value: number, _: string, props: { payload?: { fullName: string } }) => [
-            `${value}%`,
-            props.payload?.fullName ?? ""
-          ]}
-        />
-        <Bar dataKey="score" radius={[6, 6, 0, 0]}>
-          {data.map((_, index) => (
-            <Cell
-              key={index}
-              fill="#5e3a73"
-              fillOpacity={index === 0 ? 1 : index < 3 ? 0.5 : 0.25}
-            />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
+      ))}
+    </div>
   );
 }

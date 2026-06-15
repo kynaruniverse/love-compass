@@ -4,128 +4,234 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const links = [
+const primaryLinks = [
   { href: "/assessments", label: "Assessments" },
-  { href: "/about", label: "About" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/about",       label: "About" },
 ];
 
-function OrbitingHeart() {
-  const [angle, setAngle] = useState(0);
-  const rafRef = useRef<number>(0);
-  const lastRef = useRef<number>(0);
+const menuLinks = [
+  { href: "/faq",         label: "FAQ" },
+  { href: "/methodology", label: "Methodology" },
+  { href: "/privacy",     label: "Privacy" },
+  { href: "/terms",       label: "Terms" },
+  { href: "/disclaimer",  label: "Disclaimer" },
+];
 
-  useEffect(() => {
-    function tick(ts: number) {
-      const delta = ts - (lastRef.current || ts);
-      lastRef.current = ts;
-      setAngle(a => (a + delta * 0.12) % 360);
-      rafRef.current = requestAnimationFrame(tick);
-    }
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  const rad = (angle * Math.PI) / 180;
-  const r = 18;
-  const x = Math.cos(rad) * r;
-  const y = Math.sin(rad) * r;
-
+// ── Compass SVG logo mark ──────────────────────────────────────────────────
+function CompassMark({ active }: { active: boolean }) {
   return (
-    <span
-      aria-hidden="true"
-      style={{
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-        fontSize: "7px",
-        lineHeight: 1,
-        pointerEvents: "none",
-        userSelect: "none",
-        color: "var(--accent)",
-        opacity: 0.85,
-      }}
+    <svg
+      width="22" height="22" viewBox="0 0 22 22"
+      fill="none" aria-hidden="true"
+      style={{ display: "block" }}
     >
-      ♥
-    </span>
+      {/* Outer ring */}
+      <circle
+        cx="11" cy="11" r="9.5"
+        stroke={active ? "var(--accent)" : "currentColor"}
+        strokeWidth="1"
+        opacity={active ? 0.9 : 0.45}
+      />
+      {/* North petal */}
+      <path
+        d="M11 2.5 L12.4 9.5 L11 8 L9.6 9.5 Z"
+        fill={active ? "var(--accent)" : "currentColor"}
+        opacity={active ? 1 : 0.6}
+      />
+      {/* South petal */}
+      <path
+        d="M11 19.5 L12.4 12.5 L11 14 L9.6 12.5 Z"
+        fill={active ? "var(--accent)" : "currentColor"}
+        opacity={active ? 0.45 : 0.25}
+      />
+      {/* East petal */}
+      <path
+        d="M19.5 11 L12.5 9.6 L14 11 L12.5 12.4 Z"
+        fill={active ? "var(--accent)" : "currentColor"}
+        opacity={active ? 0.45 : 0.25}
+      />
+      {/* West petal */}
+      <path
+        d="M2.5 11 L9.5 9.6 L8 11 L9.5 12.4 Z"
+        fill={active ? "var(--accent)" : "currentColor"}
+        opacity={active ? 0.45 : 0.25}
+      />
+      {/* Centre dot */}
+      <circle
+        cx="11" cy="11" r="1.5"
+        fill={active ? "var(--accent)" : "currentColor"}
+        opacity={active ? 1 : 0.5}
+      />
+    </svg>
   );
 }
 
-export default function Navbar() {
-  const pathname = usePathname();
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const navRef = useRef<HTMLDivElement>(null);
+// ── Hamburger icon ─────────────────────────────────────────────────────────
+function HamburgerIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <rect
+        x="2" y={open ? "8.5" : "4"} width="14" height="1.5"
+        rx="0.75"
+        fill="currentColor"
+        style={{
+          transform: open ? "rotate(45deg)" : "rotate(0deg)",
+          transformOrigin: "9px 9px",
+          transition: "transform 0.25s ease, y 0.25s ease",
+        }}
+      />
+      <rect
+        x="2" y="8.25" width="14" height="1.5"
+        rx="0.75"
+        fill="currentColor"
+        style={{
+          opacity: open ? 0 : 1,
+          transition: "opacity 0.2s ease",
+        }}
+      />
+      <rect
+        x="2" y={open ? "8.5" : "12.5"} width="14" height="1.5"
+        rx="0.75"
+        fill="currentColor"
+        style={{
+          transform: open ? "rotate(-45deg)" : "rotate(0deg)",
+          transformOrigin: "9px 9px",
+          transition: "transform 0.25s ease, y 0.25s ease",
+        }}
+      />
+    </svg>
+  );
+}
 
+// ── Main navbar ────────────────────────────────────────────────────────────
+export default function Navbar() {
+  const pathname  = usePathname();
+  const [visible, setVisible] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const lastY     = useRef(0);
+  const menuRef   = useRef<HTMLDivElement>(null);
+
+  // Scroll-hide / scroll-show
   useEffect(() => {
-    const activeIndex = links.findIndex(l => pathname.startsWith(l.href));
-    if (activeIndex === -1) return;
-    const el = linkRefs.current[activeIndex];
-    const nav = navRef.current;
-    if (!el || !nav) return;
-    const navRect = nav.getBoundingClientRect();
-    const elRect = el.getBoundingClientRect();
-    setUnderlineStyle({
-      left: elRect.left - navRect.left,
-      width: elRect.width,
-    });
-  }, [pathname]);
+    function onScroll() {
+      const y = window.scrollY;
+      if (y < 80) { setVisible(true); return; }
+      if (y < lastY.current - 8)  setVisible(true);   // scrolling up
+      if (y > lastY.current + 8)  setVisible(false);  // scrolling down
+      lastY.current = y;
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close menu on route change
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
+
+  // Close menu on outside tap
+  useEffect(() => {
+    if (!menuOpen) return;
+    function onTap(e: MouseEvent | TouchEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onTap);
+    document.addEventListener("touchstart", onTap);
+    return () => {
+      document.removeEventListener("mousedown", onTap);
+      document.removeEventListener("touchstart", onTap);
+    };
+  }, [menuOpen]);
+
+  const homeActive = pathname === "/";
 
   return (
     <>
-      {/* Spacer so content doesn't hide behind bottom nav */}
-      <div className="h-16" aria-hidden="true" />
+      {/* Spacer — prevents content hiding behind nav */}
+      <div className="h-24" aria-hidden="true" />
 
-      <nav
-        className="fixed bottom-0 inset-x-0 z-50 bg-[var(--background)]/95 backdrop-blur border-t border-[var(--border-soft)]"
-        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      {/* Slide-up menu sheet */}
+      <div
+        className="lc-nav-sheet"
+        style={{
+          opacity:    menuOpen ? 1 : 0,
+          transform:  menuOpen ? "translateY(0)" : "translateY(12px)",
+          pointerEvents: menuOpen ? "auto" : "none",
+        }}
+        aria-hidden={!menuOpen}
       >
-        <div
-          ref={navRef}
-          className="max-w-lg mx-auto px-6 py-3 flex items-center justify-between relative"
-        >
-          {/* Logo with orbiting heart */}
+        {menuLinks.map((l) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            className={`lc-nav-sheet-link ${pathname.startsWith(l.href) ? "lc-nav-sheet-link--active" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            {l.label}
+          </Link>
+        ))}
+      </div>
+
+      {/* Pill nav */}
+      <div
+        ref={menuRef}
+        className="lc-nav-wrap"
+        style={{
+          transform: `translateX(-50%) translateY(${visible ? "0" : "110%"})`,
+          opacity:   visible ? 1 : 0,
+        }}
+      >
+        <nav className="lc-nav-pill" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
+
+          {/* Home / compass */}
           <Link
             href="/"
-            className="relative font-serif text-lg font-semibold tracking-tight text-[var(--primary)] w-10 h-10 flex items-center justify-center flex-shrink-0"
-            aria-label="Love Compass home"
+            className="lc-nav-icon-btn"
+            aria-label="Home"
+            style={{ color: homeActive ? "var(--accent)" : "rgba(245,240,232,0.55)" }}
           >
-            <span className="relative z-10">LC</span>
-            <OrbitingHeart />
+            <div className={`lc-nav-aura ${homeActive ? "lc-nav-aura--active" : ""}`} />
+            <CompassMark active={homeActive} />
+            <span className="lc-nav-label" style={{ color: homeActive ? "var(--accent)" : undefined }}>
+              Home
+            </span>
           </Link>
 
-          {/* Nav links + sliding underline */}
-          <div className="relative flex items-center gap-6">
-            {/* Sliding underline */}
-            <span
-              className="absolute -bottom-1 h-px bg-[var(--primary)] transition-all duration-300 ease-out"
-              style={{
-                left: underlineStyle.left,
-                width: underlineStyle.width,
-              }}
-            />
+          {/* Primary links */}
+          {primaryLinks.map((l) => {
+            const active = pathname.startsWith(l.href);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="lc-nav-icon-btn"
+                aria-current={active ? "page" : undefined}
+                style={{ color: active ? "var(--accent)" : "rgba(245,240,232,0.55)" }}
+              >
+                <div className={`lc-nav-aura ${active ? "lc-nav-aura--active" : ""}`} />
+                <span className="lc-nav-text-label">{l.label}</span>
+              </Link>
+            );
+          })}
 
-            {links.map((link, i) => {
-              const active = pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  ref={el => { linkRefs.current[i] = el; }}
-                  className={`text-sm font-medium transition-opacity ${
-                    active
-                      ? "text-[var(--primary)] opacity-100"
-                      : "opacity-50 hover:opacity-80"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </nav>
+          {/* Divider */}
+          <div className="lc-nav-divider" aria-hidden="true" />
+
+          {/* Hamburger */}
+          <button
+            className="lc-nav-icon-btn"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((o) => !o)}
+            style={{ color: menuOpen ? "var(--accent)" : "rgba(245,240,232,0.55)" }}
+          >
+            <div className={`lc-nav-aura ${menuOpen ? "lc-nav-aura--active" : ""}`} />
+            <HamburgerIcon open={menuOpen} />
+            <span className="lc-nav-label">More</span>
+          </button>
+
+        </nav>
+      </div>
     </>
   );
 }
