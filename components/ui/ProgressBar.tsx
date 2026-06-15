@@ -1,4 +1,5 @@
 import { clamp } from "@/lib/helpers";
+import { useId } from "react";
 
 export default function ProgressBar({
   value,
@@ -6,23 +7,47 @@ export default function ProgressBar({
   value: number;
   label?: string;
 }) {
+  const uid = useId().replace(/:/g, "-");
   const clamped = clamp(value, 0, 100);
   const filled = clamped >= 100;
 
   return (
     <div className="w-full flex items-center gap-3">
-      {/* Hairline track */}
+      {/* Pill track */}
       <div
-        className="flex-1 h-px bg-[var(--border-soft)] relative overflow-hidden"
+        className="flex-1 relative overflow-hidden"
         role="progressbar"
         aria-valuenow={clamped}
         aria-valuemin={0}
         aria-valuemax={100}
+        style={{
+          height: 6,
+          borderRadius: 9999,
+          background: "var(--surface-muted)",
+          boxShadow: "inset 0 1px 3px rgba(94,58,115,0.13)",
+        }}
       >
         <div
-          className="absolute inset-y-0 left-0 bg-[var(--primary)] transition-all duration-500 ease-out"
-          style={{ width: `${clamped}%` }}
-        />
+          className="absolute inset-y-0 left-0 transition-all duration-500 ease-out"
+          style={{
+            width: `${clamped}%`,
+            borderRadius: 9999,
+            background: "linear-gradient(90deg, #5e3a73 0%, #7a4d96 50%, #5e3a73 100%)",
+          }}
+        >
+          {/* Gold tip marker */}
+          {clamped > 2 && (
+            <span
+              className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full"
+              style={{
+                width: 6,
+                height: 6,
+                background: "#c9a14a",
+                boxShadow: "0 0 4px rgba(201,161,74,0.6)",
+              }}
+            />
+          )}
+        </div>
       </div>
 
       {/* Heart fill indicator */}
@@ -33,24 +58,26 @@ export default function ProgressBar({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
-        className="flex-shrink-0 transition-all duration-500"
+        className="flex-shrink-0"
       >
-        {/* Outline (always visible) */}
+        <defs>
+          <clipPath id={`heart-clip-${uid}`}>
+            <rect x="0" y="0" width={`${clamped * 0.16}`} height="16" />
+          </clipPath>
+        </defs>
+        {/* Outline */}
         <path
           d="M8 13.5C8 13.5 1.5 9.5 1.5 5.5C1.5 3.5 3 2 5 2C6.2 2 7.2 2.6 8 3.5C8.8 2.6 9.8 2 11 2C13 2 14.5 3.5 14.5 5.5C14.5 9.5 8 13.5 8 13.5Z"
-          stroke="var(--primary)"
+          stroke="#c9a14a"
           strokeWidth="1.2"
           strokeLinejoin="round"
-          opacity="0.3"
+          opacity="0.45"
         />
-        {/* Fill (clips based on progress) */}
-        <clipPath id="heart-clip">
-          <rect x="0" y="0" width={`${clamped * 0.16}`} height="16" />
-        </clipPath>
+        {/* Fill */}
         <path
           d="M8 13.5C8 13.5 1.5 9.5 1.5 5.5C1.5 3.5 3 2 5 2C6.2 2 7.2 2.6 8 3.5C8.8 2.6 9.8 2 11 2C13 2 14.5 3.5 14.5 5.5C14.5 9.5 8 13.5 8 13.5Z"
-          fill={filled ? "var(--primary)" : "var(--primary)"}
-          clipPath="url(#heart-clip)"
+          fill="var(--primary)"
+          clipPath={`url(#heart-clip-${uid})`}
           opacity={filled ? 1 : 0.85}
         />
       </svg>

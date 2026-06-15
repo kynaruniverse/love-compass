@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lora, Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -11,11 +11,7 @@ const lora = Lora({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
+// Inter removed — serif everywhere
 
 export const metadata: Metadata = {
   title: {
@@ -53,13 +49,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${lora.variable} ${inter.variable}`}>
+    <html lang="en" className={lora.variable}>
       <body>
         {/* Frosted glass top header */}
-        <header className="w-full px-6 py-4 flex items-center backdrop-blur-md bg-white/60 border-b border-white/30 z-50">
-          <Link href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Love Compass logo" height={56} style={{ height: "56px", width: "auto" }} />
-            <span className="font-serif font-bold text-xl text-[var(--primary)] tracking-tight">Love Compass</span>
+        <header className="w-full px-5 flex items-center" style={{ borderBottom: "1px solid rgba(201,161,74,0.12)" }}>
+          <Link
+            href="/"
+            className="flex items-center gap-3"
+            style={{
+              minHeight: 56,
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
+            <img src="/logo.png" alt="Love Compass logo" style={{ height: 36, width: "auto" }} />
+            <span
+              className="font-serif font-bold tracking-tight"
+              style={{ fontSize: 18, color: "var(--primary)" }}
+            >
+              Love Compass
+            </span>
           </Link>
         </header>
         <Navbar />

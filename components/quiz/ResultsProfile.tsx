@@ -17,12 +17,42 @@ export default function ResultsProfile({
   const rest = profile.filter(c => c.key !== primary.key);
   const blendRest = blend.filter(c => c.key !== primary.key);
 
+  const insightCards = [
+    {
+      title: "Strengths",
+      items: primary.strengths,
+      accent: "var(--primary)",
+    },
+    {
+      title: "Watch For",
+      items: primary.watchOuts,
+      accent: "var(--accent)",
+    },
+    {
+      title: mode === "giving" ? "Who Receives You Best" : "From a Partner",
+      items: primary.partnerNeeds,
+      accent: "var(--primary)",
+    },
+  ];
+
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
 
       {/* ── Primary archetype spotlight ── */}
-      <div className="relative organic-edge p-8 sm:p-10 border border-[var(--border-soft)] bg-[var(--surface)] shadow-md overflow-hidden">
+      <div
+        className="relative organic-edge p-8 sm:p-10 overflow-hidden"
+        style={{
+          border: "1.5px solid #c9a14a",
+          background: "var(--surface)",
+          boxShadow: "0 2px 24px rgba(94,58,115,0.08), inset 0 1px 3px rgba(255,255,255,0.7)",
+        }}
+      >
         <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+        {/* Gold top accent line */}
+        <div
+          className="absolute top-0 left-8 right-8 h-px"
+          style={{ background: "linear-gradient(90deg, transparent, #c9a14a55, transparent)" }}
+        />
         <div className="relative space-y-5">
           <div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[var(--primary)]">
@@ -33,18 +63,18 @@ export default function ResultsProfile({
             </p>
           </div>
 
-          <p className="text-sm font-medium text-[var(--primary)]">
+          <p className="text-sm font-medium" style={{ color: "var(--accent)" }}>
             {getIntensity(profile[0].percentage)}
           </p>
 
           <div className="space-y-4">
             {primary.narrative.map((para, i) => (
-              <p key={i} className="leading-relaxed opacity-90">
+              <p key={i} className="leading-relaxed opacity-90 font-serif" style={{ fontSize: 16 }}>
                 {para}
               </p>
             ))}
             {secondary && (
-              <p className="leading-relaxed opacity-90">
+              <p className="leading-relaxed opacity-90 font-serif" style={{ fontSize: 16 }}>
                 {secondary.blurb}
               </p>
             )}
@@ -52,13 +82,20 @@ export default function ResultsProfile({
         </div>
       </div>
 
-      {/* ── Your Profile Mix (top 2-3 categories blended) ── */}
+      {/* ── Profile Mix ── */}
       {blendRest.length > 0 && (
-        <div className="relative rounded-3xl p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
+        <div
+          className="relative rounded-3xl p-6 overflow-hidden"
+          style={{
+            border: "1.5px solid var(--border-soft)",
+            background: "var(--surface)",
+            boxShadow: "0 1px 8px rgba(94,58,115,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
+          }}
+        >
           <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
           <div className="relative space-y-3">
             <h3 className="font-serif font-semibold text-[var(--primary)]">Your Profile Mix</h3>
-            <p className="text-sm leading-relaxed opacity-80">
+            <p className="text-sm leading-relaxed opacity-80 font-serif" style={{ fontSize: 15 }}>
               You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
               {blendRest.length === 1 && (
                 <> — but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
@@ -72,63 +109,74 @@ export default function ResultsProfile({
         </div>
       )}
 
-      {/* ── Strengths / Watch-outs / Partner needs ── */}
-      <div className="grid sm:grid-cols-3 gap-4">
-        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
-          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-          <div className="relative space-y-3">
-            <h3 className="font-serif font-semibold text-[var(--primary)]">Strengths</h3>
-            <ul className="space-y-2 text-sm opacity-80">
-              {primary.strengths.map((s, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="text-[var(--primary)] flex-shrink-0">•</span>
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* ── Insight cards — horizontal swipe deck ── */}
+      <div>
+        <div
+          className="flex gap-4 overflow-x-auto pb-3"
+          style={{
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+          }}
+        >
+          {insightCards.map(card => (
+            <div
+              key={card.title}
+              className="relative rounded-3xl p-5 flex-shrink-0 overflow-hidden"
+              style={{
+                width: "72vw",
+                maxWidth: 280,
+                scrollSnapAlign: "start",
+                border: "1.5px solid var(--border-soft)",
+                background: "var(--surface)",
+                boxShadow: "0 1px 8px rgba(94,58,115,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
+              }}
+            >
+              <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+              <div className="relative space-y-3">
+                <h3
+                  className="font-serif font-semibold"
+                  style={{ color: card.accent }}
+                >
+                  {card.title}
+                </h3>
+                <ul className="space-y-2 text-sm opacity-80">
+                  {card.items.map((s, i) => (
+                    <li key={i} className="flex gap-2 font-serif">
+                      <span className="flex-shrink-0" style={{ color: card.accent }}>◆</span>
+                      <span>{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
-          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-          <div className="relative space-y-3">
-            <h3 className="font-serif font-semibold text-[var(--accent)]">Watch For</h3>
-            <ul className="space-y-2 text-sm opacity-80">
-              {primary.watchOuts.map((s, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="text-[var(--accent)] flex-shrink-0">•</span>
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
-          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-          <div className="relative space-y-3">
-            <h3 className="font-serif font-semibold text-[var(--primary)]">{mode === "giving" ? "Who Receives You Best" : "From a Partner"}</h3>
-            <ul className="space-y-2 text-sm opacity-80">
-              {primary.partnerNeeds.map((s, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="text-[var(--primary)] flex-shrink-0">•</span>
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        {/* Swipe hint */}
+        <p
+          className="text-center font-serif mt-1"
+          style={{ fontSize: 11, color: "var(--accent)", opacity: 0.5, letterSpacing: "0.06em" }}
+        >
+          swipe to explore ›
+        </p>
       </div>
 
       {/* ── Try This ── */}
-      <div className="relative rounded-3xl p-6 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
+      <div
+        className="relative rounded-3xl p-6 overflow-hidden"
+        style={{
+          border: "1.5px solid var(--border-soft)",
+          background: "var(--surface)",
+          boxShadow: "0 1px 8px rgba(94,58,115,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
+        }}
+      >
         <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
         <div className="relative space-y-3">
-          <h3 className="font-serif font-semibold text-[var(--accent)]">Try This</h3>
+          <h3 className="font-serif font-semibold" style={{ color: "var(--accent)" }}>Try This</h3>
           <ul className="space-y-2 text-sm opacity-80">
             {primary.tryThis.map((s, i) => (
-              <li key={i} className="flex gap-2">
-                <span className="text-[var(--accent)] flex-shrink-0">•</span>
+              <li key={i} className="flex gap-2 font-serif">
+                <span className="flex-shrink-0" style={{ color: "var(--accent)" }}>◆</span>
                 <span>{s}</span>
               </li>
             ))}
@@ -138,20 +186,26 @@ export default function ResultsProfile({
 
       {/* ── Pairings ── */}
       <div className="grid sm:grid-cols-2 gap-4">
-        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
-          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-          <div className="relative space-y-2">
-            <h3 className="font-serif font-semibold text-[var(--primary)]">Best With</h3>
-            <p className="text-sm leading-relaxed opacity-80">{primary.pairings.bestWith}</p>
+        {[
+          { title: "Best With", body: primary.pairings.bestWith, accent: "var(--primary)" },
+          { title: "Friction With", body: primary.pairings.frictionWith, accent: "var(--accent)" },
+        ].map(p => (
+          <div
+            key={p.title}
+            className="relative rounded-3xl p-5 overflow-hidden"
+            style={{
+              border: "1.5px solid var(--border-soft)",
+              background: "var(--surface)",
+              boxShadow: "0 1px 8px rgba(94,58,115,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
+            }}
+          >
+            <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+            <div className="relative space-y-2">
+              <h3 className="font-serif font-semibold" style={{ color: p.accent }}>{p.title}</h3>
+              <p className="text-sm leading-relaxed opacity-80 font-serif">{p.body}</p>
+            </div>
           </div>
-        </div>
-        <div className="relative rounded-3xl p-5 border border-[var(--border-soft)] bg-[var(--surface)] shadow-sm overflow-hidden">
-          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-          <div className="relative space-y-2">
-            <h3 className="font-serif font-semibold text-[var(--accent)]">Friction With</h3>
-            <p className="text-sm leading-relaxed opacity-80">{primary.pairings.frictionWith}</p>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* ── Full profile breakdown ── */}
@@ -163,7 +217,7 @@ export default function ResultsProfile({
           <div className="space-y-3">
             {rest.map(cat => (
               <div key={cat.key} className="space-y-1">
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between text-sm font-serif">
                   <span className="font-medium">{cat.title}</span>
                   <span className="opacity-50">{cat.percentage}%</span>
                 </div>

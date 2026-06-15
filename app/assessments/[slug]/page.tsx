@@ -8,6 +8,7 @@ import { generalLoveGivingQuestions } from "@/data/general-love-giving";
 import { intimacyGivingQuestions } from "@/data/intimacy-giving";
 import { useQuiz } from "@/lib/useQuiz";
 import QuizCard from "@/components/quiz/QuizCard";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import { tallyAnswers } from "@/lib/scoring";
 import { QuizQuestion } from "@/types/quiz";
 
@@ -49,12 +50,30 @@ export default function QuizPage() {
   }, [quiz.isComplete, quiz.answers, questions, slug, router]);
 
   if (quiz.isComplete) {
-    return null;
+    return (
+      <div
+        className="fixed inset-0 flex items-center justify-center"
+        style={{ background: "var(--background)" }}
+      >
+        <p
+          className="font-serif italic text-center"
+          style={{ color: "var(--primary)", fontSize: 18, opacity: 0.7 }}
+        >
+          Reflecting on your path…
+        </p>
+      </div>
+    );
   }
 
   return (
-    <main className="px-4 py-4">
-      <QuizCard quiz={quiz} />
+    <main
+      className="px-4 py-4 relative"
+      style={{ animation: "quiz-bloom-in 0.4s cubic-bezier(0.22, 1, 0.36, 1)" }}
+    >
+      <ParticleCanvas />
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <QuizCard quiz={quiz} />
+      </div>
     </main>
   );
 }

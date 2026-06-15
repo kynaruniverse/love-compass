@@ -6,9 +6,16 @@ import Link from "next/link";
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative rounded-3xl border border-[var(--border-soft)] bg-[var(--surface)] overflow-hidden shadow-sm p-7 sm:p-9">
+    <div
+      className="relative rounded-3xl overflow-hidden p-7 sm:p-9"
+      style={{
+        border: "1.5px solid rgba(201,161,74,0.25)",
+        background: "var(--surface)",
+        boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+      }}
+    >
       <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
-      <div className="relative space-y-5">{children}</div>
+      <div className="relative space-y-5 font-serif" style={{ fontSize: 16, lineHeight: 1.75 }}>{children}</div>
     </div>
   );
 }
@@ -29,7 +36,15 @@ export default function AboutPage() {
 
         {/* Hero heading */}
         <div className="space-y-4 pb-4">
-          <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+          <span
+            className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+            style={{
+              background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              borderColor: "#c9a14a",
+            }}
+          >
             About
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
@@ -91,7 +106,12 @@ export default function AboutPage() {
             ].map(item => (
               <div
                 key={item.label}
-                className="relative rounded-2xl border border-[var(--border-soft)] bg-[var(--background)] p-4 space-y-3 overflow-hidden"
+                className="relative rounded-2xl p-4 space-y-3 overflow-hidden"
+                style={{
+                  border: "1.5px solid rgba(201,161,74,0.2)",
+                  background: "var(--surface)",
+                  boxShadow: "0 1px 8px rgba(94,58,115,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
+                }}
               >
                 <div className="flex items-start justify-between gap-2">
                   <span className="text-2xl leading-none text-[var(--primary)] opacity-60">
@@ -123,7 +143,14 @@ export default function AboutPage() {
           <div className="pt-1">
             <Link
               href="/assessments"
-              className="inline-block px-5 py-2.5 rounded-2xl bg-[var(--primary)] text-white text-sm font-medium hover:opacity-90 transition-opacity shadow-sm"
+              className="inline-flex items-center justify-center rounded-2xl font-serif font-semibold text-white transition-all duration-150 active:scale-95 active:opacity-90"
+              style={{
+                padding: "0.75rem 1.75rem",
+                minHeight: 48,
+                background: "linear-gradient(160deg, #7a4d96 0%, #5e3a73 100%)",
+                boxShadow: "0 4px 0 0 rgba(94,58,115,0.35)",
+                WebkitTapHighlightColor: "transparent",
+              }}
             >
               Browse Assessments →
             </Link>

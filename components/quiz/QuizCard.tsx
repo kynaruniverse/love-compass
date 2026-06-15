@@ -19,8 +19,15 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
   }, [quiz.index]);
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-160px)]">
-      <div className="pt-6 pb-5">
+    <div
+      className="flex flex-col"
+      style={{
+        minHeight: "calc(100dvh - 160px)",
+        paddingBottom: "env(safe-area-inset-bottom, 0px)",
+        background: "radial-gradient(ellipse at 50% 30%, rgba(94,58,115,0.04) 0%, transparent 70%)",
+      }}
+    >
+      <div className="pt-4 pb-3">
         <DotProgress total={quiz.total} current={quiz.index} />
       </div>
 
@@ -29,7 +36,7 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
           key={animKey}
           className="w-full"
           style={{
-            animation: `quiz-slide-in-${direction} 0.35s ease-out`
+            animation: `quiz-bloom-in 0.38s cubic-bezier(0.22, 1, 0.36, 1)`
           }}
         >
           <QuestionView

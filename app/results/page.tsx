@@ -71,11 +71,29 @@ export default function ResultsPage() {
 
   if (!profile || !result) {
     return (
-      <main className="max-w-3xl mx-auto px-4 py-16 text-center space-y-4">
-        <p className="opacity-60">No results found.</p>
-        <Button onClick={() => router.push("/assessments")} variant="primary">
-          Take an Assessment
-        </Button>
+      <main className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center">
+        <div
+          className="relative text-center space-y-5 max-w-md w-full rounded-3xl overflow-hidden p-8"
+          style={{
+            border: "1.5px solid rgba(201,161,74,0.25)",
+            background: "var(--surface)",
+            boxShadow: "0 4px 32px rgba(94,58,115,0.10), inset 0 1px 2px rgba(255,255,255,0.7)",
+          }}
+        >
+          <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
+          <div
+            className="absolute top-0 left-8 right-8 h-px pointer-events-none"
+            style={{ background: "linear-gradient(90deg, transparent, #c9a14a66, transparent)" }}
+          />
+          <div className="relative space-y-4">
+            <p className="font-serif opacity-60" style={{ fontSize: 16 }}>
+              No results found.
+            </p>
+            <Button onClick={() => router.push("/assessments")} variant="primary">
+              Take an Assessment
+            </Button>
+          </div>
+        </div>
       </main>
     );
   }
@@ -144,13 +162,21 @@ export default function ResultsPage() {
 
       {/* -- Header -- */}
       <div className="space-y-3">
-        <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+        <span
+          className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+          style={{
+            background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            borderColor: "#c9a14a",
+          }}
+        >
           Your Result
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
           Here's who you are<br />in love.
         </h1>
-        <p className="opacity-60 text-sm leading-relaxed max-w-xl">
+        <p className="font-serif leading-relaxed max-w-xl" style={{ fontSize: 15, opacity: 0.7 }}>
           Based on your{" "}
           {quizType === "love"
             ? "Love Preference"
@@ -165,7 +191,14 @@ export default function ResultsPage() {
         </p>
 
         {isGivingMode(quizType) && (
-          <div className="mt-3 p-4 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] text-sm leading-relaxed">
+          <div
+            className="mt-3 p-4 rounded-2xl text-sm leading-relaxed"
+            style={{
+              border: "1.5px solid rgba(201,161,74,0.35)",
+              background: "var(--accent-soft)",
+              boxShadow: "0 1px 8px rgba(201,161,74,0.08)",
+            }}
+          >
             <p className="font-medium text-[var(--foreground)] mb-1">You're looking at how you give.</p>
             <p className="opacity-80">
               This is how you naturally express love and desire — the specific way you show up for
@@ -173,7 +206,8 @@ export default function ResultsPage() {
               you compare this to how you need to receive.{" "}
               <a
                 href="/assessments"
-                className="underline text-[var(--primary)] hover:opacity-80 transition-opacity"
+                className="underline text-[var(--primary)] transition-opacity active:opacity-60"
+                style={{ WebkitTapHighlightColor: "transparent" }}
               >
                 Take a receiving test →
               </a>
@@ -205,7 +239,14 @@ export default function ResultsPage() {
           </div>
         </div>
 
-        <div className="relative rounded-3xl border border-[var(--border-soft)] p-4 bg-[var(--surface)] overflow-hidden shadow-sm">
+        <div
+          className="relative rounded-3xl p-4 overflow-hidden"
+          style={{
+            border: "1.5px solid rgba(201,161,74,0.25)",
+            background: "var(--surface)",
+            boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+          }}
+        >
           <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
           <div className="relative">
             {view === "compass" ? (
@@ -235,7 +276,10 @@ export default function ResultsPage() {
 
       {/* ── Save results ── */}
       <details className="group">
-        <summary className="cursor-pointer text-sm opacity-50 hover:opacity-70 transition-opacity list-none flex items-center gap-2">
+        <summary
+          className="cursor-pointer text-sm opacity-50 active:opacity-70 transition-opacity list-none flex items-center gap-2"
+          style={{ WebkitTapHighlightColor: "transparent" }}
+        >
           <span className="group-open:hidden">↓ Save your results</span>
           <span className="hidden group-open:inline">↑ Save your results</span>
         </summary>

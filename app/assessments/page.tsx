@@ -10,7 +10,15 @@ export default function AssessmentsPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-16 space-y-8">
       <div className="space-y-3 pb-2">
-        <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+        <span
+          className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+          style={{
+            background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            borderColor: "#c9a14a",
+          }}
+        >
           Assessments
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
@@ -31,7 +39,13 @@ export default function AssessmentsPage() {
             <Link
               key={a.slug}
               href={`/assessments/${a.slug}`}
-              className="relative block p-6 rounded-3xl border border-[var(--primary-soft)] bg-[var(--primary-soft)] hover:border-[var(--primary)] hover:shadow-lg transition-all overflow-hidden shadow-sm"
+              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98]"
+              style={{
+                border: "1.5px solid rgba(94,58,115,0.18)",
+                background: "var(--primary-soft)",
+                boxShadow: "0 2px 16px rgba(94,58,115,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+                WebkitTapHighlightColor: "transparent",
+              }}
             >
               <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
               <div className="relative flex items-center justify-between gap-4">
@@ -58,13 +72,19 @@ export default function AssessmentsPage() {
             <Link
               key={a.slug}
               href={`/assessments/${a.slug}`}
-              className="relative block p-6 rounded-3xl border border-[var(--accent-soft)] bg-[var(--accent-soft)] hover:border-[var(--accent)] hover:shadow-lg transition-all overflow-hidden shadow-sm"
+              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98]"
+              style={{
+                border: "1.5px solid rgba(201,161,74,0.25)",
+                background: "var(--accent-soft)",
+                boxShadow: "0 2px 16px rgba(201,161,74,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+                WebkitTapHighlightColor: "transparent",
+              }}
             >
               <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
               <div className="relative flex items-center justify-between gap-4">
                 <div>
                   <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
-                  <p className="text-sm opacity-60">{a.description}</p>
+                  <p className="opacity-60 font-serif" style={{ fontSize: 15 }}>{a.description}</p>
                 </div>
                 <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] border-opacity-20 flex-shrink-0">
                   Giving

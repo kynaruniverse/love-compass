@@ -9,19 +9,32 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)] overflow-hidden shadow-sm">
+    <div
+      className="relative rounded-2xl overflow-hidden"
+      style={{
+        border: "1.5px solid rgba(201,161,74,0.22)",
+        background: "var(--surface)",
+        boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+      }}
+    >
       <div className="absolute inset-0 paper-texture opacity-[0.25] pointer-events-none" />
       <button
         onClick={() => setOpen(o => !o)}
-        className="relative w-full text-left px-6 py-5 flex items-center justify-between gap-4 group"
+        className="relative w-full text-left px-6 py-5 flex items-center justify-between gap-4 active:opacity-75 transition-opacity"
         aria-expanded={open}
+        style={{ WebkitTapHighlightColor: "transparent" }}
       >
-        <span className="font-serif font-semibold text-[var(--primary)] leading-snug group-hover:opacity-80 transition-opacity">
+        <span className="font-serif font-semibold text-[var(--primary)] leading-snug">
           {q}
         </span>
         <span
-          className="flex-shrink-0 w-7 h-7 rounded-full border border-[var(--border-soft)] flex items-center justify-center text-[var(--accent)] text-lg font-light transition-transform duration-300"
-          style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
+          className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-lg font-light transition-transform duration-300"
+          style={{
+            border: "1.5px solid rgba(201,161,74,0.4)",
+            color: "#c9a14a",
+            transform: open ? "rotate(45deg)" : "rotate(0deg)",
+            background: open ? "rgba(201,161,74,0.08)" : "transparent",
+          }}
         >
           +
         </span>
@@ -30,7 +43,10 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
         className="relative overflow-hidden transition-all duration-300 ease-in-out"
         style={{ maxHeight: open ? "600px" : "0px", opacity: open ? 1 : 0 }}
       >
-        <div className="px-6 pb-5 text-sm leading-relaxed opacity-75">
+        <div
+          className="px-6 pb-5 font-serif leading-relaxed opacity-75"
+          style={{ fontSize: 15 }}
+        >
           {a}
         </div>
       </div>
@@ -138,7 +154,15 @@ export default function FAQPage() {
 
         {/* Header */}
         <div className="space-y-3">
-          <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+          <span
+            className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+            style={{
+              background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              borderColor: "#c9a14a",
+            }}
+          >
             FAQ
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
@@ -152,7 +176,7 @@ export default function FAQPage() {
         {/* FAQ sections */}
         {faqs.map(section => (
           <div key={section.category} className="space-y-3">
-            <h2 className="font-serif text-lg font-semibold text-[var(--accent)] tracking-wide">
+            <h2 className="font-serif text-lg font-semibold tracking-wide" style={{ color: "var(--accent)" }}>
               {section.category}
             </h2>
             <div className="space-y-2">
@@ -164,19 +188,33 @@ export default function FAQPage() {
         ))}
 
         {/* Bottom CTA */}
-        <div className="relative rounded-3xl border border-[var(--primary-soft)] bg-[var(--primary-soft)] p-7 text-center space-y-3 overflow-hidden">
+        <div
+          className="relative rounded-3xl p-7 text-center space-y-3 overflow-hidden"
+          style={{
+            border: "1.5px solid rgba(94,58,115,0.18)",
+            background: "var(--primary-soft)",
+            boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+          }}
+        >
           <div className="absolute inset-0 paper-texture opacity-[0.25] pointer-events-none" />
           <div className="relative">
             <p className="font-serif text-lg font-semibold text-[var(--primary)]">
               Still have a question?
             </p>
-            <p className="text-sm opacity-60 mt-1">
+            <p className="font-serif opacity-60 mt-1" style={{ fontSize: 15 }}>
               The best way to understand your results is to take an assessment and
               sit with what comes up. Most people find it more revealing than they expected.
             </p>
             <a
               href="/assessments"
-              className="inline-block mt-4 px-5 py-2.5 rounded-2xl bg-[var(--primary)] text-white text-sm font-medium hover:opacity-90 transition-opacity shadow-sm"
+              className="inline-flex items-center justify-center mt-4 rounded-2xl font-serif font-semibold text-white transition-all duration-150 active:scale-95 active:opacity-90"
+              style={{
+                padding: "0.75rem 1.75rem",
+                minHeight: 48,
+                background: "linear-gradient(160deg, #7a4d96 0%, #5e3a73 100%)",
+                boxShadow: "0 4px 0 0 rgba(94,58,115,0.35)",
+                WebkitTapHighlightColor: "transparent",
+              }}
             >
               Take an Assessment →
             </a>

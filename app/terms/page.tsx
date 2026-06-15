@@ -6,9 +6,16 @@ export const metadata = generateMeta({
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative rounded-3xl border border-[var(--border-soft)] bg-[var(--surface)] overflow-hidden shadow-sm p-7 sm:p-9">
+    <div
+      className="relative rounded-3xl overflow-hidden p-7 sm:p-9"
+      style={{
+        border: "1.5px solid rgba(201,161,74,0.25)",
+        background: "var(--surface)",
+        boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
+      }}
+    >
       <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
-      <div className="relative space-y-4">{children}</div>
+      <div className="relative space-y-4 font-serif" style={{ fontSize: 16, lineHeight: 1.75 }}>{children}</div>
     </div>
   );
 }
@@ -27,7 +34,15 @@ export default function TermsPage() {
 
       {/* Hero */}
       <div className="space-y-3 pb-2">
-        <span className="inline-block px-3 py-1 stamp-badge text-xs font-medium text-[var(--accent)]">
+        <span
+          className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+          style={{
+            background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            borderColor: "#c9a14a",
+          }}
+        >
           Legal
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
@@ -113,7 +128,8 @@ export default function TermsPage() {
           For more detail on how the site handles data, see our{" "}
           <a
             href="/privacy"
-            className="underline text-[var(--primary)] hover:opacity-80 transition-opacity"
+            className="underline text-[var(--primary)] transition-opacity active:opacity-60"
+            style={{ WebkitTapHighlightColor: "transparent" }}
           >
             Privacy Policy
           </a>

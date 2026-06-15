@@ -32,14 +32,23 @@ export default function ShareCard({ result, profile, quizType }: Props) {
   const modeLabel = getModeLabel(quizType);
   const giving = isGiving(quizType);
 
-  function handleCopyLink() {
+  function triggerBloom(el: HTMLElement | null) {
+    if (!el) return;
+    el.classList.remove("lc-btn-bloom");
+    void el.offsetWidth;
+    el.classList.add("lc-btn-bloom");
+    el.addEventListener("animationend", () => el.classList.remove("lc-btn-bloom"), { once: true });
+  }
+
+  function handleCopyLink(e: React.MouseEvent<HTMLButtonElement>) {
     navigator.clipboard.writeText(window.location.href).then(() => {
       setCopiedLink(true);
+      triggerBloom(e.currentTarget);
       setTimeout(() => setCopiedLink(false), 2000);
     });
   }
 
-  function handleCopyText() {
+  function handleCopyText(e: React.MouseEvent<HTMLButtonElement>) {
     const text = [
       `My Love Compass Result — ${modeLabel}`,
       ``,
@@ -67,25 +76,42 @@ export default function ShareCard({ result, profile, quizType }: Props) {
       {/* Visual card */}
       <div
         ref={cardRef}
-        className="relative overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--surface)] shadow-md p-8 max-w-sm mx-auto"
-        style={{ minHeight: 280 }}
+        className="relative overflow-hidden rounded-3xl p-8 max-w-sm mx-auto"
+        style={{
+          minHeight: 280,
+          border: "1.5px solid #c9a14a",
+          background: "var(--surface)",
+          boxShadow: "0 4px 32px rgba(94,58,115,0.13), 0 1px 4px rgba(94,58,115,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+        }}
       >
         <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
 
         {/* Top label */}
         <div className="relative space-y-5">
+          <div
+            className="absolute -top-8 left-0 right-0 h-px pointer-events-none"
+            style={{ background: "linear-gradient(90deg, transparent, #c9a14a66, transparent)" }}
+          />
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium opacity-40 tracking-widest uppercase">
               Love Compass
             </span>
-            <span className="px-2 py-0.5 stamp-badge text-xs font-medium text-[var(--accent)]">
+            <span
+              className="px-2 py-0.5 stamp-badge text-xs font-medium"
+              style={{
+                background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                borderColor: "#c9a14a",
+              }}
+            >
               {modeLabel}
             </span>
           </div>
 
           {/* Archetype name */}
           <div>
-            <h3 className="font-serif text-2xl font-bold text-[var(--primary)] leading-tight">
+            <h3 className="font-serif text-3xl font-bold leading-tight" style={{ color: "var(--primary)" }}>
               {result.primary.name}
             </h3>
             <p className="font-serif italic text-sm opacity-60 mt-1">
@@ -101,18 +127,31 @@ export default function ShareCard({ result, profile, quizType }: Props) {
                   <span className="opacity-70 font-medium">{c.title}</span>
                   <span className="opacity-40">{c.percentage}%</span>
                 </div>
-                <div className="h-1.5 rounded-full bg-[var(--border-soft)] overflow-hidden">
+                <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--surface-muted)" }}>
                   <div
-                    className="h-full rounded-full bg-[var(--primary)]"
-                    style={{ width: `${c.percentage}%` }}
-                  />
+                    className="h-full rounded-full relative"
+                    style={{
+                      width: `${c.percentage}%`,
+                      background: "linear-gradient(90deg, #5e3a73 0%, #7a4d96 100%)",
+                    }}
+                  >
+                    <span
+                      className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full"
+                      style={{
+                        width: 6,
+                        height: 6,
+                        background: "#c9a14a",
+                        boxShadow: "0 0 4px rgba(201,161,74,0.6)",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Footer tag */}
-          <p className="text-xs opacity-30 tracking-wide">
+          <p className="opacity-30 tracking-wide" style={{ fontSize: 13 }}>
             lovecompass.app
           </p>
         </div>
@@ -120,10 +159,10 @@ export default function ShareCard({ result, profile, quizType }: Props) {
 
       {/* Share actions */}
       <div className="flex flex-wrap gap-3 justify-center">
-        <Button onClick={handleCopyText} variant="primary">
+        <Button onClick={(e) => handleCopyText(e as React.MouseEvent<HTMLButtonElement>)} variant="primary">
           {copiedText ? "Copied ✓" : "Copy Result to Share"}
         </Button>
-        <Button onClick={handleCopyLink} variant="secondary">
+        <Button onClick={(e) => handleCopyLink(e as React.MouseEvent<HTMLButtonElement>)} variant="secondary">
           {copiedLink ? "Copied ✓" : "Copy Link"}
         </Button>
       </div>
