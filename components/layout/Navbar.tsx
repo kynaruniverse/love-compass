@@ -147,8 +147,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Spacer — prevents content hiding behind nav */}
-      <div className="h-24" aria-hidden="true" />
 
       {/* Slide-up menu sheet */}
       <div

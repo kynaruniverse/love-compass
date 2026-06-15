@@ -112,9 +112,9 @@ function CardDeck({
             className="lc-card"
             style={{
               scrollSnapAlign: "start",
-              background: softBg,
-              border: `1.5px solid ${isReceiving ? "rgba(94,58,115,0.15)" : "rgba(201,161,74,0.2)"}`,
-              boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
+              background: isReceiving ? "#e8dcf2" : "#f0e6c8",
+              border: `1.5px solid ${isReceiving ? "rgba(94,58,115,0.25)" : "rgba(201,161,74,0.35)"}`,
+              boxShadow: "0 4px 20px rgba(94,58,115,0.1), inset 0 1px 2px rgba(255,255,255,0.5)",
               WebkitTapHighlightColor: "transparent",
             }}
           >
@@ -234,6 +234,42 @@ export default function HomePage() {
         </FadeIn>
         <FadeIn delay={100}>
           <CardDeck items={receiving} mode="receiving" />
+        </FadeIn>
+      </section>
+
+      {/* ── Giving deck ── */}
+      <section className="lc-section lc-section-giving">
+        <FadeIn>
+          <div className="lc-section-header">
+            <p className="lc-section-eyebrow" style={{ color: "var(--accent)" }}>
+              How you naturally love
+            </p>
+            <h2 className="lc-section-h2">Giving</h2>
+            <p className="lc-section-sub">
+              These reveal the love you offer without thinking — your instincts, your reach, what your body already knows.
+            </p>
+          </div>
+        </FadeIn>
+        <FadeIn delay={100}>
+          <CardDeck items={giving} mode="giving" />
+        </FadeIn>
+      </section>
+
+      {/* ── Giving deck ── */}
+      <section className="lc-section lc-section-giving">
+        <FadeIn>
+          <div className="lc-section-header">
+            <p className="lc-section-eyebrow" style={{ color: "var(--accent)" }}>
+              How you naturally love
+            </p>
+            <h2 className="lc-section-h2">Giving</h2>
+            <p className="lc-section-sub">
+              These reveal the love you offer without thinking — your instincts, your reach, what your body already knows.
+            </p>
+          </div>
+        </FadeIn>
+        <FadeIn delay={100}>
+          <CardDeck items={giving} mode="giving" />
         </FadeIn>
       </section>
 

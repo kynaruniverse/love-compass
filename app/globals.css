@@ -104,6 +104,7 @@ h1, h2, h3 {
   justify-content: center;
   overflow: hidden;
   padding: 6rem 1.5rem 5rem;
+  background: #2d1b4e;
 }
 
 .lc-hero-canvas {
@@ -226,12 +227,12 @@ h1, h2, h3 {
    HOMEPAGE — ASSESSMENT SECTIONS
 ══════════════════════════════════════════ */
 .lc-section {
-  background: var(--background);
+  background: #f2ecf7;
   padding: 5rem 1.5rem 3rem;
 }
 
 .lc-section-giving {
-  background: #faf9f7;
+  background: #ede4f5;
 }
 
 .lc-section-header {
@@ -291,14 +292,14 @@ h1, h2, h3 {
 .lc-card {
   flex: 0 0 80vw;
   max-width: 320px;
-  min-height: 220px;
+  min-height: 240px;
   border: 1.5px solid transparent;
   border-radius: 1.75rem;
   overflow: hidden;
   position: relative;
   display: block;
   text-decoration: none;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(94, 58, 115, 0.12);
   scroll-snap-align: start;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -379,7 +380,7 @@ h1, h2, h3 {
    HOMEPAGE — TRUST SECTION
 ══════════════════════════════════════════ */
 .lc-trust {
-  background: #1a0a2e;
+  background: #3b2060;
   padding: 5rem 1.5rem;
 }
 
@@ -407,12 +408,12 @@ h1, h2, h3 {
 
 .lc-trust-body {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: #c4b8d4;
-  opacity: 0.8;
+  color: #d8cee8;
+  opacity: 0.9;
   margin-bottom: 1.75rem;
-  font-style: italic;
+  font-style: normal;
 }
 
 .lc-trust-link {
@@ -435,7 +436,7 @@ h1, h2, h3 {
 ══════════════════════════════════════════ */
 .lc-final-cta {
   background: var(--background);
-  padding: 5rem 1.5rem 8rem;
+  padding: 4rem 1.5rem 5rem;
   text-align: center;
 }
 
@@ -479,7 +480,7 @@ h1, h2, h3 {
   }
 
   .lc-final-cta {
-    padding: 6rem 2.5rem 10rem;
+    padding: 5rem 2.5rem 6rem;
   }
 }
 
