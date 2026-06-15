@@ -44,7 +44,7 @@ export default function MethodologyPage() {
       <Section>
         <SectionHeading>How the questions are designed</SectionHeading>
         <p className="opacity-80 leading-relaxed">
-          Every question is written to surface genuine relational preference —
+          Every question is written to surface genuine relational preference,
           not the answer you think sounds healthiest, most mature, or most
           desirable. That's harder to achieve than it sounds. People are
           remarkably good at answering as the version of themselves they're
@@ -53,14 +53,14 @@ export default function MethodologyPage() {
         </p>
         <p className="opacity-80 leading-relaxed">
           To counter this, the assessments use two question formats. Forced-choice
-          questions ask you to pick between two options when you can't have both —
+          questions ask you to pick between two options when you can't have both,
           revealing your true relative preferences under constraint. Scale questions
           measure the strength of feeling on a specific dimension. Some questions
           are reverse-scored to catch automatic or socially desirable answering
           patterns.
         </p>
         <p className="opacity-80 leading-relaxed">
-          The instruction to answer as you actually are — not as you want to be —
+          The instruction to answer as you actually are, not as you want to be,
           is the most important part of the whole process. The questions only work
           if you take it seriously.
         </p>
@@ -76,7 +76,7 @@ export default function MethodologyPage() {
           them.
         </p>
         <p className="opacity-80 leading-relaxed">
-          Scores are then normalised so your results show a genuine distribution —
+          Scores are then normalised so your results show a genuine distribution:
           not just which dimension scored highest, but by how much, and what came
           close behind. That full picture matters. Two people can share the same
           primary result and feel completely different to love, because their
@@ -94,15 +94,15 @@ export default function MethodologyPage() {
       <Section>
         <SectionHeading>Archetypes and flavors</SectionHeading>
         <p className="opacity-80 leading-relaxed">
-          Once your profile is scored, it's matched to an archetype — a named
-          pattern that captures how your top dimensions combine in practice.
+          Once your profile is scored, it's matched to an archetype,
+          that captures how your top dimensions combine in practice.
           Archetypes aren't labels. They're shorthand for something more
           complex: a way of describing how your relational tendencies show up
           together, not in isolation.
         </p>
         <p className="opacity-80 leading-relaxed">
-          Your secondary dimension — the one that scored closest behind your
-          primary — is called your flavor. It's where a lot of the nuance
+          Your secondary dimension, the one that scored closest behind your
+          primary, is called your flavor. It's where a lot of the nuance
           lives. Two people with the same primary archetype can feel very
           different to be in a relationship with, because their flavors pull
           in different directions. Pay attention to it.
@@ -114,15 +114,15 @@ export default function MethodologyPage() {
         <SectionHeading>What the results mean</SectionHeading>
         <p className="opacity-80 leading-relaxed">
           A higher score in a dimension reflects a stronger relative preference
-          — not a fixed trait, not a personality type, and not a prediction
+          . It's not a fixed trait, not a personality type, and not a prediction
           about how any specific relationship will go. People are complex,
           context-dependent, and capable of change. Your results today may look
           different from your results in three years, and both can be completely
           accurate.
         </p>
         <p className="opacity-80 leading-relaxed">
-          The goal is clarity, not categorisation. Use your profile as a map —
-          a clearer picture of your actual patterns — not as a conclusion about
+          The goal is clarity, not categorisation. Use your profile as a map,
+          a clearer picture of your actual patterns, not as a conclusion about
           who you are or who you can be.
         </p>
       </Section>
@@ -134,20 +134,20 @@ export default function MethodologyPage() {
           Love Compass is not clinically validated and should not be used for
           psychological diagnosis, professional relationship advice, or any
           clinical purpose. It is a self-reflection tool, built carefully and
-          grounded in relationship research — but it is not a substitute for
+          grounded in relationship research, but it is not a substitute for
           therapy, counseling, or professional support.
         </p>
         <p className="opacity-80 leading-relaxed">
           Self-report tools have well-documented limits. People don't always
           know themselves as well as they think. Social desirability bias is
           real. Emotional state at the time of answering affects responses.
-          These are not flaws unique to Love Compass — they're inherent to
+          These are not flaws unique to Love Compass. They're inherent to
           any tool of this kind, and worth keeping in mind when reading your
           results.
         </p>
         <p className="opacity-80 leading-relaxed">
           What we can say is that the assessments are designed with those
-          limits in mind — and that the most useful thing you can bring to
+          limits in mind. The most useful thing you can bring to
           them is honesty.
         </p>
       </Section>

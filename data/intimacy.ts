@@ -26,7 +26,7 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "During intimacy, I prefer a partner who:",
     options: [
-      { letter: "A", text: "Uses words — praise, desire, clear expression." },
+      { letter: "A", text: "Uses words: praise, desire, clear expression." },
       { letter: "B", text: "Moves slowly and builds warmth." },
       { letter: "C", text: "Is direct and passionate." },
       { letter: "D", text: "Builds anticipation and seeks me out." },
@@ -106,11 +106,11 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "What makes me feel most desired is:",
     options: [
-      { letter: "A", text: "Hearing it — specifically, what they find attractive about me." },
+      { letter: "A", text: "Hearing it, specifically what they find attractive about me." },
       { letter: "B", text: "Deliberate, unhurried touch that builds slowly." },
       { letter: "C", text: "Someone who initiates with real passion and energy." },
       { letter: "D", text: "Being deliberately, unmistakably pursued." },
-      { letter: "E", text: "Genuine mutual curiosity — exploring together." },
+      { letter: "E", text: "Genuine mutual curiosity, exploring together." },
       { letter: "F", text: "Feeling emotionally safe enough to be fully present." },
       { letter: "G", text: "A partner who makes me feel confident in myself." },
       { letter: "H", text: "Both of us showing up equally." }
@@ -122,14 +122,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "In intimate moments, I value:",
     options: [
-      { letter: "A", text: "Things being said — desire and attraction spoken clearly." },
-      { letter: "B", text: "Warmth that builds — slow, close, unhurried." },
-      { letter: "C", text: "Real passion and energy — someone who means it." },
+      { letter: "A", text: "Things being said: desire and attraction spoken clearly." },
+      { letter: "B", text: "Warmth that builds: slow, close, unhurried." },
+      { letter: "C", text: "Real passion and energy, someone who means it." },
       { letter: "D", text: "The feeling of being sought out and anticipated." },
-      { letter: "E", text: "Mutual curiosity — no script, genuine discovery." },
-      { letter: "F", text: "Deep trust — feeling completely safe to be myself." },
+      { letter: "E", text: "Mutual curiosity: no script, genuine discovery." },
+      { letter: "F", text: "Deep trust: feeling completely safe to be myself." },
       { letter: "G", text: "Feeling confident and at ease in my own skin." },
-      { letter: "H", text: "Equal investment — both of us fully there." }
+      { letter: "H", text: "Equal investment: both of us fully there." }
     ]
   },
   {
@@ -138,14 +138,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 2,
     question: "If I could design what intimacy always felt like, it would be:",
     options: [
-      { letter: "A", text: "Verbally expressive — we say what we feel and want." },
-      { letter: "B", text: "Slow and tender — warmth built over time." },
-      { letter: "C", text: "Passionate — clear desire and confident initiation." },
-      { letter: "D", text: "Anticipatory — pursued, sought, and wanted." },
-      { letter: "E", text: "Explorative — curious, mutual, and balanced." },
-      { letter: "F", text: "Safe — deeply trusted and emotionally grounded." },
-      { letter: "G", text: "Empowering — I feel confident and celebrated." },
-      { letter: "H", text: "Equal — both partners fully showing up." }
+      { letter: "A", text: "Verbally expressive: we say what we feel and want." },
+      { letter: "B", text: "Slow and tender: warmth built over time." },
+      { letter: "C", text: "Passionate: clear desire and confident initiation." },
+      { letter: "D", text: "Anticipatory: pursued, sought, and wanted." },
+      { letter: "E", text: "Explorative: curious, mutual, and balanced." },
+      { letter: "F", text: "Safe: deeply trusted and emotionally grounded." },
+      { letter: "G", text: "Empowering: I feel confident and celebrated." },
+      { letter: "H", text: "Equal: both partners fully showing up." }
     ]
   },
   {
@@ -154,14 +154,14 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "I feel most satisfied when intimacy is:",
     options: [
-      { letter: "A", text: "Verbally expressive — desire and attraction said out loud." },
-      { letter: "B", text: "Slow and tender — warmth built over time." },
-      { letter: "C", text: "Passionate and direct — clear want, clear energy." },
-      { letter: "D", text: "Anticipatory — I feel sought out and thought about." },
-      { letter: "E", text: "Mutually curious — both of us genuinely exploring." },
-      { letter: "F", text: "Safe — I feel completely trusted and emotionally grounded." },
-      { letter: "G", text: "Empowering — I feel confident and celebrated." },
-      { letter: "H", text: "Equal — both of us fully invested, fully present." }
+      { letter: "A", text: "Verbally expressive: desire and attraction said out loud." },
+      { letter: "B", text: "Slow and tender: warmth built over time." },
+      { letter: "C", text: "Passionate and direct: clear want, clear energy." },
+      { letter: "D", text: "Anticipatory: I feel sought out and thought about." },
+      { letter: "E", text: "Mutually curious: both of us genuinely exploring." },
+      { letter: "F", text: "Safe: I feel completely trusted and emotionally grounded." },
+      { letter: "G", text: "Empowering: I feel confident and celebrated." },
+      { letter: "H", text: "Equal: both of us fully invested, fully present." }
     ]
   },
   {
@@ -170,11 +170,11 @@ export const intimacyQuestions: QuizQuestion[] = [
     weight: 1,
     question: "What helps me enjoy intimacy most is:",
     options: [
-      { letter: "A", text: "Desire spoken — clearly and without being prompted." },
+      { letter: "A", text: "Desire spoken, clearly and without being prompted." },
       { letter: "B", text: "Touch that builds slowly and stays warm." },
       { letter: "C", text: "Clear, confident energy from a partner who means it." },
       { letter: "D", text: "The feeling that I've been thought about and sought out." },
-      { letter: "E", text: "Genuine mutual discovery — neither of us on autopilot." },
+      { letter: "E", text: "Genuine mutual discovery: neither of us on autopilot." },
       { letter: "F", text: "Feeling emotionally safe enough to stop thinking." },
       { letter: "G", text: "Feeling good about myself in the moment." },
       { letter: "H", text: "Both of us equally engaged and present." }
@@ -187,7 +187,7 @@ export const intimacyQuestions: QuizQuestion[] = [
     question: "The kind of attention that excites me most outside of intimacy is:",
     options: [
       { letter: "A", text: "Being told I'm attractive or wanted." },
-      { letter: "B", text: "Sensual closeness — a touch, a look." },
+      { letter: "B", text: "Sensual closeness: a touch, a look." },
       { letter: "C", text: "Confident, direct pursuit." },
       { letter: "D", text: "Being thought about and sought out." },
       { letter: "E", text: "An invitation to explore something new together." },
@@ -291,7 +291,7 @@ export const intimacyQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "A",
-    question: "I don't need my partner to say anything during intimacy — I prefer actions over words.",
+    question: "I don't need my partner to say anything during intimacy. I prefer actions over words.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -305,7 +305,7 @@ export const intimacyQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "B",
-    question: "I prefer intimacy that gets straight to the point — long build-ups feel unnecessary to me.",
+    question: "I prefer intimacy that gets straight to the point. Long build-ups feel unnecessary to me.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -319,7 +319,7 @@ export const intimacyQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "F",
-    question: "Emotional connection isn't a prerequisite for me — I can enjoy intimacy without it.",
+    question: "Emotional connection isn't a prerequisite for me. I can enjoy intimacy without it.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },

@@ -46,12 +46,12 @@ export default function PrivacyPage() {
           Love Compass does not collect, store, or transmit personal data of
           any kind. There are no accounts, no sign-ups, and no forms that send
           information anywhere. Your name, email address, and identity are
-          never asked for — because we have no use for them.
+          never asked for. We have no use for them.
         </p>
         <p className="opacity-80 leading-relaxed">
           This isn't just policy. It's how the tool is built. There is no
           server receiving your answers. There is no database storing your
-          results. We genuinely cannot see what you wrote — and that's
+          results. We genuinely cannot see what you choose. That's
           by design, not by accident.
         </p>
       </Section>
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
         <SectionHeading>How your answers are stored</SectionHeading>
         <p className="opacity-80 leading-relaxed">
           When you complete an assessment, your answers and results are held
-          temporarily in your browser's session storage — a private, local
+          temporarily in your browser's session storage, a private, local
           space that exists only for the duration of your current tab. The
           moment you close the tab or navigate away, that data is gone.
         </p>
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
           Because we hold no personal data about you, there is nothing for us
           to delete, export, or correct on your behalf. You have full and
           immediate control over everything associated with your use of Love
-          Compass — it lives in your browser and disappears when you're done.
+          Compass. It lives in your browser and disappears when you're done.
         </p>
         <p className="opacity-80 leading-relaxed">
           If you have questions about this policy, you can reach us at{" "}
@@ -138,7 +138,7 @@ export default function PrivacyPage() {
         <SectionHeading>Changes to this policy</SectionHeading>
         <p className="opacity-80 leading-relaxed">
           If anything here changes, we'll update this page and revise the date
-          below. We don't anticipate significant changes — the core principle
+          below. We don't anticipate significant changes. The core principle
           of not collecting your data isn't going anywhere.
         </p>
         <p className="opacity-80 leading-relaxed">

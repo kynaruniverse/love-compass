@@ -23,7 +23,7 @@ export const assessments: Assessment[] = [
   {
     slug: "love-giving",
     title: "How You Love",
-    description: "The love you give without thinking about it — and who it reaches.",
+    description: "The love you give without thinking about it, and who it reaches.",
     mode: "giving"
   },
   {

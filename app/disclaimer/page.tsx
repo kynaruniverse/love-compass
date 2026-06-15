@@ -31,7 +31,7 @@ export default function DisclaimerPage() {
           Disclaimer
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
-          What Love Compass is — and isn't.
+          What Love Compass is. And isn't.
         </h1>
         <p className="text-lg opacity-70 leading-relaxed max-w-xl">
           We'd rather be upfront about the limits of this tool than let
@@ -62,7 +62,7 @@ export default function DisclaimerPage() {
         <p className="opacity-80 leading-relaxed">
           Your results reflect patterns in how you answered a structured set of
           questions at a specific point in time. They describe tendencies and
-          preferences — not fixed traits, not permanent identity, and not a
+          preferences. Not fixed traits, not permanent identity, and not a
           prediction of how any relationship will unfold.
         </p>
         <p className="opacity-80 leading-relaxed">
@@ -73,7 +73,7 @@ export default function DisclaimerPage() {
         </p>
         <p className="opacity-80 leading-relaxed">
           Results can and do change over time. A profile taken during one period
-          of your life may look quite different from one taken years later — and
+          of your life may look quite different from one taken years later,
           both can be completely accurate for who you were at that moment.
         </p>
       </Section>
@@ -82,8 +82,8 @@ export default function DisclaimerPage() {
       <Section>
         <SectionHeading>Adult content and consensual relationships</SectionHeading>
         <p className="opacity-80 leading-relaxed">
-          Some assessments — particularly the Intimacy Style Test, How You
-          Desire, and the Full Profile tests — include questions about physical
+          Some assessments, particularly the Intimacy Style Test, How You
+          Desire, and the Full Profile tests, include questions about physical
           intimacy, desire, and sexual preference. These questions are designed
           for adults and assume consensual adult relationships throughout.
         </p>
@@ -97,7 +97,7 @@ export default function DisclaimerPage() {
       <Section>
         <SectionHeading>No guarantees</SectionHeading>
         <p className="opacity-80 leading-relaxed">
-          We've built Love Compass carefully and with genuine intention — but
+          We've built Love Compass carefully and with genuine intention, but
           we make no guarantees about the accuracy, completeness, or suitability
           of the results for any particular person or purpose. Self-report tools
           have inherent limits, and this one is no exception.
@@ -105,7 +105,7 @@ export default function DisclaimerPage() {
         <p className="opacity-80 leading-relaxed">
           The creators of Love Compass are not liable for any decisions,
           interpretations, or actions taken based on your results. Use them as
-          a starting point for reflection — not as a conclusion.
+          a starting point for reflection. Not a conclusion.
         </p>
       </Section>
 

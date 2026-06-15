@@ -49,7 +49,7 @@ export default function AboutPage() {
             give it. That distinction sounds small. It isn't.
           </p>
           <p className="opacity-80 leading-relaxed">
-            Most tools stay at the surface. Shared interests, compatible temperaments, timing. As if relationships fail because two people chose the wrong restaurant. Love Compass goes somewhere more honest. It maps your relational patterns across eight dimensions and returns a profile built from your real tendencies — not the ones you aspire to, not the ones that sound well-adjusted.
+            Most tools stay at the surface. Shared interests, compatible temperaments, timing. As if relationships fail because two people chose the wrong restaurant. Love Compass goes somewhere more honest. It maps your relational patterns across eight dimensions and returns a profile built from your real tendencies. Not the ones you aspire to, not the ones that sound well-adjusted.
           </p>
           <p className="opacity-80 leading-relaxed">
             The result isn't a label to put in a bio. It's a map. And like any good map, it's most useful when the territory turns out to be different from what you assumed.
@@ -117,7 +117,7 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="text-sm opacity-60 leading-relaxed pt-1">
-            Each assessment takes 5–10 minutes. Your answers never leave your browser —
+            Each assessment takes 5–10 minutes. Your answers never leave your browser.
             nothing is stored, nothing is transmitted.
           </p>
           <div className="pt-1">
@@ -135,13 +135,13 @@ export default function AboutPage() {
           <SectionHeading>On love, intimacy, and why they matter</SectionHeading>
           <p className="opacity-85 leading-relaxed">
             Love and intimacy are two of the most overused words in the English language
-            and two of the least examined. We treat them as feelings — things that arrive
+            and two of the least examined. We treat them as feelings. things that arrive
             and either stick or don't. That framing is responsible for more unnecessary
             pain than most people realise.
           </p>
           <p className="opacity-85 leading-relaxed">
             Love is a practice. A discipline, even. It's the repeated, deliberate act of
-            making someone feel like they matter — in the specific way they receive it,
+            making someone feel like they matter, in the specific way they receive it,
             not the way you prefer to deliver it. The mismatch is almost universal:
             people love others the way they want to be loved themselves. Which sounds
             generous, and often isn't felt that way at all.
@@ -155,7 +155,7 @@ export default function AboutPage() {
           </p>
           <p className="opacity-85 leading-relaxed">
             Understanding your own patterns isn't navel-gazing. It's table stakes for
-            being a decent partner. Love Compass won't fix your relationship — but it
+            being a decent partner. Love Compass won't fix your relationship. But it
             will remove the excuse of not knowing yourself.
           </p>
         </Section>
@@ -165,12 +165,12 @@ export default function AboutPage() {
           <SectionHeading>Our philosophy</SectionHeading>
           <p className="opacity-80 leading-relaxed">
             Self-knowledge is the most underrated relationship skill. Not communication
-            frameworks, not compatibility algorithms — actual, honest clarity about what
+            frameworks, not compatibility algorithms. Actual, honest clarity about what
             you need, what you bring, and where those two things don't yet meet.
           </p>
           <p className="opacity-80 leading-relaxed">
             Love Compass doesn't tell you who to be with. It doesn't score you. It gives
-            you a profile — specific to you, built from your answers — and trusts you
+            you a profile, specific to you, built from your answers, and trusts you
             to use it.
           </p>
           <p className="opacity-80 leading-relaxed">

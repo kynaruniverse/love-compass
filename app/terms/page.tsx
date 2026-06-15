@@ -44,7 +44,7 @@ export default function TermsPage() {
         <SectionHeading>What Love Compass is</SectionHeading>
         <p className="opacity-80 leading-relaxed">
           Love Compass is a self-reflection tool. It is designed to help you
-          think more clearly about how you give and receive love — not to
+          think more clearly about how you give and receive love, not to
           diagnose, treat, or assess any psychological or clinical condition.
         </p>
         <p className="opacity-80 leading-relaxed">
@@ -65,8 +65,8 @@ export default function TermsPage() {
         </p>
         <p className="opacity-80 leading-relaxed">
           You may not reproduce, repackage, or redistribute the assessments,
-          questions, archetypes, or written content from this site — in whole
-          or in part — without explicit written permission.
+          questions, archetypes, or written content from this site, in whole
+          or in part, without explicit written permission.
         </p>
       </Section>
 
@@ -106,7 +106,7 @@ export default function TermsPage() {
         <p className="opacity-80 leading-relaxed">
           Love Compass does not collect, store, or transmit your answers. All
           assessment data lives in your browser session only and is deleted
-          when you close the tab. We have no way of seeing your responses —
+          when you close the tab. We have no way of seeing your responses,
           and that's intentional.
         </p>
         <p className="opacity-80 leading-relaxed">

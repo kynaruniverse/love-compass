@@ -10,9 +10,9 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "When I'm stressed, I feel most supported when a partner:",
     options: [
-      { letter: "A", text: "Says something specific and reassuring — reminds me I'm okay." },
+      { letter: "A", text: "Says something specific and reassuring, reminding me I'm okay." },
       { letter: "B", text: "Puts everything else down and just sits with me." },
-      { letter: "C", text: "Holds me — a long hug, physical comfort, closeness." },
+      { letter: "C", text: "Holds me, a long hug, physical comfort, closeness." },
       { letter: "D", text: "Quietly takes something off my plate without being asked." },
       { letter: "E", text: "Shows up with a small, thoughtful treat or gesture." },
       { letter: "F", text: "Makes me feel calm and emotionally safe again." },
@@ -27,8 +27,8 @@ export const generalLoveQuestions: QuizQuestion[] = [
     question: "The most meaningful way for a partner to show they were thinking about me is:",
     options: [
       { letter: "A", text: "A message that says something specific and true about me." },
-      { letter: "B", text: "Carving out real time — not catching up, actually being together." },
-      { letter: "C", text: "Reaching for me physically — a hand held, a hug out of nowhere." },
+      { letter: "B", text: "Carving out real time, not catching up, actually being together." },
+      { letter: "C", text: "Reaching for me physically, a hand held, a hug out of nowhere." },
       { letter: "D", text: "Handling something for me before I had to ask." },
       { letter: "E", text: "Choosing something that shows they really know me." },
       { letter: "F", text: "Checking in on how I'm actually doing, not just in passing." },
@@ -42,9 +42,9 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "In a long-term relationship, I value most:",
     options: [
-      { letter: "A", text: "Being told — often and specifically — that I matter." },
+      { letter: "A", text: "Being told, often and specifically, that I matter." },
       { letter: "B", text: "Regular time together where we're actually present with each other." },
-      { letter: "C", text: "Warmth that's physical and ongoing — not just in big moments." },
+      { letter: "C", text: "Warmth that's physical and ongoing, not just in big moments." },
       { letter: "D", text: "A partner who handles things and makes daily life easier." },
       { letter: "E", text: "Occasional gestures that show real attention and thought." },
       { letter: "F", text: "Knowing I can rely on them emotionally, every time." },
@@ -75,11 +75,11 @@ export const generalLoveQuestions: QuizQuestion[] = [
     question: "I feel most loved when a partner:",
     options: [
       { letter: "A", text: "Notices something specific about me and says it out loud." },
-      { letter: "B", text: "Gives me their full attention — phone down, actually there." },
-      { letter: "C", text: "Reaches for me — instinctive, warm, physical." },
+      { letter: "B", text: "Gives me their full attention, phone down, actually there." },
+      { letter: "C", text: "Reaches for me, instinctive, warm, physical." },
       { letter: "D", text: "Handles something before I have to ask." },
       { letter: "E", text: "Remembers what matters to me and acts on it." },
-      { letter: "F", text: "Is the same person every time — reliable, steady, there." },
+      { letter: "F", text: "Is the same person every time, reliable, steady, there." },
       { letter: "G", text: "Takes real interest in where I'm going and helps me get there." },
       { letter: "H", text: "Carries their share without keeping score." }
     ]
@@ -90,7 +90,7 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "The thing that would make me feel most seen is:",
     options: [
-      { letter: "A", text: "Specific appreciation — not 'you're great', but why, exactly." },
+      { letter: "A", text: "Specific appreciation, not 'you're great', but why, exactly." },
       { letter: "B", text: "Being listened to properly, without their eyes drifting." },
       { letter: "C", text: "Being held or drawn close without needing to ask for it." },
       { letter: "D", text: "Someone handling something before I even mentioned it." },
@@ -106,12 +106,12 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 2,
     question: "If I had a rough day, my ideal partner response would be:",
     options: [
-      { letter: "A", text: "Telling me it's going to be okay — and meaning it specifically." },
+      { letter: "A", text: "Telling me it's going to be okay, and meaning it specifically." },
       { letter: "B", text: "A quiet evening together with no agenda or pressure." },
       { letter: "C", text: "A hug that lasts, or just being physically close." },
       { letter: "D", text: "Sorting something so I have one less thing to think about." },
       { letter: "E", text: "A small surprise that says they were thinking of me." },
-      { letter: "F", text: "Calm validation — not fixing it, just being steady with me." },
+      { letter: "F", text: "Calm validation, not fixing it, just being steady with me." },
       { letter: "G", text: "A reminder that this is temporary and I'm more capable than it feels." },
       { letter: "H", text: "Taking charge of the evening so I don't have to coordinate anything." }
     ]
@@ -123,11 +123,11 @@ export const generalLoveQuestions: QuizQuestion[] = [
     question: "In everyday life, I feel closest to a partner when they:",
     options: [
       { letter: "A", text: "Say something unprompted that tells me they notice me." },
-      { letter: "B", text: "Give me their full attention — properly, not half-distracted." },
-      { letter: "C", text: "Reach for me without a reason — a touch, a moment of closeness." },
+      { letter: "B", text: "Give me their full attention, properly, not half-distracted." },
+      { letter: "C", text: "Reach for me without a reason, a touch, a moment of closeness." },
       { letter: "D", text: "Handle ordinary things without needing to be asked." },
       { letter: "E", text: "Show up with something small that proves they were thinking of me." },
-      { letter: "F", text: "Are the same — steady, available, no hot-and-cold." },
+      { letter: "F", text: "Are the same, steady, available, no hot-and-cold." },
       { letter: "G", text: "Are still curious about who I'm becoming." },
       { letter: "H", text: "Share the invisible work without making it a negotiation." }
     ]
@@ -138,12 +138,12 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "A partner's affection feels most genuine when it is:",
     options: [
-      { letter: "A", text: "Said out loud — clearly, specifically, in their own words." },
+      { letter: "A", text: "Said out loud, clearly, specifically, in their own words." },
       { letter: "B", text: "Given through time that's actually protected and unhurried." },
-      { letter: "C", text: "Felt — warm, deliberate, physical." },
+      { letter: "C", text: "Felt, warm, deliberate, physical." },
       { letter: "D", text: "Shown through what they quietly do, consistently." },
       { letter: "E", text: "Expressed through something chosen only for me." },
-      { letter: "F", text: "Grounded — the same every time, no uncertainty." },
+      { letter: "F", text: "Grounded, the same every time, no uncertainty." },
       { letter: "G", text: "Connected to who I'm trying to become." },
       { letter: "H", text: "Demonstrated through how we share the weight of life." }
     ]
@@ -170,12 +170,12 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "What matters most in a partner is:",
     options: [
-      { letter: "A", text: "That they say things — the right things, the true things." },
+      { letter: "A", text: "That they say things, the right things, the true things." },
       { letter: "B", text: "That they're actually present when they're with me." },
       { letter: "C", text: "That physical affection is natural and ongoing between us." },
-      { letter: "D", text: "That they follow through — reliably, without needing reminders." },
+      { letter: "D", text: "That they follow through, reliably, without needing reminders." },
       { letter: "E", text: "That they pay attention to me specifically and show it." },
-      { letter: "F", text: "That I feel safe with them — emotionally, consistently." },
+      { letter: "F", text: "That I feel safe with them, emotionally, consistently." },
       { letter: "G", text: "That they're invested in who I'm becoming, not just who I am." },
       { letter: "H", text: "That they carry their share without being managed into it." }
     ]
@@ -188,10 +188,10 @@ export const generalLoveQuestions: QuizQuestion[] = [
     options: [
       { letter: "A", text: "An honest conversation where things actually get said." },
       { letter: "B", text: "Time together with nowhere to be and nothing to finish." },
-      { letter: "C", text: "Physical closeness — being held, being near." },
+      { letter: "C", text: "Physical closeness, being held, being near." },
       { letter: "D", text: "Them doing something that shows they're still paying attention." },
       { letter: "E", text: "A small gesture that bridges the gap without a big conversation." },
-      { letter: "F", text: "Hearing that we're okay — directly, not implied." },
+      { letter: "F", text: "Hearing that we're okay, directly, not implied." },
       { letter: "G", text: "Working on something together that reminds us we're a team." },
       { letter: "H", text: "Both of us stepping up and splitting what needs doing." }
     ]
@@ -202,8 +202,8 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "The kind of partner effort I notice and appreciate most is:",
     options: [
-      { letter: "A", text: "Saying something genuine — not prompted, just because." },
-      { letter: "B", text: "Time that's actually protected — not squeezed in, set aside." },
+      { letter: "A", text: "Saying something genuine, not prompted, just because." },
+      { letter: "B", text: "Time that's actually protected, not squeezed in, set aside." },
       { letter: "C", text: "Physical warmth that's just part of how we are together." },
       { letter: "D", text: "Acting on something before I had to bring it up." },
       { letter: "E", text: "Remembering something I said once and doing something about it." },
@@ -219,13 +219,13 @@ export const generalLoveQuestions: QuizQuestion[] = [
     question: "I feel appreciated when someone:",
     options: [
       { letter: "A", text: "Says something that shows they actually see me." },
-      { letter: "B", text: "Carves out real time — not just the leftover minutes." },
-      { letter: "C", text: "Reaches for me — initiates closeness without being asked." },
+      { letter: "B", text: "Carves out real time, not just the leftover minutes." },
+      { letter: "C", text: "Reaches for me, initiates closeness without being asked." },
       { letter: "D", text: "Takes something off my list without making it a favour." },
       { letter: "E", text: "Picks something for me that only someone paying attention would choose." },
       { letter: "F", text: "Lets me feel what I'm feeling without rushing to fix it." },
       { letter: "G", text: "Actively helps me become who I'm trying to be." },
-      { letter: "H", text: "Shows up equally — not 60/40, actually equal." }
+      { letter: "H", text: "Shows up equally, not 60/40, actually equal." }
     ]
   },
   {
@@ -234,12 +234,12 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 1,
     question: "What I need most from love is:",
     options: [
-      { letter: "A", text: "To be told — specifically and sincerely." },
+      { letter: "A", text: "To be told, specifically and sincerely." },
       { letter: "B", text: "Someone who is actually there when they're with me." },
-      { letter: "C", text: "Physical warmth — the kind that's just part of us." },
+      { letter: "C", text: "Physical warmth, the kind that's just part of us." },
       { letter: "D", text: "Someone who handles things and makes life lighter." },
       { letter: "E", text: "A partner who pays attention and shows it." },
-      { letter: "F", text: "To feel safe — consistently, without having to earn it." },
+      { letter: "F", text: "To feel safe, consistently, without having to earn it." },
       { letter: "G", text: "A relationship that's still going somewhere." },
       { letter: "H", text: "Someone who carries their half, genuinely." }
     ]
@@ -250,18 +250,18 @@ export const generalLoveQuestions: QuizQuestion[] = [
     weight: 2,
     question: "I feel most secure in love when:",
     options: [
-      { letter: "A", text: "I'm told where I stand — clearly, and more than once." },
+      { letter: "A", text: "I'm told where I stand, clearly, and more than once." },
       { letter: "B", text: "Time with them is consistent and actually mine." },
       { letter: "C", text: "Physical affection is a regular, unremarkable part of us." },
       { letter: "D", text: "They do what they say they'll do, without needing reminding." },
       { letter: "E", text: "They notice what matters to me and quietly act on it." },
-      { letter: "F", text: "My feelings land somewhere soft — not analysed, not minimised." },
+      { letter: "F", text: "My feelings land somewhere soft, not analysed, not minimised." },
       { letter: "G", text: "Someone is invested in where I'm going, not just where I am." },
       { letter: "H", text: "The invisible work is split without it becoming a negotiation." }
     ]
   },
 
-  // ── LIKERT — rate 1-5 how much this resonates (targets one category) ───────
+  // ── LIKERT, rate 1-5 how much this resonates (targets one category) ───────
 
   {
     id: 117,
@@ -383,7 +383,7 @@ export const generalLoveQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "A",
-    question: "Words of appreciation are nice but I don't really need to hear them — I know how my partner feels.",
+    question: "Words of appreciation are nice but I don't really need to hear them, I know how my partner feels.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -397,7 +397,7 @@ export const generalLoveQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "C",
-    question: "I'm perfectly fine going days without physical affection from a partner — it doesn't affect how connected I feel.",
+    question: "I'm perfectly fine going days without physical affection from a partner, it doesn't affect how connected I feel.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -411,7 +411,7 @@ export const generalLoveQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "B",
-    question: "I don't need a lot of one-on-one time with a partner to feel loved — I'm happy with less.",
+    question: "I don't need a lot of one-on-one time with a partner to feel loved, I'm happy with less.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -425,7 +425,7 @@ export const generalLoveQuestions: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "F",
-    question: "I rarely need emotional reassurance in a relationship — I'm comfortable managing uncertainty on my own.",
+    question: "I rarely need emotional reassurance in a relationship, I'm comfortable managing uncertainty on my own.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -461,7 +461,7 @@ export const generalLoveQuestions: QuizQuestion[] = [
     options: [
       { letter: "A", text: "Regular verbal affirmation that you are loved and capable." },
       { letter: "B", text: "A partner who shows up and stays present." },
-      { letter: "C", text: "Physical closeness — sleeping near them, being held." },
+      { letter: "C", text: "Physical closeness, sleeping near them, being held." },
       { letter: "D", text: "A partner who quietly takes burdens off your plate." },
       { letter: "E", text: "Small gestures that show they're thinking of you." },
       { letter: "F", text: "A partner who remains steady and emotionally available." },
@@ -481,8 +481,8 @@ export const generalLoveQuestions: QuizQuestion[] = [
       { letter: "D", text: "They were always ready to help without needing to be asked." },
       { letter: "E", text: "They gave thoughtful gifts and marked occasions." },
       { letter: "F", text: "I always felt emotionally safe and secure." },
-      { letter: "G", text: "We grew together — they supported who I was becoming." },
-      { letter: "H", text: "Life felt genuinely shared — responsibilities, planning, effort." }
+      { letter: "G", text: "We grew together, they supported who I was becoming." },
+      { letter: "H", text: "Life felt genuinely shared, responsibilities, planning, effort." }
     ]
   },
   {
@@ -493,12 +493,12 @@ export const generalLoveQuestions: QuizQuestion[] = [
     options: [
       { letter: "A", text: "Hearing their voice saying they love and miss me." },
       { letter: "B", text: "The undivided time we'd normally have together." },
-      { letter: "C", text: "Physical touch — holding hands, hugging, closeness." },
+      { letter: "C", text: "Physical touch, holding hands, hugging, closeness." },
       { letter: "D", text: "Them quietly making my life easier." },
       { letter: "E", text: "The little gifts or surprises they'd leave." },
       { letter: "F", text: "The emotional steadiness they bring to my life." },
       { letter: "G", text: "Growing together toward shared goals." },
-      { letter: "H", text: "The ease of shared responsibility — not carrying it alone." }
+      { letter: "H", text: "The ease of shared responsibility, not carrying it alone." }
     ]
   }
 ];
