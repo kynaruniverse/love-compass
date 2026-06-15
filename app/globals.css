@@ -179,9 +179,9 @@ h1, h2, h3 {
   box-shadow: 0 4px 24px rgba(201, 161, 74, 0.35) !important;
 }
 
-.lc-cta-primary:hover {
+.lc-cta-primary:active {
   box-shadow: 0 6px 32px rgba(201, 161, 74, 0.55) !important;
-  transform: translateY(-1px);
+  transform: scale(0.97);
 }
 
 .lc-cta-ghost {
@@ -194,7 +194,7 @@ h1, h2, h3 {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.lc-cta-ghost:hover {
+.lc-cta-ghost:active {
   border-color: rgba(255, 255, 255, 0.5) !important;
   color: white !important;
   background: rgba(255, 255, 255, 0.06) !important;
@@ -426,7 +426,7 @@ h1, h2, h3 {
   text-underline-offset: 3px;
 }
 
-.lc-trust-link:hover {
+.lc-trust-link:active {
   opacity: 1;
 }
 
@@ -564,7 +564,6 @@ h1, h2, h3 {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.lc-footer-cta:hover,
 .lc-footer-cta:active {
   box-shadow: 0 6px 24px rgba(201, 161, 74, 0.4);
   transform: translateY(-1px);

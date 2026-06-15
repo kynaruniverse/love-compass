@@ -113,7 +113,9 @@ function CardDeck({
             style={{
               scrollSnapAlign: "start",
               background: softBg,
-              borderColor: softBg,
+              border: `1.5px solid ${isReceiving ? "rgba(94,58,115,0.15)" : "rgba(201,161,74,0.2)"}`,
+              boxShadow: "0 2px 16px rgba(94,58,115,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
+              WebkitTapHighlightColor: "transparent",
             }}
           >
             <div className="lc-card-inner">
