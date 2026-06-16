@@ -129,6 +129,22 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="lc-hero">
 
+        {/* Masthead bar — logo left, tagline right */}
+        <div className="lc-masthead">
+          <Link href="/" aria-label="Love Compass home">
+            <Image
+              src="/logo.svg"
+              alt="Love Compass"
+              width={90}
+              height={30}
+              priority
+            />
+          </Link>
+          <p className="lc-masthead-tagline">
+            Knowing yourself in relationships changes everything.
+          </p>
+        </div>
+
         {/* Canvas — decorative, right-side only on mobile */}
         <div className="lc-hero-canvas" aria-hidden="true">
           <CompassCanvas />
@@ -136,17 +152,6 @@ export default function HomePage() {
 
         <div className="lc-hero-content">
           <FadeIn delay={0}>
-            <Image
-              src="/logo.svg"
-              alt="Love Compass"
-              width={180}
-              height={60}
-              priority
-              style={{ marginBottom: "1.5rem" }}
-            />
-          </FadeIn>
-          
-          <FadeIn delay={50}>
             <p className="lc-hero-eyebrow">Self-discovery · Relationships</p>
           </FadeIn>
 
@@ -164,11 +169,11 @@ export default function HomePage() {
 
           <FadeIn delay={350}>
             <p className="lc-hero-body">
-              Most of us love people the way we want to be loved. Love Compass helps you close that gap — four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
+              Most of us love people the way we want to be loved. Love Compass helps you close that gap. Four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
             </p>
           </FadeIn>
 
-          <FadeIn delay={450}>
+          <FadeIn delay={400}>
             <div className="lc-hero-ctas">
               <Link href="/assessments">
                 <Button variant="primary" className="lc-cta-primary">
@@ -201,7 +206,7 @@ export default function HomePage() {
               </p>
               <h2 className="lc-group-h2">Receiving</h2>
               <p className="lc-group-sub">
-                Not all love lands the same way. These assessments help you understand what actually reaches you — the affection, closeness, and connection that makes you feel genuinely held.
+                Not all love lands the same way. These assessments help you understand what actually reaches you, the affection, closeness, and connection that makes you feel genuinely held.
               </p>
             </div>
           </FadeIn>

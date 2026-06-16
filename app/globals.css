@@ -103,8 +103,32 @@ h1, h2, h3 {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding: 2rem 1.5rem 4rem;
+  padding: 1rem 1.5rem 5rem;
   background: var(--background);
+}
+
+/* ── Hero masthead bar ── */
+.lc-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 1.5rem;
+  border-bottom: 1px solid rgba(201, 161, 74, 0.15);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.lc-masthead-tagline {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--foreground);
+  opacity: 0.45;
+  text-align: right;
+  line-height: 1.5;
+  max-width: 18rem;
 }
 
 .lc-hero-canvas {
@@ -421,7 +445,7 @@ h1, h2, h3 {
 ══════════════════════════════════════════ */
 @media (min-width: 640px) {
   .lc-hero {
-    padding: 3rem 3rem 5rem;
+    padding: 1rem 3rem 6rem;
   }
 
   .lc-assessments {
