@@ -18,7 +18,9 @@ function downloadFile(filename: string, content: string, mimeType: string) {
   a.click();
   document.body.removeChild(a);
 
-  URL.revokeObjectURL(url);
+  // Defer revocation — Safari/iOS starts the download asynchronously and
+  // revoking the URL synchronously can produce a zero-byte file.
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 export function exportText(filename: string, content: string) {

@@ -36,6 +36,8 @@ export default function ShareCard({ result, profile, quizType }: Props) {
     navigator.clipboard.writeText(window.location.href).then(() => {
       setCopiedLink(true);
       setTimeout(() => setCopiedLink(false), 2000);
+    }).catch(() => {
+      // Clipboard unavailable (HTTP, permission denied, etc.) — fail silently
     });
   }
 
@@ -59,6 +61,8 @@ export default function ShareCard({ result, profile, quizType }: Props) {
     navigator.clipboard.writeText(text).then(() => {
       setCopiedText(true);
       setTimeout(() => setCopiedText(false), 2000);
+    }).catch(() => {
+      // Clipboard unavailable — fail silently
     });
   }
 

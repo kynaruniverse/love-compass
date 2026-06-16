@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ScoreMap, QuizQuestion } from "@/types/quiz";
 import { createEmptyScores } from "./scoring";
 
@@ -20,10 +20,18 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [scores, setScores] = useState<ScoreMap>(createEmptyScores());
+  // Guard against double-tap: lock until the next render has committed.
+  const answering = useRef(false);
 
   function answerQuestion(value: string) {
-    const updated = [...answers, value];
-    setAnswers(updated);
+    // Drop duplicate calls that arrive before the next render (e.g. rapid
+    // double-tap on mobile) to prevent score double-counting.
+    if (answering.current) return;
+    answering.current = true;
+    // Release the lock after React has re-rendered this component.
+    Promise.resolve().then(() => { answering.current = false; });
+
+    setAnswers(prev => [...prev, value]);
 
     const q = questions[index];
     const type = q.type ?? "forced-choice";
@@ -50,8 +58,8 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
       return next;
     });
 
-    // FIX: always advance index — was previously stuck on last question
-    setIndex(index + 1);
+    // Use functional updater to avoid stale closure on `index`.
+    setIndex(prev => prev + 1);
   }
 
   function progress() {

@@ -19,6 +19,9 @@ export default function CompassCanvas() {
       if (!canvas) return;
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
       canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      // Reset the transform before re-applying the DPR scale so repeated
+      // resize events don't stack multipliers (2× → 4× → 8× etc.).
+      ctx!.setTransform(1, 0, 0, 1, 0, 0);
       ctx!.scale(window.devicePixelRatio, window.devicePixelRatio);
     }
 
@@ -176,10 +179,9 @@ export default function CompassCanvas() {
       const w = canvas!.offsetWidth;
       const h = canvas!.offsetHeight;
 
-      ctx!.clearRect(0, 0, w, h);
-
-      // Background — transparent so it sits on the cream hero
-      ctx!.clearRect(0, 0, w, h);
+      // Clear the full canvas using CSS-pixel dimensions (draw functions also
+      // work in CSS pixels because resize() applied the DPR scale to the ctx).
+      ctx!.clearRect(0, 0, canvas!.offsetWidth, canvas!.offsetHeight);
 
       drawAurora(w, h, t);
       drawParticles(w, h, t);

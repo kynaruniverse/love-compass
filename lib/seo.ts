@@ -1,7 +1,7 @@
 export const siteMeta = {
   title: "Love Compass",
   description:
-    "Discover how you give and receive love. Love Compass is a free self-reflection tool built around six structured assessments — no sign-up required.",
+    "Discover how you give and receive love. Love Compass is a free self-reflection tool built around four structured assessments — no sign-up required.",
   url: "https://lovecompass.app",
   siteName: "Love Compass",
   

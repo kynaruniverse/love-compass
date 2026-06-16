@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useParams, useRouter, notFound } from "next/navigation";
 import { generalLoveQuestions } from "@/data/general-love";
 import { intimacyQuestions } from "@/data/intimacy";
@@ -39,15 +39,22 @@ export default function QuizPage() {
 
   const quiz = useQuiz(questions);
 
+  const navigated = useRef(false);
+
   useEffect(() => {
-    if (!quiz.isComplete) return;
+    if (!quiz.isComplete || navigated.current) return;
+    navigated.current = true;
 
     const results = tallyAnswers(quiz.answers, questions);
     sessionStorage.setItem("results", JSON.stringify(results));
     sessionStorage.setItem("questions", JSON.stringify(questions));
     sessionStorage.setItem("type", slug as string);
     router.push("/results");
-  }, [quiz.isComplete, quiz.answers, questions, slug, router]);
+    // Intentionally omitting quiz.answers from deps — it changes on every answer
+    // and we only need to act once when isComplete flips. The ref guards against
+    // StrictMode double-invocation in development.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quiz.isComplete]);
 
   if (quiz.isComplete) {
     return (

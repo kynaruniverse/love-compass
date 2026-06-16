@@ -18,21 +18,14 @@ export default function CompassProfile({
   const [hasInteracted, setHasInteracted] = useState(false);
   const animRef = useRef<number>(0);
 
-  if (profile.length === 0) return null;
-
-  const top = profile[0];
-  const topAngle = top.angle;
-  const needleLength = outerRadius * Math.max(0.35, top.percentage / 100);
-
-  function point(angleDeg: number, radius: number) {
-    const rad = ((angleDeg - 90) * Math.PI) / 180;
-    return {
-      x: center + radius * Math.cos(rad),
-      y: center + radius * Math.sin(rad),
-    };
-  }
+  // Derive stable values before hooks — profile[0] is safe because
+  // the early return below fires only when length === 0, but hooks must
+  // always be called unconditionally, so we guard with a fallback here.
+  const top = profile[0] ?? null;
+  const topAngle = top?.angle ?? 0;
 
   useEffect(() => {
+    if (!top) return;
     setMounted(true);
     const startAngle = topAngle - 180;
     const duration = 900;
@@ -54,7 +47,20 @@ export default function CompassProfile({
 
     animRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(animRef.current);
-  }, [topAngle]);
+  }, [topAngle, top]);
+
+  // Early return AFTER all hooks
+  if (profile.length === 0 || !top) return null;
+
+  const needleLength = outerRadius * Math.max(0.35, top.percentage / 100);
+
+  function point(angleDeg: number, radius: number) {
+    const rad = ((angleDeg - 90) * Math.PI) / 180;
+    return {
+      x: center + radius * Math.cos(rad),
+      y: center + radius * Math.sin(rad),
+    };
+  }
 
   const displayAngle = needleAngle ?? topAngle - 180;
   const needleTip = point(displayAngle, needleLength);

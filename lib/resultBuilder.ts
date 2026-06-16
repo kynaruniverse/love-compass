@@ -44,15 +44,11 @@ export function dominantCategories(
 }
 
 /**
- * Picks the primary archetype (highest-scoring category) and, if there's
- * a clear second-place category (not a near-tie with first), a secondary
- * flavor blurb to layer on top of the primary narrative.
- *
- * "Clear second place" = the gap between #1 and #2 is less than `tieThreshold`
- * points difference AND #2 itself is meaningfully above the rest (at least
- * `minSecondaryScore` percentage points). This avoids attaching a flavor
- * blurb when the top category is overwhelmingly dominant and the "second
- * place" is essentially noise.
+ * Picks the primary archetype (highest-scoring category) and, if the
+ * second-place category scored at least `minSecondaryScore` percentage
+ * points, attaches a secondary flavor blurb to layer on top of the
+ * primary narrative. This avoids a secondary blurb when the second
+ * category is essentially noise (scored below 40%).
  */
 export function pickArchetype(
   profile: CategoryResult[],

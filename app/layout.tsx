@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: "Love Compass",
     template: "%s | Love Compass"
   },
-  description: "Discover how you give and receive love. Love Compass is a free self-reflection tool built around six structured assessments — no sign-up required.",
+  description: "Discover how you give and receive love. Love Compass is a free self-reflection tool built around four structured assessments — no sign-up required.",
   keywords: ["love languages", "relationship assessment", "intimacy style", "self-reflection", "love quiz", "relationship quiz"],
   openGraph: {
     title: "Love Compass",
