@@ -135,9 +135,10 @@ export default function HomePage() {
             <Image
               src="/logo.svg"
               alt="Love Compass"
-              width={90}
-              height={30}
+              width={120}
+              height={40}
               priority
+              style={{ display: "block" }}
             />
           </Link>
           <p className="lc-masthead-tagline">
