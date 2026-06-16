@@ -17,54 +17,7 @@ const menuLinks = [
   { href: "/disclaimer",  label: "Disclaimer" },
 ];
 
-// ── Compass SVG logo mark ──────────────────────────────────────────────────
-function CompassMark({ active }: { active: boolean }) {
-  return (
-    <svg
-      width="22" height="22" viewBox="0 0 22 22"
-      fill="none" aria-hidden="true"
-      style={{ display: "block" }}
-    >
-      {/* Outer ring */}
-      <circle
-        cx="11" cy="11" r="9.5"
-        stroke={active ? "var(--accent)" : "currentColor"}
-        strokeWidth="1"
-        opacity={active ? 0.9 : 0.45}
-      />
-      {/* North petal */}
-      <path
-        d="M11 2.5 L12.4 9.5 L11 8 L9.6 9.5 Z"
-        fill={active ? "var(--accent)" : "currentColor"}
-        opacity={active ? 1 : 0.6}
-      />
-      {/* South petal */}
-      <path
-        d="M11 19.5 L12.4 12.5 L11 14 L9.6 12.5 Z"
-        fill={active ? "var(--accent)" : "currentColor"}
-        opacity={active ? 0.45 : 0.25}
-      />
-      {/* East petal */}
-      <path
-        d="M19.5 11 L12.5 9.6 L14 11 L12.5 12.4 Z"
-        fill={active ? "var(--accent)" : "currentColor"}
-        opacity={active ? 0.45 : 0.25}
-      />
-      {/* West petal */}
-      <path
-        d="M2.5 11 L9.5 9.6 L8 11 L9.5 12.4 Z"
-        fill={active ? "var(--accent)" : "currentColor"}
-        opacity={active ? 0.45 : 0.25}
-      />
-      {/* Centre dot */}
-      <circle
-        cx="11" cy="11" r="1.5"
-        fill={active ? "var(--accent)" : "currentColor"}
-        opacity={active ? 1 : 0.5}
-      />
-    </svg>
-  );
-}
+import Image from "next/image";
 
 // ── Hamburger icon ─────────────────────────────────────────────────────────
 function HamburgerIcon({ open }: { open: boolean }) {
@@ -181,7 +134,7 @@ export default function Navbar() {
       >
         <nav className="lc-nav-pill" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
 
-          {/* Home / compass */}
+          {/* Home / logo */}
           <Link
             href="/"
             className="lc-nav-icon-btn"
@@ -189,7 +142,16 @@ export default function Navbar() {
             style={{ color: homeActive ? "var(--accent)" : "rgba(245,240,232,0.55)" }}
           >
             <div className={`lc-nav-aura ${homeActive ? "lc-nav-aura--active" : ""}`} />
-            <CompassMark active={homeActive} />
+            <Image
+              src="/apple-touch-icon.png"
+              alt="Love Compass"
+              width={24}
+              height={24}
+              style={{
+                opacity: homeActive ? 1 : 0.55,
+                transition: "opacity 0.2s ease",
+              }}
+            />
             <span className="lc-nav-label" style={{ color: homeActive ? "var(--accent)" : undefined }}>
               Home
             </span>
