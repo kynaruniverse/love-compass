@@ -135,8 +135,8 @@ export default function HomePage() {
             <Image
               src="/logo.svg"
               alt="Love Compass"
-              width={120}
-              height={40}
+              width={180}
+              height={60}
               priority
               style={{ display: "block" }}
             />
