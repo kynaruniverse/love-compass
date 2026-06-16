@@ -483,7 +483,7 @@ h1, h2, h3 {
 .lc-footer-inner {
   max-width: 36rem;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 5rem;
+  padding: 3.5rem 1.5rem 6rem; /* bottom clears the sigil */
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -639,171 +639,164 @@ h1, h2, h3 {
 }
 
 /* ══════════════════════════════════════════
-   NAVBAR — FLOATING PILL
+   NAVBAR — SIGIL
 ══════════════════════════════════════════ */
 
-/* Pill wrapper — fixed, centred above bottom edge */
-.lc-nav-wrap {
+/* Outer wrapper — fixed bottom centre */
+.lc-sigil-wrap {
   position: fixed;
-  bottom: 1.25rem;
+  bottom: 1.5rem;
   left: 50%;
+  transform: translateX(-50%);
   z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               opacity  0.35s ease;
   will-change: transform, opacity;
 }
 
-/* The pill itself */
-.lc-nav-pill {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.5rem 0.75rem;
+/* The sigil button itself */
+.lc-sigil-btn {
+  width: 56px;
+  height: 56px;
   border-radius: 9999px;
-  background: rgba(18, 8, 32, 0.82);
-  border: 1px solid rgba(201, 161, 74, 0.22);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #a85856;
+  border: 1.5px solid rgba(201, 161, 74, 0.4);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    0 2px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-/* Each nav button / link */
-.lc-nav-icon-btn {
-  position: relative;
+    0 0 0 0 rgba(201, 161, 74, 0),
+    0 8px 32px rgba(168, 88, 86, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0.3rem 0.6rem;
-  border-radius: 9999px;
-  border: none;
-  background: transparent;
   cursor: pointer;
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.15s ease;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: lc-sigil-pulse 3s ease-in-out infinite;
 }
 
-/* Bloom on tap */
-.lc-nav-icon-btn:active {
-  transform: scale(0.9);
-}
-
-/* Soft aura behind active item */
-.lc-nav-aura {
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  background: radial-gradient(circle, rgba(201, 161, 74, 0.18) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.lc-nav-aura--active {
-  opacity: 1;
-}
-
-/* Icon label (tiny, beneath icon) */
-.lc-nav-label {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  color: inherit;
-  white-space: nowrap;
-}
-
-/* Text-only nav links (Assessments, About) */
-.lc-nav-text-label {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: inherit;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-/* Thin vertical divider between links and hamburger */
-.lc-nav-divider {
-  width: 1px;
-  height: 20px;
-  background: rgba(201, 161, 74, 0.18);
-  margin: 0 0.15rem;
-  flex-shrink: 0;
-}
-
-/* ══════════════════════════════════════════
-   NAVBAR — SLIDE-UP MENU SHEET
-══════════════════════════════════════════ */
-.lc-nav-sheet {
-  position: fixed;
-  bottom: 5.5rem; /* sits just above the pill */
-  left: 50%;
-  transform: translateX(-50%) translateY(0);
-  z-index: 49;
-  min-width: 200px;
-  padding: 0.75rem 0.5rem;
-  border-radius: 1.25rem;
-  background: rgba(18, 8, 32, 0.92);
-  border: 1px solid rgba(201, 161, 74, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.lc-sigil-btn--open {
+  animation: none;
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.5),
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 0 0 6px rgba(201, 161, 74, 0.15),
+    0 8px 32px rgba(168, 88, 86, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.lc-sigil-btn:active {
+  transform: scale(0.92);
+}
+
+@keyframes lc-sigil-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 161, 74, 0), 0 8px 32px rgba(168, 88, 86, 0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(201, 161, 74, 0.12), 0 8px 32px rgba(168, 88, 86, 0.6); }
+}
+
+/* Bloom menu — column of links above the sigil */
+.lc-bloom-menu {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.lc-nav-sheet-link {
+/* Each bloom link */
+.lc-bloom-link {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(245, 240, 232, 0.65);
+  color: rgba(245, 235, 220, 0.85);
+  background: #a85856;
+  border: 1px solid rgba(201, 161, 74, 0.25);
+  border-left: 3px solid rgba(201, 161, 74, 0.2);
   text-decoration: none;
-  padding: 0.65rem 1rem;
-  border-radius: 0.75rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
   min-height: 44px;
+  min-width: 140px;
   display: flex;
   align-items: center;
-  transition: color 0.2s ease, background 0.2s ease;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(168, 88, 86, 0.35);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity  0.3s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.lc-nav-sheet-link:hover,
-.lc-nav-sheet-link:active {
+.lc-bloom-link--active {
   color: var(--accent);
-  background: rgba(201, 161, 74, 0.08);
+  border-left-color: var(--accent);
 }
 
-.lc-nav-sheet-link--active {
+.lc-bloom-link:active {
+  transform: scale(0.95) !important;
+}
+
+/* More button inherits bloom-link styles */
+.lc-bloom-more-btn {
+  border: none;
+  font-size: 0.78rem;
+  opacity: 0.75;
+  letter-spacing: 0.05em;
+}
+
+/* More sub-links */
+.lc-bloom-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.lc-bloom-more-link {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(245, 235, 220, 0.65);
+  background: rgba(168, 88, 86, 0.75);
+  border: 1px solid rgba(201, 161, 74, 0.15);
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  min-height: 40px;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: lc-bloom-rise 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease;
+}
+
+.lc-bloom-more-link:active {
   color: var(--accent);
 }
 
-/* Scroll-hide: override the centering transform cleanly */
-/* The translateX(-50%) is on .lc-nav-wrap via inline style,
-   scroll visibility uses a separate translateY via inline style too —
-   both are applied in the component directly */
+@keyframes lc-bloom-rise {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .lc-nav-wrap,
-  .lc-nav-sheet,
-  .lc-nav-icon-btn,
-  .lc-nav-aura {
+  .lc-sigil-btn,
+  .lc-bloom-link,
+  .lc-bloom-more-link {
     transition: none;
+    animation: none;
   }
 }
-
 
 /* ══════════════════════════════════════════
    SCOREBARS — HORIZONTAL INSIGHT LIST
