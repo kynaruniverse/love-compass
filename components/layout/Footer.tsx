@@ -71,8 +71,8 @@ export default function Footer() {
               <Image
                 src="/logo.svg"
                 alt="Love Compass"
-                width={140}
-                height={46}
+                width={100}
+                height={33}
                 style={{ opacity: 0.9 }}
               />
             </Link>
