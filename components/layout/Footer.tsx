@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -66,8 +67,14 @@ export default function Footer() {
 
           {/* Brand block */}
           <div className="lc-footer-brand">
-            <Link href="/" className="lc-footer-logo">
-              Love Compass
+            <Link href="/" className="lc-footer-logo" aria-label="Love Compass home">
+              <Image
+                src="/logo.svg"
+                alt="Love Compass"
+                width={140}
+                height={46}
+                style={{ opacity: 0.9 }}
+              />
             </Link>
             <p className="lc-footer-tagline">
               For clarity, not diagnosis. A self-reflection tool built around

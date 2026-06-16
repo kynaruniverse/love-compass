@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { assessments } from "@/data/assessments";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 
 const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
   ssr: false,
@@ -135,28 +136,39 @@ export default function HomePage() {
 
         <div className="lc-hero-content">
           <FadeIn delay={0}>
+            <Image
+              src="/logo.svg"
+              alt="Love Compass"
+              width={180}
+              height={60}
+              priority
+              style={{ marginBottom: "1.5rem" }}
+            />
+          </FadeIn>
+          
+          <FadeIn delay={50}>
             <p className="lc-hero-eyebrow">Self-discovery · Relationships</p>
           </FadeIn>
 
-          <FadeIn delay={100}>
+          <FadeIn delay={150}>
             <h1 className="lc-hero-h1">
               Understanding yourself is the most loving thing you can do.
             </h1>
           </FadeIn>
 
-          <FadeIn delay={200}>
+          <FadeIn delay={250}>
             <p className="lc-hero-sub">
               For you. For them. For whoever comes next.
             </p>
           </FadeIn>
 
-          <FadeIn delay={300}>
+          <FadeIn delay={350}>
             <p className="lc-hero-body">
               Most of us love people the way we want to be loved. Love Compass helps you close that gap — four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
             </p>
           </FadeIn>
 
-          <FadeIn delay={400}>
+          <FadeIn delay={450}>
             <div className="lc-hero-ctas">
               <Link href="/assessments">
                 <Button variant="primary" className="lc-cta-primary">
