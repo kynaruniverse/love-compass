@@ -8,7 +8,7 @@ export const metadata = generateMeta({
 
 export default function AssessmentsPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-16 space-y-8">
+    <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-8">
       <div className="space-y-3 pb-2">
         <span
           className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
@@ -39,7 +39,8 @@ export default function AssessmentsPage() {
             <Link
               key={a.slug}
               href={`/assessments/${a.slug}`}
-              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98]"
+              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
+              aria-label={`${a.title} — Receiving assessment`}
               style={{
                 border: "1.5px solid rgba(158,59,78,0.18)",
                 background: "var(--primary-soft)",
@@ -51,7 +52,7 @@ export default function AssessmentsPage() {
               <div className="relative flex items-center justify-between gap-4">
                 <div>
                   <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
-                  <p className="text-sm opacity-60">{a.description}</p>
+                  <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
                 </div>
                 <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--primary-soft)] text-[var(--primary)] border border-[var(--primary)] border-opacity-20 flex-shrink-0">
                   Receiving
@@ -72,7 +73,8 @@ export default function AssessmentsPage() {
             <Link
               key={a.slug}
               href={`/assessments/${a.slug}`}
-              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98]"
+              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
+              aria-label={`${a.title} — Giving assessment`}
               style={{
                 border: "1.5px solid rgba(201,161,74,0.25)",
                 background: "var(--accent-soft)",
@@ -84,7 +86,7 @@ export default function AssessmentsPage() {
               <div className="relative flex items-center justify-between gap-4">
                 <div>
                   <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
-                  <p className="opacity-60 font-serif" style={{ fontSize: 15 }}>{a.description}</p>
+                  <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
                 </div>
                 <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] border-opacity-20 flex-shrink-0">
                   Giving

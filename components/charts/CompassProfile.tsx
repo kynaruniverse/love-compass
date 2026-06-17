@@ -162,7 +162,7 @@ export default function CompassProfile({
           const dotPos = point(cat.angle, dotRadius);
           const isPrimary = cat.key === top.key;
           const isActive = cat.key === activeCat;
-          const touchRadius = 18;
+          const touchRadius = 22;
           const touchPos = point(cat.angle, outerRadius * Math.max(0.08, cat.percentage / 100));
 
           return (
@@ -315,6 +315,15 @@ export default function CompassProfile({
         {" "}— your strongest dimension at{" "}
         <span className="font-semibold" style={{ color: "var(--accent)" }}>{top.percentage}%</span>.
       </p>
+      {!hasInteracted && (
+        <p
+          className="text-center font-serif"
+          style={{ fontSize: 11, color: "var(--accent)", opacity: 0.5, letterSpacing: "0.06em" }}
+          aria-hidden="true"
+        >
+          tap a spoke to explore ›
+        </p>
+      )}
     </div>
   );
 }

@@ -23,7 +23,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui;
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   line-height: 1.6;
 }
 
@@ -83,6 +83,31 @@ h1, h2, h3 {
   z-index: 0;
   width: 100%;
   height: 100%;
+}
+
+/* ══════════════════════════════════════════
+   QUIZ — ANSWER BUTTONS
+══════════════════════════════════════════ */
+.lc-answer-btn {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lc-answer-btn:hover {
+  border-color: #c9a14a !important;
+  box-shadow: 0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6) !important;
+}
+
+.lc-answer-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: #c9a14a !important;
+  box-shadow: 0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-answer-btn {
+    transition: none !important;
+  }
 }
 
 /* ══════════════════════════════════════════
@@ -216,6 +241,13 @@ h1, h2, h3 {
   transform: scale(0.97);
 }
 
+@media (hover: hover) {
+  .lc-cta-primary:hover {
+    box-shadow: 0 6px 28px rgba(201, 161, 74, 0.5) !important;
+    transform: translateY(-1px);
+  }
+}
+
 .lc-cta-ghost {
   font-family: var(--font-serif), Georgia, serif !important;
   font-size: 1rem !important;
@@ -323,6 +355,18 @@ h1, h2, h3 {
   transition: box-shadow 0.2s ease, transform 0.15s ease;
   box-shadow: 0 1px 8px rgba(0,0,0,0.05);
   min-height: 88px;
+}
+
+@media (hover: hover) {
+  .lc-acard:hover {
+    box-shadow: 0 4px 20px rgba(158,59,78,0.12), 0 1px 4px rgba(0,0,0,0.06);
+    border-color: rgba(158,59,78,0.25);
+    transform: translateY(-1px);
+  }
+
+  .lc-acard:hover .lc-acard-arrow {
+    opacity: 0.5;
+  }
 }
 
 .lc-acard:active {
@@ -474,6 +518,21 @@ h1, h2, h3 {
   .lc-scroll-hint span {
     animation: none;
     opacity: 0.4;
+  }
+}
+
+/* Hide back-to-top on very narrow screens to avoid overlap with sigil */
+@media (max-width: 359px) {
+  .lc-back-to-top {
+    display: none;
+  }
+}
+
+/* Assessments page card hover */
+@media (hover: hover) {
+  .lc-assess-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.7) !important;
   }
 }
 
@@ -866,6 +925,25 @@ h1, h2, h3 {
   border-radius: 9999px;
   transition: width 0.75s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: width;
+}
+
+/* ══════════════════════════════════════════
+   RESULTS — INSIGHT CARD SCROLL CONTAINER
+══════════════════════════════════════════ */
+.lc-insight-scroll {
+  position: relative;
+}
+
+.lc-insight-scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3rem;
+  background: linear-gradient(to left, var(--background) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: 0 1.5rem 1.5rem 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

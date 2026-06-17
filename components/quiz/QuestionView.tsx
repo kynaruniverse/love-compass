@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
 
 function GoldBadge({ label }: { label: string }) {
@@ -35,6 +36,10 @@ const answerButtonPointerHandlers = {
   },
 };
 
+// Keyboard users never trigger pointer events, so focus state is handled
+// entirely by the .lc-answer-btn:focus-visible rule in globals.css. These
+// inline handlers stay pointer-only and are layered on top of that class.
+
 export default function QuestionView({
   question,
   onAnswer
@@ -44,6 +49,7 @@ export default function QuestionView({
 }) {
   const type = question.type ?? "forced-choice";
   const isScale = type === "likert" || type === "reverse";
+  const headingId = useId();
 
   return (
     <div className="max-w-xl mx-auto w-full px-4">
@@ -56,28 +62,32 @@ export default function QuestionView({
         </span>
       )}
 
-      <h2 className="text-2xl sm:text-3xl font-serif font-semibold mb-8 leading-snug text-center">
+      <h2
+        id={headingId}
+        className="text-2xl sm:text-3xl font-serif font-semibold mb-8 leading-snug text-center"
+      >
         {question.question}
       </h2>
 
       {isScale ? (
-        <div className="space-y-3">
+        <div className="space-y-3" role="radiogroup" aria-labelledby={headingId}>
           {LIKERT_LABELS.map((label, i) => {
             const value = String(i + 1);
             return (
               <button
                 key={value}
                 onClick={() => onAnswer(value)}
-              className="w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] flex items-center gap-4"
-              style={{
-                padding: "1rem",
-                minHeight: 56,
-                border: "1.5px solid var(--border-soft)",
-                background: "linear-gradient(135deg, var(--surface) 80%, var(--primary-soft) 100%)",
-                boxShadow: "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
-                WebkitTapHighlightColor: "transparent",
-              }}
-              {...answerButtonPointerHandlers}
+                aria-label={`${value} out of 5 — ${label}`}
+                className="lc-answer-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] flex items-center gap-4"
+                style={{
+                  padding: "1rem",
+                  minHeight: 56,
+                  border: "1.5px solid var(--border-soft)",
+                  background: "linear-gradient(135deg, var(--surface) 80%, var(--primary-soft) 100%)",
+                  boxShadow: "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
+                  WebkitTapHighlightColor: "transparent",
+                }}
+                {...answerButtonPointerHandlers}
               >
                 <GoldBadge label={value} />
                 <span className="text-base font-serif" style={{ color: "var(--foreground)" }}>
@@ -88,12 +98,12 @@ export default function QuestionView({
           })}
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-3" role="radiogroup" aria-labelledby={headingId}>
           {question.options.map(opt => (
             <button
               key={opt.letter}
               onClick={() => onAnswer(opt.letter)}
-              className="w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] flex items-center gap-4"
+              className="lc-answer-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] flex items-center gap-4"
               style={{
                 padding: "1rem",
                 minHeight: 56,

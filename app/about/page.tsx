@@ -32,7 +32,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 export default function AboutPage() {
   return (
-    <main className="max-w-3xl mx-auto px-5 py-16 space-y-8">
+    <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
 
         {/* Hero heading */}
         <div className="space-y-4 pb-4">
@@ -138,19 +138,12 @@ export default function AboutPage() {
           </div>
           <p className="text-sm opacity-60 leading-relaxed pt-1">
             Each assessment takes 5–10 minutes. Your answers never leave your browser.
-            nothing is stored, nothing is transmitted.
+            Nothing is stored, nothing is transmitted.
           </p>
           <div className="pt-1">
             <Link
               href="/assessments"
-              className="inline-flex items-center justify-center rounded-2xl font-serif font-semibold text-white transition-all duration-150 active:scale-95 active:opacity-90"
-              style={{
-                padding: "0.75rem 1.75rem",
-                minHeight: 48,
-                background: "linear-gradient(160deg, #C45070 0%, #9E3B4E 100%)",
-                boxShadow: "0 4px 0 0 rgba(158,59,78,0.35)",
-                WebkitTapHighlightColor: "transparent",
-              }}
+              className="lc-cta-primary inline-flex items-center justify-center"
             >
               Browse Assessments →
             </Link>
@@ -162,7 +155,7 @@ export default function AboutPage() {
           <SectionHeading>On love, intimacy, and why they matter</SectionHeading>
           <p className="opacity-85 leading-relaxed">
             Love and intimacy are two of the most overused words in the English language
-            and two of the least examined. We treat them as feelings. things that arrive
+            and two of the least examined. We treat them as feelings, things that arrive
             and either stick or don't. That framing is responsible for more unnecessary
             pain than most people realise.
           </p>

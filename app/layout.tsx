@@ -65,6 +65,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={lora.variable}>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-xl focus:font-serif focus:text-sm focus:font-semibold"
+          style={{
+            background: "var(--surface)",
+            color: "var(--primary)",
+            border: "2px solid var(--primary)",
+          }}
+        >
+          Skip to content
+        </a>
         <Navbar />
         {children}
         <Footer />

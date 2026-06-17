@@ -20,8 +20,8 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
     <div
       className="flex flex-col"
       style={{
-        minHeight: "calc(100dvh - 160px)",
-        paddingBottom: "env(safe-area-inset-bottom, 0px)",
+        minHeight: "min(calc(100dvh - 120px), 680px)",
+        paddingBottom: "max(env(safe-area-inset-bottom, 0px), 1rem)",
         background: "radial-gradient(ellipse at 50% 30%, rgba(158,59,78,0.04) 0%, transparent 70%)",
       }}
     >

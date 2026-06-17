@@ -34,6 +34,7 @@ function AssessmentCard({
       <Link
         href={`/assessments/${slug}`}
         className="lc-acard"
+        aria-label={`${title} — ${mode === "receiving" ? "Receiving" : "Giving"} assessment`}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
         {/* Left accent bar */}
@@ -129,15 +130,11 @@ export default function HomePage() {
 
           <FadeIn delay={400}>
             <div className="lc-hero-ctas">
-              <Link href="/assessments">
-                <Button variant="primary" className="lc-cta-primary">
-                  Start exploring →
-                </Button>
+              <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
+                Start exploring →
               </Link>
-              <Link href="/about">
-                <Button variant="ghost" className="lc-cta-ghost">
-                  How it works
-                </Button>
+              <Link href="/about" className="lc-cta-ghost inline-flex items-center justify-center">
+                How it works
               </Link>
             </div>
           </FadeIn>
@@ -158,14 +155,14 @@ export default function HomePage() {
               <p className="lc-group-eyebrow" style={{ color: "var(--primary)" }}>
                 How you need to be loved
               </p>
-              <h2 className="lc-group-h2">Receiving</h2>
+              <h2 className="lc-group-h2" id="group-receiving">Receiving</h2>
               <p className="lc-group-sub">
                 Not all love lands the same way. These assessments help you understand what actually reaches you, the affection, closeness, and connection that makes you feel genuinely held.
               </p>
             </div>
           </FadeIn>
 
-          <div className="lc-card-stack">
+          <div className="lc-card-stack" aria-labelledby="group-receiving" role="list">
             {receiving.map((a, i) => (
               <AssessmentCard key={a.slug} {...a} index={i} />
             ))}
@@ -179,14 +176,14 @@ export default function HomePage() {
               <p className="lc-group-eyebrow" style={{ color: "var(--accent)" }}>
                 How you naturally love
               </p>
-              <h2 className="lc-group-h2">Giving</h2>
+              <h2 className="lc-group-h2" id="group-giving">Giving</h2>
               <p className="lc-group-sub">
                 The love you give without thinking is often the truest thing about you. These assessments bring it into focus.
               </p>
             </div>
           </FadeIn>
 
-          <div className="lc-card-stack">
+          <div className="lc-card-stack" aria-labelledby="group-giving" role="list">
             {giving.map((a, i) => (
               <AssessmentCard key={a.slug} {...a} index={i} />
             ))}
@@ -200,10 +197,8 @@ export default function HomePage() {
         <FadeIn>
           <h2 className="lc-final-h2">Ready to begin?</h2>
           <p className="lc-final-sub">Four assessments. No sign-up. Take as many or as few as you like.</p>
-          <Link href="/assessments">
-            <Button variant="primary" className="lc-cta-primary">
-              Start exploring →
-            </Button>
+          <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
+            Start exploring →
           </Link>
           <p className="lc-final-note">
             Not a clinical evaluation. No account required. Nothing stored.

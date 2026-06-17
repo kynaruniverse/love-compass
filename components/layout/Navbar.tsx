@@ -87,6 +87,7 @@ export default function Navbar() {
                 href={l.href}
                 className={`lc-bloom-more-link ${pathname.startsWith(l.href) ? "lc-bloom-link--active" : ""}`}
                 onClick={() => { setMenuOpen(false); setMoreOpen(false); }}
+                tabIndex={menuOpen ? 0 : -1}
                 style={{ animationDelay: `${i * 40}ms` }}
               >
                 {l.label}
@@ -104,6 +105,7 @@ export default function Navbar() {
               href={l.href}
               className={`lc-bloom-link ${active ? "lc-bloom-link--active" : ""}`}
               onClick={() => { setMenuOpen(false); setMoreOpen(false); }}
+              tabIndex={menuOpen ? 0 : -1}
               style={{
                 animationDelay: menuOpen ? `${i * 60}ms` : "0ms",
                 opacity: menuOpen ? 1 : 0,
@@ -119,6 +121,9 @@ export default function Navbar() {
         <button
           className={`lc-bloom-link lc-bloom-more-btn ${moreOpen ? "lc-bloom-link--active" : ""}`}
           onClick={() => setMoreOpen((o) => !o)}
+          tabIndex={menuOpen ? 0 : -1}
+          aria-expanded={moreOpen}
+          aria-label={moreOpen ? "Collapse more links" : "Show more links"}
           style={{
             animationDelay: menuOpen ? "180ms" : "0ms",
             opacity: menuOpen ? 1 : 0,

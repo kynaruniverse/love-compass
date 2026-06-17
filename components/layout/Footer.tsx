@@ -23,9 +23,10 @@ function BackToTop() {
     <button
       onClick={scrollTop}
       aria-label="Back to top"
+      className="lc-back-to-top"
       style={{
         position: "fixed",
-        bottom: "5.5rem", // sits above the bottom nav bar
+        bottom: "5.5rem",
         right: "1.25rem",
         zIndex: 40,
         width: "44px",
@@ -45,6 +46,7 @@ function BackToTop() {
         transition: "opacity 0.3s ease, transform 0.3s ease",
         pointerEvents: visible ? "auto" : "none",
         cursor: "pointer",
+        WebkitTapHighlightColor: "transparent",
       }}
     >
       ↑

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import ParticleCanvas from "@/components/ui/ParticleCanvas";
 
@@ -7,6 +8,8 @@ import ParticleCanvas from "@/components/ui/ParticleCanvas";
 
 function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  const id = q.toLowerCase().replace(/[^a-z0-9]/g, "-").slice(0, 40);
+  const answerId = `faq-answer-${id}`;
 
   return (
     <div
@@ -22,12 +25,14 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
         onClick={() => setOpen(o => !o)}
         className="relative w-full text-left px-6 py-5 flex items-center justify-between gap-4 active:opacity-75 transition-opacity"
         aria-expanded={open}
+        aria-controls={answerId}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
         <span className="font-serif font-semibold text-[var(--primary)] leading-snug">
           {q}
         </span>
         <span
+          aria-hidden="true"
           className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-lg font-light transition-transform duration-300"
           style={{
             border: "1.5px solid rgba(201,161,74,0.4)",
@@ -40,6 +45,9 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
         </span>
       </button>
       <div
+        id={answerId}
+        role="region"
+        aria-label={q}
         className="relative overflow-hidden transition-all duration-300 ease-in-out"
         style={{ maxHeight: open ? "600px" : "0px", opacity: open ? 1 : 0 }}
       >
@@ -150,7 +158,7 @@ export default function FAQPage() {
     <>
       <ParticleCanvas />
 
-      <main className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-12">
+      <main id="main-content" className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-12">
 
         {/* Header */}
         <div className="space-y-3">
@@ -205,19 +213,12 @@ export default function FAQPage() {
               The best way to understand your results is to take an assessment and
               sit with what comes up. Most people find it more revealing than they expected.
             </p>
-            <a
+            <Link
               href="/assessments"
-              className="inline-flex items-center justify-center mt-4 rounded-2xl font-serif font-semibold text-white transition-all duration-150 active:scale-95 active:opacity-90"
-              style={{
-                padding: "0.75rem 1.75rem",
-                minHeight: 48,
-                background: "linear-gradient(160deg, #C45070 0%, #9E3B4E 100%)",
-                boxShadow: "0 4px 0 0 rgba(158,59,78,0.35)",
-                WebkitTapHighlightColor: "transparent",
-              }}
+              className="lc-cta-primary inline-flex items-center justify-center mt-4"
             >
               Take an Assessment →
-            </a>
+            </Link>
           </div>
         </div>
 

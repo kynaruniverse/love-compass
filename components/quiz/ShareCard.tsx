@@ -10,22 +10,29 @@ interface Props {
   result: NarrativeResult;
   profile: CategoryResult[];
   quizType: string;
+  /** A fully self-contained URL that reproduces this exact result for anyone who opens it. */
+  shareUrl?: string;
 }
 
 
-export default function ShareCard({ result, profile, quizType }: Props) {
+export default function ShareCard({ result, profile, quizType, shareUrl }: Props) {
   const [copiedText, setCopiedText] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [copyError, setCopyError] = useState(false);
   const top3 = profile.slice(0, 3);
   const modeLabel = getQuizTypeLabel(quizType);
   const giving = isGivingMode(quizType);
 
   function handleCopyLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
+    const linkToShare = shareUrl ?? window.location.href;
+    navigator.clipboard.writeText(linkToShare).then(() => {
       setCopiedLink(true);
+      setCopyError(false);
       setTimeout(() => setCopiedLink(false), 2000);
     }).catch(() => {
-      // Clipboard unavailable (HTTP, permission denied, etc.) — fail silently
+      // Clipboard unavailable (HTTP, permission denied, etc.)
+      setCopyError(true);
+      setTimeout(() => setCopyError(false), 3000);
     });
   }
 
@@ -48,9 +55,12 @@ export default function ShareCard({ result, profile, quizType }: Props) {
 
     navigator.clipboard.writeText(text).then(() => {
       setCopiedText(true);
+      setCopyError(false);
       setTimeout(() => setCopiedText(false), 2000);
     }).catch(() => {
-      // Clipboard unavailable — fail silently
+      // Clipboard unavailable (HTTP, permission denied, etc.)
+      setCopyError(true);
+      setTimeout(() => setCopyError(false), 3000);
     });
   }
 
@@ -145,12 +155,25 @@ export default function ShareCard({ result, profile, quizType }: Props) {
           {copiedText ? "Copied ✓" : "Copy Result to Share"}
         </Button>
         <Button onClick={handleCopyLink} variant="secondary">
-          {copiedLink ? "Copied ✓" : "Copy Link"}
+          {copiedLink ? "Copied ✓" : "Copy Shareable Link"}
         </Button>
       </div>
 
+      {/* Status announcements for screen readers */}
+      <p role="status" aria-live="polite" className="sr-only">
+        {copiedText && "Result text copied to clipboard."}
+        {copiedLink && "Shareable link copied to clipboard."}
+        {copyError && "Couldn't copy automatically. Please copy manually."}
+      </p>
+
+      {copyError && (
+        <p className="text-xs text-center" style={{ color: "var(--primary)" }}>
+          Couldn't copy automatically — your browser may be blocking clipboard access.
+        </p>
+      )}
+
       <p className="text-xs opacity-40 text-center">
-        Send it to a partner. Ask them to take theirs. See where you match — and where you don't.
+        Send the link to a partner — it opens straight to this result, even if they've never visited before. Ask them to take their own. See where you match, and where you don't.
       </p>
     </div>
   );

@@ -58,7 +58,14 @@ function ScoreBar({ result, rank, delay }: {
       </div>
 
       {/* Track + fill */}
-      <div className="lc-scorebar-track">
+      <div
+        className="lc-scorebar-track"
+        role="progressbar"
+        aria-valuenow={result.percentage}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`${result.title}: ${result.percentage}%`}
+      >
         <div
           className="lc-scorebar-fill"
           style={{

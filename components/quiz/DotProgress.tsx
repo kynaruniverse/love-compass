@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 export default function DotProgress({
   total,
@@ -11,6 +11,7 @@ export default function DotProgress({
   const filled = pct >= 100;
   const [bloom, setBloom] = useState(false);
   const prevPct = useRef(pct);
+  const uid = useId().replace(/:/g, "-");
 
   useEffect(() => {
     if (pct !== prevPct.current) {
@@ -22,7 +23,14 @@ export default function DotProgress({
   }, [pct]);
 
   return (
-    <div className="w-full flex items-center gap-3 px-4 max-w-md mx-auto">
+    <div
+      className="w-full flex items-center gap-3 px-4 max-w-md mx-auto"
+      role="progressbar"
+      aria-valuenow={Math.min(current + 1, total)}
+      aria-valuemin={1}
+      aria-valuemax={total}
+      aria-label={`Question ${Math.min(current + 1, total)} of ${total}`}
+    >
       {/* Hairline track */}
       <div
         className="flex-1 relative overflow-hidden"
@@ -67,13 +75,13 @@ export default function DotProgress({
           strokeLinejoin="round"
           opacity="0.3"
         />
-        <clipPath id="dot-heart-clip">
+        <clipPath id={`dot-heart-clip-${uid}`}>
           <rect x="0" y="0" width={`${pct * 0.16}`} height="16" />
         </clipPath>
         <path
           d="M8 13.5C8 13.5 1.5 9.5 1.5 5.5C1.5 3.5 3 2 5 2C6.2 2 7.2 2.6 8 3.5C8.8 2.6 9.8 2 11 2C13 2 14.5 3.5 14.5 5.5C14.5 9.5 8 13.5 8 13.5Z"
           fill="var(--primary)"
-          clipPath="url(#dot-heart-clip)"
+          clipPath={`url(#dot-heart-clip-${uid})`}
           opacity={filled ? 1 : 0.85}
         />
       </svg>

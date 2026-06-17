@@ -30,7 +30,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 export default function MethodologyPage() {
   return (
-    <main className="max-w-3xl mx-auto px-5 py-16 space-y-8">
+    <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
 
       {/* Hero */}
       <div className="space-y-3 pb-2">

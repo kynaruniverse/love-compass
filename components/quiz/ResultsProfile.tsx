@@ -77,7 +77,7 @@ export default function ResultsProfile({
           borderColor="var(--border-soft)"
           shadow="0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)"
         >
-          <div className="space-y-3">
+          <div className="space-y-2">
             <h3 className="font-serif font-semibold text-[var(--primary)]">Your Profile Mix</h3>
             <p className="text-sm leading-relaxed opacity-80 font-serif" style={{ fontSize: 15 }}>
               You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
@@ -94,112 +94,47 @@ export default function ResultsProfile({
       )}
 
       {/* ── Insight cards — horizontal swipe deck ── */}
-      <div>
+      <div className="lc-insight-scroll">
         <div
           className="flex gap-4 overflow-x-auto pb-3"
+          role="region"
+          aria-label="Insight cards — swipe to explore"
+          tabIndex={0}
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
           }}
         >
-          {insightCards.map(card => (
-            <div
-              key={card.title}
-              className="relative rounded-3xl p-5 flex-shrink-0 overflow-hidden"
-              style={{
-                width: "72vw",
-                maxWidth: 280,
-                scrollSnapAlign: "start",
-                border: "1.5px solid var(--border-soft)",
-                background: "var(--surface)",
-                boxShadow: "0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)",
-              }}
-            >
-              <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-              <div className="relative space-y-3">
-                <h3
-                  className="font-serif font-semibold"
-                  style={{ color: card.accent }}
-                >
-                  {card.title}
-                </h3>
-                <ul className="space-y-2 text-sm opacity-80">
-                  {card.items.map((s, i) => (
-                    <li key={i} className="flex gap-2 font-serif">
-                      <span className="flex-shrink-0" style={{ color: card.accent }}>◆</span>
-                      <span>{s}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Swipe hint */}
-        <p
-          className="text-center font-serif mt-1"
-          style={{ fontSize: 11, color: "var(--accent)", opacity: 0.5, letterSpacing: "0.06em" }}
-        >
-          swipe to explore ›
-        </p>
-      </div>
-
-      {/* ── Try This ── */}
-      <PaperCard
-        className="rounded-3xl p-6"
-        borderColor="var(--border-soft)"
-        shadow="0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)"
-      >
-        <div className="space-y-3">
-          <h3 className="font-serif font-semibold" style={{ color: "var(--accent)" }}>Try This</h3>
-          <ul className="space-y-2 text-sm opacity-80">
-            {primary.tryThis.map((s, i) => (
-              <li key={i} className="flex gap-2 font-serif">
-                <span className="flex-shrink-0" style={{ color: "var(--accent)" }}>◆</span>
-                <span>{s}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </PaperCard>
-
-      {/* ── Pairings ── */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        {[
-          { title: "Best With", body: primary.pairings.bestWith, accent: "var(--primary)" },
-          { title: "Friction With", body: primary.pairings.frictionWith, accent: "var(--accent)" },
-        ].map(p => (
-          <PaperCard
-            key={p.title}
-            className="rounded-3xl p-5"
-            borderColor="var(--border-soft)"
-            shadow="0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)"
-          >
-            <div className="space-y-2">
-              <h3 className="font-serif font-semibold" style={{ color: p.accent }}>{p.title}</h3>
-              <p className="text-sm leading-relaxed opacity-80 font-serif">{p.body}</p>
-            </div>
-          </PaperCard>
-        ))}
       </div>
 
       {/* ── Full profile breakdown ── */}
-      {rest.length > 0 && (
+      {profile.length > 0 && (
         <div className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">
             Full Profile Breakdown
           </h2>
           <div className="space-y-3">
-            {rest.map(cat => (
-              <div key={cat.key} className="space-y-1">
-                <div className="flex justify-between text-sm font-serif">
-                  <span className="font-medium">{cat.title}</span>
-                  <span className="opacity-50">{cat.percentage}%</span>
+            {profile.map(cat => {
+              const isPrimary = cat.key === primary.key;
+              return (
+                <div key={cat.key} className="space-y-1">
+                  <div className="flex justify-between text-sm font-serif">
+                    <span className="font-medium" style={{ color: isPrimary ? "var(--primary)" : undefined }}>
+                      {isPrimary && <span aria-hidden="true" style={{ color: "var(--accent)", marginRight: "0.3rem" }}>◆</span>}
+                      {cat.title}
+                    </span>
+                    <span
+                      className="font-semibold"
+                      style={{ color: isPrimary ? "var(--accent)" : undefined, opacity: isPrimary ? 1 : 0.5 }}
+                    >
+                      {cat.percentage}%
+                    </span>
+                  </div>
+                  <ProgressBar value={cat.percentage} />
                 </div>
-                <ProgressBar value={cat.percentage} />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

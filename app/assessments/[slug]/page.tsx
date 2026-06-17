@@ -39,9 +39,10 @@ export default function QuizPage() {
 
   if (quiz.isComplete) {
     return (
-      <div
-        className="fixed inset-0 flex items-center justify-center"
-        style={{ background: "var(--background)" }}
+      <main
+        className="min-h-[60vh] flex items-center justify-center px-4"
+        aria-live="polite"
+        aria-label="Loading results"
       >
         <p
           className="font-serif italic text-center"
@@ -49,13 +50,14 @@ export default function QuizPage() {
         >
           Reflecting on your path…
         </p>
-      </div>
+      </main>
     );
   }
 
   return (
     <main
       className="px-4 py-4 relative"
+      aria-label="Assessment questions"
       style={{ animation: "quiz-bloom-in 0.4s cubic-bezier(0.22, 1, 0.36, 1)" }}
     >
       <ParticleCanvas />
