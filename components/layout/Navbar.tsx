@@ -31,7 +31,11 @@ export default function Navbar() {
   useEffect(() => {
     function onScroll() {
       const y = window.scrollY;
-      if (y < 80) { setVisible(true); return; }
+      if (y < 80) {
+        setVisible(true);
+        lastY.current = y;
+        return;
+      }
       if (y < lastY.current - 8) setVisible(true);
       if (y > lastY.current + 8) setVisible(false);
       lastY.current = y;

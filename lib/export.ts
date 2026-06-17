@@ -56,6 +56,9 @@ export function buildResultTXT(primary: Archetype, profile: CategoryResult[]): s
     "",
     "Friction With:",
     primary.pairings.frictionWith,
+    "",
+    "Full Profile:",
+    ...profile.map(c => `- ${c.title}: ${c.percentage}%`),
   ].join("\n");
 }
 

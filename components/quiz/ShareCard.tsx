@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import Button from "@/components/ui/Button";
-import { getQuizTypeLabel } from "@/lib/helpers";
+import { getQuizTypeLabel, isGivingMode } from "@/lib/helpers";
 
 
 interface Props {

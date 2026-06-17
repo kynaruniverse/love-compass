@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { NarrativeResult } from "@/types/quiz";
+import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import { isGivingMode, getQuizTypeLabel } from "@/lib/helpers";
 import { buildProfile, pickArchetype, getBlend, getAssessmentAssets } from "@/lib/resultBuilder";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
@@ -11,8 +11,6 @@ import CompassProfile from "@/components/charts/CompassProfile";
 import Button from "@/components/ui/Button";
 import { exportText, exportMarkdown, buildResultTXT, buildResultMD } from "@/lib/export";
 import { loadQuizSession } from "@/lib/session";
-import { getQuizTypeLabel } from "@/lib/helpers";
-import { CategoryResult } from "@/types/quiz";
 import ShareCard from "@/components/quiz/ShareCard";
 import PaperCard from "@/components/ui/PaperCard";
 
@@ -34,23 +32,6 @@ export default function ResultsPage() {
     try {
       // Pick correct category map + archetype library based on quiz type + mode
       const { categoryMap, archetypes, flavors } = getAssessmentAssets(type);
-      let categoryMap = LOVE_CATEGORIES;
-      let archetypes = LOVE_ARCHETYPES;
-      let flavors = LOVE_FLAVORS;
-
-      if (type === "intimacy") {
-        categoryMap = INTIMACY_CATEGORIES;
-        archetypes = INTIMACY_ARCHETYPES;
-        flavors = INTIMACY_FLAVORS;
-      } else if (type === "love-giving") {
-        categoryMap = LOVE_GIVING_CATEGORIES;
-        archetypes = LOVE_GIVING_ARCHETYPES;
-        flavors = LOVE_GIVING_FLAVORS;
-      } else if (type === "intimacy-giving") {
-        categoryMap = INTIMACY_GIVING_CATEGORIES;
-        archetypes = INTIMACY_GIVING_ARCHETYPES;
-        flavors = INTIMACY_GIVING_FLAVORS;
-      }
 
       const built = buildProfile(scores, questions, categoryMap);
       setProfile(built);
