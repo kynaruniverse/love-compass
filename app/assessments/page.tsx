@@ -57,7 +57,7 @@ export default function AssessmentsPage() {
           },
         ] as const
       ).map(group => (
-        <div key={group.mode} className="space-y-3">
+        <div key={group.mode} className="space-y-3" style={{ marginTop: "3rem" }}>
           <p
             className="text-xs font-medium uppercase tracking-widest opacity-60"
             style={{ color: group.eyebrowColor }}
@@ -79,21 +79,28 @@ export default function AssessmentsPage() {
                 }}
               >
                 <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-                <div className="relative flex items-center justify-between gap-4">
-                  <div>
+                <div className="relative flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span
+                        className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
+                        style={{
+                          background: group.tagBg,
+                          color: group.tagColor,
+                          borderColor: group.tagBorder,
+                          opacity: 0.8,
+                        }}
+                      >
+                        {group.tagLabel}
+                      </span>
+                    </div>
                     <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
                     <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
                   </div>
-                  <span
-                    className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
-                    style={{
-                      background: group.tagBg,
-                      color: group.tagColor,
-                      borderColor: group.tagBorder,
-                      opacity: 0.8,
-                    }}
-                  >
-                    {group.tagLabel}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 mt-1" style={{ opacity: 0.3 }}>
+                    <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                   </span>
                 </div>
               </Link>
@@ -101,40 +108,6 @@ export default function AssessmentsPage() {
           </div>
         </div>
       ))}
-
-      {/* Giving group */}
-      <div className="space-y-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] opacity-60">
-          How you naturally love
-        </p>
-        <div className="space-y-3">
-          {assessments.filter(a => a.mode === "giving").map(a => (
-            <Link
-              key={a.slug}
-              href={`/assessments/${a.slug}`}
-              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
-              aria-label={`${a.title} — Giving assessment`}
-              style={{
-                border: "1.5px solid rgba(201,161,74,0.25)",
-                background: "var(--accent-soft)",
-                boxShadow: "0 2px 16px rgba(201,161,74,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
-                WebkitTapHighlightColor: "transparent",
-              }}
-            >
-              <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-              <div className="relative flex items-center justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
-                  <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
-                </div>
-                <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] border-opacity-20 flex-shrink-0">
-                  Giving
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
 
       <p className="text-xs opacity-40 text-center leading-relaxed">
         Each assessment takes 5–10 minutes. Nothing you answer leaves your browser. No account. No record. Just you.

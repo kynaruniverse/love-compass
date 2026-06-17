@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { siteMeta } from "@/lib/seo";
+import ConditionalFooter from "@/components/layout/ConditionalFooter";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -76,7 +77,7 @@ export default function RootLayout({
         </a>
         <Navbar />
         {children}
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );

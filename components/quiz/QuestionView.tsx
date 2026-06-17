@@ -6,11 +6,11 @@ import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
 function GoldBadge({ label }: { label: string }) {
   return (
     <span
-      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-serif"
+      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold"
       style={{
-        background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-        color: "#1C0A0E",
-        boxShadow: "0 1px 4px rgba(201,161,74,0.3)",
+        background: "var(--accent-soft)",
+        color: "var(--accent)",
+        border: "1px solid rgba(201,161,74,0.35)",
       }}
     >
       {label}
@@ -64,7 +64,7 @@ export default function QuestionView({
 
       <h2
         id={headingId}
-        className="text-2xl sm:text-3xl font-serif font-semibold mb-8 leading-snug text-center"
+        className="text-xl sm:text-2xl font-serif font-semibold mb-6 leading-snug text-left"
       >
         {question.question}
       </h2>
@@ -78,12 +78,12 @@ export default function QuestionView({
                 key={value}
                 onClick={() => onAnswer(value)}
                 aria-label={`${value} out of 5 — ${label}`}
-                className="lc-answer-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] flex items-center gap-4"
+                className="lc-answer-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex items-center gap-4"
                 style={{
-                  padding: "1rem",
-                  minHeight: 56,
+                  padding: "1rem 1.25rem",
+                  minHeight: 60,
                   border: "1.5px solid var(--border-soft)",
-                  background: "linear-gradient(135deg, var(--surface) 80%, var(--primary-soft) 100%)",
+                  background: "var(--surface)",
                   boxShadow: "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
                   WebkitTapHighlightColor: "transparent",
                 }}
@@ -103,12 +103,12 @@ export default function QuestionView({
             <button
               key={opt.letter}
               onClick={() => onAnswer(opt.letter)}
-              className="lc-answer-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] flex items-center gap-4"
+              className="lc-answer-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex items-center gap-4"
               style={{
-                padding: "1rem",
-                minHeight: 56,
+                padding: "1rem 1.25rem",
+                minHeight: 60,
                 border: "1.5px solid var(--border-soft)",
-                background: "linear-gradient(135deg, var(--surface) 80%, var(--primary-soft) 100%)",
+                background: "var(--surface)",
                 boxShadow: "0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6)",
                 WebkitTapHighlightColor: "transparent",
               }}

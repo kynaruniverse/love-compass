@@ -82,7 +82,12 @@ h1, h2, h3 {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-color: #c9a14a !important;
-  box-shadow: 0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6) !important;
+  box-hadow: 0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6) !important;
+}
+
+/* Quiz page — zero top padding so progress bar is flush to viewport top */
+.lc-quiz-shell {
+  padding-top: 0 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -141,12 +146,12 @@ h1, h2, h3 {
 .lc-hero-canvas {
   position: absolute;
   top: 0;
-  right: -10%;
-  width: 70%;
+  right: -15%;
+  width: 65%;
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.35;
 }
 
 .lc-hero-content {
@@ -161,26 +166,27 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0.7;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .lc-hero-h1 {
-  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
   font-weight: 600;
-  line-height: 1.18;
+  line-height: 1.15;
   color: var(--foreground);
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
-  max-width: 22rem;
+  max-width: 26rem;
 }
 
 .lc-hero-sub {
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 400;
-  color: var(--primary);
+  color: var(--accent);
   margin-bottom: 1.25rem;
   font-style: italic;
   line-height: 1.3;
+  opacity: 0.85;
 }
 
 .lc-hero-body {
@@ -231,6 +237,9 @@ h1, h2, h3 {
   border-color: rgba(0, 0, 0, 0.15) !important;
   color: var(--foreground) !important;
   opacity: 0.7;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0,0,0,0.2);
 }
 
 .lc-cta-ghost:active {
@@ -494,6 +503,11 @@ h1, h2, h3 {
   }
 }
 
+/* Assessments page section top margin */
+.lc-assess-section + .lc-assess-section {
+  margin-top: 3rem;
+}
+
 /* Assessments page card hover */
 @media (hover: hover) {
   .lc-assess-card:hover {
@@ -508,7 +522,7 @@ h1, h2, h3 {
 .lc-footer-inner {
   max-width: 36rem;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem 6rem; /* bottom clears the sigil */
+  padding: 2.5rem 1.5rem 5rem; /* bottom clears the sigil */
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -536,8 +550,8 @@ h1, h2, h3 {
 .lc-footer-tagline {
   font-size: 0.82rem;
   line-height: 1.7;
-  color: #D4A0AE;
-  opacity: 0.65;
+  color: #e8c8d0;
+  opacity: 0.8;
   max-width: 30ch;
   font-style: italic;
 }
@@ -599,8 +613,8 @@ h1, h2, h3 {
 
 .lc-footer-methodology-sub {
   font-size: 0.75rem;
-  color: #D4A0AE;
-  opacity: 0.45;
+  color: #e8c8d0;
+  opacity: 0.7;
   font-style: italic;
   line-height: 1.5;
   margin-top: 0.2rem;
@@ -622,8 +636,8 @@ h1, h2, h3 {
 
 .lc-footer-link {
   font-size: 0.78rem;
-  color: #D4A0AE;
-  opacity: 0.4;
+  color: #e8c8d0;
+  opacity: 0.65;
   text-decoration: none;
   min-height: 44px;
   display: inline-flex;
@@ -639,8 +653,8 @@ h1, h2, h3 {
 
 .lc-footer-copy {
   font-size: 0.72rem;
-  color: #D4A0AE;
-  opacity: 0.2;
+  color: #e8c8d0;
+  opacity: 0.45;
 }
 
 @media (min-width: 640px) {
@@ -726,8 +740,8 @@ h1, h2, h3 {
 .lc-bloom-link {
   font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(245, 235, 220, 0.85);
-  background: #a85856;
+  color: rgba(245, 235, 220, 0.92);
+  background: rgba(168, 88, 86, 0.92);
   border: 1px solid rgba(201, 161, 74, 0.25);
   border-left: 3px solid rgba(201, 161, 74, 0.2);
   text-decoration: none;

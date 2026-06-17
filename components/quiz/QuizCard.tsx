@@ -25,7 +25,7 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
         background: "radial-gradient(ellipse at 50% 30%, rgba(158,59,78,0.04) 0%, transparent 70%)",
       }}
     >
-      <div className="pt-4 pb-3">
+      <div>
         <DotProgress total={quiz.total} current={quiz.index} />
       </div>
 

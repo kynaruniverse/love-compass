@@ -23,68 +23,35 @@ export default function DotProgress({
   }, [pct]);
 
   return (
-    <div
-      className="w-full flex items-center gap-3 px-4 max-w-md mx-auto"
-      role="progressbar"
-      aria-valuenow={Math.min(current + 1, total)}
-      aria-valuemin={1}
-      aria-valuemax={total}
-      aria-label={`Question ${Math.min(current + 1, total)} of ${total}`}
-    >
-      {/* Hairline track */}
+    <>
+      {/* Full-width flush progress bar — sits at very top of quiz shell */}
       <div
-        className="flex-1 relative overflow-hidden"
+        className="w-full overflow-hidden"
         style={{
-          height: 6,
-          borderRadius: 9999,
+          height: 3,
           background: "var(--surface-muted)",
-          boxShadow: "inset 0 1px 3px rgba(158,59,78,0.13)",
         }}
+        role="progressbar"
+        aria-valuenow={Math.min(current + 1, total)}
+        aria-valuemin={1}
+        aria-valuemax={total}
+        aria-label={`Question ${Math.min(current + 1, total)} of ${total}`}
       >
         <div
-          className="absolute inset-y-0 left-0 transition-all duration-500 ease-out"
+          className="h-full transition-all duration-500 ease-out"
           style={{
             width: `${pct}%`,
-            borderRadius: 9999,
-            background: "linear-gradient(90deg, #9E3B4E 0%, #C45070 50%, #9E3B4E 100%)",
-            boxShadow: pct > 0 ? "1px 0 0 0 #c9a14a" : "none",
+            background: "linear-gradient(90deg, #c9a14a 0%, #e8c97a 50%, #c9a14a 100%)",
           }}
         />
       </div>
 
-      {/* Question counter */}
-      <span className="font-serif text-sm text-[var(--primary)] opacity-70 flex-shrink-0 tabular-nums">
-        {Math.min(current + 1, total)} / {total}
-      </span>
-
-      {/* Heart fill */}
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        className="flex-shrink-0 transition-all duration-300"
-        style={{ transform: bloom ? "scale(1.35)" : "scale(1)" }}
-      >
-        <path
-          d="M8 13.5C8 13.5 1.5 9.5 1.5 5.5C1.5 3.5 3 2 5 2C6.2 2 7.2 2.6 8 3.5C8.8 2.6 9.8 2 11 2C13 2 14.5 3.5 14.5 5.5C14.5 9.5 8 13.5 8 13.5Z"
-          stroke="#c9a14a"
-          strokeWidth="1.2"
-          strokeLinejoin="round"
-          opacity="0.3"
-        />
-        <clipPath id={`dot-heart-clip-${uid}`}>
-          <rect x="0" y="0" width={`${pct * 0.16}`} height="16" />
-        </clipPath>
-        <path
-          d="M8 13.5C8 13.5 1.5 9.5 1.5 5.5C1.5 3.5 3 2 5 2C6.2 2 7.2 2.6 8 3.5C8.8 2.6 9.8 2 11 2C13 2 14.5 3.5 14.5 5.5C14.5 9.5 8 13.5 8 13.5Z"
-          fill="var(--primary)"
-          clipPath={`url(#dot-heart-clip-${uid})`}
-          opacity={filled ? 1 : 0.85}
-        />
-      </svg>
-    </div>
+      {/* Counter row */}
+      <div className="w-full flex items-center justify-end px-4 pt-2 pb-1 max-w-xl mx-auto">
+        <span className="font-serif text-xs text-[var(--primary)] opacity-60 tabular-nums">
+          {Math.min(current + 1, total)} / {total}
+        </span>
+      </div>
+    </>
   );
 }
