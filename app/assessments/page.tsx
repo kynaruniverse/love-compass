@@ -88,7 +88,6 @@ export default function AssessmentsPage() {
                     <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                  </div>
               </Link>
             ))}
           </div>
