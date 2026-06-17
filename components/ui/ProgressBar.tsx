@@ -5,11 +5,9 @@ export default function ProgressBar({
   value,
 }: {
   value: number;
-  label?: string;
 }) {
   const uid = useId().replace(/:/g, "-");
   const clamped = clamp(value, 0, 100);
-  const filled = clamped >= 100;
 
   return (
     <div className="w-full flex items-center gap-3">
@@ -78,7 +76,7 @@ export default function ProgressBar({
           d="M8 13.5C8 13.5 1.5 9.5 1.5 5.5C1.5 3.5 3 2 5 2C6.2 2 7.2 2.6 8 3.5C8.8 2.6 9.8 2 11 2C13 2 14.5 3.5 14.5 5.5C14.5 9.5 8 13.5 8 13.5Z"
           fill="var(--primary)"
           clipPath={`url(#heart-clip-${uid})`}
-          opacity={filled ? 1 : 0.85}
+          opacity={clamped >= 100 ? 1 : 0.85}
         />
       </svg>
     </div>

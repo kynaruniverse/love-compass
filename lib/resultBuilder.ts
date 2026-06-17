@@ -1,6 +1,47 @@
-import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult } from "@/types/quiz";
+import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult, Category } from "@/types/quiz";
 import { QuizQuestion } from "@/types/quiz";
 import { normalizeScores } from "./scoring";
+import { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "@/data/categories-receiving";
+import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories-giving";
+import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "@/data/archetypes-love";
+import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "@/data/archetypes-intimacy";
+import { LOVE_GIVING_ARCHETYPES, LOVE_GIVING_FLAVORS } from "@/data/archetypes-love-giving";
+import { INTIMACY_GIVING_ARCHETYPES, INTIMACY_GIVING_FLAVORS } from "@/data/archetypes-intimacy-giving";
+
+interface AssessmentAssets {
+  categoryMap: Record<string, Category>;
+  archetypes:  Record<string, Archetype>;
+  flavors:     Record<string, ArchetypeFlavor>;
+}
+
+export function getAssessmentAssets(type: string): AssessmentAssets {
+  switch (type) {
+    case "intimacy":
+      return {
+        categoryMap: INTIMACY_CATEGORIES,
+        archetypes:  INTIMACY_ARCHETYPES,
+        flavors:     INTIMACY_FLAVORS,
+      };
+    case "love-giving":
+      return {
+        categoryMap: LOVE_GIVING_CATEGORIES,
+        archetypes:  LOVE_GIVING_ARCHETYPES,
+        flavors:     LOVE_GIVING_FLAVORS,
+      };
+    case "intimacy-giving":
+      return {
+        categoryMap: INTIMACY_GIVING_CATEGORIES,
+        archetypes:  INTIMACY_GIVING_ARCHETYPES,
+        flavors:     INTIMACY_GIVING_FLAVORS,
+      };
+    default:
+      return {
+        categoryMap: LOVE_CATEGORIES,
+        archetypes:  LOVE_ARCHETYPES,
+        flavors:     LOVE_FLAVORS,
+      };
+  }
+}
 
 type CategoryMap = Record<string, { id: string; title: string; description: string; angle: number }>;
 
@@ -89,9 +130,4 @@ export function getIntensity(pct: number): string {
  */
 export function getBlend(profile: CategoryResult[], threshold = 8): CategoryResult[] {
   return dominantCategories(profile, threshold).slice(0, 3);
-}
-
-
-export function rankedScores(scores: ScoreMap): [string, number][] {
-  return Object.entries(scores).sort((a, b) => b[1] - a[1]);
 }

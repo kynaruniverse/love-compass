@@ -3,6 +3,7 @@ import { Lora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { siteMeta } from "@/lib/seo";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
     default: "Love Compass",
     template: "%s | Love Compass"
   },
-  description: "Discover how you give and receive love. Love Compass is a free self-reflection tool built around four structured assessments — no sign-up required.",
+  description: siteMeta.description,
   keywords: ["love languages", "relationship assessment", "intimacy style", "self-reflection", "love quiz", "relationship quiz"],
   openGraph: {
     title: "Love Compass",
-    description: "Discover how you give and receive love. Free assessments, no sign-up required.",
+    description: siteMeta.description,
     type: "website",
     url: "https://lovecompass.app",
     siteName: "Love Compass",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Love Compass",
-    description: "Discover how you give and receive love. Free assessments, no sign-up required.",
+    description: siteMeta.description,
     images: ["/og-image.png"],
   },
   alternates: {

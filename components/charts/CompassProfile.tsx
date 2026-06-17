@@ -49,7 +49,8 @@ export default function CompassProfile({
     return () => cancelAnimationFrame(animRef.current);
   }, [topAngle, top]);
 
-  // Early return AFTER all hooks
+  // ─── All hooks above this line. ───────────────────────────────────────────
+  // This is the only permitted early return in this component.
   if (profile.length === 0 || !top) return null;
 
   const needleLength = outerRadius * Math.max(0.35, top.percentage / 100);

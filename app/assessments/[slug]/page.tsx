@@ -2,36 +2,19 @@
 
 import { useEffect, useRef } from "react";
 import { useParams, useRouter, notFound } from "next/navigation";
-import { generalLoveQuestions } from "@/data/general-love";
-import { intimacyQuestions } from "@/data/intimacy";
-import { generalLoveGivingQuestions } from "@/data/general-love-giving";
-import { intimacyGivingQuestions } from "@/data/intimacy-giving";
+import { QUESTION_BANK } from "@/data/assessments";
 import { useQuiz } from "@/lib/useQuiz";
 import QuizCard from "@/components/quiz/QuizCard";
 import ParticleCanvas from "@/components/ui/ParticleCanvas";
 import { tallyAnswers } from "@/lib/scoring";
 import { QuizQuestion } from "@/types/quiz";
-
-function getQuestions(slug: string): QuizQuestion[] | null {
-  switch (slug) {
-    case "love":
-      return generalLoveQuestions;
-    case "intimacy":
-      return intimacyQuestions;
-    case "love-giving":
-      return generalLoveGivingQuestions;
-    case "intimacy-giving":
-      return intimacyGivingQuestions;
-    default:
-      return null;
-  }
-}
+import { saveQuizSession } from "@/lib/session";
 
 export default function QuizPage() {
   const { slug } = useParams();
   const router = useRouter();
 
-  const questions = getQuestions(slug as string);
+  const questions = QUESTION_BANK[slug as string] ?? null;
 
   if (!questions) {
     notFound();
@@ -46,9 +29,7 @@ export default function QuizPage() {
     navigated.current = true;
 
     const results = tallyAnswers(quiz.answers, questions);
-    sessionStorage.setItem("results", JSON.stringify(results));
-    sessionStorage.setItem("questions", JSON.stringify(questions));
-    sessionStorage.setItem("type", slug as string);
+    saveQuizSession(results, questions, slug as string);
     router.push("/results");
     // Intentionally omitting quiz.answers from deps — it changes on every answer
     // and we only need to act once when isComplete flips. The ref guards against

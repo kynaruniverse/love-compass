@@ -83,6 +83,38 @@ export function tallyAnswers(
 }
 
 /**
+ * Apply a single answer to an existing score map.
+ * Used by useQuiz to update scores incrementally as the user answers.
+ * Extracted here to avoid duplicating scoring logic in the hook.
+ */
+export function applyAnswer(
+  prev: ScoreMap,
+  q: QuizQuestion,
+  value: string
+): ScoreMap {
+  const next = { ...prev };
+  const type: QuestionType = q.type ?? "forced-choice";
+  const weight = q.weight ?? 1;
+
+  if (type === "forced-choice") {
+    const key = value as keyof ScoreMap;
+    if (key in next) next[key] += weight;
+  } else if (type === "likert") {
+    const rating = parseInt(value, 10);
+    if (!isNaN(rating) && q.category && q.category in next) {
+      next[q.category] += rating * weight;
+    }
+  } else if (type === "reverse") {
+    const rating = parseInt(value, 10);
+    if (!isNaN(rating) && q.category && q.category in next) {
+      next[q.category] = Math.max(0, next[q.category] - (rating - 1) * weight);
+    }
+  }
+
+  return next;
+}
+
+/**
  * Normalize raw scores to 0-100 percentages.
  * Each category is normalized against its own achievable ceiling, so a
  * category reachable only via forced-choice answers (no likert question)

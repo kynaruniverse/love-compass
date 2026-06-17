@@ -2,22 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ScoreMap, QuizQuestion, NarrativeResult } from "@/types/quiz";
-import { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "@/data/categories";
-import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories-giving";
-import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "@/data/archetypes-love";
-import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "@/data/archetypes-intimacy";
-import { LOVE_GIVING_ARCHETYPES, LOVE_GIVING_FLAVORS } from "@/data/archetypes-love-giving";
-import { INTIMACY_GIVING_ARCHETYPES, INTIMACY_GIVING_FLAVORS } from "@/data/archetypes-intimacy-giving";
-import { isGivingMode } from "@/data/assessments";
-import { buildProfile, pickArchetype, getBlend } from "@/lib/resultBuilder";
+import { NarrativeResult } from "@/types/quiz";
+import { isGivingMode, getQuizTypeLabel } from "@/lib/helpers";
+import { buildProfile, pickArchetype, getBlend, getAssessmentAssets } from "@/lib/resultBuilder";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
 import ScoreBars from "@/components/charts/ScoreBars";
 import CompassProfile from "@/components/charts/CompassProfile";
 import Button from "@/components/ui/Button";
-import { exportText, exportMarkdown } from "@/lib/export";
+import { exportText, exportMarkdown, buildResultTXT, buildResultMD } from "@/lib/export";
+import { loadQuizSession } from "@/lib/session";
+import { getQuizTypeLabel } from "@/lib/helpers";
 import { CategoryResult } from "@/types/quiz";
 import ShareCard from "@/components/quiz/ShareCard";
+import PaperCard from "@/components/ui/PaperCard";
 
 type ViewMode = "bars" | "compass";
 
@@ -30,17 +27,13 @@ export default function ResultsPage() {
   const [view, setView] = useState<ViewMode>("compass");
 
   useEffect(() => {
-    const rawScores = sessionStorage.getItem("results");
-    const rawQuestions = sessionStorage.getItem("questions");
-    const type = sessionStorage.getItem("type") ?? "love";
-
-    if (!rawScores || !rawQuestions) return;
+    const session = loadQuizSession();
+    if (!session) return;
+    const { scores, questions, type } = session;
 
     try {
-      const scores: ScoreMap = JSON.parse(rawScores);
-      const questions: QuizQuestion[] = JSON.parse(rawQuestions);
-
       // Pick correct category map + archetype library based on quiz type + mode
+      const { categoryMap, archetypes, flavors } = getAssessmentAssets(type);
       let categoryMap = LOVE_CATEGORIES;
       let archetypes = LOVE_ARCHETYPES;
       let flavors = LOVE_FLAVORS;
@@ -72,89 +65,31 @@ export default function ResultsPage() {
   if (!profile || !result) {
     return (
       <main className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center">
-        <div
-          className="relative text-center space-y-5 max-w-md w-full rounded-3xl overflow-hidden p-8"
-          style={{
-            border: "1.5px solid rgba(201,161,74,0.25)",
-            background: "var(--surface)",
-            boxShadow: "0 4px 32px rgba(158,59,78,0.10), inset 0 1px 2px rgba(255,255,255,0.7)",
-          }}
-        >
-          <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
-          <div
-            className="absolute top-0 left-8 right-8 h-px pointer-events-none"
-            style={{ background: "linear-gradient(90deg, transparent, #c9a14a66, transparent)" }}
-          />
-          <div className="relative space-y-4">
-            <p className="font-serif opacity-60" style={{ fontSize: 16 }}>
-              No results found.
-            </p>
-            <Button onClick={() => router.push("/assessments")} variant="primary">
-              Take an Assessment
-            </Button>
-          </div>
-        </div>
-      </main>
+        <PaperCard
+            className="text-center space-y-5 max-w-md w-full rounded-3xl p-8"
+            borderColor="rgba(201,161,74,0.25)"
+            shadow="0 4px 32px rgba(158,59,78,0.10), inset 0 1px 2px rgba(255,255,255,0.7)"
+            accent
+          >
+            <div className="space-y-4">
+              <p className="font-serif opacity-60" style={{ fontSize: 16 }}>
+                No results found.
+              </p>
+              <Button onClick={() => router.push("/assessments")} variant="primary">
+                Take an Assessment
+              </Button>
+            </div>
+          </PaperCard>
+        </main>
     );
   }
 
   function handleExportTXT() {
-    const lines = [
-      result!.primary.name,
-      result!.primary.tagline,
-      "",
-      ...result!.primary.narrative,
-      "",
-      "Strengths:",
-      ...result!.primary.strengths.map(s => `- ${s}`),
-      "",
-      "Watch For:",
-      ...result!.primary.watchOuts.map(s => `- ${s}`),
-      "",
-      "From a Partner:",
-      ...result!.primary.partnerNeeds.map(s => `- ${s}`),
-      "",
-      "Try This:",
-      ...result!.primary.tryThis.map(s => `- ${s}`),
-      "",
-      "Best With:",
-      result!.primary.pairings.bestWith,
-      "",
-      "Friction With:",
-      result!.primary.pairings.frictionWith,
-    ];
-    exportText("love-compass-results.txt", lines.join("\n"));
+    exportText("love-compass-results.txt", buildResultTXT(result!.primary, profile!));
   }
 
   function handleExportMD() {
-    const lines = [
-      `# ${result!.primary.name}`,
-      ``,
-      `_${result!.primary.tagline}_`,
-      ``,
-      ...result!.primary.narrative.map(p => `${p}\n`),
-      `## Strengths`,
-      ...result!.primary.strengths.map(s => `- ${s}`),
-      ``,
-      `## Watch For`,
-      ...result!.primary.watchOuts.map(s => `- ${s}`),
-      ``,
-      `## From a Partner`,
-      ...result!.primary.partnerNeeds.map(s => `- ${s}`),
-      ``,
-      `## Try This`,
-      ...result!.primary.tryThis.map(s => `- ${s}`),
-      ``,
-      `## Best With`,
-      result!.primary.pairings.bestWith,
-      ``,
-      `## Friction With`,
-      result!.primary.pairings.frictionWith,
-      ``,
-      `## Full Profile`,
-      ...profile!.map(c => `- ${c.title}: ${c.percentage}%`)
-    ];
-    exportMarkdown("love-compass-results.md", lines.join("\n"));
+    exportMarkdown("love-compass-results.md", buildResultMD(result!.primary, profile!));
   }
 
   return (
@@ -178,15 +113,7 @@ export default function ResultsPage() {
         </h1>
         <p className="font-serif leading-relaxed max-w-xl" style={{ fontSize: 15, opacity: 0.7 }}>
           Based on your{" "}
-          {quizType === "love"
-            ? "Love Preference"
-            : quizType === "intimacy"
-            ? "Intimacy Style"
-            : quizType === "love-giving"
-            ? "Love Expression"
-            : quizType === "intimacy-giving"
-            ? "Desire Expression"
-            : "Love Preference"}{" "}
+          {getQuizTypeLabel(quizType)}{" "}
           assessment. Sit with this — most people find it more accurate than they expected.
         </p>
 
@@ -239,23 +166,17 @@ export default function ResultsPage() {
           </div>
         </div>
 
-        <div
-          className="relative rounded-3xl p-4 overflow-hidden"
-          style={{
-            border: "1.5px solid rgba(201,161,74,0.25)",
-            background: "var(--surface)",
-            boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
-          }}
+        <PaperCard
+          className="rounded-3xl p-4"
+          borderColor="rgba(201,161,74,0.25)"
+          shadow="0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)"
         >
-          <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-          <div className="relative">
-            {view === "compass" ? (
-              <CompassProfile profile={profile} />
-            ) : (
-              <ScoreBars profile={profile} />
-            )}
-          </div>
-        </div>
+          {view === "compass" ? (
+            <CompassProfile profile={profile} />
+          ) : (
+            <ScoreBars profile={profile} />
+          )}
+        </PaperCard>
       </div>
 
       {/* ── Share ── */}

@@ -35,7 +35,6 @@ export default function Button({
         "transition-all duration-150",
         "active:scale-95 active:duration-75",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]",
-        "-webkit-tap-highlight-color: transparent",
 
         variant === "primary" && [
           "text-white",

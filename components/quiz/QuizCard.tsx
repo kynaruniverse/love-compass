@@ -6,13 +6,11 @@ import QuestionView from "./QuestionView";
 import { QuizState } from "@/lib/useQuiz";
 
 export default function QuizCard({ quiz }: { quiz: QuizState }) {
-  const [direction, setDirection] = useState<"left" | "right">("left");
   const [animKey, setAnimKey] = useState(0);
   const prevIndex = useRef(quiz.index);
 
   useEffect(() => {
     if (quiz.index !== prevIndex.current) {
-      setDirection(quiz.index > prevIndex.current ? "left" : "right");
       prevIndex.current = quiz.index;
       setAnimKey(k => k + 1);
     }

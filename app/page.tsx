@@ -2,58 +2,14 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
 import { assessments } from "@/data/assessments";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
 
 const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
   ssr: false,
 });
-
-// ── Fade-in on scroll ──────────────────────────────────────────────────────
-function FadeIn({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.08 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(20px)",
-        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
 
 // ── Assessment card (vertical stack) ──────────────────────────────────────
 function AssessmentCard({
@@ -70,6 +26,8 @@ function AssessmentCard({
   index: number;
 }) {
   const isReceiving = mode === "receiving";
+  const modeColor = isReceiving ? "var(--primary)" : "var(--accent)";
+  const modeBg    = isReceiving ? "var(--primary-soft)" : "var(--accent-soft)";
 
   return (
     <FadeIn delay={index * 80}>
@@ -81,19 +39,14 @@ function AssessmentCard({
         {/* Left accent bar */}
         <span
           className="lc-acard-bar"
-          style={{
-            background: isReceiving ? "var(--primary)" : "var(--accent)",
-          }}
+          style={{ background: modeColor }}
         />
 
         <div className="lc-acard-body">
           {/* Mode tag */}
           <span
             className="lc-acard-tag"
-            style={{
-              color: isReceiving ? "var(--primary)" : "var(--accent)",
-              background: isReceiving ? "var(--primary-soft)" : "var(--accent-soft)",
-            }}
+            style={{ color: modeColor, background: modeBg }}
           >
             {isReceiving ? "Receiving" : "Giving"}
           </span>

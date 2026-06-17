@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { ScoreMap, QuizQuestion } from "@/types/quiz";
 import { createEmptyScores } from "./scoring";
+import { applyAnswer } from "./scoring";
 
 export interface QuizState {
   index: number;
@@ -34,29 +35,8 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
     setAnswers(prev => [...prev, value]);
 
     const q = questions[index];
-    const type = q.type ?? "forced-choice";
-    const weight = q.weight ?? 1;
 
-    setScores(prev => {
-      const next = { ...prev };
-
-      if (type === "forced-choice") {
-        const key = value as keyof ScoreMap;
-        if (key in next) next[key] += weight;
-      } else if (type === "likert") {
-        const rating = parseInt(value, 10);
-        if (!isNaN(rating) && q.category && q.category in next) {
-          next[q.category] += rating * weight;
-        }
-      } else if (type === "reverse") {
-        const rating = parseInt(value, 10);
-        if (!isNaN(rating) && q.category && q.category in next) {
-          next[q.category] = Math.max(0, next[q.category] - (rating - 1) * weight);
-        }
-      }
-
-      return next;
-    });
+    setScores(prev => applyAnswer(prev, questions[index], value));
 
     // Use functional updater to avoid stale closure on `index`.
     setIndex(prev => prev + 1);
@@ -70,7 +50,7 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
 
   return {
     index,
-    question: questions[index] ?? questions[questions.length - 1],
+    question: questions[Math.min(index, questions.length - 1)],
     answerQuestion,
     scores,
     answers,

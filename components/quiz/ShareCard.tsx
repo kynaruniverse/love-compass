@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import Button from "@/components/ui/Button";
+import { getQuizTypeLabel } from "@/lib/helpers";
+
 
 interface Props {
   result: NarrativeResult;
@@ -10,27 +12,13 @@ interface Props {
   quizType: string;
 }
 
-function getModeLabel(quizType: string): string {
-  switch (quizType) {
-    case "love": return "Love Preference";
-    case "intimacy": return "Intimacy Style";
-    case "love-giving": return "Love Expression";
-    case "intimacy-giving": return "Desire Expression";
-    default: return "Love Preference";
-  }
-}
-
-function isGiving(quizType: string): boolean {
-  return quizType.endsWith("-giving");
-}
 
 export default function ShareCard({ result, profile, quizType }: Props) {
-  const cardRef = useRef<HTMLDivElement>(null);
   const [copiedText, setCopiedText] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const top3 = profile.slice(0, 3);
-  const modeLabel = getModeLabel(quizType);
-  const giving = isGiving(quizType);
+  const modeLabel = getQuizTypeLabel(quizType);
+  const giving = isGivingMode(quizType);
 
   function handleCopyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -70,7 +58,6 @@ export default function ShareCard({ result, profile, quizType }: Props) {
     <div className="space-y-4">
       {/* Visual card */}
       <div
-        ref={cardRef}
         className="relative overflow-hidden rounded-3xl p-8 max-w-sm mx-auto"
         style={{
           minHeight: 280,

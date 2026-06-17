@@ -1,3 +1,16 @@
+import { generalLoveQuestions } from "./general-love";
+import { intimacyQuestions } from "./intimacy";
+import { generalLoveGivingQuestions } from "./general-love-giving";
+import { intimacyGivingQuestions } from "./intimacy-giving";
+import { QuizQuestion } from "@/types/quiz";
+
+export const QUESTION_BANK: Record<string, QuizQuestion[]> = {
+  "love":             generalLoveQuestions,
+  "intimacy":         intimacyQuestions,
+  "love-giving":      generalLoveGivingQuestions,
+  "intimacy-giving":  intimacyGivingQuestions,
+};
+
 export type AssessmentMode = "receiving" | "giving";
 
 export interface Assessment {
@@ -33,7 +46,3 @@ export const assessments: Assessment[] = [
     mode: "giving"
   }
 ];
-
-export function isGivingMode(slug: string): boolean {
-  return slug.endsWith("-giving");
-}
