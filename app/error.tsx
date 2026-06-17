@@ -2,6 +2,8 @@
 
 import Button from "@/components/ui/Button";
 import ParticleCanvas from "@/components/ui/ParticleCanvas";
+import { GoldStampBadge } from "@/components/ui/ContentSection";
+import { PageHero } from "@/components/ui/ContentSection";
 
 export default function Error({
   error,
@@ -28,17 +30,7 @@ export default function Error({
             style={{ background: "linear-gradient(90deg, transparent, #c9a14a66, transparent)" }}
           />
           <div className="relative space-y-4">
-            <span
-              className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
-              style={{
-                background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                borderColor: "#c9a14a",
-              }}
-            >
-              A moment of stillness
-            </span>
+            <GoldStampBadge>A moment of stillness</GoldStampBadge>
 
             <h2
               className="font-serif font-bold text-[var(--primary)]"

@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function DotProgress({
   total,
@@ -8,19 +8,6 @@ export default function DotProgress({
   current: number;
 }) {
   const pct = Math.round((current / total) * 100);
-  const filled = pct >= 100;
-  const [bloom, setBloom] = useState(false);
-  const prevPct = useRef(pct);
-  const uid = useId().replace(/:/g, "-");
-
-  useEffect(() => {
-    if (pct !== prevPct.current) {
-      prevPct.current = pct;
-      setBloom(true);
-      const t = setTimeout(() => setBloom(false), 400);
-      return () => clearTimeout(t);
-    }
-  }, [pct]);
 
   return (
     <>

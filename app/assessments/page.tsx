@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { assessments } from "@/data/assessments";
 import { generateMeta } from "@/lib/seo";
+import { PageHero } from "@/components/ui/ContentSection";
 
 export const metadata = generateMeta({
   title: "Assessments"
@@ -9,25 +10,11 @@ export const metadata = generateMeta({
 export default function AssessmentsPage() {
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-8">
-      <div className="space-y-3 pb-2">
-        <span
-          className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
-          style={{
-            background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            borderColor: "#c9a14a",
-          }}
-        >
-          Assessments
-        </span>
-        <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
-          Know yourself first.
-        </h1>
-        <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-          Four assessments. Two sides of the same question — how you need to be loved, and how you love in return. Start anywhere. Most people find the other side more surprising than the first.
-        </p>
-      </div>
+      <PageHero
+        badge="Assessments"
+        heading="Know yourself first."
+        subheading="Four assessments. Two sides of the same question — how you need to be loved, and how you love in return. Start anywhere. Most people find the other side more surprising than the first."
+      />
 
       {(
         [
@@ -101,8 +88,7 @@ export default function AssessmentsPage() {
                     <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                  </span>
-                </div>
+                  </div>
               </Link>
             ))}
           </div>

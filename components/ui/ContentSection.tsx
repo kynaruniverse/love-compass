@@ -26,6 +26,24 @@ export function ContentSectionHeading({ children }: { children: ReactNode }) {
   );
 }
 
+
+/** Gold stamp badge — dashed border, metallic gradient text */
+export function GoldStampBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+      style={{
+        background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        borderColor: "#c9a14a",
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
 /** Reusable page-level stamp badge + h1 + subtitle hero block */
 export function PageHero({
   badge,
@@ -38,17 +56,7 @@ export function PageHero({
 }) {
   return (
     <div className="space-y-3 pb-2">
-      <span
-        className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
-        style={{
-          background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          borderColor: "#c9a14a",
-        }}
-      >
-        {badge}
-      </span>
+      <GoldStampBadge>{badge}</GoldStampBadge>
       <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
         {heading}
       </h1>

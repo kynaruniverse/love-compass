@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { NarrativeResult, CategoryResult, ScoreMap } from "@/types/quiz";
 import { isGivingMode, getQuizTypeLabel } from "@/lib/helpers";
+import { GoldStampBadge } from "@/components/ui/ContentSection";
 import { buildProfile, pickArchetype, getBlend, getAssessmentAssets } from "@/lib/resultBuilder";
 import { QUESTION_BANK } from "@/data/assessments";
 import ResultsProfile from "@/components/quiz/ResultsProfile";
@@ -28,6 +29,22 @@ function ResultsInner() {
   const [scoresForShare, setScoresForShare] = useState<ScoreMap | null>(null);
   const [isSharedView, setIsSharedView] = useState(false);
   const [view, setView] = useState<ViewMode>("compass");
+  
+  function GoldBadge({ children }: { children: React.ReactNode }) {
+    return (
+      <span
+        className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
+        style={{
+          background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          borderColor: "#c9a14a",
+        }}
+      >
+        {children}
+      </span>
+    );
+  }
 
   useEffect(() => {
     function loadFrom(scores: ScoreMap, type: string) {
@@ -142,17 +159,7 @@ function ResultsInner() {
 
       {/* -- Header -- */}
       <div className="space-y-3">
-        <span
-          className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
-          style={{
-            background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            borderColor: "#c9a14a",
-          }}
-        >
-          {isSharedView ? "Shared Result" : "Your Result"}
-        </span>
+        <GoldBadge>{isSharedView ? "Shared Result" : "Your Result"}</GoldBadge>
         <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
           {isSharedView ? <>Here's who they are<br />in love.</> : <>Here's who you are<br />in love.</>}
         </h1>

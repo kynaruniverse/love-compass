@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import Button from "@/components/ui/Button";
 import { getQuizTypeLabel, isGivingMode } from "@/lib/helpers";
+import { GoldStampBadge } from "@/components/ui/ContentSection";
 
 
 interface Props {
@@ -23,24 +24,26 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
   const modeLabel = getQuizTypeLabel(quizType);
   const giving = isGivingMode(quizType);
 
-  function handleCopyLink() {
-    const linkToShare = shareUrl ?? window.location.href;
-    navigator.clipboard.writeText(linkToShare).then(() => {
-      setCopiedLink(true);
+  function copyString(text: string, setFlag: (v: boolean) => void) {
+    navigator.clipboard.writeText(text).then(() => {
+      setFlag(true);
       setCopyError(false);
-      setTimeout(() => setCopiedLink(false), 2000);
+      setTimeout(() => setFlag(false), 2000);
     }).catch(() => {
-      // Clipboard unavailable (HTTP, permission denied, etc.)
       setCopyError(true);
       setTimeout(() => setCopyError(false), 3000);
     });
+  }
+
+  function handleCopyLink() {
+    copyString(shareUrl ?? window.location.href, setCopiedLink);
   }
 
   function handleCopyText() {
     const text = [
       `My Love Compass Result — ${modeLabel}`,
       ``,
-      `${result.primary.name}`,
+      result.primary.name,
       `"${result.primary.tagline}"`,
       ``,
       giving
@@ -52,16 +55,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
       ``,
       `Take your own at lovecompass.app`,
     ].join("\n");
-
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedText(true);
-      setCopyError(false);
-      setTimeout(() => setCopiedText(false), 2000);
-    }).catch(() => {
-      // Clipboard unavailable (HTTP, permission denied, etc.)
-      setCopyError(true);
-      setTimeout(() => setCopyError(false), 3000);
-    });
+    copyString(text, setCopiedText);
   }
 
   return (
@@ -88,17 +82,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
             <span className="text-xs font-medium opacity-40 tracking-widest uppercase">
               Love Compass
             </span>
-            <span
-              className="px-2 py-0.5 stamp-badge text-xs font-medium"
-              style={{
-                background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                borderColor: "#c9a14a",
-              }}
-            >
-              {modeLabel}
-            </span>
+            <GoldStampBadge>{modeLabel}</GoldStampBadge>
           </div>
 
           {/* Archetype name */}

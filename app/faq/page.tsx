@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import ParticleCanvas from "@/components/ui/ParticleCanvas";
-
+import { PageHero } from "@/components/ui/ContentSection";
 // ── Accordion item ────────────────────────────────────────────────────────────
 
 function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
@@ -160,26 +160,11 @@ export default function FAQPage() {
 
       <main id="main-content" className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-12">
 
-        {/* Header */}
-        <div className="space-y-3">
-          <span
-            className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
-            style={{
-              background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              borderColor: "#c9a14a",
-            }}
-          >
-            FAQ
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
-            Common questions
-          </h1>
-          <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-            Honest answers. No filler. No upsell at the bottom.
-          </p>
-        </div>
+        <PageHero
+          badge="FAQ"
+          heading="Common questions"
+          subheading="Honest answers. No filler. No upsell at the bottom."
+        />
 
         {/* FAQ sections */}
         {faqs.map(section => (
