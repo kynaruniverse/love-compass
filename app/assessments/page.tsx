@@ -29,39 +29,78 @@ export default function AssessmentsPage() {
         </p>
       </div>
 
-      {/* Receiving group */}
-      <div className="space-y-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-[var(--primary)] opacity-60">
-          How you need to be loved
-        </p>
-        <div className="space-y-3">
-          {assessments.filter(a => a.mode === "receiving").map(a => (
-            <Link
-              key={a.slug}
-              href={`/assessments/${a.slug}`}
-              className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
-              aria-label={`${a.title} — Receiving assessment`}
-              style={{
-                border: "1.5px solid rgba(158,59,78,0.18)",
-                background: "var(--primary-soft)",
-                boxShadow: "0 2px 16px rgba(158,59,78,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
-                WebkitTapHighlightColor: "transparent",
-              }}
-            >
-              <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-              <div className="relative flex items-center justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
-                  <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
+      {(
+        [
+          {
+            mode: "receiving" as const,
+            eyebrow: "How you need to be loved",
+            eyebrowColor: "var(--primary)",
+            border: "1.5px solid rgba(158,59,78,0.18)",
+            bg: "var(--primary-soft)",
+            shadow: "0 2px 16px rgba(158,59,78,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+            tagBg: "var(--primary-soft)",
+            tagColor: "var(--primary)",
+            tagBorder: "var(--primary)",
+            tagLabel: "Receiving",
+          },
+          {
+            mode: "giving" as const,
+            eyebrow: "How you naturally love",
+            eyebrowColor: "var(--accent)",
+            border: "1.5px solid rgba(201,161,74,0.25)",
+            bg: "var(--accent-soft)",
+            shadow: "0 2px 16px rgba(201,161,74,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
+            tagBg: "var(--accent-soft)",
+            tagColor: "var(--accent)",
+            tagBorder: "var(--accent)",
+            tagLabel: "Giving",
+          },
+        ] as const
+      ).map(group => (
+        <div key={group.mode} className="space-y-3">
+          <p
+            className="text-xs font-medium uppercase tracking-widest opacity-60"
+            style={{ color: group.eyebrowColor }}
+          >
+            {group.eyebrow}
+          </p>
+          <div className="space-y-3">
+            {assessments.filter(a => a.mode === group.mode).map(a => (
+              <Link
+                key={a.slug}
+                href={`/assessments/${a.slug}`}
+                className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
+                aria-label={`${a.title} — ${group.tagLabel} assessment`}
+                style={{
+                  border: group.border,
+                  background: group.bg,
+                  boxShadow: group.shadow,
+                  WebkitTapHighlightColor: "transparent",
+                }}
+              >
+                <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
+                <div className="relative flex items-center justify-between gap-4">
+                  <div>
+                    <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
+                    <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
+                  </div>
+                  <span
+                    className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
+                    style={{
+                      background: group.tagBg,
+                      color: group.tagColor,
+                      borderColor: group.tagBorder,
+                      opacity: 0.8,
+                    }}
+                  >
+                    {group.tagLabel}
+                  </span>
                 </div>
-                <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[var(--primary-soft)] text-[var(--primary)] border border-[var(--primary)] border-opacity-20 flex-shrink-0">
-                  Receiving
-                </span>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
 
       {/* Giving group */}
       <div className="space-y-3">

@@ -1,32 +1,5 @@
-"use client";
-
 import Link from "next/link";
-
-// ── Section card ─────────────────────────────────────────────────────────────
-
-function Section({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      className="relative rounded-3xl overflow-hidden p-7 sm:p-9"
-      style={{
-        border: "1.5px solid rgba(201,161,74,0.25)",
-        background: "var(--surface)",
-        boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
-      }}
-    >
-      <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
-      <div className="relative space-y-5 font-serif" style={{ fontSize: 16, lineHeight: 1.75 }}>{children}</div>
-    </div>
-  );
-}
-
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-serif text-2xl font-bold text-[var(--primary)] leading-snug">
-      {children}
-    </h2>
-  );
-}
+import { ContentSection, ContentSectionHeading, PageHero } from "@/components/ui/ContentSection";
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
@@ -34,30 +7,15 @@ export default function AboutPage() {
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
 
-        {/* Hero heading */}
-        <div className="space-y-4 pb-4">
-          <span
-            className="inline-block px-3 py-1 stamp-badge text-xs font-medium"
-            style={{
-              background: "linear-gradient(135deg, #f5e199 0%, #c9a14a 60%, #8a6520 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              borderColor: "#c9a14a",
-            }}
-          >
-            About
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
-            Understanding how you love
-          </h1>
-          <p className="text-lg opacity-70 leading-relaxed max-w-xl">
-            Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it — specific to you, built from your real answers, not the ones that sound well-adjusted.
-          </p>
-        </div>
+        <PageHero
+          badge="About"
+          heading="Understanding how you love"
+          subheading="Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it — specific to you, built from your real answers, not the ones that sound well-adjusted."
+        />
 
         {/* What it is */}
-        <Section>
-          <SectionHeading>What is Love Compass?</SectionHeading>
+        <ContentSection>
+          <ContentSectionHeading>What is Love Compass?</ContentSectionHeading>
           <p className="opacity-80 leading-relaxed">
             Love Compass does two things most relationship tools don't bother to
             separate: it tells you how you need to receive love, and how you actually
@@ -69,11 +27,11 @@ export default function AboutPage() {
           <p className="opacity-80 leading-relaxed">
             The result isn't a label to put in a bio. It's a map. And like any good map, it's most useful when the territory turns out to be different from what you assumed.
           </p>
-        </Section>
+        </ContentSection>
 
         {/* What you can do */}
-        <Section>
-          <SectionHeading>What can you do here?</SectionHeading>
+        <ContentSection>
+          <ContentSectionHeading>What can you do here?</ContentSectionHeading>
           <p className="opacity-80 leading-relaxed">
             Four assessments. Two sides of the same question — how you need to be loved, and how you love in return.
           </p>
@@ -148,11 +106,11 @@ export default function AboutPage() {
               Browse Assessments →
             </Link>
           </div>
-        </Section>
+        </ContentSection>
 
         {/* Love & intimacy — the editorial section */}
-        <Section>
-          <SectionHeading>On love, intimacy, and why they matter</SectionHeading>
+        <ContentSection>
+          <ContentSectionHeading>On love, intimacy, and why they matter</ContentSectionHeading>
           <p className="opacity-85 leading-relaxed">
             Love and intimacy are two of the most overused words in the English language
             and two of the least examined. We treat them as feelings, things that arrive
@@ -178,11 +136,11 @@ export default function AboutPage() {
             being a decent partner. Love Compass won't fix your relationship. But it
             will remove the excuse of not knowing yourself.
           </p>
-        </Section>
+        </ContentSection>
 
         {/* Philosophy */}
-        <Section>
-          <SectionHeading>Our philosophy</SectionHeading>
+        <ContentSection>
+          <ContentSectionHeading>Our philosophy</ContentSectionHeading>
           <p className="opacity-80 leading-relaxed">
             Self-knowledge is the most underrated relationship skill. Not communication
             frameworks, not compatibility algorithms. Actual, honest clarity about what
@@ -196,7 +154,7 @@ export default function AboutPage() {
           <p className="opacity-80 leading-relaxed">
             Clarity first. Everything else follows.
           </p>
-        </Section>
+        </ContentSection>
 
         {/* Disclaimer note */}
         <p className="text-xs opacity-40 text-center leading-relaxed pb-4">

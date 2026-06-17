@@ -11,8 +11,6 @@ const lora = Lora({
   display: "swap",
 });
 
-// Inter removed — serif everywhere
-
 export const metadata: Metadata = {
   title: {
     default: "Love Compass",

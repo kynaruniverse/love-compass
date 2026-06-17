@@ -106,6 +106,38 @@ export default function ResultsProfile({
             scrollbarWidth: "none",
           }}
         >
+          {insightCards.map(card => (
+            <PaperCard
+              key={card.title}
+              className="rounded-2xl p-5 flex-shrink-0"
+              style={{
+                width: "min(72vw, 280px)",
+                scrollSnapAlign: "start",
+                borderColor: `${card.accent}33`,
+              }}
+            >
+              <div className="space-y-3">
+                <h3
+                  className="font-serif font-semibold text-sm uppercase tracking-widest"
+                  style={{ color: card.accent, fontSize: "0.68rem" }}
+                >
+                  {card.title}
+                </h3>
+                <ul className="space-y-2">
+                  {card.items.map((item, i) => (
+                    <li
+                      key={i}
+                      className="font-serif leading-snug"
+                      style={{ fontSize: 14, opacity: 0.85 }}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </PaperCard>
+          ))}
+        </div>
       </div>
 
       {/* ── Full profile breakdown ── */}

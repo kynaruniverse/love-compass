@@ -29,8 +29,11 @@ export default function ParticleCanvas() {
     let particles: Particle[] = [];
 
     function resize() {
-      canvas!.width = window.innerWidth;
-      canvas!.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas!.width  = window.innerWidth  * dpr;
+      canvas!.height = window.innerHeight * dpr;
+      ctx!.setTransform(1, 0, 0, 1, 0, 0);
+      ctx!.scale(dpr, dpr);
     }
 
     function spawnParticle(i: number): Particle {
@@ -126,7 +129,7 @@ export default function ParticleCanvas() {
     }
 
     function tick() {
-      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+      ctx!.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Draw back to front (layer 3 → 1)
       for (const layer of [3, 2, 1] as const) {
@@ -138,8 +141,8 @@ export default function ParticleCanvas() {
           p.y += p.vy;
 
           if (p.y < -20) {
-            p.y = canvas!.height + 20;
-            p.x = Math.random() * canvas!.width;
+            p.y = window.innerHeight + 20;
+            p.x = Math.random() * window.innerWidth;
           }
 
           ctx!.save();

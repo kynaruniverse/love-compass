@@ -13,8 +13,22 @@ export default function FadeIn({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [prefersReduced, setPrefersReduced] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReduced(mq.matches);
+    // Respect dynamic OS setting changes without a page reload
+    const onChange = (e: MediaQueryListEvent) => setPrefersReduced(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReduced) {
+      setVisible(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -28,11 +42,7 @@ export default function FadeIn({
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
-
-  const prefersReduced =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, [prefersReduced]);
 
   return (
     <div

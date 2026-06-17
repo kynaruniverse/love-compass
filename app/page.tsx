@@ -3,7 +3,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { assessments } from "@/data/assessments";
-import Button from "@/components/ui/Button";
 import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 

@@ -62,22 +62,16 @@ function ResultsInner() {
     // 2. Otherwise, load the current browser's own just-completed session.
     const session = loadQuizSession();
     if (!session) return;
-    const { scores, questions, type } = session;
 
     try {
-      const { categoryMap, archetypes, flavors } = getAssessmentAssets(type);
-      const built = buildProfile(scores, questions, categoryMap);
-      setProfile(built);
-      setResult(pickArchetype(built, archetypes, flavors));
-      setBlend(getBlend(built));
-      setQuizType(type);
-      setScoresForShare(scores);
-
-      // Encode the result into the URL so refreshing this page, or bookmarking
-      // it, doesn't depend on sessionStorage surviving. This also means the
-      // "Copy Link" share action always has real data to point to.
-      const encoded = encodeShareData(scores, type);
-      router.replace(`/results?d=${encoded}`, { scroll: false });
+      const loaded = loadFrom(session.scores, session.type);
+      if (loaded) {
+        // Encode the result into the URL so refreshing or bookmarking this page
+        // doesn't depend on sessionStorage surviving. Also ensures "Copy Link"
+        // always has real data.
+        const encoded = encodeShareData(session.scores, session.type);
+        router.replace(`/results?d=${encoded}`, { scroll: false });
+      }
     } catch {
       // Corrupted or stale sessionStorage data — fall back to "No results found"
     }

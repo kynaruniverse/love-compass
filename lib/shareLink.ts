@@ -21,12 +21,6 @@ export function encodeShareData(scores: ScoreMap, type: string): string {
   return base64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
-export interface DecodedShareData {
-  scores: ScoreMap;
-  type: string;
-  questions: ReturnType<typeof Object.values>[number];
-}
-
 export function decodeShareData(
   encoded: string
 ): { scores: ScoreMap; type: string } | null {

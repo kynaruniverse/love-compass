@@ -1,5 +1,4 @@
-import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult, Category } from "@/types/quiz";
-import { QuizQuestion } from "@/types/quiz";
+import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult, Category, QuizQuestion } from "@/types/quiz";
 import { normalizeScores } from "./scoring";
 import { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "@/data/categories-receiving";
 import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories-giving";

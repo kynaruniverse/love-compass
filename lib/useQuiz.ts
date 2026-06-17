@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ScoreMap, QuizQuestion } from "@/types/quiz";
-import { createEmptyScores } from "./scoring";
-import { applyAnswer } from "./scoring";
+import { createEmptyScores, applyAnswer } from "./scoring";
 
 export interface QuizState {
   index: number;

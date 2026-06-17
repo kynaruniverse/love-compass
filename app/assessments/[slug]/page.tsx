@@ -11,17 +11,18 @@ import { QuizQuestion } from "@/types/quiz";
 import { saveQuizSession } from "@/lib/session";
 
 export default function QuizPage() {
-  const { slug } = useParams();
+  const params = useParams();
   const router = useRouter();
 
-  const questions = QUESTION_BANK[slug as string] ?? null;
+  const slug = typeof params.slug === "string" ? params.slug : null;
+  const questions = slug ? (QUESTION_BANK[slug] ?? null) : null;
 
-  if (!questions) {
+  if (!questions || !slug) {
     notFound();
   }
 
   const quiz = useQuiz(questions);
-
+  
   const navigated = useRef(false);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function QuizPage() {
     navigated.current = true;
 
     const results = tallyAnswers(quiz.answers, questions);
-    saveQuizSession(results, questions, slug as string);
+    saveQuizSession(results, questions, slug);
     router.push("/results");
     // Intentionally omitting quiz.answers from deps — it changes on every answer
     // and we only need to act once when isComplete flips. The ref guards against
@@ -40,6 +41,7 @@ export default function QuizPage() {
   if (quiz.isComplete) {
     return (
       <main
+        id="main-content"
         className="min-h-[60vh] flex items-center justify-center px-4"
         aria-live="polite"
         aria-label="Loading results"
@@ -56,6 +58,7 @@ export default function QuizPage() {
 
   return (
     <main
+      id="main-content"
       className="px-4 py-4 relative"
       aria-label="Assessment questions"
       style={{ animation: "quiz-bloom-in 0.4s cubic-bezier(0.22, 1, 0.36, 1)" }}
