@@ -66,14 +66,14 @@ export default function AssessmentsPage() {
                 <Link
                   href={`/assessments/${a.slug}`}
                   className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
-                aria-label={`${a.title} — ${group.tagLabel} assessment`}
-                style={{
-                  border: group.border,
-                  background: group.bg,
-                  boxShadow: group.shadow,
-                  WebkitTapHighlightColor: "transparent",
-                }}
-              >
+                  aria-label={`${a.title} — ${group.tagLabel} assessment`}
+                  style={{
+                    border: group.border,
+                    background: group.bg,
+                    boxShadow: group.shadow,
+                    WebkitTapHighlightColor: "transparent",
+                  }}
+                >
                 <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
                 <div className="relative flex items-start justify-between gap-4">
                   <div className="flex-1">

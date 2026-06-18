@@ -1,10 +1,10 @@
 "use client";
 
-import { Button, ParticleCanvas, GoldStampBadge, PageHero } from "@/components/ui";
+import { Button, GoldStampBadge, ParticleCanvas } from "@/components/ui";
 
 export default function Error({
-  error,
-  reset
+  error: _error,
+  reset,
 }: {
   error: Error;
   reset: () => void;

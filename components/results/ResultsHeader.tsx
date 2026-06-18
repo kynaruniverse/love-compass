@@ -1,12 +1,12 @@
 import { GoldStampBadge } from "@/components/ui";
 import { getQuizTypeLabel, isGivingMode } from "@/lib";
 
-interface Props {
+interface ResultsHeaderProps {
   isSharedView: boolean;
   quizType: string;
 }
 
-export default function ResultsHeader({ isSharedView, quizType }: Props) {
+export default function ResultsHeader({ isSharedView, quizType }: ResultsHeaderProps) {
   return (
     <div className="space-y-3">
       <GoldStampBadge>{isSharedView ? "Shared Result" : "Your Result"}</GoldStampBadge>

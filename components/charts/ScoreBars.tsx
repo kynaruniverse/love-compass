@@ -34,8 +34,7 @@ function ScoreBar({ result, rank, delay }: {
     return () => obs.disconnect();
   }, [delay]);
 
-  const isTop    = rank === 0;
-  const isSecond = rank === 1;
+  const isTop = rank === 0;
 
   const { barGradient, barOpacity } = getBarStyle(rank, result.percentage);
 

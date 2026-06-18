@@ -4,12 +4,12 @@ import { Archetype, CategoryResult } from "@/types/quiz";
 import { Button } from "@/components/ui";
 import { exportText, exportMarkdown, buildResultTXT, buildResultMD } from "@/lib";
 
-interface Props {
+interface SaveResultsProps {
   primary: Archetype;
   profile: CategoryResult[];
 }
 
-export default function SaveResults({ primary, profile }: Props) {
+export default function SaveResults({ primary, profile }: SaveResultsProps) {
   function handleExportTXT() {
     exportText("love-compass-results.txt", buildResultTXT(primary, profile));
   }

@@ -88,7 +88,6 @@ export default function HomePage() {
 
      {/* ── Hero ── */}
       <section className="lc-hero" aria-label="Introduction">
-
         {/* Masthead bar — logo left, tagline right */}
         <div className="lc-masthead">
           <Link href="/" aria-label="Love Compass home">

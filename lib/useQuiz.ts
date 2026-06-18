@@ -6,14 +6,14 @@ import { createEmptyScores, applyAnswer } from "./scoring";
 
 export interface QuizState {
   index: number;
-  question: QuizQuestion;
-  answerQuestion: (value: string) => void;
-  scores: ScoreMap;
-  answers: string[];
-  progress: () => number;
   /** Total number of questions */
   total: number;
+  question: QuizQuestion;
+  answers: string[];
+  scores: ScoreMap;
+  progress: () => number;
   isComplete: boolean;
+  answerQuestion: (value: string) => void;
 }
 
 export function useQuiz(questions: QuizQuestion[]): QuizState {

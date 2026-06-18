@@ -1,7 +1,21 @@
-import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult, Category, QuizQuestion } from "@/types/quiz";
+import {
+  Archetype,
+  ArchetypeFlavor,
+  Category,
+  CategoryResult,
+  NarrativeResult,
+  OptionLetter,
+  QuizQuestion,
+  ScoreMap,
+} from "@/types/quiz";
 import { normalizeScores } from "./scoring";
 import { LOVE_ASSESSMENT, INTIMACY_ASSESSMENT } from "@/data/archetypes";
-import { LOVE_CATEGORIES, INTIMACY_CATEGORIES, LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories";
+import {
+  INTIMACY_CATEGORIES,
+  INTIMACY_GIVING_CATEGORIES,
+  LOVE_CATEGORIES,
+  LOVE_GIVING_CATEGORIES,
+} from "@/data/categories";
 
 interface AssessmentAssets {
   categoryMap: Record<string, Category>;
@@ -26,8 +40,6 @@ export function getAssessmentAssets(type: string): AssessmentAssets {
   }
 }
 
-type CategoryMap = Record<string, { id: string; title: string; description: string; angle: number }>;
-
 /**
  * Build a full sorted profile of CategoryResult objects.
  * Normalizes raw scores against the question bank then maps to category metadata.
@@ -35,7 +47,7 @@ type CategoryMap = Record<string, { id: string; title: string; description: stri
 export function buildProfile(
   rawScores: ScoreMap,
   questions: QuizQuestion[],
-  categoryMap: CategoryMap
+  categoryMap: Record<string, Category>
 ): CategoryResult[] {
   const normalized = normalizeScores(rawScores, questions);
 

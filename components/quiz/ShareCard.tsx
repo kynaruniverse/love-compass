@@ -5,7 +5,9 @@ import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import { Button, GoldStampBadge } from "@/components/ui";
 import { getQuizTypeLabel, isGivingMode } from "@/lib";
 
-interface Props {
+type CopyState = "idle" | "text" | "link" | "error";
+
+interface ShareCardProps {
   result: NarrativeResult;
   profile: CategoryResult[];
   quizType: string;
@@ -13,9 +15,8 @@ interface Props {
   shareUrl?: string;
 }
 
-export default function ShareCard({ result, profile, quizType, shareUrl }: Props) {
-  type CopyState = "idle" | "text" | "link" | "error";
-  const [copyState, setCopyState] = useState<CopyState>("idle");
+export default function ShareCard({ result, profile, quizType, shareUrl }: ShareCardProps) {
+  const [copyState, setCopyState] = useState<CopyState>("idle);
   const top3 = useMemo(() => profile.slice(0, 3), [profile]);
   const modeLabel = useMemo(() => getQuizTypeLabel(quizType), [quizType]);
   const giving = useMemo(() => isGivingMode(quizType), [quizType]);
