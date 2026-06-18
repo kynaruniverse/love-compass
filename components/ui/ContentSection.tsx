@@ -1,20 +1,18 @@
 import { ReactNode } from "react";
+import PaperCard from "./PaperCard";
 
 export function ContentSection({ children }: { children: ReactNode }) {
   return (
-    <div
-      className="relative rounded-3xl overflow-hidden p-7 sm:p-9"
-      style={{
-        border: "1.5px solid rgba(201,161,74,0.25)",
-        background: "var(--surface)",
-        boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
-      }}
+    <PaperCard 
+      className="rounded-3xl p-7 sm:p-9"
+      borderColor="rgba(201,161,74,0.25)"
+      shadow="0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)"
     >
-      <div className="absolute inset-0 paper-texture opacity-[0.3] pointer-events-none" />
-      <div className="relative space-y-4 font-serif" style={{ fontSize: 16, lineHeight: 1.75 }}>
+      <div className="relative space-y-4 font-serif [&_p]:opacity-80 [&_p]:leading-relaxed" style={{ fontSize: 16 }}>
         {children}
       </div>
-    </div>
+
+    </PaperCard>
   );
 }
 
@@ -25,7 +23,6 @@ export function ContentSectionHeading({ children }: { children: ReactNode }) {
     </h2>
   );
 }
-
 
 /** Gold stamp badge — dashed border, metallic gradient text */
 export function GoldStampBadge({ children }: { children: React.ReactNode }) {

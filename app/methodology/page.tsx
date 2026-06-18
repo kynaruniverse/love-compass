@@ -1,5 +1,5 @@
-import { generateMeta } from "@/lib/seo";
-import { ContentSection, ContentSectionHeading, PageHero } from "@/components/ui/ContentSection";
+import { generateMeta } from "@/lib";
+import { ContentSection, ContentSectionHeading, PageHero } from "@/components/ui";
 
 export const metadata = generateMeta({
   title: "Methodology"

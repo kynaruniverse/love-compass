@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const primaryLinks = [
   { href: "/",            label: "Home" },
@@ -28,21 +28,22 @@ export default function Navbar() {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   // Scroll-hide / scroll-show
-  useEffect(() => {
-    function onScroll() {
-      const y = window.scrollY;
-      if (y < 80) {
-        setVisible(true);
-        lastY.current = y;
-        return;
-      }
-      if (y < lastY.current - 8) setVisible(true);
-      if (y > lastY.current + 8) setVisible(false);
+  const onScroll = useCallback(() => {
+    const y = window.scrollY;
+    if (y < 80) {
+      setVisible(true);
       lastY.current = y;
+      return;
     }
+    if (y < lastY.current - 8) setVisible(true);
+    if (y > lastY.current + 8) setVisible(false);
+    lastY.current = y;
+  }, []);
+
+  useEffect(() => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [onScroll]);
 
   // Close on route change
   useEffect(() => {

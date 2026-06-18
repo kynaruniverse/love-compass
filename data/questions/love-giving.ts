@@ -6,7 +6,7 @@ import { QuizQuestion } from "@/types/quiz";
  * The result profile describes the kind of partner they are, and by extension
  * the kind of partner whose receiving style will match their giving style.
  */
-export const generalLoveGivingQuestions: QuizQuestion[] = [
+export const LOVE_GIVING_QUESTIONS: QuizQuestion[] = [
 
   // ── FORCED-CHOICE (weight 1) ──────────────────────────────────────────────
 

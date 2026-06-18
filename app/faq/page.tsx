@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import ParticleCanvas from "@/components/ui/ParticleCanvas";
-import { PageHero } from "@/components/ui/ContentSection";
-// ── Accordion item ────────────────────────────────────────────────────────────
+import { ParticleCanvas, PageHero, PaperCard } from "@/components/ui";
+────────────────────────────────────────────────────────────
 
 function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -12,15 +11,7 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const answerId = `faq-answer-${id}`;
 
   return (
-    <div
-      className="relative rounded-2xl overflow-hidden"
-      style={{
-        border: "1.5px solid rgba(201,161,74,0.22)",
-        background: "var(--surface)",
-        boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
-      }}
-    >
-      <div className="absolute inset-0 paper-texture opacity-[0.25] pointer-events-none" />
+    <PaperCard className="relative p-0 overflow-hidden">
       <button
         onClick={() => setOpen(o => !o)}
         className="relative w-full text-left px-6 py-5 flex items-center justify-between gap-4 active:opacity-75 transition-opacity"
@@ -58,9 +49,10 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
           {a}
         </div>
       </div>
-    </div>
+    </PaperCard>
   );
 }
+
 
 // ── FAQ data ──────────────────────────────────────────────────────────────────
 
@@ -181,15 +173,7 @@ export default function FAQPage() {
         ))}
 
         {/* Bottom CTA */}
-        <div
-          className="relative rounded-3xl p-7 text-center space-y-3 overflow-hidden"
-          style={{
-            border: "1.5px solid rgba(158,59,78,0.18)",
-            background: "var(--primary-soft)",
-            boxShadow: "0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)",
-          }}
-        >
-          <div className="absolute inset-0 paper-texture opacity-[0.25] pointer-events-none" />
+        <PaperCard className="p-7 text-center space-y-3">
           <div className="relative">
             <p className="font-serif text-lg font-semibold text-[var(--primary)]">
               Still have a question?
@@ -205,7 +189,7 @@ export default function FAQPage() {
               Take an Assessment →
             </Link>
           </div>
-        </div>
+        </PaperCard>
 
         <p className="text-xs opacity-40 text-center leading-relaxed pb-4">
           Love Compass is a self-reflection tool, not a clinical or psychological assessment.

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ContentSection, ContentSectionHeading, PageHero } from "@/components/ui/ContentSection";
+import { ContentSection, ContentSectionHeading, PageHero } from "@/components/ui";
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 

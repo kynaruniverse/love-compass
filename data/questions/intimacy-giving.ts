@@ -5,7 +5,7 @@ import { QuizQuestion } from "@/types/quiz";
  * Questions probe how a person naturally expresses desire and intimate connection,
  * not how they prefer to receive it.
  */
-export const intimacyGivingQuestions: QuizQuestion[] = [
+export const INTIMACY_GIVING_QUESTIONS: QuizQuestion[] = [
 
   // ── FORCED-CHOICE ─────────────────────────────────────────────────────────
 

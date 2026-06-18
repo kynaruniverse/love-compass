@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ScoreMap, QuizQuestion } from "@/types/quiz";
 import { createEmptyScores, applyAnswer } from "./scoring";
 
@@ -23,21 +23,15 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
   // Guard against double-tap: lock until the answer state has been applied.
   const answering = useRef(false);
 
-  function answerQuestion(value: string) {
-    // Reject calls when the quiz is already complete (stale callback after navigation).
+  const answerQuestion = useCallback((value: string) => {
     if (index >= questions.length) return;
-    // Reject duplicate calls from rapid double-taps. The lock is released inside
-    // a useEffect (see below) that fires only after React has committed the new
-    // index, making it safe in React 18 concurrent mode. A microtask would
-    // release the lock before React commits, defeating the guard.
     if (answering.current) return;
     answering.current = true;
 
     setAnswers(prev => [...prev, value]);
     setScores(prev => applyAnswer(prev, questions[index], value));
-    // Use functional updater to avoid stale closure on `index`.
     setIndex(prev => prev + 1);
-  }
+  }, [index, questions]);
 
   // Release the double-tap lock after React has committed the updated index.
   // useEffect fires after commit, which is later than a microtask — ensuring
@@ -46,9 +40,9 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
     answering.current = false;
   }, [index]);
 
-  function progress() {
+  const progress = useCallback(() => {
     return Math.round((index / questions.length) * 100);
-  }
+  }, [index, questions.length]);
 
   const isComplete = index >= questions.length;
 

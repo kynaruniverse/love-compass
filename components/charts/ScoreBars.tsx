@@ -1,7 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CategoryResult } from "@/types/quiz";
+
+function getBarStyle(rank: number, pct: number): { barGradient: string; barOpacity: number } {
+  if (rank === 0) return { barGradient: "linear-gradient(90deg, #8a5fc0 0%, #c9a14a 100%)", barOpacity: 1 };
+  if (rank === 1) return { barGradient: "linear-gradient(90deg, #6b3f8a 0%, #a07838 100%)", barOpacity: 0.82 };
+  return { barGradient: "linear-gradient(90deg, #9E3B4E 0%, #C45070 100%)", barOpacity: Math.max(0.4, pct / 100 * 0.75 + 0.2) };
+}
 
 function ScoreBar({ result, rank, delay }: {
   result: CategoryResult;
@@ -31,15 +37,7 @@ function ScoreBar({ result, rank, delay }: {
   const isTop    = rank === 0;
   const isSecond = rank === 1;
 
-  // Gradient: deeper plum at low scores, brightens toward gold at high scores
-  // Top scorer gets full gold treatment
-  const barGradient = isTop
-    ? "linear-gradient(90deg, #8a5fc0 0%, #c9a14a 100%)"
-    : isSecond
-    ? "linear-gradient(90deg, #6b3f8a 0%, #a07838 100%)"
-    : "linear-gradient(90deg, #9E3B4E 0%, #C45070 100%)";
-
-  const barOpacity = isTop ? 1 : isSecond ? 0.82 : Math.max(0.4, result.percentage / 100 * 0.75 + 0.2);
+  const { barGradient, barOpacity } = getBarStyle(rank, result.percentage);
 
   return (
     <div ref={ref} className="lc-scorebar-row">
@@ -81,7 +79,10 @@ function ScoreBar({ result, rank, delay }: {
 
 export default function ScoreBars({ profile }: { profile: CategoryResult[] }) {
   // Sort highest to lowest
-  const sorted = [...profile].sort((a, b) => b.percentage - a.percentage);
+  const sorted = useMemo(
+    () => [...profile].sort((a, b) => b.percentage - a.percentage),
+    [profile]
+  );
 
   return (
     <div className="lc-scorebars">

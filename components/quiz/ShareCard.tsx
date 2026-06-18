@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { NarrativeResult, CategoryResult } from "@/types/quiz";
-import Button from "@/components/ui/Button";
-import { getQuizTypeLabel, isGivingMode } from "@/lib/helpers";
-import { GoldStampBadge } from "@/components/ui/ContentSection";
+import { Button, GoldStampBadge } from "@/components/ui";
+import { getQuizTypeLabel, isGivingMode } from "@/lib";
 
 
 interface Props {
@@ -17,29 +16,23 @@ interface Props {
 
 
 export default function ShareCard({ result, profile, quizType, shareUrl }: Props) {
-  const [copiedText, setCopiedText] = useState(false);
-  const [copiedLink, setCopiedLink] = useState(false);
-  const [copyError, setCopyError] = useState(false);
-  const top3 = profile.slice(0, 3);
-  const modeLabel = getQuizTypeLabel(quizType);
-  const giving = isGivingMode(quizType);
+  type CopyState = "idle" | "text" | "link" | "error";
+  const [copyState, setCopyState] = useState<CopyState>("idle");
+  const top3 = useMemo(() => profile.slice(0, 3), [profile]);
+  const modeLabel = useMemo(() => getQuizTypeLabel(quizType), [quizType]);
+  const giving = useMemo(() => isGivingMode(quizType), [quizType]);
 
-  function copyString(text: string, setFlag: (v: boolean) => void) {
-    navigator.clipboard.writeText(text).then(() => {
-      setFlag(true);
-      setCopyError(false);
-      setTimeout(() => setFlag(false), 2000);
-    }).catch(() => {
-      setCopyError(true);
-      setTimeout(() => setCopyError(false), 3000);
-    });
-  }
+  const copyString = useCallback((text: string, successState: CopyState) => {
+    navigator.clipboard.writeText(text)
+      .then(() => { setCopyState(successState); setTimeout(() => setCopyState("idle"), 2000); })
+      .catch(() => { setCopyState("error"); setTimeout(() => setCopyState("idle"), 3000); });
+  }, []);
 
-  function handleCopyLink() {
-    copyString(shareUrl ?? window.location.href, setCopiedLink);
-  }
+  const handleCopyLink = useCallback(() => {
+    copyString(shareUrl ?? window.location.href, "link");
+  }, [copyString, shareUrl]);
 
-  function handleCopyText() {
+  const handleCopyText = useCallback(() => {
     const text = [
       `My Love Compass Result — ${modeLabel}`,
       ``,
@@ -55,8 +48,8 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
       ``,
       `Take your own at lovecompass.app`,
     ].join("\n");
-    copyString(text, setCopiedText);
-  }
+    copyString(text, "text");
+  }, [copyString, giving, modeLabel, result.primary.name, result.primary.tagline, top3]);
 
   return (
     <div className="space-y-4">
@@ -136,21 +129,21 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
       {/* Share actions */}
       <div className="flex flex-wrap gap-3 justify-center">
         <Button onClick={handleCopyText} variant="primary">
-          {copiedText ? "Copied ✓" : "Copy Result to Share"}
+          {copyState === "text" ? "Copied ✓" : "Copy Result to Share"}
         </Button>
         <Button onClick={handleCopyLink} variant="secondary">
-          {copiedLink ? "Copied ✓" : "Copy Shareable Link"}
+          {copyState === "link" ? "Copied ✓" : "Copy Shareable Link"}
         </Button>
       </div>
 
       {/* Status announcements for screen readers */}
       <p role="status" aria-live="polite" className="sr-only">
-        {copiedText && "Result text copied to clipboard."}
-        {copiedLink && "Shareable link copied to clipboard."}
-        {copyError && "Couldn't copy automatically. Please copy manually."}
+        {copyState === "text"  && "Result text copied to clipboard."}
+        {copyState === "link"  && "Shareable link copied to clipboard."}
+        {copyState === "error" && "Couldn't copy automatically. Please copy manually."}
       </p>
 
-      {copyError && (
+      {copyState === "error" && (
         <p className="text-xs text-center" style={{ color: "var(--primary)" }}>
           Couldn't copy automatically — your browser may be blocking clipboard access.
         </p>

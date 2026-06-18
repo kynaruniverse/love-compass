@@ -3,12 +3,10 @@
 import { useEffect, useRef } from "react";
 import { useParams, useRouter, notFound } from "next/navigation";
 import { QUESTION_BANK } from "@/data/assessments";
-import { useQuiz } from "@/lib/useQuiz";
-import QuizCard from "@/components/quiz/QuizCard";
-import ParticleCanvas from "@/components/ui/ParticleCanvas";
-import { tallyAnswers } from "@/lib/scoring";
 import { QuizQuestion } from "@/types/quiz";
-import { saveQuizSession } from "@/lib/session";
+import { useQuiz, tallyAnswers, saveQuizSession } from "@/lib";
+import { QuizCard } from "@/components/quiz";
+import { ParticleCanvas } from "@/components/ui";
 
 export default function QuizPage() {
   const params = useParams();

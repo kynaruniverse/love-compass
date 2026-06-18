@@ -1,7 +1,8 @@
+import { useMemo } from "react";
 import { CategoryResult, NarrativeResult } from "@/types/quiz";
-import ProgressBar from "@/components/ui/ProgressBar";
-import { getIntensity } from "@/lib/resultBuilder";
-import PaperCard from "@/components/ui/PaperCard";
+import { ProgressBar, PaperCard } from "@/components/ui";
+import { getIntensity } from "@/lib";
+
 
 export default function ResultsProfile({
   profile,
@@ -15,10 +16,12 @@ export default function ResultsProfile({
   mode?: "receiving" | "giving";
 }) {
   const { primary, secondary } = result;
-  const rest = profile.filter(c => c.key !== primary.key);
-  const blendRest = blend.filter(c => c.key !== primary.key);
+  const blendRest = useMemo(
+    () => blend.filter(c => c.key !== primary.key),
+    [blend, primary.key]
+  );
 
-  const insightCards = [
+  const insightCards = useMemo(() => [
     {
       title: "Strengths",
       items: primary.strengths,
@@ -34,7 +37,7 @@ export default function ResultsProfile({
       items: primary.partnerNeeds,
       accent: "var(--primary)",
     },
-  ];
+  ], [mode, primary.strengths, primary.watchOuts, primary.partnerNeeds]);
 
   return (
     <div className="space-y-8">

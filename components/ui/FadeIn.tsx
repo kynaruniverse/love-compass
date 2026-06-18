@@ -25,19 +25,11 @@ export default function FadeIn({
   }, []);
 
   useEffect(() => {
-    if (prefersReduced) {
-      setVisible(true);
-      return;
-    }
+    if (prefersReduced) { setVisible(true); return; }
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold: 0.08 }
     );
     obs.observe(el);

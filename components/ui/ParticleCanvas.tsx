@@ -29,11 +29,12 @@ export default function ParticleCanvas() {
     let particles: Particle[] = [];
 
     function resize() {
-      const dpr = window.devicePixelRatio || 1;
-      canvas!.width  = window.innerWidth  * dpr;
-      canvas!.height = window.innerHeight * dpr;
-      ctx!.setTransform(1, 0, 0, 1, 0, 0);
-      ctx!.scale(dpr, dpr);
+      if (!canvas || !ctx) return;
+      const dpr = window.devicePixelRatio ?? 1;
+      canvas.width  = window.innerWidth  * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
     }
 
     function spawnParticle(i: number): Particle {

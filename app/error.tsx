@@ -1,9 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/Button";
-import ParticleCanvas from "@/components/ui/ParticleCanvas";
-import { GoldStampBadge } from "@/components/ui/ContentSection";
-import { PageHero } from "@/components/ui/ContentSection";
+import { Button, ParticleCanvas, GoldStampBadge, PageHero } from "@/components/ui";
 
 export default function Error({
   error,

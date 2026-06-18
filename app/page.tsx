@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import { assessments } from "@/data/assessments";
 import Image from "next/image";
-import FadeIn from "@/components/ui/FadeIn";
+import { FadeIn } from "@/components/ui";
 
 const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
   ssr: false,
@@ -73,8 +74,14 @@ function Divider() {
 
 // ── Page ───────────────────────────────────────────────────────────────────
 export default function HomePage() {
-  const receiving = assessments.filter((a) => a.mode === "receiving");
-  const giving = assessments.filter((a) => a.mode === "giving");
+  const receiving = useMemo(
+    () => assessments.filter((a) => a.mode === "receiving"),
+    []
+  );
+  const giving = useMemo(
+    () => assessments.filter((a) => a.mode === "giving"),
+    []
+  );
 
   return (
     <main className="lc-home">

@@ -1,6 +1,6 @@
 import { QuizQuestion } from "@/types/quiz";
 
-export const generalLoveQuestions: QuizQuestion[] = [
+export const LOVE_QUESTIONS: QuizQuestion[] = [
 
   // ── FORCED-CHOICE (weight 1) ──────────────────────────────────────────────
 

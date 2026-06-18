@@ -1,11 +1,7 @@
 import { ScoreMap, CategoryResult, OptionLetter, Archetype, ArchetypeFlavor, NarrativeResult, Category, QuizQuestion } from "@/types/quiz";
 import { normalizeScores } from "./scoring";
-import { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "@/data/categories-receiving";
-import { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories-giving";
-import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "@/data/archetypes-love";
-import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "@/data/archetypes-intimacy";
-import { LOVE_GIVING_ARCHETYPES, LOVE_GIVING_FLAVORS } from "@/data/archetypes-love-giving";
-import { INTIMACY_GIVING_ARCHETYPES, INTIMACY_GIVING_FLAVORS } from "@/data/archetypes-intimacy-giving";
+import { LOVE_ASSESSMENT, INTIMACY_ASSESSMENT } from "@/data/archetypes";
+import { LOVE_CATEGORIES, INTIMACY_CATEGORIES, LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "@/data/categories";
 
 interface AssessmentAssets {
   categoryMap: Record<string, Category>;
@@ -13,32 +9,20 @@ interface AssessmentAssets {
   flavors:     Record<string, ArchetypeFlavor>;
 }
 
+function makeAssets(
+  categoryMap: Record<string, Category>,
+  mode: { archetypes: Record<string, Archetype>; flavors: Record<string, ArchetypeFlavor> }
+): AssessmentAssets {
+  return { categoryMap, archetypes: mode.archetypes, flavors: mode.flavors };
+}
+
 export function getAssessmentAssets(type: string): AssessmentAssets {
   switch (type) {
-    case "intimacy":
-      return {
-        categoryMap: INTIMACY_CATEGORIES,
-        archetypes:  INTIMACY_ARCHETYPES,
-        flavors:     INTIMACY_FLAVORS,
-      };
-    case "love-giving":
-      return {
-        categoryMap: LOVE_GIVING_CATEGORIES,
-        archetypes:  LOVE_GIVING_ARCHETYPES,
-        flavors:     LOVE_GIVING_FLAVORS,
-      };
-    case "intimacy-giving":
-      return {
-        categoryMap: INTIMACY_GIVING_CATEGORIES,
-        archetypes:  INTIMACY_GIVING_ARCHETYPES,
-        flavors:     INTIMACY_GIVING_FLAVORS,
-      };
-    default:
-      return {
-        categoryMap: LOVE_CATEGORIES,
-        archetypes:  LOVE_ARCHETYPES,
-        flavors:     LOVE_FLAVORS,
-      };
+    case "intimacy":        return makeAssets(INTIMACY_CATEGORIES,       INTIMACY_ASSESSMENT.receiving);
+    case "love-giving":     return makeAssets(LOVE_GIVING_CATEGORIES,    LOVE_ASSESSMENT.giving);
+    case "intimacy-giving": return makeAssets(INTIMACY_GIVING_CATEGORIES, INTIMACY_ASSESSMENT.giving);
+    case "love":
+    default:                return makeAssets(LOVE_CATEGORIES,           LOVE_ASSESSMENT.receiving);
   }
 }
 
@@ -101,10 +85,10 @@ export function pickArchetype(
 
   const primary = archetypes[top.key];
 
-  let secondary: ArchetypeFlavor | null = null;
-  if (second && second.percentage >= minSecondaryScore && second.key !== top.key) {
-    secondary = flavors[second.key] ?? null;
-  }
+  const secondary: ArchetypeFlavor | null =
+    (second?.percentage ?? 0) >= minSecondaryScore && second?.key !== top.key
+      ? (flavors[second!.key] ?? null)
+      : null;
 
   return { primary, secondary };
 }

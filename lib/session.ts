@@ -26,8 +26,8 @@ export function loadQuizSession(): QuizSession | null {
   try {
     const rawScores    = sessionStorage.getItem(KEYS.results);
     const rawQuestions = sessionStorage.getItem(KEYS.questions);
-    const type         = sessionStorage.getItem(KEYS.type) ?? "love";
     if (!rawScores || !rawQuestions) return null;
+    const type = sessionStorage.getItem(KEYS.type) ?? "love";
     return {
       scores:    JSON.parse(rawScores) as ScoreMap,
       questions: JSON.parse(rawQuestions) as QuizQuestion[],

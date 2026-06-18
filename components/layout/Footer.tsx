@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 
 function BackToTop() {
@@ -15,9 +15,9 @@ function BackToTop() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  function scrollTop() {
+  const scrollTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  }, []);
 
   return (
     <button

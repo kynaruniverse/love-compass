@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { CategoryResult } from "@/types/quiz";
 
 export default function CompassProfile({
@@ -46,7 +46,7 @@ export default function CompassProfile({
     }
 
     animRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(animRef.current);
+    return () => cancelAnimationFrame(animRef.current ?? 0);
   }, [topAngle, top]);
 
   // ─── All hooks above this line. ───────────────────────────────────────────
@@ -68,13 +68,13 @@ export default function CompassProfile({
   const needleBack = point(displayAngle + 180, needleLength * 0.18);
 
   // Callout position for tapped category
-  const activeProfile = activeCat ? profile.find(c => c.key === activeCat) : null;
+  const activeProfile = activeCat ? (profile.find(c => c.key === activeCat) ?? null) : null;
   const calloutPos = activeProfile ? point(activeProfile.angle, outerRadius * 0.62) : null;
 
-  function handleCatTap(key: string) {
+  const handleCatTap = useCallback((key: string) => {
     setHasInteracted(true);
     setActiveCat(prev => prev === key ? null : key);
-  }
+  }, []);
 
   return (
     <div className="flex flex-col items-center gap-5 w-full">

@@ -1,6 +1,12 @@
 import { ScoreMap, QuizQuestion, QuestionType } from "@/types/quiz";
 import { clamp } from "./helpers";
 
+/** Parse a likert/reverse string value ("1"–"5") into a number, or null if invalid. */
+function parseLikertRating(value: string): number | null {
+  const n = parseInt(value, 10);
+  return isNaN(n) ? null : n;
+}
+
 export function createEmptyScores(): ScoreMap {
   return { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
 }
@@ -49,33 +55,27 @@ export function tallyAnswers(
 ): ScoreMap {
   const scores = createEmptyScores();
 
-  answers.forEach((answer, i) => {
+  for (let i = 0; i < answers.length; i++) {
+    const answer = answers[i];
     const q = questions[i];
-    if (!q) return;
+    if (!q) continue;
 
     const type: QuestionType = q.type ?? "forced-choice";
     const weight = q.weight ?? 1;
 
     if (type === "forced-choice") {
       const key = answer as keyof ScoreMap;
-      if (key in scores) {
-        scores[key] += weight;
-      }
-    } else if (type === "likert") {
-      const rating = parseInt(answer, 10);
-      if (!isNaN(rating) && q.category && q.category in scores) {
-        scores[q.category] += rating * weight;
-      }
-    } else if (type === "reverse") {
-      const rating = parseInt(answer, 10);
-      if (!isNaN(rating) && q.category && q.category in scores) {
-        // Flip: "5 = Exactly like me" means LESS of this category
-        scores[q.category] -= (rating - 1) * weight;
-      }
+      if (key in scores) scores[key] += weight;
+      continue;
     }
-  });
 
-  // Clamp all scores to 0 (reverse questions can't push below zero)
+    const rating = parseLikertRating(answer);
+    if (rating === null || !q.category || !(q.category in scores)) continue;
+
+    if (type === "likert") scores[q.category] += rating * weight;
+    else                   scores[q.category] -= (rating - 1) * weight;
+  }
+
   (Object.keys(scores) as (keyof ScoreMap)[]).forEach(k => {
     scores[k] = Math.max(0, scores[k]);
   });
@@ -100,17 +100,14 @@ export function applyAnswer(
   if (type === "forced-choice") {
     const key = value as keyof ScoreMap;
     if (key in next) next[key] += weight;
-  } else if (type === "likert") {
-    const rating = parseInt(value, 10);
-    if (!isNaN(rating) && q.category && q.category in next) {
-      next[q.category] += rating * weight;
-    }
-  } else if (type === "reverse") {
-    const rating = parseInt(value, 10);
-    if (!isNaN(rating) && q.category && q.category in next) {
-      next[q.category] = Math.max(0, next[q.category] - (rating - 1) * weight);
-    }
+    return next;
   }
+
+  const rating = parseLikertRating(value);
+  if (rating === null || !q.category || !(q.category in next)) return next;
+
+  if (type === "likert") next[q.category] += rating * weight;
+  else                   next[q.category] = Math.max(0, next[q.category] - (rating - 1) * weight);
 
   return next;
 }

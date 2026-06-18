@@ -1,12 +1,5 @@
 import { Category } from "@/types/quiz";
 
-/**
- * Giving-mode category maps.
- * Same A–H keys and angles as the receiving maps in categories.ts.
- * Descriptions written from the giving perspective:
- * "You express love / desire / connection through..."
- */
-
 export const LOVE_GIVING_CATEGORIES: Record<string, Category> = {
   A: {
     id: "A",

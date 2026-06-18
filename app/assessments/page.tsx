@@ -1,13 +1,26 @@
 import Link from "next/link";
+import { useMemo } from "react";
 import { assessments } from "@/data/assessments";
-import { generateMeta } from "@/lib/seo";
-import { PageHero } from "@/components/ui/ContentSection";
+import { generateMeta } from "@/lib";
+import { PageHero } from "@/components/ui";
 
 export const metadata = generateMeta({
   title: "Assessments"
 });
 
 export default function AssessmentsPage() {
+  const byMode = useMemo(
+    () =>
+      assessments.reduce<Record<string, typeof assessments>>(
+        (acc, a) => {
+          (acc[a.mode] ??= []).push(a);
+          return acc;
+        },
+        {}
+      ),
+    []
+  );
+
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-8">
       <PageHero
@@ -52,7 +65,7 @@ export default function AssessmentsPage() {
             {group.eyebrow}
           </p>
           <div className="space-y-3">
-            {assessments.filter(a => a.mode === group.mode).map(a => (
+            {(byMode[group.mode] ?? []).map(a => (
               <Link
                 key={a.slug}
                 href={`/assessments/${a.slug}`}

@@ -131,4 +131,3 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
       "You feel most desired within intimacy that feels equitable, where both people initiate, both people invest, and neither person is carrying the connection alone. Imbalance disrupts your ability to be fully present. Fairness isn't a condition you impose — it's what makes you feel genuinely met."
   }
 };
-

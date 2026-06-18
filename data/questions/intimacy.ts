@@ -1,6 +1,6 @@
 import { QuizQuestion } from "@/types/quiz";
 
-export const intimacyQuestions: QuizQuestion[] = [
+export const INTIMACY_QUESTIONS: QuizQuestion[] = [
 
   // ── FORCED-CHOICE (weight 1) ──────────────────────────────────────────────
 

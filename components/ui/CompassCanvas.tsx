@@ -16,13 +16,13 @@ export default function CompassCanvas() {
     let startTime: number | null = null;
 
     function resize() {
-      if (!canvas) return;
+      if (!canvas || !ctx) return;
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
       canvas.height = canvas.offsetHeight * window.devicePixelRatio;
       // Reset the transform before re-applying the DPR scale so repeated
       // resize events don't stack multipliers (2× → 4× → 8× etc.).
-      ctx!.setTransform(1, 0, 0, 1, 0, 0);
-      ctx!.scale(window.devicePixelRatio, window.devicePixelRatio);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     }
 
     resize();

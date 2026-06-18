@@ -1,4 +1,4 @@
-import { siteMeta } from "@/lib/seo";
+import { siteMeta } from "@/lib";
 
 export default function robots() {
   return {

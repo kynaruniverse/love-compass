@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import DotProgress from "./DotProgress";
 import QuestionView from "./QuestionView";
-import { QuizState } from "@/lib/useQuiz";
+import { QuizState } from "@/lib";
 
 export default function QuizCard({ quiz }: { quiz: QuizState }) {
   const [animKey, setAnimKey] = useState(0);

@@ -1,4 +1,4 @@
-import { clamp } from "@/lib/helpers";
+import { clamp } from "@/lib";
 import { useId } from "react";
 
 export default function ProgressBar({

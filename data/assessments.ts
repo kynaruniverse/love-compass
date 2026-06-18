@@ -1,14 +1,12 @@
-import { generalLoveQuestions } from "./general-love";
-import { intimacyQuestions } from "./intimacy";
-import { generalLoveGivingQuestions } from "./general-love-giving";
-import { intimacyGivingQuestions } from "./intimacy-giving";
 import { QuizQuestion } from "@/types/quiz";
+import { LOVE_QUESTIONS, INTIMACY_QUESTIONS } from "./questions/receiving";
+import { LOVE_GIVING_QUESTIONS, INTIMACY_GIVING_QUESTIONS } from "./questions/giving";
 
 export const QUESTION_BANK: Record<string, QuizQuestion[]> = {
-  "love":             generalLoveQuestions,
-  "intimacy":         intimacyQuestions,
-  "love-giving":      generalLoveGivingQuestions,
-  "intimacy-giving":  intimacyGivingQuestions,
+  "love":            LOVE_QUESTIONS,
+  "intimacy":        INTIMACY_QUESTIONS,
+  "love-giving":     LOVE_GIVING_QUESTIONS,
+  "intimacy-giving": INTIMACY_GIVING_QUESTIONS,
 };
 
 export type AssessmentMode = "receiving" | "giving";
