@@ -88,10 +88,10 @@ export default function ResultsProfile({
             <h3 className="font-serif font-semibold text-[var(--primary)]">Your Profile Mix</h3>
             <p className="text-sm leading-relaxed opacity-80 font-serif" style={{ fontSize: 15 }}>
               You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
-              {blendRest.length === 1 && (
+              {blendRest.length === 1 && blendRest[0] && (
                 <> — but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
               )}
-              {blendRest.length === 2 && (
+              {blendRest.length === 2 && blendRest[0] && blendRest[1] && (
                 <> — but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
               )}
               {" "}Rather than a single fixed label, think of your results as a blend — these dimensions work alongside your primary type in how you {mode === "giving" ? "naturally express love and desire" : "experience love and connection"}.
