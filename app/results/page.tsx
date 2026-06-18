@@ -2,7 +2,7 @@
 
 import { Suspense, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { NarrativeResult, CategoryResult, ScoreMap, Archetype } from "@/types/quiz";
+import { NarrativeResult, CategoryResult, ScoreMap, QuizQuestion, Archetype } from "@/types/quiz";
 import {
   isGivingMode,
   buildProfile,
@@ -27,22 +27,21 @@ import { CompassProfile, ScoreBars } from "@/components/charts";
 // ── Dynamic asset loader ───────────────────────────────────────────────────
 // Loads only the archetype data + question bank for the quiz type being
 // displayed. Avoids bundling all four assessment datasets on the results page.
+
 async function loadResultAssets(quizType: string) {
-  // Import question bank for this type only
-  const questionBankModule = await (async () => {
+  const questions = await (async (): Promise<QuizQuestion[]> => {
     switch (quizType) {
-      case "love":            return import("@/data/questions/love").then(m => ({ [quizType]: m.LOVE_QUESTIONS }));
-      case "intimacy":        return import("@/data/questions/intimacy").then(m => ({ [quizType]: m.INTIMACY_QUESTIONS }));
-      case "love-giving":     return import("@/data/questions/love-giving").then(m => ({ [quizType]: m.LOVE_GIVING_QUESTIONS }));
-      case "intimacy-giving": return import("@/data/questions/intimacy-giving").then(m => ({ [quizType]: m.INTIMACY_GIVING_QUESTIONS }));
-      default:                return import("@/data/questions/love").then(m => ({ love: m.LOVE_QUESTIONS }));
+      case "love":            return import("@/data/questions/love").then(m => m.LOVE_QUESTIONS);
+      case "intimacy":        return import("@/data/questions/intimacy").then(m => m.INTIMACY_QUESTIONS);
+      case "love-giving":     return import("@/data/questions/love-giving").then(m => m.LOVE_GIVING_QUESTIONS);
+      case "intimacy-giving": return import("@/data/questions/intimacy-giving").then(m => m.INTIMACY_GIVING_QUESTIONS);
+      default:                return import("@/data/questions/love").then(m => m.LOVE_QUESTIONS);
     }
   })();
 
-  // Import archetype data for this type only
   const { getAssessmentAssets } = await import("@/lib/resultBuilder");
 
-  return { questionBank: questionBankModule, getAssessmentAssets };
+  return { questions, getAssessmentAssets };
 }
 
 // ─── Co-located page-only components ─────────────────────────────────────────
@@ -200,8 +199,7 @@ function ResultsInner() {
   const [isLoading, setIsLoading] = useState(true);
 
   const loadFrom = useCallback(async (scores: ScoreMap, type: string): Promise<boolean> => {
-    const { questionBank, getAssessmentAssets } = await loadResultAssets(type);
-    const questions = questionBank[type];
+    const { questions, getAssessmentAssets } = await loadResultAssets(type);
     if (!questions) return false;
     const { categoryMap, archetypes, flavors } = getAssessmentAssets(type);
     const built = buildProfile(scores, questions, categoryMap);
