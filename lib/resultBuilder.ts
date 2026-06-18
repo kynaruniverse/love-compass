@@ -59,8 +59,8 @@ export function buildProfile(
         key,
         title: cat?.title ?? key,
         description: cat?.description ?? "",
-        score: rawScores[key],
-        percentage: normalized[key],
+        score: rawScores[key] ?? 0,
+        percentage: normalized[key] ?? 0,
         angle: cat?.angle ?? 0,
       };
     })
@@ -93,14 +93,18 @@ export function pickArchetype(
   flavors: Record<string, ArchetypeFlavor>,
   minSecondaryScore = 40
 ): NarrativeResult {
-  const top = profile[0] ?? null;
+  const top = profile[0];
   const second = profile[1] ?? null;
+
+  if (!top) {
+    throw new Error("pickArchetype called with empty profile");
+  }
 
   const primary = archetypes[top.key];
 
   const secondary: ArchetypeFlavor | null =
     (second?.percentage ?? 0) >= minSecondaryScore && second?.key !== top.key
-      ? (flavors[second!.key] ?? null)
+      ? (flavors[second.key] ?? null)
       : null;
 
   return { primary, secondary };
