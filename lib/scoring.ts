@@ -1,8 +1,8 @@
-import { ScoreMap, QuizQuestion, QuestionType } from "@/types/quiz";
-import { clamp } from "./helpers";
+import { ScoreMap, QuizQuestion, QuestionType, OptionLetter } from "@/types/quiz";
 
 /** Parse a likert/reverse string value ("1"–"5") into a number, or null if invalid. */
-function parseLikertRating(value: string): number | null {
+function parseLikertRating(value: string | undefined): number | null {
+  if (value === undefined) return null;
   const n = parseInt(value, 10);
   return isNaN(n) ? null : n;
 }

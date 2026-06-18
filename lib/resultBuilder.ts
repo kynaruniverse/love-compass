@@ -101,9 +101,12 @@ export function pickArchetype(
   }
 
   const primary = archetypes[top.key];
+  if (!primary) {
+    throw new Error(`No archetype found for category key: ${top.key}`);
+  }
 
   const secondary: ArchetypeFlavor | null =
-    (second?.percentage ?? 0) >= minSecondaryScore && second?.key !== top.key
+    second !== null && second.percentage >= minSecondaryScore && second.key !== top.key
       ? (flavors[second.key] ?? null)
       : null;
 

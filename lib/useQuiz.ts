@@ -52,9 +52,15 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
 
   const isComplete = index >= questions.length;
 
+  const currentQuestion = questions[Math.min(index, questions.length - 1)];
+
+  if (!currentQuestion) {
+    throw new Error("useQuiz: no question available at current index — questions array may be empty");
+  }
+
   return {
     index,
-    question: questions[Math.min(index, questions.length - 1)],
+    question: currentQuestion,
     answerQuestion,
     scores,
     answers,
