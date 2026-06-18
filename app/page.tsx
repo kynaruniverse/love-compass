@@ -97,6 +97,9 @@ export default function HomePage() {
               width={220}
               height={73}
               priority
+              // Tell the browser this image is at most 220px wide on any
+              // viewport — prevents fetching an oversized raster fallback.
+              sizes="220px"
               style={{ display: "block" }}
             />
           </Link>

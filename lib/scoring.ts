@@ -65,8 +65,11 @@ export function tallyAnswers(
 
     if (type === "forced-choice") {
       const key = answer as OptionLetter;
-      // Ensure the key is a valid OptionLetter before accessing scores
-      if (Object.values(OptionLetter).includes(key)) {
+      // OptionLetter is a union type, not an enum — use a constant array for
+      // the runtime guard. This is equivalent to what Object.values() would
+      // do on an enum, but works correctly with a TypeScript union type.
+      const VALID_LETTERS: OptionLetter[] = ["A", "B", "C", "D", "E", "F", "G", "H"];
+      if (VALID_LETTERS.includes(key)) {
         scores[key] += weight;
       }
       continue;
@@ -102,11 +105,10 @@ export function applyAnswer(
 
   if (type === "forced-choice") {
     const key = value as OptionLetter;
-    // Ensure the key is a valid OptionLetter before accessing next scores
-    if (Object.values(OptionLetter).includes(key)) {
+    const VALID_LETTERS: OptionLetter[] = ["A", "B", "C", "D", "E", "F", "G", "H"];
+    if (VALID_LETTERS.includes(key)) {
       next[key] += weight;
     }
-
     return next;
   }
 

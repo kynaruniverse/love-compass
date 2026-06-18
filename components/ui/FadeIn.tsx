@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 export default function FadeIn({
   children,
@@ -17,23 +18,23 @@ export default function FadeIn({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [prefersReduced, setPrefersReduced] = useState(false);
+  // Single shared MediaQueryList instance — not re-queried per component.
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReduced(mq.matches);
-    // Respect dynamic OS setting changes without a page reload
-    const onChange = (e: MediaQueryListEvent) => setPrefersReduced(e.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    if (prefersReduced) { setVisible(true); return; }
+    if (prefersReduced) {
+      setVisible(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
       { threshold: 0.08 }
     );
     obs.observe(el);

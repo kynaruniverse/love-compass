@@ -8,7 +8,6 @@ import {
   buildProfile,
   pickArchetype,
   getBlend,
-  getAssessmentAssets,
   decodeShareData,
   encodeShareData,
   buildShareUrl,
@@ -19,10 +18,32 @@ import {
   buildResultTXT,
   buildResultMD,
 } from "@/lib";
-import { QUESTION_BANK } from "@/data/assessments";
+// NOTE: QUESTION_BANK and getAssessmentAssets are now loaded dynamically
+// per quiz type below, so they are NOT imported statically here.
 import { ResultsProfile, ShareCard } from "@/components/quiz";
 import { Button, PaperCard, GoldStampBadge } from "@/components/ui";
 import { CompassProfile, ScoreBars } from "@/components/charts";
+
+// ── Dynamic asset loader ───────────────────────────────────────────────────
+// Loads only the archetype data + question bank for the quiz type being
+// displayed. Avoids bundling all four assessment datasets on the results page.
+async function loadResultAssets(quizType: string) {
+  // Import question bank for this type only
+  const questionBankModule = await (async () => {
+    switch (quizType) {
+      case "love":            return import("@/data/questions/love").then(m => ({ [quizType]: m.LOVE_QUESTIONS }));
+      case "intimacy":        return import("@/data/questions/intimacy").then(m => ({ [quizType]: m.INTIMACY_QUESTIONS }));
+      case "love-giving":     return import("@/data/questions/love-giving").then(m => ({ [quizType]: m.LOVE_GIVING_QUESTIONS }));
+      case "intimacy-giving": return import("@/data/questions/intimacy-giving").then(m => ({ [quizType]: m.INTIMACY_GIVING_QUESTIONS }));
+      default:                return import("@/data/questions/love").then(m => ({ love: m.LOVE_QUESTIONS }));
+    }
+  })();
+
+  // Import archetype data for this type only
+  const { getAssessmentAssets } = await import("@/lib/resultBuilder");
+
+  return { questionBank: questionBankModule, getAssessmentAssets };
+}
 
 // ─── Co-located page-only components ─────────────────────────────────────────
 
