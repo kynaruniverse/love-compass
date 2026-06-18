@@ -5,6 +5,5 @@ export { getAssessmentAssets, buildProfile, dominantCategories, pickArchetype, g
 export { saveQuizSession, loadQuizSession } from "./session";
 export type { QuizSession } from "./session";
 export { encodeShareData, decodeShareData, buildShareUrl } from "./shareLink";
-export { clamp, isNonEmpty, getQuizTypeLabel, isGivingMode } from "./helpers";
-export { siteMeta, generateMeta } from "./seo";
+export { clamp, isNonEmpty, getQuizTypeLabel, isGivingMode, siteMeta, generateMeta } from "./utils";
 export { exportText, exportMarkdown, buildResultTXT, buildResultMD } from "./export";

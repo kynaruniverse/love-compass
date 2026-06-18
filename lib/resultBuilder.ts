@@ -9,13 +9,14 @@ import {
   ScoreMap,
 } from "@/types/quiz";
 import { normalizeScores } from "./scoring";
-import { LOVE_ASSESSMENT, INTIMACY_ASSESSMENT } from "@/data/archetypes";
 import {
+  LOVE_ASSESSMENT,
+  INTIMACY_ASSESSMENT,
   INTIMACY_CATEGORIES,
   INTIMACY_GIVING_CATEGORIES,
   LOVE_CATEGORIES,
   LOVE_GIVING_CATEGORIES,
-} from "@/data/categories";
+} from "@/data/archetypes";
 
 interface AssessmentAssets {
   categoryMap: Record<string, Category>;

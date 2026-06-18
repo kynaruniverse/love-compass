@@ -1,6 +1,5 @@
 import { QuizQuestion } from "@/types/quiz";
-import { LOVE_QUESTIONS, INTIMACY_QUESTIONS } from "./questions/receiving";
-import { LOVE_GIVING_QUESTIONS, INTIMACY_GIVING_QUESTIONS } from "./questions/giving";
+import { LOVE_QUESTIONS, INTIMACY_QUESTIONS, LOVE_GIVING_QUESTIONS, INTIMACY_GIVING_QUESTIONS } from "./questions";
 
 export const QUESTION_BANK: Record<string, QuizQuestion[]> = {
   "love":            LOVE_QUESTIONS,

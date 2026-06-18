@@ -1,2 +1,0 @@
-export { LOVE_CATEGORIES, INTIMACY_CATEGORIES } from "./receiving";
-export { LOVE_GIVING_CATEGORIES, INTIMACY_GIVING_CATEGORIES } from "./giving";

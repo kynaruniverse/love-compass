@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
 import { Lora } from "next/font/google";
 import "./globals.css";
-import { Navbar, Footer, ConditionalFooter } from "@/components/layout";
+import { Navbar, Footer } from "@/components/layout";
 import { siteMeta } from "@/lib";
+
+function ConditionalFooterInline() {
+  "use client";
+  const { usePathname } = require("next/navigation");
+  const pathname = usePathname();
+  const isQuiz = pathname.startsWith("/assessments/") && pathname !== "/assessments";
+  if (isQuiz) return null;
+  return <Footer />;
+}
 
 const lora = Lora({
   subsets: ["latin"],
@@ -70,7 +79,7 @@ export default function RootLayout({
         </a>
         <Navbar />
         {children}
-        <ConditionalFooter />
+        <ConditionalFooterInline />
       </body>
     </html>
   );
