@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ParticleCanvas, PageHero, PaperCard } from "@/components/ui";
-────────────────────────────────────────────────────────────
 
 function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const [open, setOpen] = useState(false);

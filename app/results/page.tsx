@@ -199,9 +199,9 @@ function ResultsInner() {
   const [isSharedView, setIsSharedView] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-
-  const loadFrom = useCallback((scores: ScoreMap, type: string): boolean => {
-    const questions = QUESTION_BANK[type];
+  const loadFrom = useCallback(async (scores: ScoreMap, type: string): Promise<boolean> => {
+    const { questionBank, getAssessmentAssets } = await loadResultAssets(type);
+    const questions = questionBank[type];
     if (!questions) return false;
     const { categoryMap, archetypes, flavors } = getAssessmentAssets(type);
     const built = buildProfile(scores, questions, categoryMap);
@@ -214,60 +214,44 @@ function ResultsInner() {
   }, []);
 
   useEffect(() => {
-    const sharedParam = searchParams.get("d");
-    if (sharedParam) {
-      const decoded = decodeShareData(sharedParam);
-      if (decoded) {
-        try {
-          loadFrom(decoded.scores, decoded.type);
-          setIsSharedView(true);
-          return;
-        } catch {
-          // fall through
+    let cancelled = false;
+
+    async function load() {
+      const sharedParam = searchParams.get("d");
+      if (sharedParam) {
+        const decoded = decodeShareData(sharedParam);
+        if (decoded) {
+          try {
+            await loadFrom(decoded.scores, decoded.type);
+            if (!cancelled) {
+              setIsSharedView(true);
+              setIsLoading(false);
+            }
+            return;
+          } catch {
+            // fall through to session
+          }
         }
       }
-    }
 
-    const session = loadQuizSession();
-    if (!session) return;
-
-    const loaded = loadFrom(session.scores, session.type);
-    if (loaded) {
-      const encoded = encodeShareData(session.scores, session.type);
-      router.replace(`/results?d=${encoded}`, { scroll: false });
-    }
-  }, [searchParams, loadFrom, router]);
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  // ... (inside useEffect)
-  useEffect(() => {
-    // ... existing logic ...
-    if (decoded) {
-      try {
-        loadFrom(decoded.scores, decoded.type);
-        setIsSharedView(true);
-        setIsLoading(false); // Data loaded, no longer loading
+      const session = loadQuizSession();
+      if (!session) {
+        if (!cancelled) setIsLoading(false);
         return;
-      } catch {
-        // fall through
+      }
+
+      const loaded = await loadFrom(session.scores, session.type);
+      if (!cancelled) {
+        if (loaded) {
+          const encoded = encodeShareData(session.scores, session.type);
+          router.replace(`/results?d=${encoded}`, { scroll: false });
+        }
+        setIsLoading(false);
       }
     }
 
-    const session = loadQuizSession();
-    if (!session) {
-      setIsLoading(false); // No session, no longer loading
-      return;
-    }
-
-    const loaded = loadFrom(session.scores, session.type);
-    if (loaded) {
-      const encoded = encodeShareData(session.scores, session.type);
-      router.replace(`/results?d=${encoded}`, { scroll: false });
-      setIsLoading(false); // Data loaded, no longer loading
-    } else {
-      setIsLoading(false); // Failed to load, no longer loading
-    }
+    load();
+    return () => { cancelled = true; };
   }, [searchParams, loadFrom, router]);
 
   if (isLoading) {
@@ -290,11 +274,9 @@ function ResultsInner() {
     return <NoResults />;
   }
 
-
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-4 pt-16 pb-28 sm:pb-16 space-y-10 sm:space-y-12">
 
-      {/* -- Shared-result banner -- */}
       {isSharedView && (
         <div
           className="flex items-center gap-3 p-4 rounded-2xl text-sm leading-relaxed"
