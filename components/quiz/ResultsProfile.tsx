@@ -116,14 +116,18 @@ export default function ResultsProfile({
           }}
         >
           {insightCards.map((card, idx) => (
-            <PaperCard
+            <div
               key={card.title}
-              className="rounded-2xl p-5 flex-shrink-0"
               role="group"
               aria-label={`${card.title} — ${idx + 1} of ${insightCards.length}`}
               style={{
                 width: "min(72vw, 280px)",
                 scrollSnapAlign: "start",
+              }}
+            >
+            <PaperCard
+              className="rounded-2xl p-5 h-full"
+              style={{
                 borderColor: `${card.accent}33`,
               }}
             >
@@ -147,6 +151,7 @@ export default function ResultsProfile({
                 </ul>
               </div>
             </PaperCard>
+            </div>
           ))}
         </div>
       </div>
