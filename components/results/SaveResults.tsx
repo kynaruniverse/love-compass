@@ -1,3 +1,5 @@
+"use client";
+
 import { Archetype, CategoryResult } from "@/types/quiz";
 import { Button } from "@/components/ui";
 import { exportText, exportMarkdown, buildResultTXT, buildResultMD } from "@/lib";
@@ -17,7 +19,7 @@ export default function SaveResults({ primary, profile }: Props) {
   }
 
   return (
-    <details className="group">
+    <details className="group" aria-label="Save your results">
       <summary
         className="cursor-pointer text-sm opacity-50 active:opacity-70 transition-opacity list-none flex items-center gap-2 select-none"
         style={{ WebkitTapHighlightColor: "transparent" }}

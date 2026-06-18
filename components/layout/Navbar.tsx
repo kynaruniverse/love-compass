@@ -69,15 +69,26 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <div ref={wrapRef} className="lc-sigil-wrap" style={{
-      transform: `translateY(${visible ? "0" : "120%"})`,
-      opacity: visible ? 1 : 0,
-    }}>
+    <nav
+      ref={wrapRef}
+      aria-label="Site navigation"
+      className="lc-sigil-wrap"
+      style={{
+        transform: `translateY(${visible ? "0" : "120%"})`,
+        opacity: visible ? 1 : 0,
+      }}
+    >
 
       {/* ── Bloom menu ── */}
-      <div className="lc-bloom-menu" aria-hidden={!menuOpen} style={{
-        pointerEvents: menuOpen ? "auto" : "none",
-      }}>
+      <div
+        className="lc-bloom-menu"
+        aria-hidden={!menuOpen}
+        role="menu"
+        aria-label="Navigation links"
+        style={{
+          pointerEvents: menuOpen ? "auto" : "none",
+        }}
+      >
 
         {/* More sub-menu */}
         {moreOpen && (
@@ -141,6 +152,7 @@ export default function Navbar() {
         className={`lc-sigil-btn ${menuOpen ? "lc-sigil-btn--open" : ""}`}
         aria-label={menuOpen ? "Close menu" : "Open menu"}
         aria-expanded={menuOpen}
+        aria-haspopup="true"
         onClick={() => { setMenuOpen((o) => !o); if (menuOpen) setMoreOpen(false); }}
       >
         <Image
@@ -157,6 +169,6 @@ export default function Navbar() {
         />
       </button>
 
-    </div>
+    </nav>
   );
 }

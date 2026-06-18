@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 export default function DotProgress({
   total,
   current
@@ -22,7 +20,8 @@ export default function DotProgress({
         aria-valuenow={Math.min(current + 1, total)}
         aria-valuemin={1}
         aria-valuemax={total}
-        aria-label={`Question ${Math.min(current + 1, total)} of ${total}`}
+        aria-label="Assessment progress"
+        aria-valuetext={`Question ${Math.min(current + 1, total)} of ${total}`}
       >
         <div
           className="h-full transition-all duration-500 ease-out"

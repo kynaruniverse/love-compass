@@ -6,10 +6,14 @@ export default function FadeIn({
   children,
   delay = 0,
   className = "",
+  role,
+  "aria-label": ariaLabel,
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  role?: string;
+  "aria-label"?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -40,6 +44,8 @@ export default function FadeIn({
     <div
       ref={ref}
       className={className}
+      role={role}
+      aria-label={ariaLabel}
       style={
         prefersReduced
           ? { opacity: 1 }

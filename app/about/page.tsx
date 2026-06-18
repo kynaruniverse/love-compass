@@ -7,11 +7,11 @@ export default function AboutPage() {
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
 
-        <PageHero
-          badge="About"
-          heading="Understanding how you love"
-          subheading="Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it — specific to you, built from your real answers, not the ones that sound well-adjusted."
-        />
+      <PageHero
+        badge="About"
+        heading="Understanding how you love"
+        subheading="Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it — specific to you, built from your real answers, not the ones that sound well-adjusted."
+      />
 
         {/* What it is */}
         <ContentSection>
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <p className="opacity-80 leading-relaxed">
             Four assessments. Two sides of the same question — how you need to be loved, and how you love in return.
           </p>
-          <div className="grid grid-cols-2 gap-3 pt-2">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 pt-2">
             {[
               {
                 icon: "♡",
@@ -158,9 +158,9 @@ export default function AboutPage() {
 
         {/* Disclaimer note */}
         <p className="text-xs opacity-40 text-center leading-relaxed pb-4">
-          Love Compass is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change. Check back.
-        </p>
+        Love Compass is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change. Check back.
+      </p>
 
-      </main>
+    </main>
   );
 }

@@ -14,6 +14,8 @@ export default function Error({
       <ParticleCanvas />
       <main className="relative z-10 min-h-screen flex items-center justify-center px-4">
         <div
+          role="alert"
+          aria-live="assertive"
           className="relative text-center space-y-5 max-w-md w-full rounded-3xl overflow-hidden p-8 sm:p-10"
           style={{
             border: "1.5px solid rgba(201,161,74,0.25)",

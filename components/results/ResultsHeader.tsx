@@ -20,7 +20,9 @@ export default function ResultsHeader({ isSharedView, quizType }: Props) {
       </p>
 
       {isGivingMode(quizType) && (
-        <div
+        <aside
+          role="note"
+          aria-label="About giving assessments"
           className="mt-3 p-4 rounded-2xl text-sm leading-relaxed"
           style={{
             border: "1.5px solid rgba(201,161,74,0.35)",
@@ -41,7 +43,7 @@ export default function ResultsHeader({ isSharedView, quizType }: Props) {
               Take a receiving test →
             </a>
           </p>
-        </div>
+        </aside>
       )}
     </div>
   );

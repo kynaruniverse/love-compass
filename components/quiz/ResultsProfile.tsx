@@ -1,8 +1,9 @@
+"use client";
+
 import { useMemo } from "react";
 import { CategoryResult, NarrativeResult } from "@/types/quiz";
 import { ProgressBar, PaperCard } from "@/components/ui";
 import { getIntensity } from "@/lib";
-
 
 export default function ResultsProfile({
   profile,
@@ -101,7 +102,8 @@ export default function ResultsProfile({
         <div
           className="flex gap-4 overflow-x-auto pb-3"
           role="region"
-          aria-label="Insight cards — swipe to explore"
+          aria-label="Insight cards"
+          aria-roledescription="carousel"
           tabIndex={0}
           style={{
             scrollSnapType: "x mandatory",
@@ -109,10 +111,12 @@ export default function ResultsProfile({
             scrollbarWidth: "none",
           }}
         >
-          {insightCards.map(card => (
+          {insightCards.map((card, idx) => (
             <PaperCard
               key={card.title}
               className="rounded-2xl p-5 flex-shrink-0"
+              role="group"
+              aria-label={`${card.title} — ${idx + 1} of ${insightCards.length}`}
               style={{
                 width: "min(72vw, 280px)",
                 scrollSnapAlign: "start",
@@ -145,7 +149,7 @@ export default function ResultsProfile({
 
       {/* ── Full profile breakdown ── */}
       {profile.length > 0 && (
-        <div className="space-y-4">
+        <section aria-label="Full Profile Breakdown" className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">
             Full Profile Breakdown
           </h2>
@@ -171,7 +175,7 @@ export default function ResultsProfile({
               );
             })}
           </div>
-        </div>
+        </section>
       )}
     </div>
   );

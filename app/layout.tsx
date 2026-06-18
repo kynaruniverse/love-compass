@@ -60,16 +60,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={lora.variable}>
+    <html lang="en" dir="ltr" className={lora.variable}>
       <body>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-xl focus:font-serif focus:text-sm focus:font-semibold"
-          style={{
-            background: "var(--surface)",
-            color: "var(--primary)",
-            border: "2px solid var(--primary)",
-          }}
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-xl focus:font-serif focus:text-sm focus:font-semibold focus:bg-[var(--surface)] focus:text-[var(--primary)] focus:border-2 focus:border-[var(--primary)] focus:outline-none focus:shadow-lg"
         >
           Skip to content
         </a>

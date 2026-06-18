@@ -4,7 +4,6 @@ export const siteMeta = {
     "Discover how you give and receive love. Love Compass is a free self-reflection tool built around four structured assessments — no sign-up required.",
   url: "https://lovecompass.app",
   siteName: "Love Compass",
-  
 };
 
 export function generateMeta({

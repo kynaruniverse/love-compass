@@ -18,6 +18,8 @@ export default function ProgressBar({
         aria-valuenow={clamped}
         aria-valuemin={0}
         aria-valuemax={100}
+        aria-label="Category score"
+        aria-valuetext={`${clamped} out of 100`}
         style={{
           height: 6,
           borderRadius: 9999,

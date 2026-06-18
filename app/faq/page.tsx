@@ -150,7 +150,7 @@ export default function FAQPage() {
     <>
       <ParticleCanvas />
 
-      <main id="main-content" className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-12">
+      <main id="main-content" aria-label="Frequently asked questions" className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-12">
 
         <PageHero
           badge="FAQ"

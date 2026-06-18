@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import { Button, PaperCard } from "@/components/ui";
 
@@ -5,7 +7,11 @@ export default function NoResults() {
   const router = useRouter();
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center">
+    <main
+      id="main-content"
+      aria-label="No results found"
+      className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center"
+    >
       <PaperCard
         className="text-center space-y-5 max-w-md w-full rounded-3xl p-8"
         borderColor="rgba(201,161,74,0.25)"

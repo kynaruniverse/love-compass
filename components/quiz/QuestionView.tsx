@@ -6,6 +6,7 @@ import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
 function GoldBadge({ label }: { label: string }) {
   return (
     <span
+      aria-hidden="true"
       className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold"
       style={{
         background: "var(--accent-soft)",
@@ -72,6 +73,7 @@ export default function QuestionView({
               return (
                 <button
                   key={value}
+                  type="button"
                   onClick={() => onAnswer(value)}
                   aria-label={`${value} out of 5 — ${label}`}
                   className="lc-answer-btn lc-paper-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex items-center gap-4"
@@ -85,6 +87,7 @@ export default function QuestionView({
           : question.options.map(opt => (
               <button
                 key={opt.letter}
+                type="button"
                 onClick={() => onAnswer(opt.letter)}
                 className="lc-answer-btn lc-paper-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex items-center gap-4"
                 {...answerButtonPointerHandlers}

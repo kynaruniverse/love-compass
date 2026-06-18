@@ -11,14 +11,22 @@ export function ContentSection({ children }: { children: ReactNode }) {
       <div className="relative space-y-4 font-serif [&_p]:opacity-80 [&_p]:leading-relaxed" style={{ fontSize: 16 }}>
         {children}
       </div>
-
     </PaperCard>
   );
 }
 
-export function ContentSectionHeading({ children }: { children: ReactNode }) {
+export function ContentSectionHeading({
+  children,
+  id,
+}: {
+  children: ReactNode;
+  id?: string;
+}) {
   return (
-    <h2 className="font-serif text-2xl font-bold text-[var(--primary)] leading-snug">
+    <h2
+      id={id}
+      className="font-serif text-2xl font-bold text-[var(--primary)] leading-snug"
+    >
       {children}
     </h2>
   );

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useMemo } from "react";
 import { assessments } from "@/data/assessments";
 import { generateMeta } from "@/lib";
 import { PageHero } from "@/components/ui";
@@ -8,18 +7,15 @@ export const metadata = generateMeta({
   title: "Assessments"
 });
 
+const byMode = assessments.reduce<Record<string, typeof assessments>>(
+  (acc, a) => {
+    (acc[a.mode] ??= []).push(a);
+    return acc;
+  },
+  {}
+);
+
 export default function AssessmentsPage() {
-  const byMode = useMemo(
-    () =>
-      assessments.reduce<Record<string, typeof assessments>>(
-        (acc, a) => {
-          (acc[a.mode] ??= []).push(a);
-          return acc;
-        },
-        {}
-      ),
-    []
-  );
 
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-8">
@@ -64,12 +60,12 @@ export default function AssessmentsPage() {
           >
             {group.eyebrow}
           </p>
-          <div className="space-y-3">
+          <ul className="space-y-3 list-none p-0 m-0">
             {(byMode[group.mode] ?? []).map(a => (
-              <Link
-                key={a.slug}
-                href={`/assessments/${a.slug}`}
-                className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
+              <li key={a.slug}>
+                <Link
+                  href={`/assessments/${a.slug}`}
+                  className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
                 aria-label={`${a.title} — ${group.tagLabel} assessment`}
                 style={{
                   border: group.border,
@@ -102,8 +98,9 @@ export default function AssessmentsPage() {
                   </svg>
                 </div>
               </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       ))}
 

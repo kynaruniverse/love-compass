@@ -2,14 +2,16 @@
 
 import clsx from "clsx";
 
-type Props = {
+interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   variant?: "primary" | "secondary" | "ghost";
   type?: "button" | "submit" | "reset";
   className?: string;
-};
+  "aria-label"?: string;
+  "aria-pressed"?: boolean;
+}
 
 export default function Button({
   children,
@@ -17,14 +19,17 @@ export default function Button({
   disabled,
   variant = "primary",
   type = "button",
-  className
-}: Props) {
+  className,
+  "aria-label": ariaLabel,
+  "aria-pressed": ariaPressed,
+}: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      aria-disabled={disabled}
+      aria-label={ariaLabel}
+      aria-pressed={ariaPressed}
       style={variant === "primary" ? {
         background: "linear-gradient(160deg, #C45070 0%, #9E3B4E 100%)",
         WebkitTapHighlightColor: "transparent",

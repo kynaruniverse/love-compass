@@ -3,8 +3,17 @@
 import { Suspense, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { NarrativeResult, CategoryResult, ScoreMap } from "@/types/quiz";
-import { isGivingMode } from "@/lib";
-import { buildProfile, pickArchetype, getBlend, getAssessmentAssets, decodeShareData, encodeShareData, buildShareUrl, loadQuizSession } from "@/lib";
+import {
+  isGivingMode,
+  buildProfile,
+  pickArchetype,
+  getBlend,
+  getAssessmentAssets,
+  decodeShareData,
+  encodeShareData,
+  buildShareUrl,
+  loadQuizSession,
+} from "@/lib";
 import { QUESTION_BANK } from "@/data/assessments";
 import { ResultsProfile, ShareCard } from "@/components/quiz";
 import { Button } from "@/components/ui";
@@ -63,13 +72,14 @@ function ResultsInner() {
   }
 
   return (
-    <main id="main-content" className="max-w-3xl mx-auto px-4 py-12 space-y-12">
+    <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-12">
 
       {/* -- Shared-result banner -- */}
       {isSharedView && (
         <div
           className="flex items-center gap-3 p-4 rounded-2xl text-sm leading-relaxed"
-          role="status"
+          role="note"
+          aria-label="Viewing a shared result"
           style={{
             border: "1.5px solid rgba(158,59,78,0.25)",
             background: "var(--primary-soft)",
@@ -98,15 +108,15 @@ function ResultsInner() {
       <ChartToggle profile={profile} />
 
       {!isSharedView && (
-        <div className="space-y-2">
-          <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">Share Your Result</h2>
+        <section aria-labelledby="share-heading" className="space-y-2">
+          <h2 id="share-heading" className="font-serif text-2xl font-bold text-[var(--primary)]">Share Your Result</h2>
           <ShareCard
             result={result}
             profile={profile}
             quizType={quizType}
             shareUrl={scoresForShare ? buildShareUrl(scoresForShare, quizType) : undefined}
           />
-        </div>
+        </section>
       )}
 
       <div className="flex flex-wrap gap-3">

@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import { assessments } from "@/data/assessments";
-import Image from "next/image";
 import { FadeIn } from "@/components/ui";
 
 const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
@@ -86,8 +86,8 @@ export default function HomePage() {
   return (
     <main className="lc-home">
 
-      {/* ── Hero ── */}
-      <section className="lc-hero">
+     {/* ── Hero ── */}
+      <section className="lc-hero" aria-label="Introduction">
 
         {/* Masthead bar — logo left, tagline right */}
         <div className="lc-masthead">
@@ -152,7 +152,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Assessments ── */}
-      <section className="lc-assessments">
+      <section className="lc-assessments" aria-label="Available assessments">
         <div className="lc-assessments-inner">
 
           {/* Receiving */}
@@ -168,11 +168,13 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <div className="lc-card-stack" aria-labelledby="group-receiving" role="list">
+          <ul className="lc-card-stack" aria-labelledby="group-receiving">
             {receiving.map((a, i) => (
-              <AssessmentCard key={a.slug} {...a} index={i} />
+              <li key={a.slug}>
+                <AssessmentCard {...a} index={i} />
+              </li>
             ))}
-          </div>
+          </ul>
 
           <Divider />
 
@@ -189,17 +191,19 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <div className="lc-card-stack" aria-labelledby="group-giving" role="list">
+          <ul className="lc-card-stack" aria-labelledby="group-giving">
             {giving.map((a, i) => (
-              <AssessmentCard key={a.slug} {...a} index={i} />
+              <li key={a.slug}>
+                <AssessmentCard {...a} index={i} />
+              </li>
             ))}
-          </div>
+          </ul>
 
         </div>
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="lc-final-cta">
+      <section className="lc-final-cta" aria-label="Get started">
         <FadeIn>
           <h2 className="lc-final-h2">Ready to begin?</h2>
           <p className="lc-final-sub">Four assessments. No sign-up. Take as many or as few as you like.</p>

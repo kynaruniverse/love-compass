@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CategoryResult } from "@/types/quiz";
 import { Button, PaperCard } from "@/components/ui";
-import { CompassProfile, ScoreBars } from "@/components/charts/CompassProfile";
+import { CompassProfile, ScoreBars } from "@/components/charts";
 
 type ViewMode = "bars" | "compass";
 
@@ -11,9 +11,9 @@ export default function ChartToggle({ profile }: { profile: CategoryResult[] }) 
   const [view, setView] = useState<ViewMode>("compass");
 
   return (
-    <div className="space-y-4">
+    <section aria-labelledby="chart-toggle-heading" className="space-y-4">
       <div className="flex items-center justify-between flex-wrap gap-2">
-        <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">Visual Profile</h2>
+        <h2 id="chart-toggle-heading" className="font-serif text-2xl font-bold text-[var(--primary)]">Visual Profile</h2>
         <div className="flex gap-2" role="group" aria-label="Chart view toggle">
           <Button
             variant={view === "compass" ? "primary" : "secondary"}
@@ -43,6 +43,6 @@ export default function ChartToggle({ profile }: { profile: CategoryResult[] }) 
           <ScoreBars profile={profile} />
         )}
       </PaperCard>
-    </div>
+    </section>
   );
 }

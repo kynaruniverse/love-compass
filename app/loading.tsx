@@ -1,6 +1,11 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div
+      className="min-h-screen flex items-center justify-center px-4"
+      role="status"
+      aria-label="Loading, please wait"
+      aria-live="polite"
+    >
       <div className="text-center space-y-5">
 
         {/* Breathing plum heart */}

@@ -5,7 +5,6 @@ import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import { Button, GoldStampBadge } from "@/components/ui";
 import { getQuizTypeLabel, isGivingMode } from "@/lib";
 
-
 interface Props {
   result: NarrativeResult;
   profile: CategoryResult[];
@@ -13,7 +12,6 @@ interface Props {
   /** A fully self-contained URL that reproduces this exact result for anyone who opens it. */
   shareUrl?: string;
 }
-
 
 export default function ShareCard({ result, profile, quizType, shareUrl }: Props) {
   type CopyState = "idle" | "text" | "link" | "error";
@@ -54,8 +52,9 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
   return (
     <div className="space-y-4">
       {/* Visual card */}
-      <div
+      <figure
         className="relative overflow-hidden rounded-3xl p-8 max-w-sm mx-auto"
+        aria-label={`Share card for ${result.primary.name}`}
         style={{
           minHeight: 280,
           border: "1.5px solid #c9a14a",
@@ -124,7 +123,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Props
             lovecompass.app
           </p>
         </div>
-      </div>
+      </figure>
 
       {/* Share actions */}
       <div className="flex flex-wrap gap-3 justify-center">

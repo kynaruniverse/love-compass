@@ -1,8 +1,3 @@
-/**
- * Unified Archetype Data Access Layer
- * Centralizes all Love and Intimacy assessment data.
- */
-
 import { LOVE_ARCHETYPES, LOVE_FLAVORS } from "./love";
 import { LOVE_GIVING_ARCHETYPES, LOVE_GIVING_FLAVORS } from "./love-giving";
 import { INTIMACY_ARCHETYPES, INTIMACY_FLAVORS } from "./intimacy";

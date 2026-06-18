@@ -2,10 +2,7 @@ import { isNonEmpty } from "./helpers";
 import { Archetype, CategoryResult } from "@/types/quiz";
 
 function downloadFile(filename: string, content: string, mimeType: string) {
-  if (!isNonEmpty(content)) {
-    console.warn("exportFile: content is empty, skipping download.");
-    return;
-  }
+  if (!isNonEmpty(content)) return;
 
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
