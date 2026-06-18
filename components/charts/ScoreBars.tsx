@@ -24,7 +24,7 @@ function ScoreBar({ result, rank, delay }: {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           const timerId = setTimeout(() => setFilled(true), delay);
           obs.disconnect();
           // Store timerId to clear on unmount
