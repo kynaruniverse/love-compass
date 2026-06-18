@@ -25,19 +25,7 @@ const nextConfig: NextConfig = {
 
   // ── Experimental ──────────────────────────────────────────────────────
   experimental: {
-    // Tree-shake named imports from these packages so only the symbols
-    // actually used end up in the client bundle.
     optimizePackageImports: ["clsx"],
-
-    // Partial Prerendering: static shell renders at build time, dynamic
-    // content streams in. Results page (which reads searchParams) benefits.
-    // Safe to enable — falls back gracefully when the Suspense boundary
-    // is absent. Remove if you observe hydration mismatches during testing.
-    ppr: true,
-
-    // Emit granular timing info to the terminal so you can see which
-    // routes are slow to compile in development.
-    serverComponentsExternalPackages: [],
   },
 
   // ── Turbopack (dev) ───────────────────────────────────────────────────
