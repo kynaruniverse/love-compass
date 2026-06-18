@@ -76,7 +76,7 @@ export function dominantCategories(
   threshold = 8
 ): CategoryResult[] {
   if (profile.length === 0) return [];
-  const top = profile[0].percentage;
+  const top = profile[0]?.percentage ?? 0;
   return profile.filter(c => top - c.percentage <= threshold);
 }
 
@@ -93,8 +93,8 @@ export function pickArchetype(
   flavors: Record<string, ArchetypeFlavor>,
   minSecondaryScore = 40
 ): NarrativeResult {
-  const top = profile[0];
-  const second = profile[1];
+  const top = profile[0] ?? null;
+  const second = profile[1] ?? null;
 
   const primary = archetypes[top.key];
 

@@ -55,7 +55,7 @@ export default function ResultsProfile({
             </p>
           </div>
 
-          {profile.length > 0 && (
+          {profile[0] && (
             <p className="text-sm font-medium" style={{ color: "var(--accent)" }}>
               {getIntensity(profile[0].percentage)}
             </p>
