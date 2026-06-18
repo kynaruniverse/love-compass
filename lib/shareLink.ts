@@ -26,7 +26,20 @@ export function decodeShareData(
       ? new TextDecoder().decode(Uint8Array.from(window.atob(padded), c => c.charCodeAt(0)))
       : Buffer.from(padded, "base64").toString("utf-8");
     const parsed = JSON.parse(json) as { s: ScoreMap; t: string };
-    if (!parsed.s || !parsed.t || !QUESTION_BANK[parsed.t]) return null;
+    // Basic structural validation for scores (s) and type (t)
+    if (!parsed.s || typeof parsed.s !== 'object' || !parsed.t || typeof parsed.t !== 'string') return null;
+
+    // Further validate that all expected keys in ScoreMap are present and are numbers
+    const scoreKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    for (const key of scoreKeys) {
+      if (!(key in parsed.s) || typeof parsed.s[key as keyof ScoreMap] !== 'number') {
+        return null;
+      }
+    }
+
+    // Validate that the quiz type exists in the QUESTION_BANK
+    if (!QUESTION_BANK[parsed.t]) return null;
+
     return { scores: parsed.s, type: parsed.t };
   } catch {
     return null;

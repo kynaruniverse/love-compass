@@ -63,7 +63,7 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
   return (
     <div className="space-y-3">
       <GoldStampBadge>{isSharedView ? "Shared Result" : "Your Result"}</GoldStampBadge>
-      <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)]">
+      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary)]">
         {isSharedView ? <>Here's who they are<br />in love.</> : <>Here's who you are<br />in love.</>}
       </h1>
       <p className="font-serif leading-relaxed max-w-xl" style={{ fontSize: 15, opacity: 0.7 }}>
@@ -176,6 +176,8 @@ function ResultsInner() {
   const [quizType, setQuizType] = useState<string>("love");
   const [scoresForShare, setScoresForShare] = useState<ScoreMap | null>(null);
   const [isSharedView, setIsSharedView] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const loadFrom = useCallback((scores: ScoreMap, type: string): boolean => {
     const questions = QUESTION_BANK[type];
@@ -215,12 +217,61 @@ function ResultsInner() {
     }
   }, [searchParams, loadFrom, router]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  // ... (inside useEffect)
+  useEffect(() => {
+    // ... existing logic ...
+    if (decoded) {
+      try {
+        loadFrom(decoded.scores, decoded.type);
+        setIsSharedView(true);
+        setIsLoading(false); // Data loaded, no longer loading
+        return;
+      } catch {
+        // fall through
+      }
+    }
+
+    const session = loadQuizSession();
+    if (!session) {
+      setIsLoading(false); // No session, no longer loading
+      return;
+    }
+
+    const loaded = loadFrom(session.scores, session.type);
+    if (loaded) {
+      const encoded = encodeShareData(session.scores, session.type);
+      router.replace(`/results?d=${encoded}`, { scroll: false });
+      setIsLoading(false); // Data loaded, no longer loading
+    } else {
+      setIsLoading(false); // Failed to load, no longer loading
+    }
+  }, [searchParams, loadFrom, router]);
+
+  if (isLoading) {
+    return (
+      <main
+        id="main-content"
+        className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center"
+      >
+        <p
+          className="font-serif italic text-center"
+          style={{ color: "var(--primary)", fontSize: 18, opacity: 0.7 }}
+        >
+          Loading your results…
+        </p>
+      </main>
+    );
+  }
+
   if (!profile || !result) {
     return <NoResults />;
   }
 
+
   return (
-    <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-12">
+    <main id="main-content" className="max-w-3xl mx-auto px-4 pt-16 pb-28 sm:pb-16 space-y-10 sm:space-y-12">
 
       {/* -- Shared-result banner -- */}
       {isSharedView && (

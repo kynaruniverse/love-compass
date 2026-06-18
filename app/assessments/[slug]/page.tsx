@@ -57,7 +57,7 @@ export default function QuizPage() {
   return (
     <main
       id="main-content"
-      className="px-4 pb-4 pt-0 relative lc-quiz-shell"
+      className="px-4 pb-24 pt-0 relative lc-quiz-shell"
       aria-label="Assessment questions"
       style={{ animation: "quiz-bloom-in 0.4s cubic-bezier(0.22, 1, 0.36, 1)" }}
     >

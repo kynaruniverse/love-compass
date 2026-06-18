@@ -64,8 +64,11 @@ export function tallyAnswers(
     const weight = q.weight ?? 1;
 
     if (type === "forced-choice") {
-      const key = answer as keyof ScoreMap;
-      if (key in scores) scores[key] += weight;
+      const key = answer as OptionLetter;
+      // Ensure the key is a valid OptionLetter before accessing scores
+      if (Object.values(OptionLetter).includes(key)) {
+        scores[key] += weight;
+      }
       continue;
     }
 
@@ -98,8 +101,12 @@ export function applyAnswer(
   const weight = q.weight ?? 1;
 
   if (type === "forced-choice") {
-    const key = value as keyof ScoreMap;
-    if (key in next) next[key] += weight;
+    const key = value as OptionLetter;
+    // Ensure the key is a valid OptionLetter before accessing next scores
+    if (Object.values(OptionLetter).includes(key)) {
+      next[key] += weight;
+    }
+
     return next;
   }
 

@@ -28,9 +28,29 @@ export function loadQuizSession(): QuizSession | null {
     const rawQuestions = sessionStorage.getItem(KEYS.questions);
     if (!rawScores || !rawQuestions) return null;
     const type = sessionStorage.getItem(KEYS.type) ?? "love";
+    const parsedScores = JSON.parse(rawScores);
+    const parsedQuestions = JSON.parse(rawQuestions);
+
+    // Basic validation for scores
+    const scoreKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    if (typeof parsedScores !== 'object' || parsedScores === null) return null;
+    for (const key of scoreKeys) {
+      if (!(key in parsedScores) || typeof parsedScores[key] !== 'number') {
+        return null;
+      }
+    }
+
+    // Basic validation for questions (ensure it's an array and contains objects with 'id' and 'question')
+    if (!Array.isArray(parsedQuestions)) return null;
+    for (const q of parsedQuestions) {
+      if (typeof q !== 'object' || q === null || !('id' in q) || !('question' in q)) {
+        return null;
+      }
+    }
+
     return {
-      scores:    JSON.parse(rawScores) as ScoreMap,
-      questions: JSON.parse(rawQuestions) as QuizQuestion[],
+      scores:    parsedScores as ScoreMap,
+      questions: parsedQuestions as QuizQuestion[],
       type,
     };
   } catch {

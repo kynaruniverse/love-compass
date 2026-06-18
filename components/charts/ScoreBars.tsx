@@ -16,6 +16,7 @@ function ScoreBar({ result, rank, delay }: {
 }) {
   const [filled, setFilled] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const cleanupTimer = useRef<NodeJS.Timeout | null>(null);
 
   // Animate in on scroll into view
   useEffect(() => {
@@ -24,14 +25,23 @@ function ScoreBar({ result, rank, delay }: {
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setFilled(true), delay);
+          const timerId = setTimeout(() => setFilled(true), delay);
           obs.disconnect();
+          // Store timerId to clear on unmount
+          // For this example, we'll add it to the cleanup return.
+          // In a more complex scenario, you might use a ref to store multiple timers.
+          cleanupTimer.current = timerId;
         }
       },
       { threshold: 0.2 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      obs.disconnect();
+      if (cleanupTimer.current) {
+        clearTimeout(cleanupTimer.current);
+      }
+    };
   }, [delay]);
 
   const isTop = rank === 0;

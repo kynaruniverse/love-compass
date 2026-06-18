@@ -62,7 +62,7 @@ export function PageHero({
   return (
     <div className="space-y-3 pb-2">
       <GoldStampBadge>{badge}</GoldStampBadge>
-      <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
+      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
         {heading}
       </h1>
       {subheading && (

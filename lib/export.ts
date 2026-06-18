@@ -1,4 +1,4 @@
-import { isNonEmpty } from "./helpers";
+import { isNonEmpty } from "./utils";
 import { Archetype, CategoryResult } from "@/types/quiz";
 
 function downloadFile(filename: string, content: string, mimeType: string) {

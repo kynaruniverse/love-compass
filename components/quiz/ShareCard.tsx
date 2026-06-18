@@ -16,15 +16,26 @@ interface ShareCardProps {
 }
 
 export default function ShareCard({ result, profile, quizType, shareUrl }: ShareCardProps) {
-  const [copyState, setCopyState] = useState<CopyState>("idle);
+  const [copyState, setCopyState] = useState<CopyState>("idle");
   const top3 = useMemo(() => profile.slice(0, 3), [profile]);
   const modeLabel = useMemo(() => getQuizTypeLabel(quizType), [quizType]);
   const giving = useMemo(() => isGivingMode(quizType), [quizType]);
 
   const copyString = useCallback((text: string, successState: CopyState) => {
     navigator.clipboard.writeText(text)
-      .then(() => { setCopyState(successState); setTimeout(() => setCopyState("idle"), 2000); })
-      .catch(() => { setCopyState("error"); setTimeout(() => setCopyState("idle"), 3000); });
+      .then(() => {
+        setCopyState(successState);
+        const timer = setTimeout(() => setCopyState("idle"), 2000);
+        // In a real app, you'd want to return a cleanup function from `useEffect`
+        // or manage this timer more globally if it's a shared utility.
+        // For this component, we'll assume the component remains mounted for the duration.
+      })
+      .catch(() => {
+        setCopyState("error");
+        const timer = setTimeout(() => setCopyState("idle"), 3000);
+        // Same as above, assuming component remains mounted.
+      });
+
   }, []);
 
   const handleCopyLink = useCallback(() => {
@@ -54,7 +65,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
     <div className="space-y-4">
       {/* Visual card */}
       <figure
-        className="relative overflow-hidden rounded-3xl p-8 max-w-sm mx-auto"
+        className="relative overflow-hidden rounded-3xl p-5 sm:p-8 max-w-sm mx-auto"
         aria-label={`Share card for ${result.primary.name}`}
         style={{
           minHeight: 280,
@@ -80,7 +91,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
 
           {/* Archetype name */}
           <div>
-            <h3 className="font-serif text-3xl font-bold leading-tight" style={{ color: "var(--primary)" }}>
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-tight" style={{ color: "var(--primary)" }}>
               {result.primary.name}
             </h3>
             <p className="font-serif italic text-sm opacity-60 mt-1">

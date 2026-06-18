@@ -41,10 +41,10 @@ export default function ResultsProfile({
   ], [mode, primary.strengths, primary.watchOuts, primary.partnerNeeds]);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
 
       {/* ── Primary archetype spotlight ── */}
-      <PaperCard className="organic-edge p-8 sm:p-10" accent>
+      <PaperCard className="organic-edge p-5 sm:p-8 lg:p-10" accent>
         <div className="space-y-5">
           <div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[var(--primary)]">
@@ -55,9 +55,12 @@ export default function ResultsProfile({
             </p>
           </div>
 
-          <p className="text-sm font-medium" style={{ color: "var(--accent)" }}>
-            {getIntensity(profile[0].percentage)}
-          </p>
+          {profile.length > 0 && (
+            <p className="text-sm font-medium" style={{ color: "var(--accent)" }}>
+              {getIntensity(profile[0].percentage)}
+            </p>
+          )}
+
 
           <div className="space-y-4">
             {primary.narrative.map((para, i) => (
@@ -100,7 +103,7 @@ export default function ResultsProfile({
       {/* ── Insight cards — horizontal swipe deck ── */}
       <div className="lc-insight-scroll">
         <div
-          className="flex gap-4 overflow-x-auto pb-3"
+          className="flex gap-4 overflow-x-auto pb-3 px-1"
           role="region"
           aria-label="Insight cards"
           aria-roledescription="carousel"
@@ -109,6 +112,7 @@ export default function ResultsProfile({
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {insightCards.map((card, idx) => (

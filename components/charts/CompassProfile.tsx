@@ -11,7 +11,9 @@ export default function CompassProfile({
   const size = 340;
   const center = size / 2;
   const outerRadius = center - 44;
-
+  // Note: the SVG renders at size×size in the viewBox coordinate space
+  // but is displayed at 100% container width via width="100%" below.
+  
   const [needleAngle, setNeedleAngle] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const [activeCat, setActiveCat] = useState<string | null>(null);
@@ -80,8 +82,9 @@ export default function CompassProfile({
     <div className="flex flex-col items-center gap-5 w-full">
       <svg
         width="100%"
+        height="auto"
         viewBox={`0 0 ${size} ${size}`}
-        style={{ maxWidth: size }}
+        style={{ maxWidth: size, display: "block" }}
         role="img"
         aria-label={`Compass pointing toward ${top.title}, your strongest category at ${top.percentage}%`}
       >

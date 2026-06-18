@@ -61,12 +61,12 @@ export default function QuestionView({
 
       <h2
         id={headingId}
-        className="text-xl sm:text-2xl font-serif font-semibold mb-6 leading-snug text-left"
+        className="text-xl sm:text-2xl font-serif font-semibold mb-4 sm:mb-6 leading-snug text-left"
       >
         {question.question}
       </h2>
 
-      <div className="space-y-3" role="radiogroup" aria-labelledby={headingId}>
+      <div className="space-y-2 sm:space-y-3" role="radiogroup" aria-labelledby={headingId}>
         {isScale
           ? LIKERT_LABELS.map((label, i) => {
               const value = String(i + 1);

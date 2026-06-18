@@ -29,8 +29,14 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
     answering.current = true;
 
     setAnswers(prev => [...prev, value]);
-    setScores(prev => applyAnswer(prev, questions[index], value));
-    setIndex(prev => prev + 1);
+    const currentQuestion = questions[index];
+    if (currentQuestion) {
+      setScores(prev => applyAnswer(prev, currentQuestion, value));
+      setIndex(prev => prev + 1);
+    } else {
+      // Handle the edge case where currentQuestion is undefined, e.g., log an error or reset quiz
+      console.error("Attempted to answer a question that does not exist at index:", index);
+    }
   }, [index, questions]);
 
   // Release the double-tap lock after React has committed the updated index.
