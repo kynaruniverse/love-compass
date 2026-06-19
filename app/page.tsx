@@ -213,7 +213,7 @@ export default function HomePage() {
             Start exploring →
           </Link>
           <p className="lc-final-note">
-            Not a clinical evaluation. No account required. Nothing stored.
+            Not a clinical evaluation. No account required. Nothing stored ever.
           </p>
         </FadeIn>
       </section>
