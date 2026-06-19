@@ -29,11 +29,13 @@ function AssessmentCard({
   const modeColor = isReceiving ? "var(--primary)" : "var(--accent)";
   const modeBg    = isReceiving ? "var(--primary-soft)" : "var(--accent-soft)";
 
+  const isReversed = index % 2 === 1;
+
   return (
     <FadeIn delay={index * 80}>
       <Link
         href={`/assessments/${slug}`}
-        className="lc-acard"
+        className={`lc-acard${isReversed ? " lc-acard--reverse" : ""}`}
         aria-label={`${title} — ${mode === "receiving" ? "Receiving" : "Giving"} assessment`}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
@@ -153,6 +155,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Stat strip ── */}
+      <section className="lc-stat-strip" aria-label="At a glance">
+        <FadeIn>
+          <p className="lc-stat-strip-text">
+            4 assessments · 10 minutes each · No sign-up · Nothing stored
+          </p>
+        </FadeIn>
+      </section>
+
       {/* ── Assessments ── */}
       <section className="lc-assessments" aria-label="Available assessments">
         <div className="lc-assessments-inner">
@@ -209,9 +220,6 @@ export default function HomePage() {
         <FadeIn>
           <h2 className="lc-final-h2">Ready to begin?</h2>
           <p className="lc-final-sub">Four assessments. No sign-up. Take as many or as few as you like.</p>
-          <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
-            Start exploring →
-          </Link>
           <p className="lc-final-note">
             Not a clinical evaluation. No account required. Nothing stored ever.
           </p>

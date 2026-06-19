@@ -84,11 +84,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* CTA */}
-          <Link href="/assessments" className="lc-footer-cta">
-            Begin Your Assessment →
-          </Link>
-
           {/* Divider */}
           <div className="lc-footer-divider" />
 

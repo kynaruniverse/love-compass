@@ -53,20 +53,20 @@ export function mountAuroraCompass(canvas: HTMLCanvasElement): () => void {
   function drawCompassRose(cx: number, cy: number, radius: number, angle: number) {
     const c = ctx!;
     const glowGrad = c.createRadialGradient(cx, cy, radius * 0.6, cx, cy, radius * 1.3);
-    glowGrad.addColorStop(0, "rgba(201,161,74,0.08)");
-    glowGrad.addColorStop(1, "rgba(201,161,74,0)");
+    glowGrad.addColorStop(0, "rgba(158,59,78,0.08)");
+    glowGrad.addColorStop(1, "rgba(158,59,78,0)");
     c.beginPath();
     c.arc(cx, cy, radius * 1.3, 0, Math.PI * 2);
     c.fillStyle = glowGrad;
     c.fill();
     c.beginPath();
     c.arc(cx, cy, radius, 0, Math.PI * 2);
-    c.strokeStyle = "rgba(201,161,74,0.25)";
+    c.strokeStyle = "rgba(158,59,78,0.25)";
     c.lineWidth = 0.8;
     c.stroke();
     c.beginPath();
     c.arc(cx, cy, radius * 0.55, 0, Math.PI * 2);
-    c.strokeStyle = "rgba(201,161,74,0.15)";
+    c.strokeStyle = "rgba(158,59,78,0.15)";
     c.lineWidth = 0.6;
     c.stroke();
     c.save();
@@ -82,20 +82,20 @@ export function mountAuroraCompass(canvas: HTMLCanvasElement): () => void {
       c.moveTo(0, -tipLen);
       c.quadraticCurveTo(baseW,  -radius * 0.3, 0, 0);
       c.quadraticCurveTo(-baseW, -radius * 0.3, 0, -tipLen);
-      c.fillStyle = isPrimary ? "rgba(201,161,74,0.7)" : "rgba(201,161,74,0.35)";
+      c.fillStyle = isPrimary ? "rgba(158,59,78,0.7)" : "rgba(158,59,78,0.35)";
       c.fill();
       c.beginPath();
       c.moveTo(0, tipLen);
       c.quadraticCurveTo(baseW,  radius * 0.3, 0, 0);
       c.quadraticCurveTo(-baseW, radius * 0.3, 0, tipLen);
-      c.fillStyle = isPrimary ? "rgba(201,161,74,0.3)" : "rgba(201,161,74,0.15)";
+      c.fillStyle = isPrimary ? "rgba(158,59,78,0.3)" : "rgba(158,59,78,0.15)";
       c.fill();
       c.restore();
     }
     const jewel = c.createRadialGradient(0, 0, 0, 0, 0, radius * 0.12);
-    jewel.addColorStop(0,   "rgba(255,240,200,0.9)");
-    jewel.addColorStop(0.5, "rgba(201,161,74,0.7)");
-    jewel.addColorStop(1,   "rgba(201,161,74,0.1)");
+    jewel.addColorStop(0,   "rgba(245,224,229,0.9)");
+    jewel.addColorStop(0.5, "rgba(158,59,78,0.7)");
+    jewel.addColorStop(1,   "rgba(158,59,78,0.1)");
     c.beginPath();
     c.arc(0, 0, radius * 0.12, 0, Math.PI * 2);
     c.fillStyle = jewel;
@@ -108,7 +108,7 @@ export function mountAuroraCompass(canvas: HTMLCanvasElement): () => void {
       c.beginPath();
       c.moveTo(Math.cos(tickAngle) * r1, Math.sin(tickAngle) * r1);
       c.lineTo(Math.cos(tickAngle) * r2, Math.sin(tickAngle) * r2);
-      c.strokeStyle = isMajor ? "rgba(201,161,74,0.5)" : "rgba(201,161,74,0.2)";
+      c.strokeStyle = isMajor ? "rgba(158,59,78,0.5)" : "rgba(158,59,78,0.2)";
       c.lineWidth = isMajor ? 1.2 : 0.6;
       c.stroke();
     }
