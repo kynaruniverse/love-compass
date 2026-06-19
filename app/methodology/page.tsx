@@ -5,9 +5,6 @@ export const metadata = generateMeta({
   title: "Methodology"
 });
 
-const Section = ContentSection;
-const SectionHeading = ContentSectionHeading;
-
 export default function MethodologyPage() {
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
@@ -19,8 +16,8 @@ export default function MethodologyPage() {
       />
 
       {/* Question design */}
-      <Section>
-        <SectionHeading>How the questions are designed</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>How the questions are designed</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Every question is written to surface genuine relational preference,
           not the answer you think sounds healthiest, most mature, or most
@@ -42,11 +39,11 @@ export default function MethodologyPage() {
           is the most important part of the whole process. The questions only work
           if you take it seriously.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Scoring */}
-      <Section>
-        <SectionHeading>How scoring works</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>How scoring works</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Your answers accumulate weighted scores across eight relational
           dimensions. Each question is mapped to one or more dimensions, and
@@ -66,11 +63,11 @@ export default function MethodologyPage() {
           maximum it could have scored. Think of it as signal strength, not a
           grade.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Archetypes */}
-      <Section>
-        <SectionHeading>Archetypes and flavors</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>Archetypes and flavors</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Once your profile is scored, it's matched to an archetype,
           that captures how your top dimensions combine in practice.
@@ -85,11 +82,11 @@ export default function MethodologyPage() {
           different to be in a relationship with, because their flavors pull
           in different directions. Pay attention to it.
         </p>
-      </Section>
+      </ContentSection>
 
-      {/* Interpretation */}
-      <Section>
-        <SectionHeading>What the results mean</SectionHeading>
+      {/* Results */}
+      <ContentSection>
+        <ContentSectionHeading>What the results mean</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           A higher score in a dimension reflects a stronger relative preference
           . It's not a fixed trait, not a personality type, and not a prediction
@@ -103,11 +100,11 @@ export default function MethodologyPage() {
           a clearer picture of your actual patterns, not as a conclusion about
           who you are or who you can be.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Limitations */}
-      <Section>
-        <SectionHeading>Limitations</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>Limitations</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Love Compass is not clinically validated and should not be used for
           psychological diagnosis, professional relationship advice, or any
@@ -128,7 +125,7 @@ export default function MethodologyPage() {
           limits in mind. The most useful thing you can bring to
           them is honesty.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Disclaimer */}
       <p className="text-xs opacity-40 text-center leading-relaxed pb-4">

@@ -25,17 +25,12 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
     navigator.clipboard.writeText(text)
       .then(() => {
         setCopyState(successState);
-        const timer = setTimeout(() => setCopyState("idle"), 2000);
-        // In a real app, you'd want to return a cleanup function from `useEffect`
-        // or manage this timer more globally if it's a shared utility.
-        // For this component, we'll assume the component remains mounted for the duration.
+        setTimeout(() => setCopyState("idle"), 2000);
       })
       .catch(() => {
         setCopyState("error");
-        const timer = setTimeout(() => setCopyState("idle"), 3000);
-        // Same as above, assuming component remains mounted.
+        setTimeout(() => setCopyState("idle"), 3000);
       });
-
   }, []);
 
   const handleCopyLink = useCallback(() => {

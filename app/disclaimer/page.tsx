@@ -5,9 +5,6 @@ export const metadata = generateMeta({
   title: "Disclaimer"
 });
 
-const Section = ContentSection;
-const SectionHeading = ContentSectionHeading;
-
 export default function DisclaimerPage() {
   return (
     <main className="max-w-3xl mx-auto px-5 py-16 space-y-8">
@@ -19,8 +16,8 @@ export default function DisclaimerPage() {
       />
 
       {/* Not a clinical tool */}
-      <Section>
-        <SectionHeading>This is not a clinical assessment</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>This is not a clinical assessment</ContentSectionHeading>
         <p>
           Love Compass is a self-reflection tool. It is not a psychological
           instrument, a diagnostic tool, or a medical assessment of any kind.
@@ -34,11 +31,11 @@ export default function DisclaimerPage() {
           a substitute for therapy or counseling.
         </p>
 
-      </Section>
+      </ContentSection>
 
       {/* What results do and don't mean */}
-      <Section>
-        <SectionHeading>What your results do and don't mean</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>What your results do and don't mean</ContentSectionHeading>
         <p>
           Your results reflect patterns in how you answered a structured set of
           questions at a specific point in time. They describe tendencies and
@@ -57,11 +54,11 @@ export default function DisclaimerPage() {
           both can be completely accurate for who you were at that moment.
         </p>
 
-      </Section>
+      </ContentSection>
 
       {/* Adult content */}
-      <Section>
-        <SectionHeading>Adult content and consensual relationships</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>Adult content and consensual relationships</ContentSectionHeading>
         <p>
           Some assessments, particularly the Intimacy Style Test, How You
           Desire, and the Full Profile tests, include questions about physical
@@ -73,11 +70,11 @@ export default function DisclaimerPage() {
           under 18, please do not take the intimacy-related assessments.
         </p>
 
-      </Section>
+      </ContentSection>
 
       {/* No guarantees */}
-      <Section>
-        <SectionHeading>No guarantees</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>No guarantees</ContentSectionHeading>
         <p>
           We've built Love Compass carefully and with genuine intention, but
           we make no guarantees about the accuracy, completeness, or suitability
@@ -89,7 +86,7 @@ export default function DisclaimerPage() {
           interpretations, or actions taken based on your results. Use them as
           a starting point for reflection. Not a conclusion.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Disclaimer */}
       <p className="text-xs opacity-40 text-center leading-relaxed pb-4">

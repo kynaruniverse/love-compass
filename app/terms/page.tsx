@@ -5,9 +5,6 @@ export const metadata = generateMeta({
   title: "Terms of Use"
 });
 
-const Section = ContentSection;
-const SectionHeading = ContentSectionHeading;
-
 export default function TermsPage() {
   return (
     <main className="max-w-3xl mx-auto px-5 py-16 space-y-8">
@@ -19,8 +16,8 @@ export default function TermsPage() {
       />
 
       {/* What this tool is */}
-      <Section>
-        <SectionHeading>What Love Compass is</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>What Love Compass is</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Love Compass is a self-reflection tool. It is designed to help you
           think more clearly about how you give and receive love, not to
@@ -32,11 +29,11 @@ export default function TermsPage() {
           instruments and do not constitute professional advice of any kind.
           Your results are a starting point for reflection, not a verdict.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* How you may use it */}
-      <Section>
-        <SectionHeading>How you may use it</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>How you may use it</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Love Compass is free to use for personal, non-commercial
           self-reflection. You're welcome to share your results with a partner,
@@ -47,11 +44,11 @@ export default function TermsPage() {
           questions, archetypes, or written content from this site, in whole
           or in part, without explicit written permission.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* No clinical use */}
-      <Section>
-        <SectionHeading>No clinical or medical use</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>No clinical or medical use</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Nothing on Love Compass should be used as the basis for medical,
           psychological, or clinical decision-making. If you're navigating
@@ -62,11 +59,11 @@ export default function TermsPage() {
           Results from Love Compass are not a substitute for therapy,
           counseling, or professional relationship advice.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Liability */}
-      <Section>
-        <SectionHeading>Liability</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>Liability</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Love Compass is provided as-is, without warranty of any kind. We are
           not liable for any decisions, interpretations, or actions taken based
@@ -77,11 +74,11 @@ export default function TermsPage() {
           We make no guarantees about the accuracy, completeness, or fitness
           of the content for any particular purpose.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Privacy */}
-      <Section>
-        <SectionHeading>Your data</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>Your data</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           Love Compass does not collect, store, or transmit your answers. All
           assessment data lives in your browser session only and is deleted
@@ -99,11 +96,11 @@ export default function TermsPage() {
           </a>
           .
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Changes */}
-      <Section>
-        <SectionHeading>Changes to these terms</SectionHeading>
+      <ContentSection>
+        <ContentSectionHeading>Changes to these terms</ContentSectionHeading>
         <p className="opacity-80 leading-relaxed">
           We may update these terms from time to time. Continued use of Love
           Compass after any changes constitutes acceptance of the revised terms.
@@ -112,7 +109,7 @@ export default function TermsPage() {
         <p className="opacity-80 leading-relaxed">
           Last updated: June 2026.
         </p>
-      </Section>
+      </ContentSection>
 
       {/* Disclaimer */}
       <p className="text-xs opacity-40 text-center leading-relaxed pb-4">

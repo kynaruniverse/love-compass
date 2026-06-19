@@ -1,7 +1,7 @@
-export { createEmptyScores, maxPossibleScores, tallyAnswers, applyAnswer, normalizeScores } from "./scoring";
+export { tallyAnswers } from "./scoring";
 export { useQuiz } from "./useQuiz";
 export type { QuizState } from "./useQuiz";
-export { getAssessmentAssets, buildProfile, dominantCategories, pickArchetype, getIntensity, getBlend } from "./resultBuilder";
+export { buildProfile, pickArchetype, getIntensity, getBlend } from "./resultBuilder";
 export { saveQuizSession, loadQuizSession } from "./session";
 export type { QuizSession } from "./session";
 export { encodeShareData, decodeShareData, buildShareUrl } from "./shareLink";
