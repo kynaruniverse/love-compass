@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
+import { ChevronRight } from "lucide-react";
 import { assessments } from "@/data/assessments";
 import { FadeIn } from "@/components/ui";
+import { AssessmentIcon } from "@/components/ui/AssessmentIcon";
 
 const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
   ssr: false,
@@ -41,37 +43,28 @@ function AssessmentCard({
   const modeColor = isReceiving ? "var(--primary)" : "var(--accent)";
   const modeBg    = isReceiving ? "var(--primary-soft)" : "var(--accent-soft)";
 
-  const isReversed = index % 2 === 1;
-
   return (
     <FadeIn delay={index * 80}>
       <Link
         href={`/assessments/${slug}`}
-        className={`lc-acard${isReversed ? " lc-acard--reverse" : ""}`}
+        className="lc-acard"
         aria-label={`${title} — ${mode === "receiving" ? "Receiving" : "Giving"} assessment`}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
-        {/* Left accent bar */}
+        {/* Icon circle */}
         <span
-          className="lc-acard-bar"
-          style={{ background: modeColor }}
-        />
+          className="lc-acard-icon"
+          style={{ background: modeBg, color: modeColor }}
+        >
+          <AssessmentIcon slug={slug} />
+        </span>
 
         <div className="lc-acard-body">
-          {/* Mode tag */}
-          <span
-            className="lc-acard-tag"
-            style={{ color: modeColor, background: modeBg }}
-          >
-            {isReceiving ? "Receiving" : "Giving"}
-          </span>
-
           <h3 className="lc-acard-title">{title}</h3>
           <p className="lc-acard-desc">{description}</p>
         </div>
 
-        {/* Arrow */}
-        <span className="lc-acard-arrow" aria-hidden="true">→</span>
+        <ChevronRight className="lc-acard-chevron" size={20} aria-hidden="true" />
       </Link>
     </FadeIn>
   );
