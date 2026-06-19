@@ -51,8 +51,11 @@ export default function CompassProfile({
     return () => { if (animRef.current !== null) cancelAnimationFrame(animRef.current); };
   }, [topAngle, top]);
 
-  // ─── All hooks above this line. ───────────────────────────────────────────
-  // This is the only permitted early return in this component.
+  const handleCatTap = useCallback((key: string) => {
+    setHasInteracted(true);
+    setActiveCat(prev => prev === key ? null : key);
+  }, []);
+
   if (profile.length === 0 || !top) return null;
 
   const needleLength = outerRadius * Math.max(0.35, top.percentage / 100);
@@ -72,11 +75,6 @@ export default function CompassProfile({
   // Callout position for tapped category
   const activeProfile = activeCat ? (profile.find(c => c.key === activeCat) ?? null) : null;
   const calloutPos = activeProfile ? point(activeProfile.angle, outerRadius * 0.62) : null;
-
-  const handleCatTap = useCallback((key: string) => {
-    setHasInteracted(true);
-    setActiveCat(prev => prev === key ? null : key);
-  }, []);
 
   return (
     <div className="flex flex-col items-center gap-5 w-full">
