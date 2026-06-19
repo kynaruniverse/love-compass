@@ -42,7 +42,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npx eslint .
+        run: npm run lint
 
   build:
     name: Production Build

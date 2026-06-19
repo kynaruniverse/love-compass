@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "analyze": "ANALYZE=true next build"
   },
@@ -26,6 +26,9 @@
     "postcss": "^8.5.10",
     "tailwindcss": "^4.1.7",
     "@tailwindcss/postcss": "^4.1.7",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.3.3",
+    "@eslint/eslintrc": "^3.0.0"
   }
 }
