@@ -62,7 +62,7 @@ export default function ProgressBar({
       >
         <defs>
           <clipPath id={`heart-clip-${uid}`}>
-            <rect x="0" y="0" width={`${clamped * 0.16}`} height="16" />
+            <rect x="0" y="0" width={clamped * 0.16} height="16" />
           </clipPath>
         </defs>
         {/* Outline */}

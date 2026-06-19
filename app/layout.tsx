@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lora } from "next/font/google";
 import "./globals.css";
-import { Navbar, Footer } from "@/components/layout";
+import { Navbar } from "@/components/layout";
 import { siteMeta } from "@/lib";
 import ConditionalFooter from "@/components/layout/ConditionalFooter";
 

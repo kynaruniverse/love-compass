@@ -49,6 +49,8 @@ export function maxPossibleScores(questions: QuizQuestion[]): ScoreMap {
  * forced-choice answer: "A" | "B" | ... | "H"
  * likert/reverse answer: "1" | "2" | "3" | "4" | "5"
  */
+const VALID_LETTERS: OptionLetter[] = ["A", "B", "C", "D", "E", "F", "G", "H"];
+
 export function tallyAnswers(
   answers: string[],
   questions: QuizQuestion[]
@@ -68,7 +70,6 @@ export function tallyAnswers(
       // OptionLetter is a union type, not an enum — use a constant array for
       // the runtime guard. This is equivalent to what Object.values() would
       // do on an enum, but works correctly with a TypeScript union type.
-      const VALID_LETTERS: OptionLetter[] = ["A", "B", "C", "D", "E", "F", "G", "H"];
       if (VALID_LETTERS.includes(key)) {
         scores[key] += weight;
       }
@@ -105,7 +106,6 @@ export function applyAnswer(
 
   if (type === "forced-choice") {
     const key = value as OptionLetter;
-    const VALID_LETTERS: OptionLetter[] = ["A", "B", "C", "D", "E", "F", "G", "H"];
     if (VALID_LETTERS.includes(key)) {
       next[key] += weight;
     }

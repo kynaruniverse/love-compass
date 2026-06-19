@@ -7,7 +7,7 @@ export const metadata = generateMeta({
 
 export default function PrivacyPage() {
   return (
-    <main className="max-w-3xl mx-auto px-5 py-16 space-y-8">
+    <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
 
       <PageHero
         badge="Privacy"

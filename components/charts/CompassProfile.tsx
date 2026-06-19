@@ -18,7 +18,7 @@ export default function CompassProfile({
   const [mounted, setMounted] = useState(false);
   const [activeCat, setActiveCat] = useState<string | null>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
-  const animRef = useRef<number>(0);
+  const animRef = useRef<number | null>(null);
 
   // Derive stable values before hooks — profile[0] is safe because
   // the early return below fires only when length === 0, but hooks must
@@ -48,7 +48,7 @@ export default function CompassProfile({
     }
 
     animRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(animRef.current ?? 0);
+    return () => { if (animRef.current !== null) cancelAnimationFrame(animRef.current); };
   }, [topAngle, top]);
 
   // ─── All hooks above this line. ───────────────────────────────────────────
@@ -73,7 +73,6 @@ export default function CompassProfile({
   const activeProfile = activeCat ? (profile.find(c => c.key === activeCat) ?? null) : null;
   const calloutPos = activeProfile ? point(activeProfile.angle, outerRadius * 0.62) : null;
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const handleCatTap = useCallback((key: string) => {
     setHasInteracted(true);
     setActiveCat(prev => prev === key ? null : key);

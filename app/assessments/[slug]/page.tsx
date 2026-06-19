@@ -91,8 +91,7 @@ export default function QuizPage() {
     const results = tallyAnswers(quiz.answers, questions);
     saveQuizSession(results, questions, slug);
     router.push("/results");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quiz.isComplete]);
+  }, [quiz.isComplete, quiz.answers, questions, slug, router]);
 
   // Show skeleton while the question chunk is downloading.
   if (!questions) {
