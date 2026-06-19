@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { NarrativeResult, CategoryResult, ScoreMap, QuizQuestion, Archetype } from "@/types/quiz";
 import {
@@ -108,13 +109,13 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
             This is how you naturally express love and desire — the specific way you show up for
             a partner without even thinking about it. The interesting part is what happens when
             you compare this to how you need to receive.{" "}
-            <a
+            <Link
               href="/assessments"
               className="underline text-[var(--primary)] transition-opacity active:opacity-60"
               style={{ WebkitTapHighlightColor: "transparent" }}
             >
               Take a receiving test →
-            </a>
+            </Link>
           </p>
         </aside>
       )}
@@ -289,9 +290,9 @@ function ResultsInner() {
           <p className="font-serif" style={{ color: "var(--foreground)", opacity: 0.85 }}>
             You're viewing a result someone shared with you. Curious what
             yours looks like?{" "}
-            <a href="/assessments" className="underline font-medium" style={{ color: "var(--primary)" }}>
+            <Link href="/assessments" className="underline font-medium" style={{ color: "var(--primary)" }}>
               Take the assessment →
-            </a>
+            </Link>
           </p>
         </div>
       )}

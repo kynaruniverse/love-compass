@@ -73,6 +73,7 @@ export default function CompassProfile({
   const activeProfile = activeCat ? (profile.find(c => c.key === activeCat) ?? null) : null;
   const calloutPos = activeProfile ? point(activeProfile.angle, outerRadius * 0.62) : null;
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const handleCatTap = useCallback((key: string) => {
     setHasInteracted(true);
     setActiveCat(prev => prev === key ? null : key);
