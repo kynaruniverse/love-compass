@@ -11,6 +11,18 @@ const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
   ssr: false,
 });
 
+const QUOTES = [
+  "Love isn't one language. It's a dialect only you speak.",
+  "The way you give love is rarely the way you ask for it.",
+  "Self-knowledge is the quietest form of generosity.",
+  "You can't close a gap you haven't named.",
+  "Every pattern was once a way of staying safe.",
+  "Honesty with yourself is the first honest relationship.",
+  "What you need and what you offer are rarely the same shape.",
+  "Clarity isn't cold. It's just love with better aim.",
+  "Knowing yourself is how you stop guessing at everyone else.",
+];
+
 // ── Assessment card (vertical stack) ──────────────────────────────────────
 function AssessmentCard({
   slug,
@@ -62,6 +74,24 @@ function AssessmentCard({
         <span className="lc-acard-arrow" aria-hidden="true">→</span>
       </Link>
     </FadeIn>
+  );
+}
+
+// ── Quote marquee ──────────────────────────────────────────────────────────
+function QuoteMarquee() {
+  const track = [...QUOTES, ...QUOTES];
+
+  return (
+    <div className="lc-quote-marquee" aria-hidden="true">
+      <div className="lc-quote-track">
+        {track.map((q, i) => (
+          <span className="lc-quote-item" key={i}>
+            {q}
+            <span className="lc-quote-sep">✧</span>
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -218,6 +248,8 @@ export default function HomePage() {
           </p>
         </FadeIn>
       </section>
+
+      <QuoteMarquee />
 
     </main>
   );

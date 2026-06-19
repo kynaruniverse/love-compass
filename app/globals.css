@@ -122,7 +122,7 @@ h1, h2, h3 {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding: 1rem 1.5rem calc(5rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.5rem 1.5rem calc(5rem + env(safe-area-inset-bottom, 0px));
   background: var(--background);
 }
 
@@ -132,32 +132,23 @@ h1, h2, h3 {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.25rem 0 1rem;
+  padding: 0.25rem 0 0.6rem;
   border-bottom: 1px solid rgba(201, 161, 74, 0.15);
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   position: relative;
   z-index: 10;
   min-width: 0;
 }
 
 .lc-masthead-tagline {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-style: italic;
   color: var(--foreground);
   opacity: 0.45;
   text-align: right;
-  line-height: 1.4;
-  max-width: 100%;
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 479px) {
-  .lc-masthead-tagline {
-    display: none;
-  }
+  line-height: 1.35;
+  max-width: 9rem;
+  flex-shrink: 0;
 }
 
 .lc-hero-canvas {
@@ -490,6 +481,56 @@ h1, h2, h3 {
   margin-top: 1.25rem;
   font-style: italic;
   line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   HOMEPAGE — QUOTE MARQUEE
+══════════════════════════════════════════ */
+.lc-quote-marquee {
+  overflow: hidden;
+  background: var(--surface-muted);
+  padding: 1.75rem 0 calc(2.5rem + 64px + env(safe-area-inset-bottom, 0px));
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%);
+}
+
+.lc-quote-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: lc-marquee 38s linear infinite;
+}
+
+.lc-quote-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--foreground);
+  opacity: 0.55;
+  white-space: nowrap;
+  padding: 0 1.25rem;
+}
+
+.lc-quote-sep {
+  color: var(--accent);
+  opacity: 0.6;
+  font-style: normal;
+  margin-left: 1.25rem;
+}
+
+@keyframes lc-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-quote-track {
+    animation: none;
+  }
+  .lc-quote-marquee {
+    overflow-x: auto;
+  }
 }
 
 /* ══════════════════════════════════════════
