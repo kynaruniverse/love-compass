@@ -143,15 +143,8 @@ export default function HomePage() {
               <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
                 Start exploring →
               </Link>
-              <Link href="/about" className="lc-cta-ghost inline-flex items-center justify-center">
-                How it works
-              </Link>
             </div>
           </FadeIn>
-        </div>
-
-        <div className="lc-scroll-hint" aria-hidden="true">
-          <span />
         </div>
       </section>
 
