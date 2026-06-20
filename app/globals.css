@@ -128,7 +128,6 @@ h1, h2, h3 {
   background-image: url("/lc-hero-bg.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 }
 
 .lc-hero-logo {
