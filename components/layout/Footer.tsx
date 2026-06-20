@@ -62,21 +62,19 @@ export default function Footer() {
       <footer>
         <div className="lc-footer-inner">
 
-          {/* Brand block */}
-          <div className="lc-footer-brand">
-            <Link href="/" className="lc-footer-logo" aria-label="Love Compass home">
-              <Image
-                src="/logo.svg"
-                alt="Love Compass"
-                width={100}
-                height={33}
-                style={{ opacity: 0.8 }}
-              />
-            </Link>
-            <p className="lc-footer-tagline">
-              For self-knowledge and better love. A tool built around one idea: knowing yourself in relationships changes everything.
-            </p>
+          {/* Botanical divider */}
+          <div className="lc-footer-divider-element" aria-hidden="true">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <path d="M30 5v50" stroke="currentColor" strokeWidth="0.8" opacity="0.3"/>
+              <path d="M15 20Q20 15, 25 20T30 25T35 20Q40 15, 45 20" stroke="currentColor" strokeWidth="1" opacity="0.5" fill="none"/>
+              <path d="M15 35Q20 30, 25 35T30 40T35 35Q40 30, 45 35" stroke="currentColor" strokeWidth="1" opacity="0.5" fill="none"/>
+              <circle cx="30" cy="50" r="2" fill="currentColor" opacity="0.4"/>
+            </svg>
           </div>
+
+          <p className="lc-footer-tagline">
+            For self-knowledge and better love. A tool built around one idea: knowing yourself in relationships changes everything.
+          </p>
 
           {/* Divider */}
           <div className="lc-footer-divider" />
