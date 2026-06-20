@@ -410,7 +410,8 @@ h1, h2, h3 {
 .lc-quote-marquee {
   overflow: hidden;
   background: var(--surface-muted);
-  padding: 0.35rem 0 calc(0.35rem + 64px + env(safe-area-inset-bottom, 0px));
+  padding: 0.35rem 0;
+  padding-bottom: calc(0.35rem + 2rem + env(safe-area-inset-bottom, 0px));
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%);
 }
