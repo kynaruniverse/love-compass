@@ -412,6 +412,9 @@ h1, h2, h3 {
   background: var(--surface-muted);
   padding: 0.35rem 0;
   padding-bottom: calc(0.35rem + 2rem + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%);
 }
