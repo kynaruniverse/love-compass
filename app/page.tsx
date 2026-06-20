@@ -207,13 +207,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <section className="lc-final-cta" aria-label="Get started">
+      {/* ── Bridge section ── */}
+      <section className="lc-bridge" aria-label="Why Love Compass">
         <FadeIn>
-          <h2 className="lc-final-h2">Ready to begin?</h2>
-          <p className="lc-final-sub">Four assessments. No sign-up. Take as many or as few as you like.</p>
-          <p className="lc-final-note">
-            Not a clinical evaluation. No account required. Nothing stored ever.
+          <p className="lc-bridge-text">
+            Most of us love people the way we want to be loved. Love Compass helps you close that gap. Four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
           </p>
         </FadeIn>
       </section>

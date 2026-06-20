@@ -59,12 +59,7 @@ export default function Footer() {
     <>
       <BackToTop />
 
-      <footer
-        style={{
-          background: "linear-gradient(to bottom, #1C0A0E 0%, #1C0A0E 60%, #261015 100%)",
-          marginTop: 0,
-        }}
-      >
+      <footer>
         <div className="lc-footer-inner">
 
           {/* Brand block */}
@@ -75,12 +70,11 @@ export default function Footer() {
                 alt="Love Compass"
                 width={100}
                 height={33}
-                style={{ opacity: 0.9 }}
+                style={{ opacity: 0.8 }}
               />
             </Link>
             <p className="lc-footer-tagline">
-              For clarity, not diagnosis. A self-reflection tool built around
-              one idea: knowing yourself in relationships changes everything.
+              For self-knowledge and better love. A tool built around one idea: knowing yourself in relationships changes everything.
             </p>
           </div>
 

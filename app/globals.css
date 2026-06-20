@@ -207,8 +207,8 @@ h1, h2, h3 {
 .lc-stat-strip {
   padding: 1.75rem 1.5rem;
   text-align: center;
-  border-top: 1px solid rgba(201, 161, 74, 0.15);
-  border-bottom: 1px solid rgba(201, 161, 74, 0.15);
+  border-top: 1px solid rgba(201, 161, 74, 0.3);
+  border-bottom: 1px solid rgba(201, 161, 74, 0.3);
 }
 
 .lc-stat-strip-text {
@@ -340,7 +340,7 @@ h1, h2, h3 {
 }
 
 .lc-acard-desc {
-  font-size: 0.83rem;
+  font-size: 0.78rem;
   line-height: 1.55;
   color: var(--foreground);
   opacity: 0.52;
@@ -374,29 +374,24 @@ h1, h2, h3 {
 }
 
 /* ══════════════════════════════════════════
-   HOMEPAGE — FINAL CTA
+   HOMEPAGE — BRIDGE SECTION
 ══════════════════════════════════════════ */
-.lc-final-cta {
-  background: var(--surface-muted);
-  padding: 4rem 1.5rem calc(6rem + 64px + env(safe-area-inset-bottom, 0px));
-  text-align: center;
+.lc-bridge {
+  padding: 3.5rem 1.5rem;
+  background: var(--background);
+  border-top: 1px solid rgba(201, 161, 74, 0.2);
+  border-bottom: 1px solid rgba(201, 161, 74, 0.2);
 }
 
-.lc-final-h2 {
-  font-size: clamp(1.7rem, 5vw, 2.5rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+.lc-bridge-text {
+  font-size: 0.88rem;
+  line-height: 1.7;
   color: var(--foreground);
-  margin-bottom: 0.6rem;
-}
-
-.lc-final-sub {
-  font-size: 0.97rem;
-  color: var(--foreground);
-  opacity: 0.5;
+  opacity: 0.58;
   font-style: italic;
-  margin-bottom: 1.75rem;
-  line-height: 1.6;
+  max-width: 36rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .lc-final-note {
@@ -508,10 +503,15 @@ h1, h2, h3 {
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
+footer {
+  background: var(--background);
+  border-top: 1px solid rgba(201, 161, 74, 0.15);
+}
+
 .lc-footer-inner {
   max-width: 36rem;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 2rem; /* sigil clears via fixed position, no extra needed */
+  padding: 3rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -520,55 +520,55 @@ h1, h2, h3 {
 
 /* Brand */
 .lc-footer-brand {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .lc-footer-logo {
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #f5f0e8;
+  color: var(--foreground);
   text-decoration: none;
   margin-bottom: 0.6rem;
   letter-spacing: -0.01em;
 }
 
 .lc-footer-logo:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .lc-footer-tagline {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   line-height: 1.7;
-  color: #e8c8d0;
-  opacity: 0.8;
-  max-width: 30ch;
+  color: var(--foreground);
+  opacity: 0.55;
+  max-width: 35ch;
   font-style: italic;
 }
 
 /* Divider */
 .lc-footer-divider {
   height: 1px;
-  background: rgba(201, 161, 74, 0.12);
-  margin: 0 0 1.75rem;
+  background: rgba(201, 161, 74, 0.15);
+  margin: 0 0 2rem;
 }
 
 /* Methodology row */
 .lc-footer-methodology-row {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .lc-footer-methodology {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--primary);
   text-decoration: none;
   min-height: 44px;
   letter-spacing: 0.01em;
-  opacity: 0.9;
+  opacity: 0.85;
   transition: opacity 0.2s ease;
 }
 
@@ -578,13 +578,13 @@ h1, h2, h3 {
 }
 
 .lc-footer-methodology-sub {
-  font-size: 0.75rem;
-  color: #e8c8d0;
-  opacity: 0.7;
+  font-size: 0.73rem;
+  color: var(--foreground);
+  opacity: 0.45;
   font-style: italic;
   line-height: 1.5;
   margin-top: 0.2rem;
-  padding-left: 1.2rem; /* indent under the ◈ icon */
+  padding-left: 1.2rem;
 }
 
 /* Bottom row */
@@ -601,9 +601,9 @@ h1, h2, h3 {
 }
 
 .lc-footer-link {
-  font-size: 0.78rem;
-  color: #e8c8d0;
-  opacity: 0.65;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  opacity: 0.5;
   text-decoration: none;
   min-height: 44px;
   display: inline-flex;
@@ -613,27 +613,27 @@ h1, h2, h3 {
 
 .lc-footer-link:hover,
 .lc-footer-link:active {
-  opacity: 0.9;
-  color: var(--accent);
+  opacity: 0.8;
+  color: var(--primary);
 }
 
 .lc-footer-link:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-radius: 3px;
   opacity: 1;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .lc-footer-copy {
-  font-size: 0.72rem;
-  color: #e8c8d0;
-  opacity: 0.45;
+  font-size: 0.7rem;
+  color: var(--foreground);
+  opacity: 0.4;
 }
 
 @media (min-width: 640px) {
   .lc-footer-inner {
-    padding: 3rem 2.5rem 4rem;
+    padding: 3.5rem 2.5rem 3rem;
   }
 
   .lc-footer-bottom {
