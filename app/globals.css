@@ -423,6 +423,7 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   width: max-content;
+  height: 100%;
   animation: lc-marquee 38s linear infinite;
 }
 
