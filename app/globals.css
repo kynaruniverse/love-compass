@@ -538,7 +538,7 @@ footer {
   display: block;
   width: 100%;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.45;
 }
 
 .lc-footer-tagline {
@@ -554,12 +554,12 @@ footer {
 .lc-footer-divider {
   height: 1px;
   background: rgba(201, 161, 74, 0.15);
-  margin: 0 0 2rem;
+  margin: 1.25 0 2rem;
 }
 
 /* Methodology row */
 .lc-footer-methodology-row {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .lc-footer-methodology {
