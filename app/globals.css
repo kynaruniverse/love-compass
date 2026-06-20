@@ -523,14 +523,16 @@ footer {
 
 /* Brand */
 .lc-footer-divider-full {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 1rem 1.5rem;
-  margin-bottom: 2rem;
+  width: 100%;
+  padding: 1rem 0;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+}
+
+.lc-footer-divider-full img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .lc-footer-tagline {
