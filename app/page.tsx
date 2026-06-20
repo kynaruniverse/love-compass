@@ -110,34 +110,19 @@ export default function HomePage() {
 
      {/* ── Hero ── */}
       <section className="lc-hero" aria-label="Introduction">
-        {/* Masthead bar — logo left, tagline right */}
-        <div className="lc-masthead">
-          <Link href="/" aria-label="Love Compass home">
-            <Image
-              src="/logo.svg"
-              alt="Love Compass"
-              width={220}
-              height={73}
-              priority
-              // Tell the browser this image is at most 220px wide on any
-              // viewport — prevents fetching an oversized raster fallback.
-              sizes="220px"
-              style={{ display: "block" }}
-            />
-          </Link>
-          <p className="lc-masthead-tagline">
-            Knowing yourself in relationships changes everything.
-          </p>
-        </div>
-
-        {/* Canvas — decorative, right-side only on mobile */}
-        <div className="lc-hero-canvas" aria-hidden="true">
-          <CompassCanvas />
-        </div>
-
         <div className="lc-hero-content">
           <FadeIn delay={0}>
-            <p className="lc-hero-eyebrow">Self-discovery · Relationships</p>
+            <Link href="/" aria-label="Love Compass home" className="lc-hero-logo">
+              <Image
+                src="/logo.svg"
+                alt="Love Compass"
+                width={120}
+                height={120}
+                priority
+                sizes="120px"
+                style={{ display: "block" }}
+              />
+            </Link>
           </FadeIn>
 
           <FadeIn delay={150}>
@@ -153,12 +138,6 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn delay={350}>
-            <p className="lc-hero-body">
-              Most of us love people the way we want to be loved. Love Compass helps you close that gap. Four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={400}>
             <div className="lc-hero-ctas">
               <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
                 Start exploring →

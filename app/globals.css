@@ -120,91 +120,45 @@ h1, h2, h3 {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  padding: 0.5rem 1.5rem calc(5rem + env(safe-area-inset-bottom, 0px));
-  background: var(--background);
-}
-
-/* ── Hero masthead bar ── */
-.lc-masthead {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.25rem 0 0.6rem;
-  border-bottom: 1px solid rgba(201, 161, 74, 0.15);
-  margin-bottom: 1.25rem;
-  position: relative;
-  z-index: 10;
-  min-width: 0;
-}
-
-.lc-masthead-tagline {
-  font-size: 0.68rem;
-  font-style: italic;
-  color: var(--foreground);
-  opacity: 0.45;
-  text-align: right;
-  line-height: 1.35;
-  max-width: 9rem;
-  flex-shrink: 0;
-}
-
-.lc-hero-canvas {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 65%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.35;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
+  padding: 2rem 1.5rem calc(5rem + env(safe-area-inset-bottom, 0px));
+  background-image: url("/lc-hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.lc-hero-logo {
+  display: inline-flex;
+  margin-bottom: 2rem;
 }
 
 .lc-hero-content {
   position: relative;
   z-index: 10;
-  max-width: 36rem;
-}
-
-.lc-hero-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0.7;
-  margin-bottom: 1.75rem;
+  max-width: 32rem;
 }
 
 .lc-hero-h1 {
-  font-size: clamp(1.85rem, 6.5vw, 3.6rem);
+  font-size: clamp(2rem, 7vw, 3.2rem);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--foreground);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
-  max-width: 26rem;
 }
 
 .lc-hero-sub {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: clamp(1rem, 3vw, 1.3rem);
   font-weight: 400;
   color: var(--accent);
-  margin-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
   font-style: italic;
-  line-height: 1.3;
+  line-height: 1.4;
   opacity: 0.85;
-}
-
-.lc-hero-body {
-  font-size: 0.97rem;
-  line-height: 1.75;
-  color: var(--foreground);
-  opacity: 0.6;
-  margin-bottom: 2.25rem;
-  max-width: 26rem;
 }
 
 .lc-hero-ctas {
