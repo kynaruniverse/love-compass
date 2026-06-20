@@ -51,11 +51,8 @@ function AssessmentCard({
         aria-label={`${title} — ${mode === "receiving" ? "Receiving" : "Giving"} assessment`}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
-        {/* Icon circle */}
-        <span
-          className="lc-acard-icon"
-          style={{ background: modeBg, color: modeColor }}
-        >
+        {/* Icon */}
+        <span className="lc-acard-icon">
           <AssessmentIcon slug={slug} />
         </span>
 
