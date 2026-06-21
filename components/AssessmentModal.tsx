@@ -80,7 +80,7 @@ export function AssessmentModal({ assessment, onClose }: AssessmentModalProps) {
           }}
           onClick={onClose}
         >
-          Begin →
+          Choose your assessment →
         </Link>
       </div>
     </>

@@ -21,25 +21,25 @@ export const assessments: Assessment[] = [
   {
     slug: "love",
     title: "Love Preference",
-    description: "What does love feel like when it lands for you? Discover the specific ways you feel genuinely held.",
+    description: "Some people feel loved through words, others through time, touch, or care. This shows your pattern.",
     mode: "receiving"
   },
   {
     slug: "intimacy",
     title: "Intimacy Style",
-    description: "Desire speaks in many languages. Learn how you communicate yours—what closeness actually means to you.",
+    description: "Desire has its own shape. This shows what you crave from a partner in those intimate moments.",
     mode: "receiving"
   },
   {
     slug: "love-giving",
     title: "How You Love",
-    description: "The love you give without thinking is often the truest thing about you. Let's name it.",
+    description: "However you express it, through words, actions, or somewhere between, this shows your style.",
     mode: "giving"
   },
   {
     slug: "intimacy-giving",
     title: "How You Desire",
-    description: "Your body already knows what it wants. What is it telling you?",
+    description: "Spontaneous, adventurous, slow-burn, or somewhere between. This finds how you like to build intimacy.",
     mode: "giving"
   },
 ];

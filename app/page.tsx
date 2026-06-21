@@ -164,11 +164,11 @@ export default function HomePage() {
           <FadeIn>
             <div className="lc-group-header">
               <p className="lc-group-eyebrow" style={{ color: "var(--primary)" }}>
-                HOW LOVE FINDS YOU
+                DISCOVER THE LOVE YOU NEED
               </p>
               <h2 className="lc-group-h2" id="group-receiving">Receiving</h2>
               <p className="lc-group-sub">
-                Not all love lands the same way. These assessments bring into focus the affection, closeness, and connection you need most.
+                The love you receive isn't always the love you need. These two assessments help you see the difference.
               </p>
             </div>
           </FadeIn>
@@ -187,11 +187,11 @@ export default function HomePage() {
           <FadeIn>
             <div className="lc-group-header">
               <p className="lc-group-eyebrow" style={{ color: "var(--accent)" }}>
-                HOW YOU SHOW LOVE
+                DISCOVER YOUR WAY OF LOVING
               </p>
               <h2 className="lc-group-h2" id="group-giving">Giving</h2>
               <p className="lc-group-sub">
-                The love you give without thinking is often the truest thing about you. These assessments bring it into focus.
+                Everyone has a default way of loving. These two assessments find the real way you express yours.
               </p>
             </div>
           </FadeIn>
@@ -211,7 +211,7 @@ export default function HomePage() {
       <section className="lc-bridge" aria-label="Why Love Compass">
         <FadeIn>
           <p className="lc-bridge-text">
-            Most of us love people the way we want to be loved. Love Compass helps you close that gap. Four quiet assessments that map how love lands for you, and how you naturally give it in return. No sign-up, no diagnosis. Just honest reflection, at your own pace.
+            It's easy to assume everyone wants to be loved the way you do. Love Compass exists to challenge that assumption, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
           </p>
         </FadeIn>
       </section>
