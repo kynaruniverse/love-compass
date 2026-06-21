@@ -129,8 +129,8 @@ export default function HomePage() {
           <h1 className="lc-hero-h1">
             <FadeIn as="span" delay={150} className="lc-hero-h1-line">
               Have you ever asked yourself how you love, and how you want to be loved?
-            </FadeIn>{" "}
-            <FadeIn as="span" delay={550} className="lc-hero-h1-line">
+            </FadeIn>
+            <FadeIn as="span" delay={550} className="lc-hero-h1-answer">
               You're exactly where you need to be.
             </FadeIn>
           </h1>

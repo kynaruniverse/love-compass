@@ -146,8 +146,17 @@ h1, h2, h3 {
   font-weight: 600;
   line-height: 1.15;
   color: var(--foreground);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   letter-spacing: -0.02em;
+}
+
+.lc-hero-h1-answer {
+  display: block;
+  color: var(--primary);
+  font-style: italic;
+  font-weight: 500;
+  animation: lc-breathe-glow 3s ease-in-out infinite;
+  margin-top: 1.5rem;
 }
 
 .lc-hero-h1-line {
@@ -159,6 +168,7 @@ h1, h2, h3 {
   font-weight: 400;
   color: var(--accent);
   margin-bottom: 2.5rem;
+  margin-top: 2rem;
   font-style: italic;
   line-height: 1.4;
   opacity: 0.85;
@@ -494,9 +504,15 @@ h1, h2, h3 {
   margin-left: 1.25rem;
 }
 
-@keyframes lc-marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+@keyframes lc-breathe-glow {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 0px rgba(158, 59, 78, 0));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(158, 59, 78, 0.2));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
