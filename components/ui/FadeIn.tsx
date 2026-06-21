@@ -9,14 +9,16 @@ export default function FadeIn({
   className = "",
   role,
   "aria-label": ariaLabel,
+  as: Tag = "div",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
   role?: string;
   "aria-label"?: string;
+  as?: "div" | "span";
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement & HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
   // Single shared MediaQueryList instance — not re-queried per component.
   const prefersReduced = useReducedMotion();
@@ -41,23 +43,17 @@ export default function FadeIn({
     return () => obs.disconnect();
   }, [prefersReduced]);
 
+  const style = prefersReduced
+    ? { opacity: 1 }
+    : {
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
+      };
+
   return (
-    <div
-      ref={ref}
-      className={className}
-      role={role}
-      aria-label={ariaLabel}
-      style={
-        prefersReduced
-          ? { opacity: 1 }
-          : {
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(20px)",
-              transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
-            }
-      }
-    >
+    <Tag ref={ref} className={className} role={role} aria-label={ariaLabel} style={style}>
       {children}
-    </div>
+    </Tag>
   );
 }

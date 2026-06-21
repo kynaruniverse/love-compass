@@ -137,13 +137,14 @@ export default function HomePage() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={350}>
-            <div className="lc-hero-ctas">
-              <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
-                Begin →
-              </Link>
-            </div>
-          </FadeIn>
+          <h1 className="lc-hero-h1">
+            <FadeIn as="span" delay={150} className="lc-hero-h1-line">
+              Have you ever asked yourself how you love, and how you want to be loved?
+            </FadeIn>{" "}
+            <FadeIn as="span" delay={550} className="lc-hero-h1-line">
+              You're exactly where you need to be.
+            </FadeIn>
+          </h1>
         </div>
       </section>
 

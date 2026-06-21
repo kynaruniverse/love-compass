@@ -127,8 +127,8 @@ h1, h2, h3 {
   padding: 2rem 1.5rem calc(5rem + env(safe-area-inset-bottom, 0px));
   background-image: url("/lc-hero-bg.png");
   background-size: cover;
-  background-position: center;
-}
+  background-position: top center;
+  }
 
 .lc-hero-logo {
   display: inline-flex;
@@ -148,6 +148,10 @@ h1, h2, h3 {
   color: var(--foreground);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
+}
+
+.lc-hero-h1-line {
+  display: inline-block;
 }
 
 .lc-hero-sub {
