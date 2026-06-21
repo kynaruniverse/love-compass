@@ -48,6 +48,7 @@ function AssessmentCard({
       <Link
         href={`/assessments/${slug}`}
         className="lc-acard"
+        data-mode={mode}
         aria-label={`${title} — ${mode === "receiving" ? "Receiving" : "Giving"} assessment`}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >

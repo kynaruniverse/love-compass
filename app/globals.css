@@ -273,7 +273,7 @@ h1, h2, h3 {
 .lc-card-stack {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.875rem;
   margin-bottom: 2.5rem;
 }
 
@@ -287,32 +287,76 @@ h1, h2, h3 {
   border-radius: 1.25rem;
   overflow: hidden;
   text-decoration: none;
-  transition: box-shadow 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.25s ease, transform 0.2s ease, background-color 0.25s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   min-height: 88px;
+  position: relative;
+}
+
+.lc-acard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, currentColor, currentColor 50%, transparent);
+  opacity: 0.6;
 }
 
 @media (hover: hover) {
   .lc-acard:hover {
-    box-shadow: 0 4px 20px rgba(158,59,78,0.12), 0 1px 4px rgba(0,0,0,0.06);
-    border-color: rgba(158,59,78,0.25);
-    transform: translateY(-1px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(158,59,78,0.2);
   }
 
   .lc-acard:hover .lc-acard-chevron {
     opacity: 0.5;
+  }
+
+  .lc-acard:hover .lc-acard-icon {
+    filter: drop-shadow(0 0 12px currentColor);
   }
 }
 
 .lc-acard:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-  box-shadow: 0 4px 20px rgba(158,59,78,0.14);
+  box-shadow: 0 8px 28px rgba(158,59,78,0.2);
 }
 
 .lc-acard:active {
-  transform: scale(0.985);
-  box-shadow: 0 4px 20px rgba(158,59,78,0.1);
+  transform: scale(1.01) translateY(-4px);
+  box-shadow: 0 6px 20px rgba(158,59,78,0.15);
+}
+
+/* Color variants based on assessment mode */
+.lc-acard[data-mode="receiving"] {
+  background: #E0C5D5;
+  color: var(--primary);
+}
+
+.lc-acard[data-mode="receiving"]::before {
+  color: var(--primary);
+}
+
+.lc-acard[data-mode="giving"] {
+  background: #E8DCC5;
+  color: var(--accent);
+}
+
+.lc-acard[data-mode="giving"]::before {
+  color: var(--accent);
+}
+
+@media (hover: hover) {
+  .lc-acard[data-mode="receiving"]:hover {
+    box-shadow: 0 8px 28px rgba(158,59,78,0.25);
+  }
+
+  .lc-acard[data-mode="giving"]:hover {
+    box-shadow: 0 8px 28px rgba(201,161,74,0.25);
+  }
 }
 
 /* Icon */
@@ -320,24 +364,25 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 68px;
-  height: 68px;
+  width: 92px;
+  height: 92px;
   flex-shrink: 0;
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 0.75rem;
+  transition: filter 0.25s ease;
 }
 
 /* Card body */
 .lc-acard-body {
   flex: 1;
-  padding: 1rem 1rem 1rem 0.9rem;
+  padding: 1.1rem 1rem 1.1rem 0.9rem;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.35rem;
   min-width: 0;
 }
 
 .lc-acard-title {
-  font-weight: 0.98rem;
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.3;
   color: var(--foreground);
