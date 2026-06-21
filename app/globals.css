@@ -580,19 +580,6 @@ h1, h2, h3 {
   }
 }
 
-/* Assessments page section top margin */
-.lc-assess-section + .lc-assess-section {
-  margin-top: 3rem;
-}
-
-/* Assessments page card hover */
-@media (hover: hover) {
-  .lc-assess-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.7) !important;
-  }
-}
-
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
@@ -904,35 +891,304 @@ footer {
 }
 
 /* ══════════════════════════════════════════
-   ASSESSMENTS PAGE — TABS & MODAL
+   ASSESSMENTS PAGE — HERO
 ══════════════════════════════════════════ */
+.lc-assess-page {
+  min-height: 100vh;
+  background: var(--background);
+  padding-bottom: 2rem;
+}
 
-/* Modal entrance animation */
-@keyframes modal-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-20px);
+.lc-assess-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.lc-assess-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.lc-assess-h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.lc-assess-sub {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.6;
+}
+
+/* ══════════════════════════════════════════
+   ASSESSMENTS PAGE — SECTION (shared w/ homepage tokens)
+══════════════════════════════════════════ */
+.lc-badge-section {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+/* lc-group-header / eyebrow / h2 / sub already defined in homepage block —
+   reused here as-is, no redeclaration needed if globals.css stays one file */
+.lc-group-sub {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════
+   ASSESSMENTS PAGE — BADGE CARD GRID
+══════════════════════════════════════════ */
+.lc-badgecard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+  /* generous top padding absorbs the tilt rotation without clipping */
+  padding-top: 0.5rem;
+}
+
+.lc-badgecard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.25rem 0.75rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transform: rotate(var(--lc-tilt, 0deg));
+  box-shadow: 0 4px 14px rgba(28, 22, 18, 0.08);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease;
+}
+
+.lc-badgecard[data-mode="receiving"] {
+  box-shadow: 0 4px 14px rgba(158, 59, 78, 0.12);
+}
+
+.lc-badgecard[data-mode="giving"] {
+  box-shadow: 0 4px 14px rgba(201, 161, 74, 0.16);
+}
+
+/* Straighten + lift on hover/active — the signature interaction */
+@media (hover: hover) {
+  .lc-badgecard:hover {
+    transform: rotate(0deg) translateY(-6px) scale(1.03);
+    box-shadow: 0 14px 32px rgba(158, 59, 78, 0.22);
   }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+}
+
+.lc-badgecard:active {
+  transform: rotate(0deg) scale(0.97);
+  transition-duration: 0.15s;
+}
+
+.lc-badgecard:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  transform: rotate(0deg);
+}
+
+/* Soft radial glow behind the badge, tinted by mode */
+.lc-badgecard-glow {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lc-badgecard[data-mode="receiving"] .lc-badgecard-glow {
+  background: radial-gradient(circle, var(--primary-soft) 0%, transparent 70%);
+}
+
+.lc-badgecard[data-mode="giving"] .lc-badgecard-glow {
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+}
+
+.lc-badgecard-badge {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lc-badgecard-title {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  text-align: center;
+  line-height: 1.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-badgecard {
+    transform: none !important;
+    transition: box-shadow 0.2s ease !important;
   }
 }
 
-[role="dialog"] {
+/* ══════════════════════════════════════════
+   ASSESSMENTS PAGE — FOOTNOTE
+══════════════════════════════════════════ */
+.lc-assess-footnote {
+  max-width: 30rem;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.lc-assess-footnote p {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.45;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════════
+   ASSESSMENTS PAGE — MODAL
+══════════════════════════════════════════ */
+.lc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 22, 18, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 40;
+}
+
+.lc-modal {
+  position: fixed;
+  left: 1.25rem;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 24rem;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem 1.75rem;
+  z-index: 50;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  text-align: center;
 }
 
-/* Overlay */
-[role="dialog"] + div {
-  animation: modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+.lc-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground);
+  opacity: 0.45;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Tab button states */
-button[class*="px-6"][class*="py-3"] {
-  transition: all 0.2s ease;
+.lc-modal-close:hover,
+.lc-modal-close:active {
+  opacity: 0.8;
 }
 
-button[class*="px-6"][class*="py-3"]:active {
-  transform: scale(0.98);
+.lc-modal-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.lc-modal-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin-bottom: 0.6rem;
+}
+
+.lc-modal-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.65;
+  margin-bottom: 1.1rem;
+}
+
+.lc-modal-note {
+  font-size: 0.74rem;
+  color: var(--foreground);
+  opacity: 0.45;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.lc-modal-cta {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  min-height: 48px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #1C0A0E;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(201, 161, 74, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lc-modal-cta:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) {
+  .lc-modal-cta:hover {
+    box-shadow: 0 6px 24px rgba(201, 161, 74, 0.55);
+    transform: translateY(-1px);
+  }
+}
+
+/* ══════════════════════════════════════════
+   ASSESSMENTS PAGE — RESPONSIVE
+══════════════════════════════════════════ */
+@media (min-width: 640px) {
+  .lc-badgecard-grid {
+    gap: 1.5rem;
+  }
+
+  .lc-modal {
+    max-width: 26rem;
+  }
 }
