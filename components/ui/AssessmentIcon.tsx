@@ -17,8 +17,8 @@ export function AssessmentIcon({ slug }: { slug: string }) {
     <Image
       src={src}
       alt=""
-      width={68}
-      height={68}
+      width={80}
+      height={80}
       aria-hidden="true"
       style={{ objectFit: "contain" }}
     />
