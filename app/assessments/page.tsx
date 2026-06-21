@@ -1,112 +1,64 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { assessments } from "@/data/assessments";
+import { DeconstructedHeart } from "@/components/3d/DeconstructedHeart";
+import { AssessmentModal } from "@/components/AssessmentModal";
 import { generateMeta } from "@/lib";
-import { PageHero } from "@/components/ui";
 
-export const metadata = generateMeta({
-  title: "Assessments"
-});
-
-const byMode = assessments.reduce<Record<string, typeof assessments>>(
-  (acc, a) => {
-    (acc[a.mode] ??= []).push(a);
-    return acc;
-  },
-  {}
-);
+export const metadata = {
+  title: "Assessments",
+};
 
 export default function AssessmentsPage() {
+  const [selectedBadge, setSelectedBadge] = useState<string | null>(null);
+
+  const selectedAssessment = selectedBadge
+    ? assessments.find((a) => a.slug === selectedBadge)
+    : null;
 
   return (
-    <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 space-y-8">
-      <PageHero
-        badge="Assessments"
-        heading="Know yourself first."
-        subheading="Four assessments. Two sides of the same question — HOW LOVE FINDS YOU, and how you love in return. Start anywhere. Most people find the other side more surprising than the first."
-      />
+    <main id="main-content" className="min-h-screen bg-white flex flex-col">
+      {/* Hero Section */}
+      <section className="px-6 py-12 text-center max-w-2xl mx-auto">
+        <p
+          className="text-xs font-medium uppercase tracking-widest mb-4"
+          style={{ color: "var(--accent)" }}
+        >
+          Assessments
+        </p>
+        <h1 className="text-3xl font-serif font-semibold mb-4">
+          Stop guessing. Start knowing.
+        </h1>
+        <p className="text-sm opacity-70 leading-relaxed">
+          Explore the scene. Four assessments await—each one uncovers a different
+          side of how you love and how you're loved in return.
+        </p>
+      </section>
 
-      {(
-        [
-          {
-            mode: "receiving" as const,
-            eyebrow: "HOW LOVE FINDS YOU",
-            eyebrowColor: "var(--primary)",
-            border: "1.5px solid rgba(158,59,78,0.18)",
-            bg: "var(--primary-soft)",
-            shadow: "0 2px 16px rgba(158,59,78,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
-            tagBg: "var(--primary-soft)",
-            tagColor: "var(--primary)",
-            tagBorder: "var(--primary)",
-            tagLabel: "Receiving",
-          },
-          {
-            mode: "giving" as const,
-            eyebrow: "HOW YOU SHOW LOVE",
-            eyebrowColor: "var(--accent)",
-            border: "1.5px solid rgba(201,161,74,0.25)",
-            bg: "var(--accent-soft)",
-            shadow: "0 2px 16px rgba(201,161,74,0.08), inset 0 1px 2px rgba(255,255,255,0.7)",
-            tagBg: "var(--accent-soft)",
-            tagColor: "var(--accent)",
-            tagBorder: "var(--accent)",
-            tagLabel: "Giving",
-          },
-        ] as const
-      ).map(group => (
-        <div key={group.mode} className="space-y-3" style={{ marginTop: "3rem" }}>
-          <p
-            className="text-xs font-medium uppercase tracking-widest opacity-60"
-            style={{ color: group.eyebrowColor }}
-          >
-            {group.eyebrow}
-          </p>
-          <ul className="space-y-3 list-none p-0 m-0">
-            {(byMode[group.mode] ?? []).map(a => (
-              <li key={a.slug}>
-                <Link
-                  href={`/assessments/${a.slug}`}
-                  className="relative block p-6 rounded-3xl overflow-hidden transition-all duration-150 active:scale-[0.98] lc-assess-card"
-                  aria-label={`${a.title} — ${group.tagLabel} assessment`}
-                  style={{
-                    border: group.border,
-                    background: group.bg,
-                    boxShadow: group.shadow,
-                    WebkitTapHighlightColor: "transparent",
-                  }}
-                >
-                <div className="absolute inset-0 paper-texture opacity-[0.35] pointer-events-none" />
-                <div className="relative flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span
-                        className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
-                        style={{
-                          background: group.tagBg,
-                          color: group.tagColor,
-                          borderColor: group.tagBorder,
-                          opacity: 0.8,
-                        }}
-                      >
-                        {group.tagLabel}
-                      </span>
-                    </div>
-                    <h2 className="font-serif font-semibold text-lg mb-1">{a.title}</h2>
-                    <p className="font-serif text-sm opacity-60 leading-relaxed">{a.description}</p>
-                  </div>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 mt-1" style={{ opacity: 0.3 }}>
-                    <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {/* 3D Heart Scene */}
+      <div className="flex-1 relative">
+        <DeconstructedHeart
+          onBadgeClick={setSelectedBadge}
+          selectedBadge={selectedBadge}
+        />
+      </div>
 
-      <p className="text-xs opacity-40 text-center leading-relaxed">
-        Each assessment takes 5–10 minutes. Nothing you answer leaves your browser. No account. No record. Just you.
-      </p>
+      {/* Modal */}
+      {selectedAssessment && (
+        <AssessmentModal
+          assessment={selectedAssessment}
+          onClose={() => setSelectedBadge(null)}
+        />
+      )}
+
+      {/* Minimal Footer */}
+      <section className="px-6 py-8 border-t border-border-soft text-center">
+        <p className="text-xs opacity-50 mb-4">
+          Each assessment takes 5–10 minutes. Nothing you answer leaves your
+          browser. No account. No record. Just you.
+        </p>
+      </section>
     </main>
   );
 }
