@@ -133,7 +133,7 @@ export default function HomePage() {
 
           <FadeIn delay={250}>
             <p className="lc-hero-sub">
-              Love Compass uses four relationship assessments to map your patterns of giving and receiving love.
+              Relationship assessments that map how you give and receive love.
             </p>
           </FadeIn>
 
