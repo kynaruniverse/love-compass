@@ -33,13 +33,13 @@ export default function AboutPage() {
         <ContentSection>
           <ContentSectionHeading>What can you do here?</ContentSectionHeading>
           <p className="opacity-80 leading-relaxed">
-            Four assessments. Two sides of the same question — how you need to be loved, and how you love in return.
+            Four assessments. Two sides of the same question — HOW LOVE FINDS YOU, and how you love in return.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 pt-2">
             {[
               {
                 icon: "♡",
-                label: "Love Preference Test",
+                label: "Love Preference",
                 tag: "Receiving",
                 desc: "How love needs to arrive for you to actually feel it.",
               },
@@ -51,7 +51,7 @@ export default function AboutPage() {
               },
               {
                 icon: "◎",
-                label: "Intimacy Style Test",
+                label: "Intimacy Style",
                 tag: "Receiving",
                 desc: "What makes you feel genuinely desired.",
               },

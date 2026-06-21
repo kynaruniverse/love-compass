@@ -20,14 +20,14 @@ export interface Assessment {
 export const assessments: Assessment[] = [
   {
     slug: "love",
-    title: "Love Preference Test",
-    description: "Everyone receives love differently. What's your way?",
+    title: "Love Preference",
+    description: "Everyone receives love differently. Find yours.",
     mode: "receiving"
   },
   {
     slug: "intimacy",
-    title: "Intimacy Style Test",
-    description: "Intimacy looks different for everyone. What's your style?",
+    title: "Intimacy Style",
+    description: "Intimacy looks different for everyone. Find yours.",
     mode: "receiving"
   },
   {
@@ -39,7 +39,7 @@ export const assessments: Assessment[] = [
   {
     slug: "intimacy-giving",
     title: "How You Desire",
-    description: "Your body already has its own language. Discover what it's saying.",
+    description: "Your body already has its own language. This helps you to read it.",
     mode: "giving"
   },
 ];

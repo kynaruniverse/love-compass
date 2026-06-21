@@ -22,14 +22,14 @@ export default function AssessmentsPage() {
       <PageHero
         badge="Assessments"
         heading="Know yourself first."
-        subheading="Four assessments. Two sides of the same question — how you need to be loved, and how you love in return. Start anywhere. Most people find the other side more surprising than the first."
+        subheading="Four assessments. Two sides of the same question — HOW LOVE FINDS YOU, and how you love in return. Start anywhere. Most people find the other side more surprising than the first."
       />
 
       {(
         [
           {
             mode: "receiving" as const,
-            eyebrow: "How you need to be loved",
+            eyebrow: "HOW LOVE FINDS YOU",
             eyebrowColor: "var(--primary)",
             border: "1.5px solid rgba(158,59,78,0.18)",
             bg: "var(--primary-soft)",
@@ -41,7 +41,7 @@ export default function AssessmentsPage() {
           },
           {
             mode: "giving" as const,
-            eyebrow: "How you naturally love",
+            eyebrow: "HOW YOU SHOW LOVE",
             eyebrowColor: "var(--accent)",
             border: "1.5px solid rgba(201,161,74,0.25)",
             bg: "var(--accent-soft)",

@@ -140,7 +140,7 @@ export default function HomePage() {
           <FadeIn delay={350}>
             <div className="lc-hero-ctas">
               <Link href="/assessments" className="lc-cta-primary inline-flex items-center justify-center">
-                Start exploring →
+                Begin →
               </Link>
             </div>
           </FadeIn>
@@ -164,11 +164,11 @@ export default function HomePage() {
           <FadeIn>
             <div className="lc-group-header">
               <p className="lc-group-eyebrow" style={{ color: "var(--primary)" }}>
-                How you need to be loved
+                HOW LOVE FINDS YOU
               </p>
               <h2 className="lc-group-h2" id="group-receiving">Receiving</h2>
               <p className="lc-group-sub">
-                Not all love lands the same way. These assessments help you understand what actually reaches you, the affection, closeness, and connection that makes you feel genuinely held.
+                Not all love lands the same way. These assessments bring into focus the affection, closeness, and connection you need most.
               </p>
             </div>
           </FadeIn>
@@ -187,7 +187,7 @@ export default function HomePage() {
           <FadeIn>
             <div className="lc-group-header">
               <p className="lc-group-eyebrow" style={{ color: "var(--accent)" }}>
-                How you naturally love
+                HOW YOU SHOW LOVE
               </p>
               <h2 className="lc-group-h2" id="group-giving">Giving</h2>
               <p className="lc-group-sub">

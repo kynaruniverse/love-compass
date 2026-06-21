@@ -12,7 +12,7 @@ export default function DisclaimerPage() {
       <PageHero
         badge="Disclaimer"
         heading="What Love Compass is. And isn't."
-        subheading="We'd rather be upfront about the limits of this tool than let you read more into the results than they're designed to carry."
+        subheading="We'd rather be upfront about what this tool can and can't tell you."
       />
 
       {/* Not a clinical tool */}
@@ -35,7 +35,8 @@ export default function DisclaimerPage() {
 
       {/* What results do and don't mean */}
       <ContentSection>
-        <ContentSectionHeading>What your results do and don't mean</ContentSectionHeading>
+        <ContentSectionHeading>Your Results Are Patterns, Not Predictions
+        </ContentSectionHeading>
         <p>
           Your results reflect patterns in how you answered a structured set of
           questions at a specific point in time. They describe tendencies and
@@ -49,9 +50,7 @@ export default function DisclaimerPage() {
           stand today. What you do with that is entirely up to you.
         </p>
         <p>
-          Results can and do change over time. A profile taken during one period
-          of your life may look quite different from one taken years later,
-          both can be completely accurate for who you were at that moment.
+          Results can and do change over time. A profile taken during one period of your life may look quite different from one taken years later, and both can be completely accurate for who you were at that moment.
         </p>
 
       </ContentSection>
@@ -60,10 +59,8 @@ export default function DisclaimerPage() {
       <ContentSection>
         <ContentSectionHeading>Adult content and consensual relationships</ContentSectionHeading>
         <p>
-          Some assessments, particularly the Intimacy Style Test, How You
-          Desire, and the Full Profile tests, include questions about physical
-          intimacy, desire, and sexual preference. These questions are designed
-          for adults and assume consensual adult relationships throughout.
+          Some assessments, particularly Intimacy Style, How You Desire, and Full Profile, include questions about physical intimacy, desire, and sexual preference.
+            These questions are designed for adults and assume consensual adult relationships throughout.
         </p>
         <p>
           Love Compass is intended for users aged 18 and over. If you are
@@ -90,8 +87,7 @@ export default function DisclaimerPage() {
 
       {/* Disclaimer */}
       <p className="text-xs opacity-40 text-center leading-relaxed pb-4">
-        Love Compass is a self-reflection tool, not a clinical or psychological
-        assessment. Results reflect patterns and preferences, not fixed traits.
+        These results are a starting point. What you do next is yours to decide.
       </p>
 
     </main>
