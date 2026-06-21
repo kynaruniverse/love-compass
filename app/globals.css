@@ -817,7 +817,7 @@ footer {
 }
 
 /* ══════════════════════════════════════════
-   ASSESSMENTS PAGE — 3D & MODAL
+   ASSESSMENTS PAGE — TABS & MODAL
 ══════════════════════════════════════════ */
 
 /* Modal entrance animation */
@@ -836,35 +836,16 @@ footer {
   animation: modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Overlay fade-in */
-@keyframes overlay-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* Overlay */
+[role="dialog"] + div {
+  animation: modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Sage green interactive states */
-[role="dialog"] button,
-[role="dialog"] a {
-  color: var(--foreground);
+/* Tab button states */
+button[class*="px-6"][class*="py-3"] {
+  transition: all 0.2s ease;
 }
 
-[role="dialog"] a:hover {
-  background-color: var(--accent) !important;
-  color: #1c0a0e !important;
-  opacity: 0.9;
-}
-
-[role="dialog"] a:active {
-  transform: scale(0.97);
-}
-
-/* 3D canvas container */
-canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
+button[class*="px-6"][class*="py-3"]:active {
+  transform: scale(0.98);
 }

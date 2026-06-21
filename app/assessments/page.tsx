@@ -1,4 +1,3 @@
-import { assessments } from "@/data/assessments";
 import { generateMeta } from "@/lib";
 import { AssessmentsClient } from "@/components/AssessmentsClient";
 
