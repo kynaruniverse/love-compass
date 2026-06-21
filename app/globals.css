@@ -132,7 +132,7 @@ h1, h2, h3 {
 
 .lc-hero-logo {
   display: inline-flex;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .lc-hero-content {

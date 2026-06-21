@@ -125,18 +125,6 @@ export default function HomePage() {
             </Link>
           </FadeIn>
 
-          <FadeIn delay={150}>
-            <h1 className="lc-hero-h1">
-              Have you ever asked yourself how you love, and how you want to be loved? You're exactly where you need to be.
-            </h1>
-          </FadeIn>
-
-          <FadeIn delay={250}>
-            <p className="lc-hero-sub">
-              Relationship assessments that map how you give and receive love.
-            </p>
-          </FadeIn>
-
           <h1 className="lc-hero-h1">
             <FadeIn as="span" delay={150} className="lc-hero-h1-line">
               Have you ever asked yourself how you love, and how you want to be loved?
@@ -145,6 +133,12 @@ export default function HomePage() {
               You're exactly where you need to be.
             </FadeIn>
           </h1>
+
+          <FadeIn delay={250}>
+            <p className="lc-hero-sub">
+              Relationship assessments that map how you give and receive love.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
