@@ -140,6 +140,14 @@ export default function HomePage() {
               Relationship assessments that map how you give and receive love.
             </p>
           </FadeIn>
+
+          <FadeIn delay={350}>
+            <div className="lc-hero-ctas">
+              <Link href="/assessments" className="lc-cta-primary">
+                Begin Your Journey →
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
