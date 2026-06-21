@@ -530,7 +530,7 @@ footer {
 .lc-footer-divider-full {
   width: 100%;
   padding: 1rem 0;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.5rem 0;
   overflow: hidden;
 }
 
@@ -554,12 +554,12 @@ footer {
 .lc-footer-divider {
   height: 1px;
   background: rgba(201, 161, 74, 0.15);
-  margin: 1.25 0 2rem;
+  margin: 1.25rem 0 1.5rem;
 }
 
 /* Methodology row */
 .lc-footer-methodology-row {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .lc-footer-methodology {
