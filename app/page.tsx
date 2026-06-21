@@ -127,13 +127,13 @@ export default function HomePage() {
 
           <FadeIn delay={150}>
             <h1 className="lc-hero-h1">
-              Understanding yourself is the most loving thing you can do.
+              Have you ever asked yourself how you love, and how you want to be loved? You're exactly where you need to be.
             </h1>
           </FadeIn>
 
           <FadeIn delay={250}>
             <p className="lc-hero-sub">
-              For you. For them. For whoever comes next.
+              Love Compass uses four relationship assessments to map your patterns of giving and receiving love.
             </p>
           </FadeIn>
 
