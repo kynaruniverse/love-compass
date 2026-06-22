@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Marquee } from "@/components/ui/Marquee";
 
 const DISCLAIMER_MARQUEE_ITEMS = [
@@ -74,6 +75,23 @@ export default function DisclaimerPage() {
       <section className="lc-about-disclaimer">
         <p>These results are a starting point. What you do next is yours to decide.</p>
       </section>
+
+      {/* ── Botanical divider ── */}
+      <div className="lc-priv-botanical" aria-hidden="true">
+        <Image
+          src="/botanical-divider.png"
+          alt=""
+          width={260}
+          height={40}
+          style={{ opacity: 0.3 }}
+        />
+      </div>
+
+      {/* ── Disclaimer ── */}
+      <p className="lc-priv-disclaimer">
+        Love Compass is not a clinical tool. Nothing here constitutes a diagnosis,
+        a professional opinion, or a substitute for qualified support.
+      </p>
 
       <Marquee items={DISCLAIMER_MARQUEE_ITEMS} />
     </main>

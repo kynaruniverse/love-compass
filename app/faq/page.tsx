@@ -1,9 +1,23 @@
 "use client";
 
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { PageHero } from "@/components/ui";
+import { Marquee } from "@/components/ui/Marquee";
 import { Plus } from "lucide-react";
+
+const FAQ_MARQUEE_ITEMS = [
+  "Honest answers. No filler.",
+  "Your questions are worth asking.",
+  "Nothing stored. Nothing watched. Nothing sold.",
+  "Self-knowledge has no wrong answers.",
+  "Results are a mirror, not a verdict.",
+  "Still curious? Take an assessment.",
+  "Free to use. Yours to interpret.",
+];
 
 function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -174,9 +188,23 @@ export default function FAQPage() {
         </Link>
       </div>
 
+      {/* ── Botanical divider ── */}
+      <div className="lc-priv-botanical" aria-hidden="true">
+        <Image
+          src="/botanical-divider.png"
+          alt=""
+          width={260}
+          height={40}
+          style={{ opacity: 0.3 }}
+        />
+      </div>
+
       <p className="lc-priv-disclaimer">
-        Love Compass is a self-reflection tool, not a clinical or psychological assessment.
+        Love Compass is a self-reflection tool. If something in your results raises
+        deeper questions, a qualified professional is the right next step.
       </p>
+
+      <Marquee items={FAQ_MARQUEE_ITEMS} />
 
     </main>
   );

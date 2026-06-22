@@ -99,6 +99,7 @@ export default function Footer() {
               <Link href="/privacy"    className="lc-footer-link">Privacy</Link>
               <Link href="/terms"      className="lc-footer-link">Terms</Link>
               <Link href="/disclaimer" className="lc-footer-link">Disclaimer</Link>
+              <Link href="/faq"        className="lc-footer-link">FAQ</Link>
             </div>
             <p className="lc-footer-copy">
               © {new Date().getFullYear()} Love Compass

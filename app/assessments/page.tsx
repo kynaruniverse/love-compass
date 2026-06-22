@@ -4,6 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { assessments, type Assessment } from "@/data/assessments";
+import { Marquee } from "@/components/ui/Marquee";
+
+const ASSESSMENTS_MARQUEE_ITEMS = [
+  "Four assessments. Forty minutes total. A clearer picture of yourself.",
+  "No sign-up. No storage. No watching.",
+  "How you love and how you need to be loved aren't always the same.",
+  "Start anywhere. Take your time.",
+  "The most honest assessment you'll ever take is the one you're honest in.",
+  "Receiving and giving. Two sides of the same thing.",
+];
 
 // ── Badge artwork per assessment ────────────────────────────────────────────
 const BADGE_MAP: Record<string, string> = {
@@ -189,6 +199,9 @@ export default function AssessmentsPage() {
       {selected && (
         <AssessmentModal assessment={selected} onClose={() => setSelectedSlug(null)} />
       )}
+
+      <Marquee items={ASSESSMENTS_MARQUEE_ITEMS} />
+
     </main>
   );
 }

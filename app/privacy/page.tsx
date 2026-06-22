@@ -142,8 +142,8 @@ export default function PrivacyPage() {
 
       {/* ── Disclaimer ── */}
       <p className="lc-priv-disclaimer">
-        Love Compass is a self-reflection tool, not a clinical or psychological assessment.
-        Results reflect patterns and preferences, not fixed traits.
+        Love Compass holds nothing about you. Your data belongs to you
+        because we were never in a position to take it.
       </p>
 
       <Marquee items={PRIVACY_MARQUEE_ITEMS} />

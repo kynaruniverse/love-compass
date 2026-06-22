@@ -1,5 +1,16 @@
 import { generateMeta } from "@/lib";
 import Image from "next/image";
+import { Marquee } from "@/components/ui/Marquee";
+
+const METHODOLOGY_MARQUEE_ITEMS = [
+  "Built on research, not guesswork.",
+  "Frameworks informed by decades of relationship study.",
+  "Every question earns its place.",
+  "Pattern recognition, not personality typing.",
+  "Designed for honesty, not comfort.",
+  "Self-report has limits. We say so.",
+  "The method is the message.",
+];
 
 export const metadata = generateMeta({
   title: "Methodology"
@@ -103,6 +114,8 @@ export default function MethodologyPage() {
         Love Compass is a self-reflection tool, not a clinical or psychological
         assessment. Results reflect patterns and preferences, not fixed traits.
       </p>
+
+      <Marquee items={METHODOLOGY_MARQUEE_ITEMS} />
 
     </main>
   );

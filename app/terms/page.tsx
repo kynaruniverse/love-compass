@@ -146,8 +146,8 @@ export default function TermsPage() {
 
       {/* ── Disclaimer ── */}
       <p className="lc-priv-disclaimer">
-        Love Compass is a self-reflection tool, not a clinical or psychological
-        assessment. Results reflect patterns and preferences, not fixed traits.
+        Using Love Compass means you understand what it is: a self-reflection tool,
+        not a clinical instrument. Your results are yours to interpret.
       </p>
 
       <Marquee items={TERMS_MARQUEE_ITEMS} />
