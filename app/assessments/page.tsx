@@ -174,6 +174,8 @@ export default function AssessmentsPage() {
         </p>
       </section>
 
+      <Marquee items={ASSESSMENTS_MARQUEE_ITEMS} />
+
       <AssessmentSection
         eyebrow="HOW LOVE FINDS YOU"
         heading="Receiving"
@@ -199,8 +201,6 @@ export default function AssessmentsPage() {
       {selected && (
         <AssessmentModal assessment={selected} onClose={() => setSelectedSlug(null)} />
       )}
-
-      <Marquee items={ASSESSMENTS_MARQUEE_ITEMS} />
 
     </main>
   );

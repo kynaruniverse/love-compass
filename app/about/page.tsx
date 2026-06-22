@@ -25,6 +25,8 @@ export default function AboutPage() {
         </p>
       </section>
 
+      <Marquee items={ABOUT_MARQUEE_ITEMS} />
+
       {/* ── What is Love Compass ── */}
       <section className="lc-about-block">
         <h2 className="lc-about-h2">What is Love Compass?</h2>
@@ -103,8 +105,6 @@ export default function AboutPage() {
           Love Compass is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change.
         </p>
       </section>
-
-      <Marquee items={ABOUT_MARQUEE_ITEMS} />
     </main>
   );
 }

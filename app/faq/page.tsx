@@ -156,6 +156,8 @@ export default function FAQPage() {
         subheading="Honest answers. No filler. No upsell at the bottom."
       />
 
+      <Marquee items={FAQ_MARQUEE_ITEMS} />
+
       <div className="lc-priv-rule" aria-hidden="true" />
 
       <div className="lc-faq-categories">
@@ -203,9 +205,6 @@ export default function FAQPage() {
         Love Compass is a self-reflection tool. If something in your results raises
         deeper questions, a qualified professional is the right next step.
       </p>
-
-      <Marquee items={FAQ_MARQUEE_ITEMS} />
-
     </main>
   );
 }

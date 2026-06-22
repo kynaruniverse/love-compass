@@ -151,6 +151,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <QuoteMarquee />
+
       {/* ── Stat strip ── */}
       <section className="lc-stat-strip" aria-label="At a glance">
         <FadeIn>
@@ -219,9 +221,6 @@ export default function HomePage() {
           </p>
         </FadeIn>
       </section>
-
-      <QuoteMarquee />
-
     </main>
   );
 }

@@ -90,6 +90,8 @@ export default function TermsPage() {
         </p>
       </header>
 
+      <Marquee items={TERMS_MARQUEE_ITEMS} />
+
       {/* ── Gold rule ── */}
       <div className="lc-priv-rule" aria-hidden="true" />
 
@@ -149,9 +151,6 @@ export default function TermsPage() {
         Using Love Compass means you understand what it is: a self-reflection tool,
         not a clinical instrument. Your results are yours to interpret.
       </p>
-
-      <Marquee items={TERMS_MARQUEE_ITEMS} />
-
     </main>
   );
 }

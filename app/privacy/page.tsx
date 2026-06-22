@@ -101,6 +101,8 @@ export default function PrivacyPage() {
         </div>
       </header>
 
+      <Marquee items={PRIVACY_MARQUEE_ITEMS} />
+
       {/* ── Gold rule ── */}
       <div className="lc-priv-rule" aria-hidden="true" />
 
@@ -145,9 +147,6 @@ export default function PrivacyPage() {
         Love Compass holds nothing about you. Your data belongs to you
         because we were never in a position to take it.
       </p>
-
-      <Marquee items={PRIVACY_MARQUEE_ITEMS} />
-
     </main>
   );
 }

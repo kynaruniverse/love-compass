@@ -24,6 +24,8 @@ export default function DisclaimerPage() {
         </p>
       </section>
 
+      <Marquee items={DISCLAIMER_MARQUEE_ITEMS} />
+
       {/* ── Not a clinical tool ── */}
       <section className="lc-about-block">
         <h2 className="lc-about-h2">This is not a clinical assessment</h2>
@@ -92,8 +94,6 @@ export default function DisclaimerPage() {
         Love Compass is not a clinical tool. Nothing here constitutes a diagnosis,
         a professional opinion, or a substitute for qualified support.
       </p>
-
-      <Marquee items={DISCLAIMER_MARQUEE_ITEMS} />
     </main>
   );
 }

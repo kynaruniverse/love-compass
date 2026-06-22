@@ -76,7 +76,9 @@ export default function MethodologyPage() {
         </p>
       </header>
 
-      {/* Gold rule — handoff from hero into steps, ties to Privacy/Terms */}
+      <Marquee items={METHODOLOGY_MARQUEE_ITEMS} />
+
+      {/* ── Gold rule ── */}
       <div className="lc-priv-rule" aria-hidden="true" />
 
       <div className="lc-method-steps">
