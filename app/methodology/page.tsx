@@ -1,5 +1,4 @@
 import { generateMeta } from "@/lib";
-import { PageHero } from "@/components/ui";
 import Image from "next/image";
 
 export const metadata = generateMeta({
@@ -57,11 +56,14 @@ export default function MethodologyPage() {
   return (
     <main id="main-content" className="lc-method-page">
 
-      <PageHero
-        badge="Methodology"
-        heading="How it works"
-        subheading="Love Compass isn't a personality quiz. Here's exactly how the assessments are built, how your answers are scored, and what the results actually mean."
-      />
+      <header className="lc-priv-header">
+        <p className="lc-priv-eyebrow">METHODOLOGY</p>
+        <h1 className="lc-priv-h1">How it works</h1>
+        <p className="lc-priv-sub">
+          Love Compass isn't a personality quiz. Here's exactly how the assessments
+          are built, how your answers are scored, and what the results actually mean.
+        </p>
+      </header>
 
       {/* Gold rule — handoff from hero into steps, ties to Privacy/Terms */}
       <div className="lc-priv-rule" aria-hidden="true" />
