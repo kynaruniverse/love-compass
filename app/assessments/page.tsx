@@ -139,7 +139,7 @@ function AssessmentModal({
           className="lc-modal-cta"
           onClick={onClose}
         >
-          Choose your assessment →
+          Begin your assessment →
         </Link>
       </div>
     </>

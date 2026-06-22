@@ -517,6 +517,15 @@ h1, h2, h3 {
   margin-left: 1.25rem;
 }
 
+@keyframes lc-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes lc-breathe-glow {
   0%, 100% {
     opacity: 0.9;
