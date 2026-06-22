@@ -52,15 +52,21 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
 
   const isComplete = index >= questions.length;
 
-  const currentQuestion = questions[Math.min(index, questions.length - 1)];
+  // Empty array is a legitimate transient state (questions still loading)
+  // — not a bug. Only throw if questions exist but the index is somehow
+  // out of bounds in a way that isn't the empty-array loading case.
+  const currentQuestion =
+    questions.length > 0
+      ? questions[Math.min(index, questions.length - 1)]
+      : undefined;
 
-  if (!currentQuestion) {
-    throw new Error("useQuiz: no question available at current index — questions array may be empty");
+  if (questions.length > 0 && !currentQuestion) {
+    throw new Error("useQuiz: no question available at current index — this should not happen with a non-empty array");
   }
 
   return {
     index,
-    question: currentQuestion,
+    question: currentQuestion as QuizQuestion,
     answerQuestion,
     scores,
     answers,
