@@ -1,13 +1,61 @@
 import { generateMeta } from "@/lib";
-import { ContentSection, ContentSectionHeading, PageHero } from "@/components/ui";
+import { PageHero } from "@/components/ui";
+import Image from "next/image";
 
 export const metadata = generateMeta({
   title: "Methodology"
 });
 
+const STEPS = [
+  {
+    num: "01",
+    heading: "How the questions are designed",
+    body: [
+      "Every question is written to surface genuine relational preference — not the answer that sounds healthiest or most mature. People are remarkably good at answering as the version of themselves they're working toward rather than the one who actually shows up in relationships.",
+      "To counter this, the assessments use two formats: forced-choice questions reveal true relative preferences under constraint; scale questions measure the strength of feeling on a specific dimension. Some questions are reverse-scored to catch automatic or socially desirable answering patterns.",
+    ],
+    pull: "Answer as you actually are, not as you want to be. The questions only work if you take that seriously.",
+  },
+  {
+    num: "02",
+    heading: "How scoring works",
+    body: [
+      "Your answers accumulate weighted scores across eight relational dimensions. Each question maps to one or more dimensions, and the weight reflects how strongly that question distinguishes between them.",
+      "Scores are normalised so your results show a genuine distribution — not just which dimension scored highest, but by how much, and what came close behind. Two people can share the same primary result and feel completely different to love, because their secondary dimensions diverge.",
+    ],
+    pull: "The percentage next to each category is signal strength, not a grade.",
+  },
+  {
+    num: "03",
+    heading: "Archetypes and flavors",
+    body: [
+      "Once your profile is scored, it's matched to an archetype — shorthand for how your top dimensions combine in practice. Archetypes aren't labels. They describe how your relational tendencies show up together, not in isolation.",
+      "Your secondary dimension is called your flavor. It's where most of the nuance lives. Two people with the same primary archetype can feel very different to be in a relationship with, because their flavors pull in different directions.",
+    ],
+    pull: null,
+  },
+  {
+    num: "04",
+    heading: "What the results mean",
+    body: [
+      "A higher score reflects a stronger relative preference — not a fixed trait, not a personality type, and not a prediction about any specific relationship. People are complex, context-dependent, and capable of change. Your results today may look different in three years, and both can be completely accurate.",
+    ],
+    pull: "Use your profile as a map. A clearer picture of your actual patterns — not a conclusion about who you are or who you can be.",
+  },
+  {
+    num: "05",
+    heading: "Limitations",
+    body: [
+      "Love Compass is not clinically validated and should not be used for psychological diagnosis or any clinical purpose. It is a self-reflection tool, built carefully and grounded in relationship research, but it is not a substitute for therapy or professional support.",
+      "Self-report tools have well-documented limits: social desirability bias is real, and emotional state at the time of answering affects responses. These aren't flaws unique to Love Compass — they're inherent to any tool of this kind. The assessments are designed with those limits in mind. The most useful thing you can bring to them is honesty.",
+    ],
+    pull: null,
+  },
+];
+
 export default function MethodologyPage() {
   return (
-    <main id="main-content" className="max-w-3xl mx-auto px-5 py-16 space-y-8">
+    <main id="main-content" className="lc-method-page">
 
       <PageHero
         badge="Methodology"
@@ -15,120 +63,35 @@ export default function MethodologyPage() {
         subheading="Love Compass isn't a personality quiz. Here's exactly how the assessments are built, how your answers are scored, and what the results actually mean."
       />
 
-      {/* Question design */}
-      <ContentSection>
-        <ContentSectionHeading>How the questions are designed</ContentSectionHeading>
-        <p className="opacity-80 leading-relaxed">
-          Every question is written to surface genuine relational preference,
-          not the answer you think sounds healthiest, most mature, or most
-          desirable. That's harder to achieve than it sounds. People are
-          remarkably good at answering as the version of themselves they're
-          working toward rather than the version that actually shows up in
-          relationships.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          To counter this, the assessments use two question formats. Forced-choice
-          questions ask you to pick between two options when you can't have both,
-          revealing your true relative preferences under constraint. Scale questions
-          measure the strength of feeling on a specific dimension. Some questions
-          are reverse-scored to catch automatic or socially desirable answering
-          patterns.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          The instruction to answer as you actually are, not as you want to be,
-          is the most important part of the whole process. The questions only work
-          if you take it seriously.
-        </p>
-      </ContentSection>
+      <div className="lc-method-steps">
+        {STEPS.map(({ num, heading, body, pull }) => (
+          <div key={num} className="lc-method-step">
+            <div className="lc-method-step-num" aria-hidden="true">{num}</div>
+            <div className="lc-method-step-content">
+              <h2 className="lc-method-step-heading">{heading}</h2>
+              {body.map((p, i) => (
+                <p key={i} className="lc-method-body">{p}</p>
+              ))}
+              {pull && (
+                <blockquote className="lc-method-pull">{pull}</blockquote>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
 
-      {/* Scoring */}
-      <ContentSection>
-        <ContentSectionHeading>How scoring works</ContentSectionHeading>
-        <p className="opacity-80 leading-relaxed">
-          Your answers accumulate weighted scores across eight relational
-          dimensions. Each question is mapped to one or more dimensions, and
-          the weight reflects how strongly that question distinguishes between
-          them.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          Scores are then normalised so your results show a genuine distribution:
-          not just which dimension scored highest, but by how much, and what came
-          close behind. That full picture matters. Two people can share the same
-          primary result and feel completely different to love, because their
-          secondary dimensions diverge.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          The percentage shown next to each category reflects how consistently
-          that dimension appeared across your answers, measured against the
-          maximum it could have scored. Think of it as signal strength, not a
-          grade.
-        </p>
-      </ContentSection>
+      {/* Botanical divider */}
+      <div className="lc-method-divider" aria-hidden="true">
+        <Image
+          src="/botanical-divider.png"
+          alt=""
+          width={260}
+          height={40}
+          style={{ opacity: 0.35 }}
+        />
+      </div>
 
-      {/* Archetypes */}
-      <ContentSection>
-        <ContentSectionHeading>Archetypes and flavors</ContentSectionHeading>
-        <p className="opacity-80 leading-relaxed">
-          Once your profile is scored, it's matched to an archetype,
-          that captures how your top dimensions combine in practice.
-          Archetypes aren't labels. They're shorthand for something more
-          complex: a way of describing how your relational tendencies show up
-          together, not in isolation.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          Your secondary dimension, the one that scored closest behind your
-          primary, is called your flavor. It's where a lot of the nuance
-          lives. Two people with the same primary archetype can feel very
-          different to be in a relationship with, because their flavors pull
-          in different directions. Pay attention to it.
-        </p>
-      </ContentSection>
-
-      {/* Results */}
-      <ContentSection>
-        <ContentSectionHeading>What the results mean</ContentSectionHeading>
-        <p className="opacity-80 leading-relaxed">
-          A higher score in a dimension reflects a stronger relative preference
-          . It's not a fixed trait, not a personality type, and not a prediction
-          about how any specific relationship will go. People are complex,
-          context-dependent, and capable of change. Your results today may look
-          different from your results in three years, and both can be completely
-          accurate.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          The goal is clarity, not categorisation. Use your profile as a map,
-          a clearer picture of your actual patterns, not as a conclusion about
-          who you are or who you can be.
-        </p>
-      </ContentSection>
-
-      {/* Limitations */}
-      <ContentSection>
-        <ContentSectionHeading>Limitations</ContentSectionHeading>
-        <p className="opacity-80 leading-relaxed">
-          Love Compass is not clinically validated and should not be used for
-          psychological diagnosis, professional relationship advice, or any
-          clinical purpose. It is a self-reflection tool, built carefully and
-          grounded in relationship research, but it is not a substitute for
-          therapy, counseling, or professional support.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          Self-report tools have well-documented limits. People don't always
-          know themselves as well as they think. Social desirability bias is
-          real. Emotional state at the time of answering affects responses.
-          These are not flaws unique to Love Compass. They're inherent to
-          any tool of this kind, and worth keeping in mind when reading your
-          results.
-        </p>
-        <p className="opacity-80 leading-relaxed">
-          What we can say is that the assessments are designed with those
-          limits in mind. The most useful thing you can bring to
-          them is honesty.
-        </p>
-      </ContentSection>
-
-      {/* Disclaimer */}
-      <p className="text-xs opacity-40 text-center leading-relaxed pb-4">
+      <p className="lc-method-disclaimer">
         Love Compass is a self-reflection tool, not a clinical or psychological
         assessment. Results reflect patterns and preferences, not fixed traits.
       </p>

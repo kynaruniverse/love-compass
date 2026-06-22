@@ -15,12 +15,12 @@ const ABOUT_MARQUEE_ITEMS = [
 
 export default function AboutPage() {
   return (
-    <main id="main-content" className="lc-about-page">
+    <main id="main-content" className="lc-assess-page">
       {/* ── Hero ── */}
-      <section className="lc-about-hero">
-        <p className="lc-about-eyebrow">ABOUT</p>
-        <h1 className="lc-about-h1">Understanding how you love</h1>
-        <p className="lc-about-sub">
+      <section className="lc-assess-hero">
+        <p className="lc-assess-eyebrow">ABOUT</p>
+        <h1 className="lc-assess-h1">Understanding how you love</h1>
+        <p className="lc-assess-sub">
           Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it.
         </p>
       </section>
@@ -61,7 +61,7 @@ export default function AboutPage() {
           5–10 minutes each. Your answers never leave your browser. Nothing is stored, nothing is transmitted.
         </p>
 
-        <Link href="/assessments" className="lc-about-cta">
+        <Link href="/assessments" className="lc-btn-gold" style={{padding:"0.85rem 1.5rem",minHeight:"48px"}}>
           Browse Assessments →
         </Link>
       </section>

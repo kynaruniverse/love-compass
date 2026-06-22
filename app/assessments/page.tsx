@@ -136,7 +136,7 @@ function AssessmentModal({
 
         <Link
           href={`/assessments/${assessment.slug}`}
-          className="lc-modal-cta"
+          className="lc-btn-gold" style={{display:"block",width:"100%",padding:"0.9rem 1.25rem",minHeight:"48px"}}
           onClick={onClose}
         >
           Begin your assessment →
