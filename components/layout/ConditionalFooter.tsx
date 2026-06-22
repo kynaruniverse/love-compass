@@ -6,4 +6,5 @@ export default function ConditionalFooter() {
   const pathname = usePathname();
   const showFooter = pathname === "/" || pathname === "/assessments";
   if (!showFooter) return null;
+  return <Footer />;
 }
