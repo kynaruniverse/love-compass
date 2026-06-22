@@ -40,7 +40,7 @@ function BadgeCard({
       className="lc-badgecard"
       data-mode={assessment.mode}
       style={{ "--lc-tilt": `${tilt}deg` } as React.CSSProperties}
-      aria-label={`${assessment.title} — ${isReceiving ? "Receiving" : "Giving"} assessment`}
+      aria-label={`${assessment.title}, ${isReceiving ? "Receiving" : "Giving"} assessment`}
     >
       <span className="lc-badgecard-glow" aria-hidden="true" />
       <div className="lc-badgecard-badge">
@@ -160,7 +160,7 @@ export default function AssessmentsPage() {
         <p className="lc-assess-eyebrow">ASSESSMENTS</p>
         <h1 className="lc-assess-h1">Stop guessing. Start knowing.</h1>
         <p className="lc-assess-sub">
-          Two sides of the same question — how you receive love, and how you naturally give it back.
+          Two sides of the same question: how you receive love, and how you naturally give it back.
         </p>
       </section>
 
@@ -176,7 +176,7 @@ export default function AssessmentsPage() {
       <AssessmentSection
         eyebrow="HOW YOU SHOW LOVE"
         heading="Giving"
-        sub="Everyone has a default way of loving — this finds yours."
+        sub="Everyone has a default way of loving, this finds yours."
         color="var(--accent)"
         items={giving}
         onSelect={setSelectedSlug}

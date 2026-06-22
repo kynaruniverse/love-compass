@@ -1403,3 +1403,61 @@ footer {
     padding: 3.5rem 2.5rem;
   }
 }
+
+/* ══════════════════════════════════════════
+   ERROR PAGE
+══════════════════════════════════════════ */
+.lc-error-logo {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+}
+
+.lc-error-h1 {
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.lc-error-p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--foreground);
+  opacity: 0.62;
+  max-width: 24rem;
+  margin: 0 auto 2rem;
+}
+
+.lc-error-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lc-error-home-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.5;
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.lc-error-home-link:hover,
+.lc-error-home-link:active {
+  opacity: 0.85;
+  color: var(--primary);
+}
+
+.lc-error-home-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 3px;
+  opacity: 1;
+}

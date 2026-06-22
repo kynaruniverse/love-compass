@@ -1,16 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { ParticleCanvas } from "@/components/ui";
 
-export default function Error({
-  error: _error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+export const metadata: Metadata = {
+  title: "Page Not Found | Love Compass",
+  description: "This page doesn't exist — but your path does.",
+};
+
+export default function NotFound() {
   return (
     <>
       <ParticleCanvas />
@@ -18,11 +16,7 @@ export default function Error({
         id="main-content"
         className="relative z-10 min-h-screen flex items-center justify-center px-6"
       >
-        <div
-          role="alert"
-          aria-live="assertive"
-          className="relative text-center max-w-sm w-full"
-        >
+        <div className="relative text-center max-w-sm w-full">
           <Link href="/" aria-label="Love Compass home" className="lc-error-logo">
             <Image
               src="/logo.svg"
@@ -35,18 +29,18 @@ export default function Error({
             />
           </Link>
 
-          <h1 className="lc-error-h1">The compass lost its way</h1>
+          <h1 className="lc-error-h1">You've wandered off the map</h1>
 
           <p className="lc-error-p">
-            Something didn't load correctly. It's not you, let's try that again together.
+            This page doesn't exist — but your journey does. Let's find your way back.
           </p>
 
           <div className="lc-error-actions">
-            <button onClick={reset} className="lc-cta-primary">
-              Try Again
-            </button>
-            <Link href="/" className="lc-error-home-link">
+            <Link href="/" className="lc-cta-primary">
               Back to Home
+            </Link>
+            <Link href="/assessments" className="lc-error-home-link">
+              Start an Assessment
             </Link>
           </div>
         </div>

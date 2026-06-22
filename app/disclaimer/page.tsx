@@ -38,7 +38,7 @@ export default function DisclaimerPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">Your results are patterns, not predictions</h2>
         <p className="lc-about-p">
-          Your results reflect patterns in how you answered a structured set of questions at a specific point in time. They describe tendencies and preferences — not fixed traits, not permanent identity, and not a prediction of how any relationship will unfold.
+          Your results reflect patterns in how you answered a structured set of questions at a specific point in time. They describe tendencies and preferences, not fixed traits, not permanent identity, and not a prediction of how any relationship will unfold.
         </p>
         <p className="lc-about-p">
           Love Compass doesn't tell you who to be with, or whether your current relationship will work. It gives you a clearer picture of your relational patterns as they stand today. What you do with that is entirely up to you.
@@ -52,7 +52,7 @@ export default function DisclaimerPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">Adult content and consensual relationships</h2>
         <p className="lc-about-p">
-          Some assessments — particularly Intimacy Style and How You Desire — include questions about physical intimacy, desire, and sexual preference. These questions are designed for adults and assume consensual adult relationships throughout.
+          Some assessments, particularly Intimacy Style and How You Desire, include questions about physical intimacy, desire, and sexual preference. These questions are designed for adults and assume consensual adult relationships throughout.
         </p>
         <p className="lc-about-p lc-about-p--emphasis">
           Love Compass is intended for users aged 18 and over. If you are under 18, please do not take the intimacy-related assessments.

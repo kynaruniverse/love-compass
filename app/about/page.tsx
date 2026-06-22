@@ -32,7 +32,7 @@ export default function AboutPage() {
           Most relationship tools blur two different things together: how you need to receive love, and how you actually give it. Love Compass keeps them separate, because they rarely match.
         </p>
         <p className="lc-about-p">
-          It maps your relational patterns across eight dimensions and returns a profile built from your real tendencies — not the ones that sound best in a bio.
+          It maps your relational patterns across eight dimensions and returns a profile built from your real tendencies, not the ones that sound best in a bio.
         </p>
         <p className="lc-about-p lc-about-p--emphasis">
           The result isn't a label to put in a bio. It's a map. And like any good map, it's most useful when the territory turns out to be different from what you assumed.
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">What can you do here?</h2>
         <p className="lc-about-p">
-          Four assessments. Two sides of the same question — how love finds you, and how you love in return.
+          Four assessments. Two sides of the same question: how love finds you, and how you love in return.
         </p>
 
         <ul className="lc-about-list">
@@ -70,10 +70,10 @@ export default function AboutPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">On love, intimacy, and why they matter</h2>
         <p className="lc-about-p">
-          Love and intimacy are two of the most overused words in the English language, and two of the least examined. We treat them as feelings — things that arrive or don't. That framing causes more unnecessary pain than most people realise.
+          Love and intimacy are two of the most overused words in the English language, and two of the least examined. We treat them as feelings, things that arrive or don't. That framing causes more unnecessary pain than most people realise.
         </p>
         <p className="lc-about-p lc-about-p--emphasis">
-          Love is a practice, not a feeling. It's the repeated, deliberate act of making someone feel they matter, in the specific way they receive it — not the way you prefer to deliver it.
+          Love is a practice, not a feeling. It's the repeated, deliberate act of making someone feel they matter, in the specific way they receive it, not the way you prefer to deliver it.
         </p>
         <p className="lc-about-p">
           Intimacy is the other half. It's being fully known and not flinched at. Most couples never have an honest conversation about either one.
