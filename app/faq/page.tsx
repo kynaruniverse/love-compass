@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ParticleCanvas, PageHero, PaperCard } from "@/components/ui";
+import { PageHero } from "@/components/ui";
+import { Plus } from "lucide-react";
 
 function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -10,48 +11,35 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
   const answerId = `faq-answer-${id}`;
 
   return (
-    <PaperCard className="relative p-0 overflow-hidden">
+    <li className="lc-faq-item">
       <button
         onClick={() => setOpen(o => !o)}
-        className="relative w-full text-left px-6 py-5 flex items-center justify-between gap-4 active:opacity-75 transition-opacity"
+        className="lc-faq-question"
         aria-expanded={open}
         aria-controls={answerId}
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
-        <span className="font-serif font-semibold text-[var(--primary)] leading-snug">
-          {q}
-        </span>
-        <span
+        <span className="lc-faq-question-text">{q}</span>
+        <Plus
+          size={18}
+          strokeWidth={2}
           aria-hidden="true"
-          className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-lg font-light transition-transform duration-300"
-          style={{
-            border: "1.5px solid rgba(201,161,74,0.4)",
-            color: "#c9a14a",
-            transform: open ? "rotate(45deg)" : "rotate(0deg)",
-            background: open ? "rgba(201,161,74,0.08)" : "transparent",
-          }}
-        >
-          +
-        </span>
+          className="lc-faq-icon"
+          style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
+        />
       </button>
       <div
         id={answerId}
         role="region"
         aria-label={q}
-        className="relative overflow-hidden transition-all duration-300 ease-in-out"
+        className="lc-faq-answer-wrap"
         style={{ maxHeight: open ? "600px" : "0px", opacity: open ? 1 : 0 }}
       >
-        <div
-          className="px-6 pb-5 font-serif leading-relaxed opacity-75"
-          style={{ fontSize: 15 }}
-        >
-          {a}
-        </div>
+        <div className="lc-faq-answer">{a}</div>
       </div>
-    </PaperCard>
+    </li>
   );
 }
-
 
 // ── FAQ data ──────────────────────────────────────────────────────────────────
 
@@ -146,55 +134,50 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
 
 export default function FAQPage() {
   return (
-    <>
-      <ParticleCanvas />
+    <main id="main-content" aria-label="Frequently asked questions" className="lc-faq-page">
 
-      <main id="main-content" aria-label="Frequently asked questions" className="relative z-10 max-w-3xl mx-auto px-5 py-16 space-y-12">
+      <PageHero
+        badge="FAQ"
+        heading="Common questions"
+        subheading="Honest answers. No filler. No upsell at the bottom."
+      />
 
-        <PageHero
-          badge="FAQ"
-          heading="Common questions"
-          subheading="Honest answers. No filler. No upsell at the bottom."
-        />
+      <div className="lc-priv-rule" aria-hidden="true" />
 
-        {/* FAQ sections */}
-        {faqs.map(section => (
-          <div key={section.category} className="space-y-3">
-            <h2 className="font-serif text-lg font-semibold tracking-wide" style={{ color: "var(--accent)" }}>
-              {section.category}
-            </h2>
-            <div className="space-y-2">
+      <div className="lc-faq-categories">
+        {faqs.map((section, sIdx) => (
+          <div key={section.category} className="lc-faq-category">
+            <div className="lc-faq-category-head">
+              <span className="lc-priv-num" aria-hidden="true">
+                {String(sIdx + 1).padStart(2, "0")}
+              </span>
+              <h2 className="lc-faq-category-title">{section.category}</h2>
+            </div>
+            <ul className="lc-faq-list">
               {section.items.map(item => (
                 <FAQItem key={item.q} q={item.q} a={item.a} />
               ))}
-            </div>
+            </ul>
           </div>
         ))}
+      </div>
 
-        {/* Bottom CTA */}
-        <PaperCard className="p-7 text-center space-y-3">
-          <div className="relative">
-            <p className="font-serif text-lg font-semibold text-[var(--primary)]">
-              Still have a question?
-            </p>
-            <p className="font-serif opacity-60 mt-1" style={{ fontSize: 15 }}>
-              The best way to understand your results is to take an assessment and
-              sit with what comes up. Most people find it more revealing than they expected.
-            </p>
-            <Link
-              href="/assessments"
-              className="lc-cta-primary inline-flex items-center justify-center mt-4"
-            >
-              Take an Assessment →
-            </Link>
-          </div>
-        </PaperCard>
-
-        <p className="text-xs opacity-40 text-center leading-relaxed pb-4">
-          Love Compass is a self-reflection tool, not a clinical or psychological assessment.
+      {/* Closing — quieter, matches Privacy/Terms/Methodology */}
+      <div className="lc-faq-close">
+        <p className="lc-faq-close-lead">Still have a question?</p>
+        <p className="lc-faq-close-body">
+          The best way to understand your results is to take an assessment and
+          sit with what comes up. Most people find it more revealing than they expected.
         </p>
+        <Link href="/assessments" className="lc-cta-primary lc-faq-close-cta">
+          Take an Assessment →
+        </Link>
+      </div>
 
-      </main>
-    </>
+      <p className="lc-priv-disclaimer">
+        Love Compass is a self-reflection tool, not a clinical or psychological assessment.
+      </p>
+
+    </main>
   );
 }
