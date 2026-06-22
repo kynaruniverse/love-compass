@@ -1462,111 +1462,6 @@ footer {
   opacity: 1;
 }
 
-/* ── Privacy page ──────────────────────────────────────── */
-.lc-privacy-page {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 0 1.25rem 4rem;
-}
-
-/* Trust strip */
-.lc-privacy-trust {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 0 0;
-}
-.lc-privacy-trust-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-}
-.lc-privacy-trust-icon {
-  font-size: 1.4rem;
-}
-.lc-privacy-trust-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  font-family: var(--font-body, sans-serif);
-}
-
-/* Sections wrapper */
-.lc-privacy-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-/* Typography inside sections */
-.lc-privacy-lead {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  opacity: 0.85;
-  margin-bottom: 0.75rem;
-}
-.lc-privacy-body {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  opacity: 0.75;
-  margin-bottom: 0.75rem;
-}
-.lc-privacy-body:last-child {
-  margin-bottom: 0;
-}
-
-/* Pull quote — italic serif, slightly larger, primary colour */
-.lc-privacy-pull {
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--primary);
-  border-left: 2px solid var(--primary);
-  padding-left: 1rem;
-  margin: 1rem 0 0;
-  opacity: 0.85;
-}
-
-/* Links */
-.lc-privacy-link {
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s;
-}
-.lc-privacy-link:active {
-  opacity: 0.5;
-}
-
-/* Date */
-.lc-privacy-date {
-  font-size: 0.85rem;
-  opacity: 0.45;
-  margin-top: 0.5rem;
-}
-
-/* Botanical divider */
-.lc-privacy-divider {
-  display: flex;
-  justify-content: center;
-  margin: 3rem 0 1.5rem;
-}
-
-/* Disclaimer */
-.lc-privacy-disclaimer {
-  text-align: center;
-  font-size: 0.72rem;
-  opacity: 0.35;
-  line-height: 1.6;
-  max-width: 400px;
-  margin: 0 auto;
-  padding-bottom: 1rem;
-}
-
-
 /* ══════════════════════════════════════════
    PRIVACY PAGE
 ══════════════════════════════════════════ */
@@ -1923,5 +1818,139 @@ footer {
 
   .lc-terms-item[data-weight="high"] {
     padding-top: 3.25rem;
+  }
+}
+
+/* ══════════════════════════════════════════
+   METHODOLOGY PAGE
+══════════════════════════════════════════ */
+.lc-method-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.lc-method-steps {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 0;
+}
+
+.lc-method-step {
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(201, 161, 74, 0.12);
+  position: relative;
+}
+
+.lc-method-step:last-child {
+  border-bottom: none;
+}
+
+/* Large display numeral — the "bigger moment" vs Privacy/Terms' small flush numbers */
+.lc-method-step-num {
+  font-family: var(--font-serif, "Lora", serif);
+  font-size: clamp(3.4rem, 16vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.16;
+  letter-spacing: -0.03em;
+  margin-bottom: -1.4rem;
+  user-select: none;
+}
+
+.lc-method-step-content {
+  position: relative;
+}
+
+.lc-method-step-heading {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.28;
+  color: var(--foreground);
+  margin-bottom: 1.1rem;
+  max-width: 22rem;
+}
+
+.lc-method-body {
+  font-size: 0.94rem;
+  line-height: 1.8;
+  color: var(--foreground);
+  opacity: 0.66;
+  margin-bottom: 1rem;
+}
+
+.lc-method-body:last-of-type {
+  margin-bottom: 1.4rem;
+}
+
+/* Pull-quote — standout gold-bordered callout, not a small inline aside */
+.lc-method-pull {
+  position: relative;
+  margin: 0;
+  padding: 1.4rem 1.5rem 1.4rem 1.7rem;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(
+    to right,
+    rgba(201, 161, 74, 0.08),
+    rgba(201, 161, 74, 0.02)
+  );
+  border-radius: 0 0.6rem 0.6rem 0;
+  font-family: var(--font-serif, "Lora", serif);
+  font-size: clamp(1.05rem, 3.2vw, 1.18rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--foreground);
+  opacity: 0.92;
+}
+
+.lc-method-pull-mark {
+  position: absolute;
+  top: 0.3rem;
+  left: -0.1rem;
+  font-size: 2.4rem;
+  font-family: var(--font-serif, "Lora", serif);
+  color: var(--accent);
+  opacity: 0.35;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Botanical + disclaimer (shared visual language with Privacy/Terms) ── */
+.lc-method-divider {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 1.5rem;
+}
+
+.lc-method-disclaimer {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.35;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+  .lc-method-steps {
+    padding: 3rem 2.5rem 0;
+  }
+
+  .lc-method-step {
+    padding: 3.5rem 0;
+  }
+
+  .lc-method-step-heading {
+    max-width: 26rem;
+  }
+
+  .lc-method-pull {
+    padding: 1.6rem 1.8rem 1.6rem 2rem;
   }
 }

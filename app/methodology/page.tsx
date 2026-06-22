@@ -63,6 +63,9 @@ export default function MethodologyPage() {
         subheading="Love Compass isn't a personality quiz. Here's exactly how the assessments are built, how your answers are scored, and what the results actually mean."
       />
 
+      {/* Gold rule — handoff from hero into steps, ties to Privacy/Terms */}
+      <div className="lc-priv-rule" aria-hidden="true" />
+
       <div className="lc-method-steps">
         {STEPS.map(({ num, heading, body, pull }) => (
           <div key={num} className="lc-method-step">
@@ -73,7 +76,10 @@ export default function MethodologyPage() {
                 <p key={i} className="lc-method-body">{p}</p>
               ))}
               {pull && (
-                <blockquote className="lc-method-pull">{pull}</blockquote>
+                <blockquote className="lc-method-pull">
+                  <span className="lc-method-pull-mark" aria-hidden="true">”</span>
+                  {pull}
+                </blockquote>
               )}
             </div>
           </div>
