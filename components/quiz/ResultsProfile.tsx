@@ -1,12 +1,25 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { CategoryResult, NarrativeResult } from "@/types/quiz";
 import { PaperCard, FadeIn } from "@/components/ui";
-import { CompassProfile, ScoreBars } from "@/components/charts";
-import { getIntensity } from "@/lib";
+import { CompassProfile, ScoreChips } from "@/components/charts";
+import { getIntensity, getArchetypeHue } from "@/lib";
 
 type TabKey = "strengths" | "growthEdges" | "partner";
+
+// Splits a paragraph at its first sentence boundary. Falls back to the
+// whole paragraph if no clear boundary is found (keeps "in short" honest
+// rather than truncating mid-thought).
+function firstSentence(paragraph: string): { lead: string; rest: string } {
+  const match = paragraph.match(/^.*?[.!?](?:\s|$)/);
+  if (!match || match[0].trim().length < 8) {
+    return { lead: paragraph, rest: "" };
+  }
+  const lead = match[0].trim();
+  const rest = paragraph.slice(match[0].length).trim();
+  return { lead, rest };
+}
 
 export default function ResultsProfile({
   profile,
@@ -29,9 +42,25 @@ export default function ResultsProfile({
     [blend, primary.key]
   );
 
-  // Lead paragraph becomes the "In short" pull quote; everything after that,
-  // plus the secondary flavour blurb, becomes "The full picture" further down.
-  const [leadParagraph, ...restParagraphs] = primary.narrative;
+  // True "in short": just the first sentence of the lead paragraph.
+  // Everything else, including the remainder of that same paragraph,
+  // moves down into "The full picture".
+  const [firstParagraph, ...otherParagraphs] = primary.narrative;
+  const { lead: inShortLine, rest: leadRemainder } = useMemo(
+    () => (firstParagraph ? firstSentence(firstParagraph) : { lead: "", rest: "" }),
+    [firstParagraph]
+  );
+  const fullPictureParagraphs = useMemo(
+    () => [leadRemainder, ...otherParagraphs].filter(Boolean),
+    [leadRemainder, otherParagraphs]
+  );
+
+  // Per-archetype accent: derived from the dominant category's angle,
+  // not a new data field, so it can't drift from the 48-archetype dataset.
+  const hue = profile[0] ? getArchetypeHue(profile[0].angle) : getArchetypeHue(0);
+  const accentStyle = {
+    "--lc-archetype-hue": hue,
+  } as CSSProperties;
 
   const tabs: { key: TabKey; label: string; items: string[] }[] = [
     { key: "strengths", label: "Strengths", items: primary.strengths },
@@ -40,16 +69,19 @@ export default function ResultsProfile({
   ];
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="space-y-6 sm:space-y-8" style={accentStyle}>
 
       {/* -- Hero: faux-3D tilted card, stacked on ghost layers -- */}
       <FadeIn>
         <div className="lc-results-hero-wrap">
+          <div className="lc-results-hero-stack" aria-hidden="true">
+            <div className="lc-results-hero-ghost lc-results-hero-ghost--back" />
+            <div className="lc-results-hero-ghost lc-results-hero-ghost--mid" />
+          </div>
+
           <div className="lc-results-hero-card">
-            <span className="lc-results-seal" aria-hidden="true">
-              <span className="lc-results-seal-text">
-                {isSharedView ? <>Their<br />Result</> : <>Your<br />Result</>}
-              </span>
+            <span className="lc-results-seal">
+              <span className="lc-results-seal-text">{primary.name}</span>
             </span>
 
             <div className="lc-results-hero-inner">
@@ -60,10 +92,10 @@ export default function ResultsProfile({
                 <p className="lc-results-intensity">{getIntensity(profile[0].percentage)}</p>
               )}
 
-              {leadParagraph && (
+              {inShortLine && (
                 <div className="lc-results-inshort">
                   <p className="lc-results-inshort-eyebrow">In short</p>
-                  <p>{leadParagraph}</p>
+                  <p>{inShortLine}</p>
                 </div>
               )}
             </div>
@@ -141,17 +173,17 @@ export default function ResultsProfile({
       </PaperCard>
 
       {/* -- The full picture -- expanded narrative further down -- */}
-      {(restParagraphs.length > 0 || secondary) && (
+      {(fullPictureParagraphs.length > 0 || secondary) && (
         <section aria-label="The full picture" className="space-y-3">
           <p className="lc-results-fullpicture-eyebrow">The Full Picture</p>
           <div className="lc-results-fullpicture">
-            {restParagraphs.map((para, i) => <p key={i}>{para}</p>)}
+            {fullPictureParagraphs.map((para, i) => <p key={i}>{para}</p>)}
             {secondary && <p>{secondary.blurb}</p>}
           </div>
         </section>
       )}
 
-      {/* -- Merged visual: compass + score list, one section instead of two -- */}
+      {/* -- Your Full Profile: compass + always-visible chips, one real visual -- */}
       {profile.length > 0 && (
         <section aria-label="Your full profile">
           <PaperCard
@@ -162,7 +194,7 @@ export default function ResultsProfile({
             <span className="lc-results-visual-tag">Your Full Profile</span>
             <CompassProfile profile={profile} />
             <div className="lc-results-visual-divider" aria-hidden="true" />
-            <ScoreBars profile={profile} />
+            <ScoreChips profile={profile} />
           </PaperCard>
         </section>
       )}

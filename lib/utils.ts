@@ -22,6 +22,23 @@ export function isGivingMode(slug: string): boolean {
   return slug.endsWith("-giving");
 }
 
+/**
+ * Derives a stable per-archetype accent hue from the category's position
+ * on the compass (0-360deg), rotated to sit close to the brand's rose/gold
+ * axis rather than producing arbitrary rainbow colors. Used to give each
+ * of the 48 results a distinct but on-brand identity (results hero, seal,
+ * active tab) without adding new fields to the archetype data files.
+ */
+export function getArchetypeHue(angle: number): number {
+  // Brand rose (~350) and gold (~38) sit roughly 48deg apart on the hue
+  // wheel. Swing the hue within a band around that axis so every category
+  // still reads as "this palette" rather than an unrelated color.
+  const ROSE_HUE = 350;
+  const SWING = 70;
+  const t = (angle % 360) / 360;
+  return Math.round(ROSE_HUE + Math.sin(t * Math.PI * 2) * SWING);
+}
+
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 
 export const siteMeta = {

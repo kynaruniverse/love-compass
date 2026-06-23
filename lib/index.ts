@@ -5,6 +5,6 @@ export { buildProfile, pickArchetype, getIntensity, getBlend } from "./resultBui
 export { saveQuizSession, loadQuizSession } from "./session";
 export type { QuizSession } from "./session";
 export { encodeShareData, decodeShareData, buildShareUrl } from "./shareLink";
-export { clamp, isNonEmpty, getQuizTypeLabel, isGivingMode, siteMeta, generateMeta } from "./utils";
+export { clamp, isNonEmpty, getQuizTypeLabel, isGivingMode, getArchetypeHue, siteMeta, generateMeta } from "./utils";
 export { exportText, exportMarkdown, buildResultTXT, buildResultMD } from "./export";
 export { useReducedMotion } from "./useReducedMotion";
