@@ -1,279 +1,279 @@
 import { Archetype, ArchetypeFlavor } from "@/types/quiz";
 
 /**
- * Primary archetypes for the Intimacy Style Test.
+ * Primary archetypes for the Intimacy Style Test ("How You Desire to Receive").
  * Keyed by the dominant category (A-H) from INTIMACY_CATEGORIES.
  */
 export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
   A: {
     key: "A",
-    name: "The Dirty Talker",
-    tagline: "If you're not saying it, it isn't landing.",
+    name: "The Spoken Word",
+    tagline: "If they're not saying it, it isn't landing.",
     narrative: [
-      "For you, attraction becomes real the moment it's spoken. A partner telling you what they find desirable about you, specifically, plainly, without hedging, does something that no amount of implication can replicate. Words don't just describe desire for you; in many ways, they're how desire is delivered.",
-      "This means silence, even comfortable silence, can sometimes leave something missing. A relationship can be physically warm and still feel like it's missing a layer if the verbal dimension isn't there: the texting, the telling, the naming of what's wanted and appreciated. You're not asking for performance; you're asking for honesty spoken aloud.",
-      "You're likely someone who isn't afraid to say what you want either, or who wishes you weren't. Either way, verbal communication isn't a side channel to your intimate connection, it's one of the main ones, and a partner who understands that will find it opens something up for you that little else does."
+      "For you, attraction becomes real the moment it's spoken. A partner telling you exactly what they've been thinking about, what they want to do, what about you they can't stop noticing, does something that touch alone can't replicate. Words don't just describe your desire. They deliver it.",
+      "This means silence, even warm, comfortable silence, can leave something missing. A night can be physically affectionate and still feel like it's missing its main ingredient if nobody actually says anything: the low voice close to your ear, the plain admission of what they want, the naming of exactly what's turning them on. You're not asking for a performance. You're asking for honesty, said out loud.",
+      "You're probably someone who isn't afraid to say what you want either, or who wishes you weren't. Either way, the spoken word isn't a side channel for you, it's one of the main ones, and a partner who understands that will find it unlocks something in you that little else does."
     ],
     strengths: [
-      "You communicate desire clearly, which builds confidence and reduces guesswork for a partner.",
-      "You create emotional and erotic closeness through honest, direct conversation.",
-      "You're likely skilled at articulating needs and preferences, which leads to more satisfying intimacy overall."
+      "You communicate desire with total clarity, which builds confidence and removes guesswork for a partner.",
+      "You create erotic closeness through honest, direct conversation rather than leaving things to be guessed at.",
+      "You're likely skilled at naming what you want, which leads to more satisfying intimacy for both people."
     ],
     watchOuts: [
-      "A partner who is less verbally expressive may not be withholding. It might just not be their primary language, even if they feel desire just as strongly.",
-      "Be careful not to interpret quietness as disinterest; check in directly rather than assuming.",
-      "Verbal affirmation works best paired with follow-through. Words and actions reinforcing each other."
+      "A partner who's quieter in the moment may not be withholding. It might just not be their instinct, even if they want it just as much.",
+      "Be careful not to read quietness as disinterest. Check in directly instead of assuming.",
+      "Words land best paired with follow-through. What's said and what happens should match."
     ],
     partnerNeeds: [
-      "A partner willing to communicate openly about desire, attraction, and preferences, including saying things that might feel vulnerable to say.",
-      "Verbal check-ins and feedback, especially around what's working and what you'd like more of.",
-      "Honesty over politeness when it comes to talking about intimacy."
+      "A partner willing to say things aloud, including the things that feel a little exposing to admit.",
+      "Verbal check-ins during and after, especially around what's working and what you'd like more of.",
+      "Honesty over restraint when it comes to naming what's wanted."
     ],
     pairings: {
-      bestWith: "The One Who Wants tends to pair well with you. Confident, direct communication and confident initiation reinforce each other naturally.",
-      frictionWith: "The Slow Seduction can create friction at first. Their unhurried, less verbal approach might leave you wanting more spoken confirmation than naturally comes their way."
+      bestWith: "The Initiator tends to pair well with you. Confident, direct action and confident, direct words reinforce each other naturally.",
+      frictionWith: "The Slow Build can create friction at first. Their unhurried, quieter approach might leave you wanting more spoken confirmation than naturally comes their way."
     },
     tryThis: [
-      "Try asking directly for what you want to hear. 'It would mean a lot if you told me X' gives a less verbal partner a clear way to meet you.",
-      "Notice when a partner expresses desire nonverbally, and try naming it out loud yourself. 'I can tell you want this' can bridge the gap."
+      "Try asking directly for what you want to hear. 'Tell me what you want to do to me' gives a quieter partner a clear way to meet you.",
+      "Notice when a partner expresses desire without words, and try naming it out loud yourself. 'I can tell you want this' can bridge the gap."
     ]
   },
 
   B: {
     key: "B",
-    name: "The Slow Seduction",
-    tagline: "The buildup is the main event.",
+    name: "The Slow Build",
+    tagline: "The build-up is the main event.",
     narrative: [
-      "For you, intimacy isn't a switch, it's a gradient, and the slow part is the point. The unhurried build-up, the lingering touch, the sense that there's no rush because the closeness itself is what matters, not just where it leads. A partner who understands pacing, who doesn't treat tenderness as a mere prelude, speaks directly to how you experience connection.",
-      "Rushed or purely goal-oriented intimacy can feel like it's skipping the part you actually value most. It's not that you don't want where things might go. It's that the slow, sensual middle has its own value, and compressing it loses something real.",
-      "You probably bring this same quality to how you show affection: present, attentive, in no hurry. For you, tenderness isn't a warm-up act; it's a central part of the experience itself, deserving of time and attention in its own right."
+      "For you, intimacy isn't a switch, it's a slow climb, and the climb is the point. The unhurried lead-in, the kiss that doesn't rush toward anything else, the sense that there's no clock running because the closeness itself is what matters, not just where it eventually goes. A partner who understands pacing, who treats the build-up as worth savouring rather than skipping, speaks directly to how you experience desire.",
+      "Rushed or purely goal-driven intimacy can feel like it's cutting out the part you actually value most. It's not that you don't want where things are going. It's that the slow, lingering middle has its own value, and compressing it loses something real, maybe even the best part.",
+      "You probably bring this same quality to how you show affection generally: present, attentive, in no hurry. For you, the build isn't a warm-up act. It's a central part of the experience, deserving of time and attention in its own right."
     ],
     strengths: [
-      "You bring presence and attentiveness to intimate moments, which often makes a partner feel deeply cared for.",
-      "You value quality over urgency, which can deepen emotional and physical connection over time.",
-      "You're likely attuned to subtlety: small shifts in mood, comfort, and responsiveness."
+      "You bring presence and attentiveness to intimate moments, which often makes a partner feel deeply savoured.",
+      "You value the build over urgency, which can deepen physical connection over time.",
+      "You're likely attuned to subtlety: small shifts in breath, mood, and responsiveness."
     ],
     watchOuts: [
       "A partner with a different pace isn't necessarily mismatched. Different doesn't always mean incompatible, though it's worth discussing openly.",
-      "Don't assume slower always equals better for everyone; check in rather than projecting your preference.",
-      "Be mindful that 'slow' shouldn't become a euphemism for avoiding more direct conversations about needs."
+      "Don't assume slower always means better for everyone. Check in rather than projecting your preference.",
+      "Be mindful that 'slow' shouldn't become a way of avoiding more direct conversations about what you actually want."
     ],
     partnerNeeds: [
       "A partner who doesn't rush, who values lingering closeness as much as any destination.",
       "Patience and attentiveness, especially in how physical intimacy unfolds.",
-      "An environment, time, space, mindset, that allows for unhurried connection rather than constantly fitting it into small windows."
+      "Time and space that allows for an unhurried build rather than constantly squeezing it into small windows."
     ],
     pairings: {
-      bestWith: "The Open Gate pairs especially well with you. Emotional safety and unhurried pacing tend to build on each other.",
-      frictionWith: "The One Who Wants can create friction. Their confident, decisive energy might feel like it's skipping the slow build-up you value most, even when enthusiasm is the intention."
+      bestWith: "The Safe Harbour pairs especially well with you. Trust and unhurried pacing tend to build on each other.",
+      frictionWith: "The Initiator can create friction. Their confident, decisive energy might feel like it's skipping the build-up you value most, even when enthusiasm is the whole intention."
     },
     tryThis: [
       "Try naming your pace preference directly. 'I love when we take our time' helps a partner understand that slowness is a preference, not hesitation.",
-      "If things feel rushed, try suggesting a specific unhurried activity rather than just feeling the absence of one."
+      "If things feel rushed, try suggesting a specific unhurried moment rather than just feeling the absence of one."
     ]
   },
 
   C: {
     key: "C",
-    name: "The One Who Wants",
+    name: "The Initiator",
     tagline: "Hesitation kills it. Want it and show it.",
     narrative: [
-      "There's something about clear, confident initiation that resonates with you. Not aggression, but a kind of decisiveness that communicates genuine desire without ambiguity. When a partner makes the first move with warmth and confidence, it tells you something you value: that they want this, and they're not waiting for permission to want it.",
-      "Hesitation or excessive second-guessing, even when well-intentioned, can sometimes dampen things for you. Not because consent and care aren't essential, they absolutely are, but because uncertainty can read as a lack of desire, even when that's not what's actually happening.",
-      "You're likely someone who initiates too, often without overthinking it. For you, that confident energy isn't about dominance. It's about enthusiasm, about wanting something and being willing to reach for it. A relationship where both people feel free to initiate tends to feel more alive to you."
+      "There's something about clear, confident initiation that gets to you. Not aggression, but decisiveness, the kind that communicates real desire without any ambiguity left in the room. When a partner reaches for you first, with warmth and certainty, it tells you something you value most: that they want this, and they're not waiting for an invitation to want it.",
+      "Hesitation or excessive second-guessing, even when well-intentioned, can dampen things for you. Not because consent and care aren't essential, they absolutely are, but because uncertainty can read as a lack of desire, even when that's not what's actually happening.",
+      "You're probably someone who initiates too, often without overthinking it. For you, that confident energy isn't about dominance. It's about enthusiasm, about wanting something and being willing to reach for it without flinching. A relationship where both people feel free to move first tends to feel more alive to you."
     ],
     strengths: [
-      "You bring energy and enthusiasm to intimate connection, which can be infectious and confidence-building for a partner.",
-      "You're comfortable taking initiative, which reduces ambiguity and can make a relationship feel more dynamic.",
-      "Your directness often creates clarity. Less guessing about what's wanted."
+      "You bring energy and certainty to intimate connection, which can be infectious and confidence-building for a partner.",
+      "You're comfortable taking the lead, which reduces ambiguity and can make things feel more electric.",
+      "Your directness creates clarity. Less guessing about what's wanted, more of it actually happening."
     ],
     watchOuts: [
       "Confidence in initiation should always leave room for a partner's pace and comfort. Enthusiasm and pressure can look similar from the outside even when intentions differ.",
-      "A partner who initiates less often may still desire just as much. Different comfort levels with initiation don't always map to different levels of desire.",
-      "Make space for your partner to initiate too, even if it happens less naturally for them. It can mean a lot when it does."
+      "A partner who initiates less often may still want just as much. Different comfort levels with making the first move don't always map to different levels of desire.",
+      "Make space for your partner to take the lead too, even if it happens less naturally for them. It can mean a lot when it does."
     ],
     partnerNeeds: [
       "A partner who's comfortable being pursued, and who responds to confidence with warmth rather than feeling overwhelmed.",
-      "Mutual enthusiasm: feeling like initiation is welcomed, not just tolerated.",
-      "Open communication about pacing so confidence and consent are always aligned."
+      "Mutual enthusiasm: feeling like your initiation is welcomed, not just tolerated.",
+      "Open communication about pacing so confidence and consent are always moving together."
     ],
     pairings: {
-      bestWith: "The Dirty Talker pairs well with you. Clear words and confident action reinforce each other, reducing ambiguity on both sides.",
-      frictionWith: "The Slow Seduction can create friction. Your confident, decisive energy might read as rushing to a partner who experiences intimacy as a gradient rather than a moment."
+      bestWith: "The Spoken Word pairs well with you. Clear words and confident action reinforce each other, reducing ambiguity on both sides.",
+      frictionWith: "The Slow Build can create friction. Your confident, decisive energy might read as rushing to a partner who experiences desire as something that needs to be savoured, not seized."
     },
     tryThis: [
-      "Try checking in verbally alongside initiating. 'How does this feel?' keeps confidence and consent moving together.",
-      "If a partner initiates less often, try making space for it explicitly. 'I'd love it if you took the lead sometime' removes some of the pressure."
+      "Try checking in verbally alongside initiating. 'Is this what you want?' keeps confidence and consent moving together.",
+      "If a partner initiates less often, try making space for it explicitly. 'I'd love it if you made the first move sometime' removes some of the pressure."
     ]
   },
 
   D: {
     key: "D",
-    name: "The One Worth Chasing",
+    name: "The Chase",
     tagline: "You don't chase. You get chased.",
     narrative: [
-      "For you, there's something deeply affirming about being sought after: a partner making it clear, through effort and attention, that they want you specifically and are willing to show it. Anticipation, build-up, the small thrill of being pursued. These aren't games to you, they're a genuine part of how desire gets communicated and felt.",
-      "When that pursuit fades, when things become routine to the point that wanting seems to have quietly disappeared from the equation, it can feel like something has gone missing, even if nothing is technically wrong. You're not asking for constant chase, but for the occasional reminder that you're still actively desired, not just present.",
-      "You might express interest yourself in ways that invite rather than declare outright: a kind of playful indirection that leaves room for a little anticipation on both sides. For you, intimacy benefits from a sense of ongoing interest, not just established comfort."
+      "For you, there's something deeply affirming about being wanted in advance: a partner making it clear, hours before you're even alone, that they've been thinking about this. A message that lingers in your mind all afternoon, a look across the table that promises something for later, the small, deliberate thrill of being pursued. These aren't games to you. They're a genuine part of how desire actually gets felt.",
+      "When that anticipation fades, when wanting starts to feel like something that only happens once you're already together rather than something that's been building, it can feel like something's gone missing, even if nothing is technically wrong. You're not asking for constant pursuit, just the occasional reminder that you're being actively wanted, not just available.",
+      "You might build that same anticipation yourself in ways that invite rather than declare outright: a glance, a half-finished sentence, a kind of playful indirection that leaves room for the wait to do some of the work. For you, desire benefits from a runway, not just a destination."
     ],
     strengths: [
-      "You bring a sense of aliveness and anticipation to relationships. Things rarely feel fully settled in a stale way.",
-      "You're attuned to the importance of ongoing effort in long-term intimacy, not just early-stage romance.",
-      "You likely appreciate and reciprocate effort when a partner makes it, which reinforces positive patterns."
+      "You bring a sense of aliveness and anticipation to a relationship. Things rarely feel fully settled in a stale way.",
+      "You're attuned to the importance of ongoing pursuit in long-term intimacy, not just the early-relationship version of it.",
+      "You likely appreciate and reciprocate effort when a partner makes it, which reinforces exactly the pattern you want."
     ],
     watchOuts: [
-      "Long-term relationships naturally shift away from constant pursuit. It helps to find new forms of it rather than mourning the early-relationship version.",
-      "Be careful not to interpret comfort or routine as a loss of desire. Sometimes it's simply a different phase.",
+      "Long-term relationships naturally shift away from constant pursuit. It helps to find new forms of it rather than mourning the early version.",
+      "Be careful not to interpret comfort or routine as a loss of desire. Sometimes it's simply a different phase, not an absence.",
       "If you want more pursuit, naming that directly tends to work better than waiting and hoping it returns on its own."
     ],
     partnerNeeds: [
-      "A partner willing to make ongoing effort: small gestures of pursuit, even well into a relationship.",
-      "Occasional novelty or surprise that signals active interest, not just established routine.",
-      "Reassurance, expressed through action, that desire hasn't faded into the background."
+      "A partner willing to build anticipation in advance: a message, a look, a small gesture of pursuit, even well into a relationship.",
+      "Occasional novelty or surprise that signals active wanting, not just established routine.",
+      "Reassurance, expressed through action, that desire hasn't faded quietly into the background."
     ],
     pairings: {
-      bestWith: "The Willing Explorer pairs especially well with you. Their appetite for novelty naturally generates the kind of ongoing interest and surprise that keeps things feeling alive for you.",
-      frictionWith: "The Fair Game can create friction. Their instinct toward consistent, mutual effort might read as comfortable routine to you, even when it's meant as genuine investment."
+      bestWith: "The Explorer pairs especially well with you. Their appetite for novelty naturally generates the kind of ongoing interest and surprise that keeps things feeling alive for you.",
+      frictionWith: "The Equal can create friction. Their instinct toward consistent, mutual effort might read as comfortable routine to you, even when it's meant as genuine investment."
     },
     tryThis: [
       "If you want more pursuit, try naming it playfully rather than waiting. 'I miss feeling chased a little' is an easy invitation, not a complaint.",
-      "Try reciprocating with small gestures of your own. Pursuit tends to work best when it goes both directions."
+      "Try reciprocating with small gestures of your own. Pursuit tends to work best when it runs in both directions."
     ]
   },
 
   E: {
     key: "E",
-    name: "The Willing Explorer",
+    name: "The Explorer",
     tagline: "Bored in bed is a choice. You don't make it.",
     narrative: [
-      "You're drawn to intimacy that has room to discover something, where both people are curious, willing to try, willing to ask 'what about this?' without it being a big deal either way. For you, novelty and exploration aren't about restlessness; they're about treating intimacy as something alive and evolving rather than fixed.",
-      "Routine, when it becomes rigid rather than comfortable, can feel like it's closing a door you'd rather keep open. It's less about needing constant change and more about wanting the possibility of change: the sense that there's always more to discover together, even within familiar territory.",
-      "You're probably the one who brings up new ideas, who's willing to be a little vulnerable in suggesting something different. For you, mutual curiosity is itself a form of closeness. It says 'I trust you enough to wonder out loud, and I'm interested in what you wonder too.'"
+      "You're drawn to intimacy that has room to discover something, where both people are curious, willing to try, willing to ask 'what about this?' without it being a big deal either way. For you, novelty isn't about restlessness. It's about treating desire as something alive and evolving rather than fixed in place.",
+      "Routine, when it becomes rigid rather than comfortable, can feel like it's closing a door you'd rather keep open. It's less about needing constant change and more about wanting the possibility of it: the sense that there's always more to find together, even in completely familiar territory.",
+      "You're probably the one who brings up new ideas, who's willing to be a little exposed in suggesting something different. For you, mutual curiosity is itself a form of closeness. It says 'I trust you enough to want out loud, and I'm genuinely interested in what you want too.'"
     ],
     strengths: [
-      "You keep relationships dynamic by bringing curiosity and openness to intimacy.",
-      "You're likely comfortable with vulnerability around preferences and ideas, which can deepen trust.",
+      "You keep things dynamic by bringing curiosity and openness into intimate moments.",
+      "You're likely comfortable being a little vulnerable around preferences and ideas, which can deepen trust.",
       "Your openness can help a partner feel safe exploring their own curiosities too."
     ],
     watchOuts: [
-      "Not every partner shares the same appetite for novelty. Pacing exploration to fit both people's comfort matters more than the exploration itself.",
-      "Be mindful that 'we should try new things' can land as pressure if not framed as a genuine, low-stakes invitation.",
-      "Comfort and familiarity have value too. Exploration doesn't need to replace them, just complement them."
+      "Not every partner shares the same appetite for novelty. Pacing exploration to fit both people matters more than the exploration itself.",
+      "Be mindful that 'we should try something new' can land as pressure if it isn't framed as a genuine, low-stakes invitation.",
+      "Familiarity has value too. Exploration doesn't need to replace it, just sit alongside it."
     ],
     partnerNeeds: [
-      "A partner who's open to conversation about trying new things, even if the answer is sometimes 'not for me, but I'm glad you asked'.",
+      "A partner who's open to talking about trying new things, even if the answer is sometimes 'not for me, but I'm glad you asked.'",
       "A judgment-free space to express curiosity without it being treated as a problem.",
       "Mutual willingness to occasionally step outside routine, even in small ways."
     ],
     pairings: {
-      bestWith: "The One Worth Chasing pairs naturally with you. Novelty and anticipation feed each other, keeping things feeling alive for both of you.",
-      frictionWith: "The Open Gate can create friction at first. Their need for established safety before trying something new might feel, to you, like curiosity is being held back, even when it's just a different starting point."
+      bestWith: "The Chase pairs naturally with you. Novelty and anticipation feed each other, keeping things feeling alive for both of you.",
+      frictionWith: "The Safe Harbour can create friction at first. Their need for established trust before trying something new might feel, to you, like curiosity is being held back, even when it's just a different starting point."
     },
     tryThis: [
-      "Try framing new ideas as low-stakes invitations. 'No pressure, just curious if this sounds interesting to you' takes the weight off.",
-      "If a partner says no to something, try treating it as information rather than rejection. There's usually still plenty of room to explore together."
+      "Try framing new ideas as low-stakes invitations. 'No pressure, just curious if this sounds good to you' takes the weight off.",
+      "If a partner says no to something, try treating it as information rather than rejection. There's usually still plenty of room left to explore together."
     ]
   },
 
   F: {
     key: "F",
-    name: "The Open Gate",
+    name: "The Safe Harbour",
     tagline: "You can't get there without trust first.",
     narrative: [
-      "For you, the emotional climate around intimacy matters as much as the intimacy itself. Feeling truly safe, trusting that you won't be judged, that vulnerability won't be used against you, that the connection is solid, isn't a precondition you tolerate before things get good. It is what makes things good.",
-      "If that safety isn't there, if there's tension, unresolved conflict, or a sense of emotional distance, physical closeness can feel hollow, even when everything works on a surface level. You're unlikely to feel fully present intimately while feeling emotionally unsettled elsewhere in the relationship.",
-      "What you offer in turn is often a kind of attentiveness to how a partner is feeling, not just what's happening physically. For you, intimacy is deeply relational. It's an extension of how emotionally connected two people are, not a separate compartment of the relationship."
+      "For you, the emotional climate around intimacy matters as much as the intimacy itself. Feeling truly safe, trusting that you won't be judged, that being fully seen won't be used against you, isn't a precondition you tolerate before things get good. It's what makes things good in the first place.",
+      "If that safety isn't there, if there's tension, unresolved conflict, or emotional distance sitting underneath, physical closeness can feel hollow even when it works on the surface. You're unlikely to feel fully present in the moment while you're unsettled anywhere else in the relationship.",
+      "What you offer in return is often a kind of attentiveness to how a partner is actually feeling, not just what's happening physically. For you, desire is deeply relational. It's an extension of how connected two people are, not a separate compartment of the relationship that runs on its own."
     ],
     strengths: [
       "You create emotionally safe spaces, which often allows both partners to be more open and present.",
-      "You're attuned to the connection between emotional state and physical intimacy: a holistic view that many relationships benefit from.",
-      "Your need for safety often translates into being a trustworthy, attentive partner."
+      "You're attuned to the link between emotional state and physical closeness: a whole-person view many relationships benefit from.",
+      "Your need for safety often makes you a trustworthy, attentive partner in turn."
     ],
     watchOuts: [
-      "Waiting for everything to feel perfect before intimacy can sometimes create a chicken-and-egg situation. Sometimes closeness itself helps repair emotional distance.",
-      "Be careful not to use a lack of emotional safety as a reason to avoid addressing the actual issue creating that feeling.",
-      "Communicate what 'safety' looks like for you specifically. It can look different to different people."
+      "Waiting for everything to feel perfect before intimacy can sometimes create a chicken-and-egg problem. Sometimes closeness itself helps repair the distance.",
+      "Be careful not to use a lack of emotional safety as a reason to avoid addressing the actual issue underneath it.",
+      "Communicate what 'safety' actually looks like for you. It can look completely different to different people."
     ],
     partnerNeeds: [
-      "A partner who prioritizes resolving emotional tension rather than letting it sit unaddressed.",
+      "A partner who prioritises resolving emotional tension rather than letting it sit unaddressed.",
       "Consistency and trustworthiness as an ongoing foundation, not just during good moments.",
       "Open communication about emotional state: checking in, not just assuming things are fine."
     ],
     pairings: {
-      bestWith: "The Fair Game pairs well with you. Mutual investment and emotional safety reinforce each other, building the kind of foundation you both value.",
-      frictionWith: "The One Who Wants can create friction. Their confident, in-the-moment energy might move faster than feels comfortable if emotional tension hasn't been addressed yet."
+      bestWith: "The Equal pairs well with you. Mutual investment and trust reinforce each other, building the foundation you both value.",
+      frictionWith: "The Initiator can create friction. Their confident, in-the-moment energy might move faster than feels comfortable if emotional tension hasn't been addressed yet."
     },
     tryThis: [
-      "Try naming what 'feeling safe' looks like for you in concrete terms. 'I need us to talk through X before I can really relax' gives a partner something specific to work with.",
+      "Try naming what 'feeling safe' looks like for you in concrete terms. 'I need us to talk through this first' gives a partner something specific to work with.",
       "If tension is unresolved, try addressing it directly rather than waiting for things to settle on their own. Sometimes the conversation is what creates the safety, not the other way around."
     ]
   },
 
   G: {
     key: "G",
-    name: "The Confident Lover",
-    tagline: "Feel good about yourself. Feel everything else more.",
+    name: "The Spark",
+    tagline: "Feel irresistible. Feel everything else more.",
     narrative: [
-      "For you, feeling desired is closely tied to feeling supported, particularly in how you see yourself. A partner who notices your confidence, who reflects back something positive about how you're showing up in a relationship or in life more broadly, influences how desired you feel in ways that might surprise people who don't share this.",
-      "When self-doubt creeps in, about appearance, about performance, about anything really, it can dampen intimacy for you more than it might for someone else. Not because the doubt is really about the relationship, but because confidence and desire are linked for you. A partner's reassurance, genuinely given, can make a real difference.",
-      "You likely offer this kind of support too: noticing when someone seems to be struggling with confidence and gently building them back up. For you, intimacy thrives in an environment where both people feel genuinely good about themselves, not despite the relationship but partly because of it."
+      "For you, feeling desired is closely tied to feeling seen, specifically, undeniably, as someone a partner can't help wanting. A partner who notices you, who reflects back something genuinely attractive about how you look or move or show up, changes how desired you feel in ways that might surprise people who don't share this.",
+      "When self-doubt creeps in, about appearance, about performance, about anything really, it can dampen things for you more than it might for someone else. Not because the doubt is really about the relationship, but because confidence and desire are wired together for you. A partner's genuine, specific attention can make a real difference, fast.",
+      "You probably offer this kind of attention too: noticing when someone seems uncertain and making it unmistakable that you want them anyway. For you, desire thrives in a room where both people feel irresistible, not despite the relationship but partly because of it."
     ],
     strengths: [
-      "You're attuned to a partner's emotional state around self-image, often offering support without being asked.",
-      "You understand the link between confidence and connection, which can lead to more emotionally intelligent intimacy.",
-      "Your encouragement can have a real, positive impact on a partner's wellbeing."
+      "You respond strongly to genuine, specific attention, which makes you easy to make feel wanted when a partner gets it right.",
+      "You understand the link between confidence and desire, which can lead to more emotionally intelligent intimacy.",
+      "Your responsiveness gives a partner clear, immediate feedback that their attention is landing."
     ],
     watchOuts: [
-      "Be careful that reassurance doesn't become a substitute for addressing your own self-confidence directly. External validation helps, but isn't the whole picture.",
-      "A partner can't be solely responsible for your confidence. It helps to build some of that foundation independently too.",
-      "Don't assume a partner's confidence struggles are about you, even if they surface during intimate moments."
+      "Be careful that external validation doesn't become a substitute for your own sense of confidence. It helps, but isn't the whole picture.",
+      "A partner can't be solely responsible for how desirable you feel. It helps to build some of that foundation independently too.",
+      "Don't assume a confidence dip is about your partner, even if it surfaces during intimate moments."
     ],
     partnerNeeds: [
-      "A partner who offers genuine, specific affirmation: not just generically reassuring, but noticing real things.",
-      "Patience around days when confidence is lower than usual.",
-      "A relationship that feels like a source of support for self-esteem, not a source of pressure."
+      "A partner who offers genuine, specific attention: not generically reassuring, but actually noticing real things.",
+      "Patience around days when your confidence is lower than usual.",
+      "A connection that feels like a source of confidence, not a source of pressure."
     ],
     pairings: {
-      bestWith: "The Dirty Talker pairs especially well with you. Specific, spoken affirmation is exactly the kind of support that lands most deeply for you.",
-      frictionWith: "The One Who Wants can create friction. Their confident, low-overthinking energy is great in itself, but might not naturally include the reassurance you sometimes need."
+      bestWith: "The Spoken Word pairs especially well with you. Specific, spoken desire is exactly the kind of attention that lands most deeply for you.",
+      frictionWith: "The Initiator can create friction. Their confident, low-overthinking energy is great in itself, but might not naturally include the specific affirmation you sometimes need."
     },
     tryThis: [
-      "Try naming what kind of affirmation actually helps. General reassurance lands differently than something specific a partner noticed.",
-      "On lower-confidence days, try sharing that directly rather than withdrawing. 'I'm feeling a bit insecure today' invites support rather than leaving a partner guessing."
+      "Try naming what kind of attention actually lands. General reassurance feels different to something specific a partner noticed.",
+      "On lower-confidence days, try sharing that directly rather than withdrawing. 'I'm feeling a bit insecure tonight' invites attention rather than leaving a partner guessing."
     ]
   },
 
   H: {
     key: "H",
-    name: "The Fair Game",
+    name: "The Equal",
     tagline: "Both hands in or don't bother.",
     narrative: [
-      "For you, intimacy is deeply tied to a sense of fairness and mutual investment. Not in a transactional sense, but in the sense that both people are showing up, both people are paying attention, both people are putting something in. When that balance feels off, when intimacy feels like something one person is consistently initiating, prioritizing, or maintaining, it registers, even if it's hard to articulate why.",
-      "This isn't about scorekeeping in the bedroom specifically. It's that the same imbalance that shows up in who does the dishes or who remembers the plans tends to echo into how connected you feel intimately too. For you, the two are linked. A relationship that feels equal in its everyday effort tends to feel more genuinely close in its intimate moments as well.",
-      "You probably approach intimacy the way you approach the rest of the relationship: as something both people are responsible for, something that benefits from attention from both sides rather than falling to one person to initiate or sustain. For you, mutual effort isn't unromantic. It's part of what makes closeness feel real."
+      "For you, desire is deeply tied to a sense of fairness and mutual investment. Not transactional, but in the sense that both people are showing up, both reaching, both putting something real in. When that balance feels off, when wanting feels like something one person is consistently initiating or carrying, it registers, even when it's hard to put into words.",
+      "This isn't about keeping score. It's that the same imbalance that shows up elsewhere in a relationship tends to echo into how connected you feel intimately too. For you, the two are linked. A relationship that feels equal in its everyday effort tends to feel more genuinely charged in its intimate moments as well.",
+      "You probably approach intimacy the way you approach the rest of the relationship: as something both people are responsible for, something that benefits from attention from both sides rather than falling to one person to spark or sustain. For you, mutual hunger isn't unromantic. It's exactly what makes desire feel real."
     ],
     strengths: [
       "You bring a sense of fairness and mutual investment to intimacy, which often strengthens trust over time.",
-      "You're likely attuned to patterns of imbalance, which can help address issues before they become significant.",
-      "Your approach treats intimacy as a shared responsibility, which many relationships benefit from."
+      "You're likely attuned to patterns of imbalance, which can help address issues before they grow.",
+      "Your approach treats desire as a shared responsibility, which most relationships genuinely benefit from."
     ],
     watchOuts: [
-      "Avoid letting 'fairness' become a rigid framework. Intimacy doesn't always need to be perfectly reciprocal in the moment to be balanced overall.",
+      "Avoid letting 'fairness' become a rigid framework. Desire doesn't always need to be perfectly reciprocal in any single moment to be balanced overall.",
       "Be mindful that different people initiate differently. A partner who initiates less might still be deeply invested, just expressing it differently.",
       "If imbalance is a recurring feeling, naming it directly tends to work better than waiting for it to self-correct."
     ],
     partnerNeeds: [
-      "A partner who takes initiative in intimacy at least some of the time, rather than consistently leaving it to you.",
+      "A partner who takes the lead at least some of the time, rather than consistently leaving it to you.",
       "Open conversation about how both people experience effort and investment, intimately and otherwise.",
-      "A genuine sense that both people care about the quality of the connection, not just one person managing it."
+      "A genuine sense that both people care about the connection, not just one person managing it."
     ],
     pairings: {
-      bestWith: "The Open Gate pairs well with you. Mutual investment and emotional safety naturally reinforce each other.",
-      frictionWith: "The One Worth Chasing can create friction. Their enjoyment of being sought after might read, to you, as one-sided effort, even when it's simply how they experience being wanted."
+      bestWith: "The Safe Harbour pairs well with you. Mutual investment and trust naturally reinforce each other.",
+      frictionWith: "The Chase can create friction. Their enjoyment of being sought after might read, to you, as one-sided effort, even when it's simply how they experience being wanted."
     },
     tryThis: [
       "If imbalance feels like a recurring pattern, try naming it directly and gently. 'I'd love it if you initiated sometime' is a clear, low-pressure way to raise it.",
-      "Try noticing and naming effort when a partner does initiate or contribute. It reinforces exactly the pattern you're hoping for."
+      "Try noticing and naming effort when a partner does initiate. It reinforces exactly the pattern you're hoping for."
     ]
   }
 };
@@ -284,7 +284,7 @@ export const INTIMACY_ARCHETYPES: Record<string, Archetype> = {
 export const INTIMACY_FLAVORS: Record<string, ArchetypeFlavor> = {
   A: {
     key: "A",
-    blurb: "You also respond strongly to things being said aloud. A clearly expressed want adds something physical closeness alone doesn't capture. When desire is named directly, it lands in a way that implication never quite manages."
+    blurb: "You also respond strongly to things being said aloud. A clearly spoken want adds something touch alone doesn't capture. When desire is named directly, it lands in a way that implication never quite manages."
   },
   B: {
     key: "B",
@@ -292,26 +292,26 @@ export const INTIMACY_FLAVORS: Record<string, ArchetypeFlavor> = {
   },
   C: {
     key: "C",
-    blurb: "You also appreciate confident initiation. A little decisiveness from a partner adds an extra spark. There's something about clear, unhesitating want that communicates desire more directly than any amount of suggestion."
+    blurb: "You also appreciate confident initiation. A little decisiveness from a partner adds an extra spark. There's something about clear, unhesitating want that communicates desire more directly than any amount of waiting."
   },
   D: {
     key: "D",
-    blurb: "You also enjoy the feeling of being pursued. A bit of ongoing effort and anticipation means more to you than you might admit. Being actively sought out, even in subtle ways, tells you something about desire that routine comfort never quite does."
+    blurb: "You also enjoy the feeling of being pursued. A bit of ongoing anticipation means more to you than you might admit. Being actively wanted in advance, even in subtle ways, tells you something that routine comfort never quite does."
   },
   E: {
     key: "E",
-    blurb: "You also have a curious streak. Openness to trying new things adds an extra layer to how connected you feel. Intimacy that has room to discover something new, even within familiar territory, holds your attention in a way that pure routine doesn't."
+    blurb: "You also have a curious streak. Openness to trying something new adds an extra layer to how connected you feel. Intimacy with room left to discover holds your attention in a way pure routine doesn't."
   },
   F: {
     key: "F",
-    blurb: "You also need emotional grounding underneath it all. Feeling safe shapes how present you can be. When the emotional climate is right, everything else opens up. When it isn't, even the warmest physical closeness has a ceiling."
+    blurb: "You also need emotional grounding underneath it all. Feeling safe shapes how present you can be. When the trust is right, everything else opens up. When it isn't, even the warmest touch has a ceiling."
   },
   G: {
     key: "G",
-    blurb: "You also respond to encouragement. Feeling confident in yourself changes how connected intimacy feels. A partner who genuinely builds you up, not in a hollow way but with specific, true things, unlocks something that physical closeness alone can't."
+    blurb: "You also respond to being told you're wanted, specifically. Feeling irresistible changes how connected intimacy feels. A partner who genuinely makes that clear, not in a hollow way but with real, specific attention, unlocks something physical closeness alone can't."
   },
   H: {
     key: "H",
-    blurb: "You also notice fairness in effort. Mutual initiative adds something that one-sided effort can't. When both people are showing up and choosing this equally, the connection feels categorically different to you than when one person is carrying it."
+    blurb: "You also notice fairness in effort. Mutual initiative adds something one-sided effort can't. When both people are reaching and choosing this equally, the connection feels categorically different to you than when one person is carrying it."
   }
 };

@@ -27,7 +27,7 @@ export const assessments: Assessment[] = [
   {
     slug: "intimacy",
     title: "Intimacy Style",
-    description: "Desire has its own shape. This shows what you crave from a partner in those intimate moments.",
+    description: "What you crave in the moments before, during, and after. This finds the shape of your desire.",
     mode: "receiving"
   },
   {
@@ -39,7 +39,7 @@ export const assessments: Assessment[] = [
   {
     slug: "intimacy-giving",
     title: "How You Desire",
-    description: "Spontaneous, adventurous, slow-burn, or somewhere between. This finds how you like to build intimacy.",
+    description: "The way you build anticipation, initiate, and make someone feel wanted. This is your style of desire.",
     mode: "giving"
   },
 ];

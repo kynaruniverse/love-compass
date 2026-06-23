@@ -70,64 +70,64 @@ export const INTIMACY_CATEGORIES: Record<string, Category> = {
   A: {
     id: "A",
     angle: 0,
-    title: "Verbal Erotic Affirmation",
+    title: "The Spoken Word",
     description:
-      "You feel most desired when attraction is spoken out loud, clearly, specifically, without ambiguity. Words that name what a partner finds irresistible about you don't just turn you on. They make you feel genuinely wanted in a way that body language alone rarely achieves."
+      "You feel most desired when it's said out loud. Not hinted at, not implied through a look across the room, but spoken: what they want, what they've been thinking about, what they like about the way you move. A whispered 'I've been thinking about you all day' does something a hand on your waist alone can't. Without the words, even obvious want can feel like it's missing its main ingredient."
   },
 
   B: {
     id: "B",
     angle: 45,
-    title: "Tender Sensual Touch",
+    title: "The Slow Build",
     description:
-      "You feel most desired through slow, deliberate physical closeness: touch that isn't rushing toward anything, that lingers and pays attention. Warmth and gentleness communicate desire more powerfully to you than intensity or urgency ever could."
+      "You feel most desired in the lead-up, not the destination. Slow kisses that don't rush toward anything, hands that take their time, a closeness that lingers long before it goes anywhere else. Skip the build-up and something is lost, even if everything that follows is good. For you, the unhurried minutes before are the part that makes it unforgettable."
   },
 
   C: {
     id: "C",
     angle: 90,
-    title: "Passionate Initiation",
+    title: "The Initiator",
     description:
-      "You feel most desired when a partner reaches for you with unmistakable intention, when there's no ambiguity about being wanted. Confident, enthusiastic initiation tells you something that careful, tentative approaches never quite do: that the desire is real and unguarded."
+      "You feel most desired when someone reaches for you like they mean it. No fumbling, no waiting for a green light that never quite arrives, just a hand that finds yours, a mouth that finds yours, with zero ambiguity about wanting you right now. Hesitancy reads as doubt to you. Confidence reads as desire."
   },
 
   D: {
     id: "D",
     angle: 135,
-    title: "Being Pursued",
+    title: "The Chase",
     description:
-      "You feel most desired when a partner actively seeks you out: building anticipation, creating moments, making you feel like something worth pursuing rather than something assumed. The chase matters to you, not as a game, but as a signal that you are genuinely wanted."
+      "You feel most desired when the wanting started before you were even in the room. A text earlier that day that made your stomach flip, a look across dinner that promised something for later, the slow-burn anticipation of being pursued rather than simply available. Being wanted in advance hits differently than being wanted in the moment."
   },
 
   E: {
     id: "E",
     angle: 180,
-    title: "Mutual Exploration",
+    title: "The Explorer",
     description:
-      "You feel most desired within intimacy that feels like a genuine collaboration, where both people are curious, present, and equally invested. One-sided encounters leave you cold. What you're drawn to is the sense that you're discovering something together."
+      "You feel most desired when intimacy feels like discovery, not routine. Trying something new, asking what feels good and actually listening to the answer, treating every encounter like there's something left to learn about each other. Going through the motions, even skilled motions, leaves you wanting the curiosity back."
   },
 
   F: {
     id: "F",
     angle: 225,
-    title: "Emotional Safety During Intimacy",
+    title: "The Safe Harbour",
     description:
-      "You feel most desired when intimacy feels safe enough to be fully present in, when trust is the foundation rather than an afterthought. Without emotional grounding, physical closeness feels hollow. Connection for you starts in the body but requires the heart to be open first."
+      "You feel most desired when you trust the room you're in. Safety isn't the opposite of passion for you, it's the precondition for it. Once you know you can be fully seen, undefended, without judgment waiting on the other side, that's when you can actually let go. Without that groundwork, even the most attentive touch keeps something held back."
   },
 
   G: {
     id: "G",
     angle: 270,
-    title: "Confidence & Growth Support",
+    title: "The Spark",
     description:
-      "You feel most desired when a partner sees and affirms your strength, when your confidence is encouraged rather than threatened. Intimacy that makes you feel capable, expanding, and fully yourself is intimacy that works for you. You need to feel like your best self to fully open up."
+      "You feel most desired when someone makes you feel irresistible, not generically attractive, but specifically, undeniably wanted by them. A look that lingers a beat too long, being told exactly what about you is doing it for them. Confidence is contagious for you: the more desired you feel, the more present and uninhibited you become."
   },
 
   H: {
     id: "H",
     angle: 315,
-    title: "Shared Effort & Responsibility",
+    title: "The Equal",
     description:
-      "You feel most desired within intimacy that feels equitable, where both people initiate, both people invest, and neither person is carrying the connection alone. Imbalance disrupts your ability to be fully present. Fairness isn't a condition you impose — it's what makes you feel genuinely met."
+      "You feel most desired when it's mutual in practice, not just in theory. Both people reaching, both people initiating, neither person doing all the work of wanting while the other simply receives it. One-sided effort registers immediately, even mid-moment. For you, desire that flows both ways is the whole point."
   }
 };

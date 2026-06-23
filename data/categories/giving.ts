@@ -63,57 +63,64 @@ export const INTIMACY_GIVING_CATEGORIES: Record<string, Category> = {
   A: {
     id: "A",
     angle: 0,
-    title: "Verbal Erotic Affirmation",
+    title: "The Spoken Word",
     description:
-      "You express desire through words: naming what you find attractive, saying what you want, describing what you feel. You don't leave it to implication. A partner who needs to hear desire spoken clearly and specifically will feel unmistakably wanted by you, in the exact way they most need."
+      "You express desire by saying it. Not vaguely, not through suggestion alone, but in actual words: what you want, what you find irresistible, what you've been thinking about since this morning. You don't make a partner guess. A partner who needs to hear it, not just feel it, will know exactly where they stand with you, every time."
   },
+
   B: {
     id: "B",
     angle: 45,
-    title: "Tender Sensual Touch",
+    title: "The Slow Build",
     description:
-      "You express desire through slow, deliberate physical closeness: touch that lingers, that pays attention, that isn't rushing toward anything. You build connection through warmth before urgency. A partner who feels most desired through tender, unhurried closeness will feel held by you in a way that goes beyond the physical."
+      "You express desire through pacing. Slow kisses, hands that take their time before anything else happens, a deliberate refusal to rush toward an ending when the middle is this good. You treat the build-up as the point, not the obstacle. A partner who craves that unhurried lead-in will feel it from the very first moment you touch them."
   },
+
   C: {
     id: "C",
     angle: 90,
-    title: "Passionate Initiation",
+    title: "The Initiator",
     description:
-      "You express desire by initiating: clearly, confidently, with real energy that leaves no room for ambiguity. You don't hint. You reach. A partner who feels most desired when someone pursues them with unmistakable intention will always know exactly where they stand with you."
+      "You express desire by reaching first. A hand that finds theirs without hesitation, a kiss that starts before either of you has said a word, confidence that leaves zero doubt about what you want and when you want it. You don't wait for an opening. A partner who responds to clear, decisive wanting will feel chosen by you, instantly."
   },
+
   D: {
     id: "D",
     angle: 135,
-    title: "Pursuit & Anticipation",
+    title: "The Chase",
     description:
-      "You express desire by actively seeking someone out: creating moments, building anticipation, making moves that show you were thinking about them before you were in the same room. A partner who feels most desired when genuinely pursued will feel wanted by you in a way that's hard to fake and impossible to miss."
+      "You express desire long before you're in the same room. A message earlier in the day that lingers in someone's mind, a look across a table that promises something for later, the deliberate art of making someone anticipate you. You understand that wanting someone in advance is its own kind of intimacy. A partner who craves pursuit will feel hunted in the best possible way."
   },
+
   E: {
     id: "E",
     angle: 180,
-    title: "Mutual Exploration",
+    title: "The Explorer",
     description:
-      "You express desire through genuine curiosity. You're as interested in a partner's experience as your own, and you stay open to discovering what works rather than defaulting to a script. A partner who values equal, exploratory intimacy will feel truly met by you, not just accommodated."
+      "You express desire through curiosity. You ask what feels good, you pay attention to the answer, you treat every encounter as something to discover rather than repeat. Routine isn't where you live. A partner who wants intimacy to feel like ongoing discovery, not a known script, will find that energy is exactly what you bring."
   },
+
   F: {
     id: "F",
     angle: 225,
-    title: "Emotional Safety",
+    title: "The Safe Harbour",
     description:
-      "You express desire by creating the conditions for it, ensuring a partner feels trusted, steady, and emotionally grounded before anything else. You understand that for some people, safety is the precondition for openness. A partner who needs to feel safe before they can feel close will find in you someone who makes that possible."
+      "You express desire by building trust first. Before anything physical, you make sure a partner feels safe enough to actually be present: undefended, unjudged, free to want what they want without explanation. You understand that for some people, surrender requires safety as its foundation. A partner who needs that groundwork will find you create it instinctively."
   },
+
   G: {
     id: "G",
     angle: 270,
-    title: "Confidence & Encouragement",
+    title: "The Spark",
     description:
-      "You express desire by building a partner up, saying and doing things that make them feel attractive, capable, and celebrated. You understand that confidence and desire are connected, and you actively feed both. A partner who feels most desired when their confidence is supported will flourish in your hands."
+      "You express desire by making someone feel irresistible. Specific, undeniable, the kind of attention that makes a partner feel desired rather than merely noticed. You know exactly what to say and when to say it to make someone feel like the most wanted person in the room. A partner whose confidence rises with desire will come alive around you."
   },
+
   H: {
     id: "H",
     angle: 315,
-    title: "Shared Effort & Equality",
+    title: "The Equal",
     description:
-      "You express desire through genuine equal investment. You initiate, you contribute, you show up as a full partner in the intimate space rather than expecting the other person to carry it. A partner who feels most desired when effort is genuinely shared will feel deeply respected by you, and that respect will read as desire."
+      "You express desire as something mutual, never one-directional. You initiate as often as you receive, you invest as fully as you ask someone else to invest, and you never let wanting become a job for only one person to do. A partner who needs reciprocity to feel real desire will feel fully met by you, every time."
   }
 };

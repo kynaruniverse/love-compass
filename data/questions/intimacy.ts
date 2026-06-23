@@ -1,5 +1,11 @@
 import { QuizQuestion } from "@/types/quiz";
 
+/**
+ * Intimacy Style Test, "How You Desire to Receive"
+ * Questions probe how a person experiences desire and the build toward
+ * intimacy, not just the physical act itself, things that happen before,
+ * during, and around it.
+ */
 export const INTIMACY_QUESTIONS: QuizQuestion[] = [
 
   // ── FORCED-CHOICE (weight 1) ──────────────────────────────────────────────
@@ -8,96 +14,96 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     id: 201,
     type: "forced-choice",
     weight: 1,
-    question: "I feel most sexually desired when my partner:",
+    question: "I feel most wanted when a partner:",
     options: [
-      { letter: "A", text: "Says what they find attractive about me." },
-      { letter: "B", text: "Takes time to be slow and close before things get sexual." },
-      { letter: "C", text: "Initiates with strong, eager energy." },
-      { letter: "D", text: "Makes moves that show they were thinking of me." },
-      { letter: "E", text: "Explores and discovers what I like with genuine curiosity." },
-      { letter: "F", text: "Creates a safe, trusting emotional space." },
-      { letter: "G", text: "Encourages me to feel confident and at ease." },
-      { letter: "H", text: "Shares the effort and planning in the relationship equally." }
+      { letter: "A", text: "Tells me exactly what they've been thinking about doing to me." },
+      { letter: "B", text: "Takes their time, slow kisses, no rush to get anywhere." },
+      { letter: "C", text: "Reaches for me first, no hesitation, no waiting for a sign." },
+      { letter: "D", text: "Has clearly been thinking about this since earlier in the day." },
+      { letter: "E", text: "Stays curious about what I like instead of running a routine." },
+      { letter: "F", text: "Makes the room feel safe enough to let go completely." },
+      { letter: "G", text: "Looks at me like I'm the only thing in the room." },
+      { letter: "H", text: "Wants this as much as I do, and shows it." }
     ]
   },
   {
     id: 202,
     type: "forced-choice",
     weight: 1,
-    question: "During intimacy, I prefer a partner who:",
+    question: "The moment right before things get physical, I want a partner who:",
     options: [
-      { letter: "A", text: "Uses words: praise, desire, clear expression." },
-      { letter: "B", text: "Moves slowly and builds warmth." },
-      { letter: "C", text: "Is direct and passionate." },
-      { letter: "D", text: "Builds anticipation and seeks me out." },
-      { letter: "E", text: "Balances giving and receiving equally." },
-      { letter: "F", text: "Makes sure I feel emotionally safe throughout." },
-      { letter: "G", text: "Supports my confidence and comfort." },
-      { letter: "H", text: "Shares responsibility for the encounter." }
+      { letter: "A", text: "Says something low and specific about what they want." },
+      { letter: "B", text: "Lets the closeness build slowly instead of rushing in." },
+      { letter: "C", text: "Moves with confidence, like there's no question about wanting this." },
+      { letter: "D", text: "Has already been building toward this all evening." },
+      { letter: "E", text: "Treats it like there's something new to find, even somewhere familiar." },
+      { letter: "F", text: "Makes me feel completely at ease before anything else happens." },
+      { letter: "G", text: "Makes me feel irresistible, like they can't help themselves." },
+      { letter: "H", text: "Is just as eager to give as they are to take." }
     ]
   },
   {
     id: 203,
     type: "forced-choice",
     weight: 2,
-    question: "What turns me on most is:",
+    question: "What gets me there fastest is:",
     options: [
-      { letter: "A", text: "Hearing desire spoken clearly and specifically." },
-      { letter: "B", text: "Gentle, warm, unhurried touch." },
-      { letter: "C", text: "Strong, confident initiation." },
-      { letter: "D", text: "Being pursued and sought out with intention." },
-      { letter: "E", text: "Mutual curiosity and discovery." },
-      { letter: "F", text: "Feeling completely safe and trusted." },
-      { letter: "G", text: "Feeling confident and supported." },
-      { letter: "H", text: "Feeling like we're equally in this together." }
+      { letter: "A", text: "Hearing exactly what they want, in plain, unmistakable words." },
+      { letter: "B", text: "A slow, deliberate build that lingers before it goes anywhere." },
+      { letter: "C", text: "Confident, decisive initiation, no fumbling, no asking permission." },
+      { letter: "D", text: "Knowing they've wanted this since long before we were alone." },
+      { letter: "E", text: "Genuine curiosity about what feels good, not a script." },
+      { letter: "F", text: "Trusting the moment completely, no guard left up." },
+      { letter: "G", text: "Feeling unmistakably, specifically desired." },
+      { letter: "H", text: "Feeling like we're both fully in it, equally." }
     ]
   },
   {
     id: 204,
     type: "forced-choice",
     weight: 2,
-    question: "I feel most aroused when:",
+    question: "I feel most turned on when:",
     options: [
-      { letter: "A", text: "My partner tells me they want me." },
-      { letter: "B", text: "There's a slow, sensual build-up." },
-      { letter: "C", text: "My partner is passionate and direct." },
-      { letter: "D", text: "Someone is deliberately building anticipation." },
-      { letter: "E", text: "We're exploring together with no script." },
-      { letter: "F", text: "The emotional connection feels secure." },
-      { letter: "G", text: "I feel confident and encouraged." },
-      { letter: "H", text: "The dynamic feels balanced and equal." }
+      { letter: "A", text: "A partner tells me, in detail, what they want to do." },
+      { letter: "B", text: "There's a long, slow build before anything else happens." },
+      { letter: "C", text: "A partner is direct, certain, and moves like they mean it." },
+      { letter: "D", text: "I can tell they've been thinking about this for hours." },
+      { letter: "E", text: "We're discovering something together, no rehearsed moves." },
+      { letter: "F", text: "I feel completely safe enough to stop overthinking." },
+      { letter: "G", text: "I feel genuinely, specifically wanted, not just convenient." },
+      { letter: "H", text: "It's clearly mutual, both of us reaching for each other." }
     ]
   },
   {
     id: 205,
     type: "forced-choice",
     weight: 1,
-    question: "The best way for a partner to show desire outside the bedroom is:",
+    question: "The best way a partner can build anticipation hours before we're alone is:",
     options: [
-      { letter: "A", text: "Verbally expressing it throughout the day." },
-      { letter: "B", text: "Tender, affectionate touch." },
-      { letter: "C", text: "Passionate, confident moves." },
-      { letter: "D", text: "Seeking me out and creating anticipation." },
-      { letter: "E", text: "Inviting me to explore together." },
-      { letter: "F", text: "Creating emotional safety and closeness." },
-      { letter: "G", text: "Supporting my confidence in everyday life." },
-      { letter: "H", text: "Sharing effort in the relationship equally." }
+      { letter: "A", text: "A message that says exactly what they're thinking about." },
+      { letter: "B", text: "A lingering touch earlier in the day, slow, unhurried." },
+      { letter: "C", text: "Being direct: telling me plainly that they want me tonight." },
+      { letter: "D", text: "Letting me know I've been on their mind all day." },
+      { letter: "E", text: "Hinting at something new they want to try together." },
+      { letter: "F", text: "Checking in emotionally, so I feel grounded going in." },
+      { letter: "G", text: "Telling me something specific they find irresistible about me." },
+      { letter: "H", text: "Showing they're just as invested in tonight as I am." }
     ]
   },
   {
     id: 206,
     type: "forced-choice",
     weight: 1,
-    question: "I feel most connected sexually when:",
+    question: "I feel most connected during intimacy when:",
     options: [
-      { letter: "A", text: "We talk openly about what we want." },
-      { letter: "B", text: "We're slow, close, and fully present." },
-      { letter: "C", text: "There's clear, undeniable passion." },
-      { letter: "D", text: "My partner is actively pursuing me." },
-      { letter: "E", text: "We're discovering together without a plan." },
-      { letter: "F", text: "There's deep trust and emotional safety." },
-      { letter: "G", text: "I feel confident and at ease with them." },
-      { letter: "H", text: "We both show up equally." }
+      { letter: "A", text: "We're saying what we want, out loud, in the moment." },
+      { letter: "B", text: "We're slow, close, and in no rush to get anywhere." },
+      { letter: "C", text: "There's clear, undeniable want from both of us." },
+      { letter: "D", text: "I can feel how long they've been waiting for this." },
+      { letter: "E", text: "We're paying attention, discovering what works without a plan." },
+      { letter: "F", text: "There's enough trust that I can be fully present, no guard up." },
+      { letter: "G", text: "I feel completely desired, not just touched." },
+      { letter: "H", text: "We're both equally lost in it." }
     ]
   },
   {
@@ -106,46 +112,46 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     weight: 1,
     question: "What makes me feel most desired is:",
     options: [
-      { letter: "A", text: "Hearing it, specifically what they find attractive about me." },
-      { letter: "B", text: "Deliberate, unhurried touch that builds slowly." },
-      { letter: "C", text: "Someone who initiates with real passion and energy." },
-      { letter: "D", text: "Being deliberately, unmistakably pursued." },
-      { letter: "E", text: "Genuine mutual curiosity, exploring together." },
-      { letter: "F", text: "Feeling emotionally safe enough to be fully present." },
-      { letter: "G", text: "A partner who makes me feel confident in myself." },
-      { letter: "H", text: "Both of us showing up equally." }
+      { letter: "A", text: "Hearing exactly what they want, no euphemisms, no hinting." },
+      { letter: "B", text: "Touch that takes its time before going anywhere else." },
+      { letter: "C", text: "A partner who reaches for me first, with real certainty." },
+      { letter: "D", text: "Knowing I've been on their mind well before we're together." },
+      { letter: "E", text: "Genuine curiosity about what I actually like." },
+      { letter: "F", text: "Feeling safe enough to be completely present." },
+      { letter: "G", text: "Being told, specifically, what about me does it for them." },
+      { letter: "H", text: "Both of us showing up fully, equally." }
     ]
   },
   {
     id: 208,
     type: "forced-choice",
     weight: 1,
-    question: "In intimate moments, I value:",
+    question: "In intimate moments, what I crave most is:",
     options: [
-      { letter: "A", text: "Things being said: desire and attraction spoken clearly." },
-      { letter: "B", text: "Warmth that builds: slow, close, unhurried." },
-      { letter: "C", text: "Real passion and energy, someone who means it." },
-      { letter: "D", text: "The feeling of being sought out and anticipated." },
-      { letter: "E", text: "Mutual curiosity: no script, genuine discovery." },
-      { letter: "F", text: "Deep trust: feeling completely safe to be myself." },
-      { letter: "G", text: "Feeling confident and at ease in my own skin." },
-      { letter: "H", text: "Equal investment: both of us fully there." }
+      { letter: "A", text: "Words, said low, specific, unmistakable." },
+      { letter: "B", text: "A slow build that lingers, no rush toward the end." },
+      { letter: "C", text: "Real, confident energy, someone who reaches with intention." },
+      { letter: "D", text: "The feeling that this has been building for hours." },
+      { letter: "E", text: "Genuine discovery, no script, no autopilot." },
+      { letter: "F", text: "Deep trust, the kind that lets me fully let go." },
+      { letter: "G", text: "Feeling irresistible, not just present." },
+      { letter: "H", text: "Equal hunger, both of us reaching." }
     ]
   },
   {
     id: 209,
     type: "forced-choice",
     weight: 2,
-    question: "If I could design what intimacy always felt like, it would be:",
+    question: "If I could design exactly what intimacy felt like, it would be:",
     options: [
-      { letter: "A", text: "Verbally expressive: we say what we feel and want." },
-      { letter: "B", text: "Slow and tender: warmth built over time." },
-      { letter: "C", text: "Passionate: clear desire and confident initiation." },
-      { letter: "D", text: "Anticipatory: pursued, sought, and wanted." },
-      { letter: "E", text: "Explorative: curious, mutual, and balanced." },
-      { letter: "F", text: "Safe: deeply trusted and emotionally grounded." },
-      { letter: "G", text: "Empowering: I feel confident and celebrated." },
-      { letter: "H", text: "Equal: both partners fully showing up." }
+      { letter: "A", text: "Verbal: saying exactly what we want, in the moment." },
+      { letter: "B", text: "Slow: a build-up that's savoured, not skipped." },
+      { letter: "C", text: "Passionate: clear want, confident initiation." },
+      { letter: "D", text: "Anticipated: wanted long before we're alone." },
+      { letter: "E", text: "Curious: exploring, never on autopilot." },
+      { letter: "F", text: "Safe: trusted enough to be completely present." },
+      { letter: "G", text: "Electric: feeling unmistakably irresistible." },
+      { letter: "H", text: "Equal: both of us fully reaching for each other." }
     ]
   },
   {
@@ -154,46 +160,46 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     weight: 1,
     question: "I feel most satisfied when intimacy is:",
     options: [
-      { letter: "A", text: "Verbally expressive: desire and attraction said out loud." },
-      { letter: "B", text: "Slow and tender: warmth built over time." },
-      { letter: "C", text: "Passionate and direct: clear want, clear energy." },
-      { letter: "D", text: "Anticipatory: I feel sought out and thought about." },
-      { letter: "E", text: "Mutually curious: both of us genuinely exploring." },
-      { letter: "F", text: "Safe: I feel completely trusted and emotionally grounded." },
-      { letter: "G", text: "Empowering: I feel confident and celebrated." },
-      { letter: "H", text: "Equal: both of us fully invested, fully present." }
+      { letter: "A", text: "Spoken: desire said out loud, not assumed." },
+      { letter: "B", text: "Slow: lingering, unhurried, savoured." },
+      { letter: "C", text: "Direct: clear want, clear energy, no hesitation." },
+      { letter: "D", text: "Anticipated: I feel like I've been wanted all day." },
+      { letter: "E", text: "Curious: both of us genuinely exploring." },
+      { letter: "F", text: "Safe: completely trusted, completely present." },
+      { letter: "G", text: "Charged: I feel desired, not just touched." },
+      { letter: "H", text: "Mutual: both of us fully invested, fully present." }
     ]
   },
   {
     id: 211,
     type: "forced-choice",
     weight: 1,
-    question: "What helps me enjoy intimacy most is:",
+    question: "What helps me let go most during intimacy is:",
     options: [
-      { letter: "A", text: "Desire spoken, clearly and without being prompted." },
-      { letter: "B", text: "Touch that builds slowly and stays warm." },
-      { letter: "C", text: "Clear, confident energy from a partner who means it." },
-      { letter: "D", text: "The feeling that I've been thought about and sought out." },
-      { letter: "E", text: "Genuine mutual discovery: neither of us on autopilot." },
-      { letter: "F", text: "Feeling emotionally safe enough to stop thinking." },
-      { letter: "G", text: "Feeling good about myself in the moment." },
-      { letter: "H", text: "Both of us equally engaged and present." }
+      { letter: "A", text: "Desire spoken plainly, without me having to ask." },
+      { letter: "B", text: "Touch that builds slowly and never rushes." },
+      { letter: "C", text: "Clear, confident energy from someone who means it." },
+      { letter: "D", text: "Feeling like I've been wanted since long before now." },
+      { letter: "E", text: "Genuine discovery, neither of us on autopilot." },
+      { letter: "F", text: "Feeling emotionally safe enough to stop thinking entirely." },
+      { letter: "G", text: "Feeling irresistible in that exact moment." },
+      { letter: "H", text: "Both of us equally engaged, equally present." }
     ]
   },
   {
     id: 212,
     type: "forced-choice",
     weight: 2,
-    question: "The kind of attention that excites me most outside of intimacy is:",
+    question: "The kind of attention that gets under my skin most, hours before anything happens, is:",
     options: [
-      { letter: "A", text: "Being told I'm attractive or wanted." },
-      { letter: "B", text: "Sensual closeness: a touch, a look." },
-      { letter: "C", text: "Confident, direct pursuit." },
-      { letter: "D", text: "Being thought about and sought out." },
-      { letter: "E", text: "An invitation to explore something new together." },
-      { letter: "F", text: "Emotional warmth and reassurance." },
-      { letter: "G", text: "Being encouraged and built up." },
-      { letter: "H", text: "A partner who's genuinely invested and present." }
+      { letter: "A", text: "Being told exactly what they want, in detail." },
+      { letter: "B", text: "A lingering touch, slow, deliberate, unhurried." },
+      { letter: "C", text: "Confident, direct pursuit, no ambiguity." },
+      { letter: "D", text: "Knowing they've been thinking about me all day." },
+      { letter: "E", text: "An invitation to try something neither of us has before." },
+      { letter: "F", text: "Emotional warmth that makes me feel safe going in." },
+      { letter: "G", text: "Being told, specifically, what they find irresistible." },
+      { letter: "H", text: "A partner who's just as invested as I am." }
     ]
   },
 
@@ -204,7 +210,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "likert",
     weight: 1,
     category: "A",
-    question: "Hearing my partner say they find me attractive makes me feel far more desired than any physical action alone.",
+    question: "Hearing a partner say exactly what they want to do to me turns me on more than the act itself sometimes can.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -218,7 +224,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "likert",
     weight: 1,
     category: "F",
-    question: "I find it very difficult to be sexually present if I don't feel emotionally safe with my partner.",
+    question: "I find it very difficult to fully let go during intimacy if I don't feel completely safe and trusted first.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -232,7 +238,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "likert",
     weight: 1,
     category: "C",
-    question: "A partner who initiates clearly and confidently makes me feel deeply wanted.",
+    question: "A partner who reaches for me with no hesitation, no waiting for permission, makes me feel deeply wanted.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -246,7 +252,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "likert",
     weight: 1,
     category: "B",
-    question: "Slow, warm build-up before intimacy is as important to me as the intimacy itself.",
+    question: "A slow, lingering build-up before anything else happens matters to me as much as what comes after.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -260,7 +266,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "likert",
     weight: 1,
     category: "E",
-    question: "I feel most connected when my partner and I are genuinely curious about each other's pleasure.",
+    question: "I feel most alive in intimate moments when a partner is genuinely curious about what feels good to me, not following a routine.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -274,7 +280,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "likert",
     weight: 1,
     category: "D",
-    question: "Knowing my partner has been thinking about being with me before we're even together is a major turn-on.",
+    question: "Knowing a partner has been thinking about being with me hours before we're actually alone is a major turn-on.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -284,14 +290,14 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     ]
   },
 
-  // ── REVERSE-SCORED ────────────────────────────────────────────────────────
+  // ── REVERSE-SCORED (high agreement = LESS of that category) ──────────────
 
   {
     id: 219,
     type: "reverse",
     weight: 1,
     category: "A",
-    question: "I don't need my partner to say anything during intimacy. I prefer actions over words.",
+    question: "I don't really need a partner to say anything during intimacy. Actions tell me everything words would.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -305,7 +311,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "B",
-    question: "I prefer intimacy that gets straight to the point. Long build-ups feel unnecessary to me.",
+    question: "I'd rather skip the slow build entirely and get straight to it. Long lead-ups feel unnecessary to me.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -319,7 +325,7 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     type: "reverse",
     weight: 1,
     category: "F",
-    question: "Emotional connection isn't a prerequisite for me. I can enjoy intimacy without it.",
+    question: "Feeling emotionally safe isn't really a prerequisite for me. I can be fully present without it.",
     options: [
       { letter: "A", text: "Not at all like me" },
       { letter: "B", text: "Slightly like me" },
@@ -329,54 +335,54 @@ export const INTIMACY_QUESTIONS: QuizQuestion[] = [
     ]
   },
 
-  // ── PARALLEL / REWORDED REPEATS ───────────────────────────────────────────
+  // ── PARALLEL / REWORDED REPEATS (high-diagnostic weight 2) ───────────────
 
   {
     id: 222,
     type: "forced-choice",
     weight: 2,
-    question: "After a period of low intimacy in a relationship, what would feel most like a genuine reconnection?",
+    question: "After a stretch of low intimacy in a relationship, what would feel like a genuine spark again?",
     options: [
-      { letter: "A", text: "My partner telling me clearly that they still want and desire me." },
-      { letter: "B", text: "A slow, tender evening with no pressure." },
-      { letter: "C", text: "My partner initiating with clear passion." },
-      { letter: "D", text: "My partner making a deliberate effort to seek me out." },
-      { letter: "E", text: "Exploring something new together." },
-      { letter: "F", text: "An emotionally open conversation first." },
-      { letter: "G", text: "My partner doing something that makes me feel confident and attractive." },
-      { letter: "H", text: "Both of us equally making effort to reconnect." }
+      { letter: "A", text: "A partner telling me plainly that they still want me, in detail." },
+      { letter: "B", text: "A slow, unhurried evening with no pressure toward an ending." },
+      { letter: "C", text: "A partner initiating first, with real, unmistakable intent." },
+      { letter: "D", text: "Feeling like they've been thinking about this all day." },
+      { letter: "E", text: "Trying something new together, breaking the routine." },
+      { letter: "F", text: "An honest, emotionally open conversation first." },
+      { letter: "G", text: "A partner telling me exactly what about me they want." },
+      { letter: "H", text: "Both of us making the effort equally, reaching at the same time." }
     ]
   },
   {
     id: 223,
     type: "forced-choice",
     weight: 2,
-    question: "Outside of intimacy, what your partner does during the day affects how you feel that evening. What matters most?",
+    question: "What a partner does hours before we're alone changes everything about how I feel that night. What matters most?",
     options: [
-      { letter: "A", text: "Them sending a message about how attractive they find me." },
-      { letter: "B", text: "Them being physically affectionate throughout the day." },
-      { letter: "C", text: "Them being decisive and confident in their actions." },
-      { letter: "D", text: "Them making clear they've been thinking about me." },
-      { letter: "E", text: "Them suggesting something new to try or explore together." },
-      { letter: "F", text: "Them being emotionally open and available." },
-      { letter: "G", text: "Them saying or doing something that builds my confidence." },
-      { letter: "H", text: "Them showing up as an equal partner in the day's tasks." }
+      { letter: "A", text: "A message that says, plainly, what they've been thinking." },
+      { letter: "B", text: "Slow, lingering touch earlier in the day." },
+      { letter: "C", text: "A partner being decisive and confident in how they approach me." },
+      { letter: "D", text: "Knowing I've genuinely been on their mind." },
+      { letter: "E", text: "Them suggesting something new to try together." },
+      { letter: "F", text: "Them being emotionally open and present beforehand." },
+      { letter: "G", text: "Them telling me something specific that turns them on about me." },
+      { letter: "H", text: "Them showing they want this exactly as much as I do." }
     ]
   },
   {
     id: 224,
     type: "forced-choice",
     weight: 2,
-    question: "Think about a time you felt genuinely, deeply desired. What was present in that moment?",
+    question: "Think of a time you felt completely, undeniably desired. What was actually happening?",
     options: [
-      { letter: "A", text: "Clear, specific words about how wanted I was." },
-      { letter: "B", text: "Warm, slow, deliberate physical closeness." },
-      { letter: "C", text: "Confident, direct initiation from my partner." },
-      { letter: "D", text: "The feeling of being actively pursued." },
-      { letter: "E", text: "A sense of genuine mutual discovery." },
-      { letter: "F", text: "Deep emotional safety and trust." },
-      { letter: "G", text: "Feeling confident and celebrated." },
-      { letter: "H", text: "A feeling of total equality and shared investment." }
+      { letter: "A", text: "Clear, specific words about exactly how much I was wanted." },
+      { letter: "B", text: "Warm, slow, deliberate touch that took its time." },
+      { letter: "C", text: "Confident, direct initiation, no hesitation at all." },
+      { letter: "D", text: "The sense that I'd been wanted since well before that moment." },
+      { letter: "E", text: "A real sense of mutual discovery, nothing routine." },
+      { letter: "F", text: "Deep trust that let me drop every guard." },
+      { letter: "G", text: "Feeling specifically, undeniably irresistible." },
+      { letter: "H", text: "A total sense of equal hunger, both of us reaching." }
     ]
   }
 ];

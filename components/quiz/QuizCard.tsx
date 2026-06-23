@@ -4,7 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import QuestionView from "./QuestionView";
 import { QuizState } from "@/lib";
 
-function DotProgress({ total, current }: { total: number; current: number }) {
+function DotProgress({
+  total,
+  current,
+  canGoBack,
+  onBack,
+}: {
+  total: number;
+  current: number;
+  canGoBack: boolean;
+  onBack: () => void;
+}) {
   const pct = Math.round((current / total) * 100);
   return (
     <>
@@ -26,7 +36,20 @@ function DotProgress({ total, current }: { total: number; current: number }) {
           }}
         />
       </div>
-      <div className="w-full flex items-center justify-end px-4 pt-2 pb-1 max-w-xl mx-auto">
+      <div className="w-full flex items-center justify-between px-4 pt-2 pb-1 max-w-xl mx-auto">
+        {canGoBack ? (
+          <button
+            type="button"
+            onClick={onBack}
+            className="font-serif text-xs text-[var(--primary)] opacity-60 active:opacity-100 transition-opacity"
+            style={{ padding: "0.25rem 0.5rem", marginLeft: "-0.5rem", minHeight: "32px" }}
+            aria-label="Go back to the previous question"
+          >
+            ← Back
+          </button>
+        ) : (
+          <span aria-hidden="true" />
+        )}
         <span className="font-serif text-xs text-[var(--primary)] opacity-60 tabular-nums">
           {Math.min(current + 1, total)} / {total}
         </span>
@@ -56,7 +79,12 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
       }}
     >
       <div>
-        <DotProgress total={quiz.total} current={quiz.index} />
+        <DotProgress
+          total={quiz.total}
+          current={quiz.index}
+          canGoBack={quiz.canGoBack}
+          onBack={quiz.goBack}
+        />
       </div>
 
       <div className="flex-1 flex items-center overflow-hidden">

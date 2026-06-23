@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ScoreMap, QuizQuestion } from "@/types/quiz";
-import { createEmptyScores, applyAnswer } from "./scoring";
+import { createEmptyScores, applyAnswer, tallyAnswers } from "./scoring";
 
 export interface QuizState {
   index: number;
@@ -14,6 +14,9 @@ export interface QuizState {
   progress: () => number;
   isComplete: boolean;
   answerQuestion: (value: string) => void;
+  /** Step back one question and clear that question's recorded answer. No-op on the first question. */
+  goBack: () => void;
+  canGoBack: boolean;
 }
 
 export function useQuiz(questions: QuizQuestion[]): QuizState {
@@ -37,6 +40,21 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
       // Handle the edge case where currentQuestion is undefined, e.g., log an error or reset quiz
       console.error("Attempted to answer a question that does not exist at index:", index);
     }
+  }, [index, questions]);
+
+  // Step back one question. Re-tallies from the truncated answer list rather
+  // than inverting applyAnswer — safer for reverse-scored questions, which
+  // clamp at 0 and would otherwise lose information needed to undo cleanly.
+  const goBack = useCallback(() => {
+    if (index <= 0) return;
+    if (answering.current) return;
+
+    setAnswers(prev => {
+      const next = prev.slice(0, -1);
+      setScores(tallyAnswers(next, questions));
+      return next;
+    });
+    setIndex(prev => Math.max(0, prev - 1));
   }, [index, questions]);
 
   // Release the double-tap lock after React has committed the updated index.
@@ -68,6 +86,8 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
     index,
     question: currentQuestion as QuizQuestion,
     answerQuestion,
+    goBack,
+    canGoBack: index > 0,
     scores,
     answers,
     progress,
