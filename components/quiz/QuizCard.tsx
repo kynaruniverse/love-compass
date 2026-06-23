@@ -15,34 +15,32 @@ function DotProgress({
   canGoBack: boolean;
   onBack: () => void;
 }) {
+  const questionNum = Math.min(current + 1, total);
   const pct = Math.round((current / total) * 100);
+  const remaining = total - current;
+  const minsLeft = Math.ceil((remaining * 5.5) / 60);
+
   return (
-    <>
+    <div className="lc-progress-shell">
+      {/* Gold gradient bar */}
       <div
-        className="w-full overflow-hidden"
-        style={{ height: 3, background: "var(--surface-muted)" }}
+        className="lc-progress-track"
         role="progressbar"
-        aria-valuenow={Math.min(current + 1, total)}
+        aria-valuenow={questionNum}
         aria-valuemin={1}
         aria-valuemax={total}
-        aria-label="Assessment progress"
-        aria-valuetext={`Question ${Math.min(current + 1, total)} of ${total}`}
+        aria-valuetext={`Question ${questionNum} of ${total}`}
       >
-        <div
-          className="h-full transition-all duration-500 ease-out"
-          style={{
-            width: `${pct}%`,
-            background: "linear-gradient(90deg, #c9a14a 0%, #e8c97a 50%, #c9a14a 100%)",
-          }}
-        />
+        <div className="lc-progress-fill" style={{ width: `${pct}%` }} />
       </div>
-      <div className="w-full flex items-center justify-between px-4 pt-2 pb-1 max-w-xl mx-auto">
+
+      {/* Meta row */}
+      <div className="lc-progress-meta">
         {canGoBack ? (
           <button
             type="button"
             onClick={onBack}
-            className="font-serif text-xs text-[var(--primary)] opacity-60 active:opacity-100 transition-opacity"
-            style={{ padding: "0.25rem 0.5rem", marginLeft: "-0.5rem", minHeight: "32px" }}
+            className="lc-progress-back"
             aria-label="Go back to the previous question"
           >
             ← Back
@@ -50,11 +48,17 @@ function DotProgress({
         ) : (
           <span aria-hidden="true" />
         )}
-        <span className="font-serif text-xs text-[var(--primary)] opacity-60 tabular-nums">
-          {Math.min(current + 1, total)} / {total}
-        </span>
+
+        <div className="lc-progress-info">
+          <span className="lc-progress-count">
+            {questionNum} <span style={{ opacity: 0.4 }}>of</span> {total}
+          </span>
+          {minsLeft > 0 && (
+            <span className="lc-progress-time">· ~{minsLeft} min left</span>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

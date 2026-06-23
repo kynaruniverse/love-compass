@@ -59,152 +59,10 @@ h1, h2, h3 {
   border-radius: 2rem 3.5rem 2rem 3.5rem;
 }
 
-/* Stamp badge — kept for any legacy references */
+/* Stamp badge */
 .stamp-badge {
   border: 1.5px dashed currentColor;
   border-radius: 9999px;
-}
-
-/* ══════════════════════════════════════════
-   QUIZ — QUESTION LAYOUT
-══════════════════════════════════════════ */
-.lc-question-wrap {
-  max-width: 38rem;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 1.25rem;
-}
-
-.lc-question-heading {
-  font-size: clamp(1.2rem, 5vw, 1.6rem);
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-  color: var(--foreground);
-  margin-bottom: 1.5rem;
-  font-family: var(--font-serif), Georgia, serif;
-}
-
-/* ── Likert (scale questions) ── */
-.lc-likert-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.lc-likert-btn {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  padding: 0.9rem 1.1rem;
-  min-height: 58px;
-  border-radius: 1.25rem;
-  border: 1.5px solid var(--border-soft);
-  background: var(--surface);
-  box-shadow: 0 1px 6px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.7);
-  text-align: left;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-}
-
-.lc-likert-btn:hover,
-.lc-likert-btn:focus-visible {
-  border-color: rgba(201,161,74,0.6);
-  background: linear-gradient(135deg, rgba(246,238,216,0.55) 0%, var(--surface) 100%);
-  box-shadow: 0 4px 18px rgba(158,59,78,0.11), inset 0 1px 2px rgba(255,255,255,0.8);
-}
-
-.lc-likert-btn:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-.lc-likert-btn:active {
-  transform: scale(0.99);
-  background: var(--primary-soft);
-  border-color: var(--primary);
-}
-
-.lc-likert-label {
-  flex: 1;
-  font-size: 0.95rem;
-  font-family: var(--font-serif), Georgia, serif;
-  color: var(--foreground);
-  line-height: 1.4;
-}
-
-.lc-likert-arrow {
-  font-size: 0.85rem;
-  opacity: 0;
-  color: var(--accent);
-  transition: opacity 0.15s ease;
-}
-
-.lc-likert-btn:hover .lc-likert-arrow,
-.lc-likert-btn:focus-visible .lc-likert-arrow {
-  opacity: 0.6;
-}
-
-/* ── MCQ grid (forced-choice questions) ── */
-.lc-mcq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.65rem;
-}
-
-.lc-mcq-btn {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: 0.9rem;
-  min-height: 108px;
-  border-radius: 1.25rem;
-  border: 1.5px solid var(--border-soft);
-  background: var(--surface);
-  box-shadow: 0 1px 6px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.7);
-  text-align: left;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.lc-mcq-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' result='noise'/%3E%3CfeColorMatrix in='noise' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-.lc-mcq-btn:hover,
-.lc-mcq-btn:focus-visible {
-  border-color: rgba(201,161,74,0.6);
-  background: linear-gradient(145deg, rgba(246,238,216,0.5) 0%, var(--surface) 100%);
-  box-shadow: 0 4px 18px rgba(158,59,78,0.11), inset 0 1px 2px rgba(255,255,255,0.8);
-}
-
-.lc-mcq-btn:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-.lc-mcq-btn:active {
-  transform: scale(0.98);
-  background: var(--primary-soft);
-  border-color: var(--primary);
-}
-
-.lc-mcq-text {
-  font-size: 0.82rem;
-  font-family: var(--font-serif), Georgia, serif;
-  color: var(--foreground);
-  line-height: 1.45;
-  opacity: 0.9;
 }
 
 /* Quiz page — zero top padding so progress bar is flush to viewport top */
@@ -212,9 +70,287 @@ h1, h2, h3 {
   padding-top: 0 !important;
 }
 
+/* ══════════════════════════════════════════
+   QUIZ — PROGRESS HEADER
+══════════════════════════════════════════ */
+.lc-progress-shell {
+  width: 100%;
+}
+
+.lc-progress-track {
+  width: 100%;
+  height: 3px;
+  background: var(--surface-muted);
+  overflow: hidden;
+}
+
+.lc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c9a14a 0%, #e8c97a 50%, #c9a14a 100%);
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lc-progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0.25rem;
+  max-width: 38rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.lc-progress-back {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--primary);
+  opacity: 0.6;
+  padding: 0.25rem 0.5rem;
+  margin-left: -0.5rem;
+  min-height: 32px;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.15s;
+}
+.lc-progress-back:active { opacity: 1; }
+
+.lc-progress-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lc-progress-count {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  opacity: 0.7;
+  tabular-nums: initial;
+}
+
+.lc-progress-time {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.7rem;
+  color: var(--primary);
+  opacity: 0.4;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   QUIZ — QUESTION VIEW
+══════════════════════════════════════════ */
+.lc-qv-wrap {
+  max-width: 38rem;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.5rem 1.25rem 2rem;
+}
+
+.lc-qv-heading {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.25rem, 5.5vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  margin-bottom: 1.75rem;
+}
+
+/* ── MCQ: editorial full-width rows ── */
+.lc-mcq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.lc-mcq-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.9rem 0.75rem 0.9rem 0.5rem;
+  border-bottom: 1px solid rgba(201, 161, 74, 0.12);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.12s ease, padding-left 0.15s ease;
+  animation: lc-row-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--row-i, 0) * 0.04s);
+  border-radius: 0;
+}
+
+.lc-mcq-row:first-child {
+  border-top: 1px solid rgba(201, 161, 74, 0.12);
+}
+
+.lc-mcq-row:hover,
+.lc-mcq-row:focus-visible {
+  background: linear-gradient(90deg, rgba(246,238,216,0.5) 0%, transparent 100%);
+  padding-left: 0.85rem;
+}
+
+.lc-mcq-row:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+  border-radius: 0.5rem;
+}
+
+.lc-mcq-row:active {
+  background: var(--primary-soft);
+}
+
+.lc-mcq-emoji {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  width: 2rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.lc-mcq-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.lc-mcq-letter {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lc-mcq-text {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  line-height: 1.4;
+}
+
+.lc-mcq-chevron {
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: 0.3;
+  flex-shrink: 0;
+  transition: opacity 0.12s, transform 0.12s;
+}
+
+.lc-mcq-row:hover .lc-mcq-chevron,
+.lc-mcq-row:focus-visible .lc-mcq-chevron {
+  opacity: 0.7;
+  transform: translateX(3px);
+}
+
+/* ── Likert: 5-dot emotional spectrum ── */
+.lc-likert-outer {
+  padding: 1rem 0.5rem 0.5rem;
+  position: relative;
+}
+
+.lc-likert-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  padding: 0 0.25rem;
+}
+
+.lc-likert-labels span {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.7rem;
+  color: var(--primary);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.lc-likert-track {
+  position: absolute;
+  top: calc(1rem + 0.6rem + 1.5rem);
+  left: calc(0.5rem + 1.5rem);
+  right: calc(0.5rem + 1.5rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,161,74,0.15) 0%, rgba(201,161,74,0.45) 50%, rgba(201,161,74,0.15) 100%);
+  pointer-events: none;
+}
+
+.lc-likert-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.lc-likert-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid rgba(201,161,74,0.2);
+  box-shadow: 0 1px 6px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.8);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.15s ease;
+  animation: lc-dot-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--dot-index, 0) * 0.06s);
+}
+
+.lc-likert-dot:hover,
+.lc-likert-dot:focus-visible {
+  border-color: rgba(201,161,74,0.6);
+  box-shadow: 0 4px 14px rgba(158,59,78,0.12), inset 0 1px 2px rgba(255,255,255,0.9);
+  transform: translateY(-2px);
+}
+
+.lc-likert-dot:active {
+  transform: scale(0.95);
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.lc-likert-dot:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.lc-likert-num {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.lc-likert-moon {
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+/* ── Staggered entrance animations ── */
+@keyframes lc-row-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes lc-dot-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .lc-likert-btn,
-  .lc-mcq-btn {
+  .lc-mcq-row,
+  .lc-likert-dot {
+    animation: none !important;
     transition: none !important;
   }
 }
