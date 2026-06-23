@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { NarrativeResult, CategoryResult, ScoreMap, QuizQuestion, Archetype } from "@/types/quiz";
@@ -198,6 +198,7 @@ function ResultsInner() {
   const [scoresForShare, setScoresForShare] = useState<ScoreMap | null>(null);
   const [isSharedView, setIsSharedView] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const originRef = useRef<"own" | "shared" | null>(null);
 
   const loadFrom = useCallback(async (scores: ScoreMap, type: string): Promise<boolean> => {
     const { questions, getAssessmentAssets } = await loadResultAssets(type);
@@ -216,6 +217,22 @@ function ResultsInner() {
     let cancelled = false;
 
     async function load() {
+      const session = loadQuizSession();
+      if (session) {
+        const loaded = await loadFrom(session.scores, session.type);
+        if (!cancelled) {
+          if (loaded) {
+            originRef.current = "own";
+            setIsSharedView(false);
+            const encoded = encodeShareData(session.scores, session.type);
+            router.replace(`/results?d=${encoded}`, { scroll: false });
+          }
+          setIsLoading(false);
+        }
+        return;
+      }
+
+      // No own session — check if someone else shared a result via URL
       const sharedParam = searchParams.get("d");
       if (sharedParam) {
         const decoded = decodeShareData(sharedParam);
@@ -223,30 +240,18 @@ function ResultsInner() {
           try {
             await loadFrom(decoded.scores, decoded.type);
             if (!cancelled) {
+              originRef.current = "shared";
               setIsSharedView(true);
               setIsLoading(false);
             }
             return;
           } catch {
-            // fall through to session
+            // fall through to no-results
           }
         }
       }
 
-      const session = loadQuizSession();
-      if (!session) {
-        if (!cancelled) setIsLoading(false);
-        return;
-      }
-
-      const loaded = await loadFrom(session.scores, session.type);
-      if (!cancelled) {
-        if (loaded) {
-          const encoded = encodeShareData(session.scores, session.type);
-          router.replace(`/results?d=${encoded}`, { scroll: false });
-        }
-        setIsLoading(false);
-      }
+      if (!cancelled) setIsLoading(false);
     }
 
     load();

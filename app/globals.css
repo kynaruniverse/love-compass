@@ -59,52 +59,152 @@ h1, h2, h3 {
   border-radius: 2rem 3.5rem 2rem 3.5rem;
 }
 
-/* Stamp badge */
+/* Stamp badge — kept for any legacy references */
 .stamp-badge {
   border: 1.5px dashed currentColor;
   border-radius: 9999px;
 }
 
 /* ══════════════════════════════════════════
-   QUIZ — ANSWER BUTTONS
+   QUIZ — QUESTION LAYOUT
 ══════════════════════════════════════════ */
-.lc-answer-btn {
+.lc-question-wrap {
+  max-width: 38rem;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1.25rem;
+}
+
+.lc-question-heading {
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* ── Likert (scale questions) ── */
+.lc-likert-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.lc-likert-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  min-height: 58px;
+  border-radius: 1.25rem;
+  border: 1.5px solid var(--border-soft);
+  background: var(--surface);
+  box-shadow: 0 1px 6px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.7);
+  text-align: left;
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.lc-answer-btn:hover {
-  border-color: #c9a14a !important;
-  box-shadow: 0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6) !important;
+.lc-likert-btn:hover,
+.lc-likert-btn:focus-visible {
+  border-color: rgba(201,161,74,0.6);
+  background: linear-gradient(135deg, rgba(246,238,216,0.55) 0%, var(--surface) 100%);
+  box-shadow: 0 4px 18px rgba(158,59,78,0.11), inset 0 1px 2px rgba(255,255,255,0.8);
 }
 
-.lc-answer-btn:focus-visible {
+.lc-likert-btn:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-  border-color: #c9a14a !important;
-  box-shadow: 0 4px 16px rgba(158,59,78,0.13), inset 0 1px 2px rgba(255,255,255,0.6) !important;
 }
 
-.lc-paper-btn {
-  padding: 1rem 1.25rem;
-  min-height: 60px;
-  border: 1.5px solid var(--border-soft);
-  background: var(--surface);
-  box-shadow: 0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6);
-  -webkit-tap-highlight-color: transparent;
+.lc-likert-btn:active {
+  transform: scale(0.99);
+  background: var(--primary-soft);
+  border-color: var(--primary);
 }
 
-/* Compact grid variant — used for forced-choice questions (always 8
-   options). Two columns side by side roughly halve the scroll distance
-   per question versus a single stacked list. Padding and min-height are
-   smaller than .lc-paper-btn since each card is half the width and the
-   badge sits above the text rather than beside it. */
-.lc-answer-grid-btn {
-  padding: 0.85rem 0.85rem;
-  min-height: 96px;
+.lc-likert-label {
+  flex: 1;
+  font-size: 0.95rem;
+  font-family: var(--font-serif), Georgia, serif;
+  color: var(--foreground);
+  line-height: 1.4;
+}
+
+.lc-likert-arrow {
+  font-size: 0.85rem;
+  opacity: 0;
+  color: var(--accent);
+  transition: opacity 0.15s ease;
+}
+
+.lc-likert-btn:hover .lc-likert-arrow,
+.lc-likert-btn:focus-visible .lc-likert-arrow {
+  opacity: 0.6;
+}
+
+/* ── MCQ grid (forced-choice questions) ── */
+.lc-mcq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.lc-mcq-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  min-height: 108px;
+  border-radius: 1.25rem;
   border: 1.5px solid var(--border-soft);
   background: var(--surface);
-  box-shadow: 0 1px 4px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.6);
+  box-shadow: 0 1px 6px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.7);
+  text-align: left;
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lc-mcq-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' result='noise'/%3E%3CfeColorMatrix in='noise' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.lc-mcq-btn:hover,
+.lc-mcq-btn:focus-visible {
+  border-color: rgba(201,161,74,0.6);
+  background: linear-gradient(145deg, rgba(246,238,216,0.5) 0%, var(--surface) 100%);
+  box-shadow: 0 4px 18px rgba(158,59,78,0.11), inset 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.lc-mcq-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.lc-mcq-btn:active {
+  transform: scale(0.98);
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.lc-mcq-text {
+  font-size: 0.82rem;
+  font-family: var(--font-serif), Georgia, serif;
+  color: var(--foreground);
+  line-height: 1.45;
+  opacity: 0.9;
 }
 
 /* Quiz page — zero top padding so progress bar is flush to viewport top */
@@ -113,7 +213,8 @@ h1, h2, h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lc-answer-btn {
+  .lc-likert-btn,
+  .lc-mcq-btn {
     transition: none !important;
   }
 }
