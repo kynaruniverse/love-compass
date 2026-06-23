@@ -2344,3 +2344,265 @@ footer {
     padding: 3rem 2.5rem 0;
   }
 }
+
+/* ══════════════════════════════════════════
+   RESULTS PAGE — REDESIGN (hero / tabs / share strip)
+══════════════════════════════════════════ */
+
+/* ── Hero: full-bleed manuscript panel with watermark initial ── */
+.lc-results-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 -1rem;
+  padding: 3rem 1.5rem 2.25rem;
+  background: linear-gradient(160deg, var(--accent-soft) 0%, var(--background) 55%, var(--primary-soft) 100%);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.lc-results-watermark {
+  position: absolute;
+  top: -1.2rem;
+  right: -0.5rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(9rem, 38vw, 15rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.06;
+  user-select: none;
+  pointer-events: none;
+}
+
+.lc-results-hero-inner {
+  position: relative;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.lc-results-name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(2.1rem, 7vw, 3.2rem);
+  line-height: 1.06;
+  color: var(--primary);
+}
+
+.lc-results-tagline {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.02rem, 3vw, 1.18rem);
+  opacity: 0.72;
+  margin-top: 0.4rem;
+}
+
+.lc-results-intensity {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.85rem;
+}
+
+/* ── "In short" pull-quote card, echoes the editorial-page pull style ── */
+.lc-results-inshort {
+  position: relative;
+  margin-top: 1.4rem;
+  padding: 1.3rem 1.4rem 1.3rem 1.6rem;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(to right, rgba(201,161,74,0.08), rgba(201,161,74,0.02));
+  border-radius: 0 0.6rem 0.6rem 0;
+}
+
+.lc-results-inshort-mark {
+  position: absolute;
+  top: 0.1rem;
+  left: -0.1rem;
+  font-size: 2.1rem;
+  font-family: var(--font-serif), Georgia, serif;
+  color: var(--accent);
+  opacity: 0.35;
+  line-height: 1;
+  user-select: none;
+}
+
+.lc-results-inshort-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+  margin-bottom: 0.35rem;
+}
+
+.lc-results-inshort p {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.08rem);
+  line-height: 1.55;
+  color: var(--foreground);
+  opacity: 0.92;
+}
+
+/* ── Insight tabs (Strengths / Watch For / From a Partner) ── */
+.lc-results-tabbar {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.3rem;
+  background: var(--surface-muted);
+  border-radius: 1.1rem;
+}
+
+.lc-results-tab {
+  flex: 1;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 0.85rem;
+  color: var(--foreground);
+  opacity: 0.55;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lc-results-tab:active {
+  transform: scale(0.97);
+}
+
+.lc-results-tab--active {
+  background: var(--surface);
+  color: var(--primary);
+  opacity: 1;
+  box-shadow: 0 1px 6px rgba(158,59,78,0.12);
+}
+
+.lc-results-tab-panel {
+  padding: 1.5rem 0.25rem 0.25rem;
+}
+
+.lc-results-tab-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.lc-results-tab-panel li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.88;
+}
+
+.lc-results-tab-bullet {
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+@keyframes lc-tab-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lc-results-tab-panel {
+  animation: lc-tab-fade-in 0.25s ease;
+}
+
+/* ── "The full picture" — expanded narrative block further down ── */
+.lc-results-fullpicture-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.lc-results-fullpicture p {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.lc-results-fullpicture p + p {
+  margin-top: 1rem;
+}
+
+/* ── Share strip — slim banner, not a duplicate preview card ── */
+.lc-results-sharestrip {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: 1.5rem;
+  border: 1.5px solid rgba(201,161,74,0.3);
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--surface) 60%);
+  box-shadow: 0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7);
+}
+
+.lc-results-sharestrip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.lc-results-sharestrip-name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+  line-height: 1.25;
+}
+
+.lc-results-sharestrip-dim {
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  opacity: 0.55;
+  margin-top: 0.15rem;
+}
+
+.lc-results-sharestrip-dim strong {
+  color: var(--accent);
+  opacity: 1;
+  font-weight: 700;
+}
+
+.lc-results-sharestrip-ctas {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .lc-results-hero {
+    padding: 4rem 2.5rem 2.75rem;
+    border-radius: 0 0 2rem 2rem;
+  }
+
+  .lc-results-sharestrip-row {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-results-tab-panel {
+    animation: none;
+  }
+}

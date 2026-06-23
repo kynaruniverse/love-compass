@@ -22,7 +22,7 @@ import {
 // NOTE: QUESTION_BANK and getAssessmentAssets are now loaded dynamically
 // per quiz type below, so they are NOT imported statically here.
 import { ResultsProfile, ShareCard } from "@/components/quiz";
-import { Button, PaperCard, GoldStampBadge } from "@/components/ui";
+import { Button, PaperCard, GoldStampBadge, FadeIn } from "@/components/ui";
 import { CompassProfile, ScoreBars } from "@/components/charts";
 
 // ── Dynamic asset loader ───────────────────────────────────────────────────
@@ -314,15 +314,16 @@ function ResultsInner() {
       <ChartToggle profile={profile} />
 
       {!isSharedView && (
-        <section aria-labelledby="share-heading" className="space-y-2">
-          <h2 id="share-heading" className="font-serif text-2xl font-bold text-[var(--primary)]">Share Your Result</h2>
-          <ShareCard
-            result={result}
-            profile={profile}
-            quizType={quizType}
-            shareUrl={scoresForShare ? buildShareUrl(scoresForShare, quizType) : undefined}
-          />
-        </section>
+        <FadeIn>
+          <section aria-label="Share your result">
+            <ShareCard
+              result={result}
+              profile={profile}
+              quizType={quizType}
+              shareUrl={scoresForShare ? buildShareUrl(scoresForShare, quizType) : undefined}
+            />
+          </section>
+        </FadeIn>
       )}
 
       <div className="flex flex-wrap gap-3">
