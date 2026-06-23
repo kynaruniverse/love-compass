@@ -137,219 +137,224 @@ h1, h2, h3 {
 }
 
 /* ══════════════════════════════════════════
-   QUIZ — QUESTION VIEW
+   QUIZ — QUESTION CARD (compass-card design)
 ══════════════════════════════════════════ */
-.lc-qv-wrap {
+.lc-qcard-wrap {
   max-width: 38rem;
   margin: 0 auto;
   width: 100%;
   padding: 0.5rem 1.25rem 2rem;
 }
 
-.lc-qv-heading {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.25rem, 5.5vw, 1.65rem);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-  color: var(--foreground);
-  margin-bottom: 1.75rem;
-}
-
-/* ── MCQ: editorial full-width rows ── */
-.lc-mcq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.lc-mcq-row {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  width: 100%;
-  padding: 0.9rem 0.75rem 0.9rem 0.5rem;
-  border-bottom: 1px solid rgba(201, 161, 74, 0.12);
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: background 0.12s ease, padding-left 0.15s ease;
-  animation: lc-row-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--row-i, 0) * 0.04s);
-  border-radius: 0;
-}
-
-.lc-mcq-row:first-child {
-  border-top: 1px solid rgba(201, 161, 74, 0.12);
-}
-
-.lc-mcq-row:hover,
-.lc-mcq-row:focus-visible {
-  background: linear-gradient(90deg, rgba(246,238,216,0.5) 0%, transparent 100%);
-  padding-left: 0.85rem;
-}
-
-.lc-mcq-row:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: -2px;
-  border-radius: 0.5rem;
-}
-
-.lc-mcq-row:active {
-  background: var(--primary-soft);
-}
-
-.lc-mcq-emoji {
-  font-size: 1.35rem;
-  flex-shrink: 0;
-  width: 2rem;
-  text-align: center;
-  line-height: 1;
-}
-
-.lc-mcq-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.lc-mcq-letter {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--accent);
-  opacity: 0.7;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.lc-mcq-text {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.95rem;
-  color: var(--foreground);
-  line-height: 1.4;
-}
-
-.lc-mcq-chevron {
-  font-size: 1.2rem;
-  color: var(--accent);
-  opacity: 0.3;
-  flex-shrink: 0;
-  transition: opacity 0.12s, transform 0.12s;
-}
-
-.lc-mcq-row:hover .lc-mcq-chevron,
-.lc-mcq-row:focus-visible .lc-mcq-chevron {
-  opacity: 0.7;
-  transform: translateX(3px);
-}
-
-/* ── Likert: 5-dot emotional spectrum ── */
-.lc-likert-outer {
-  padding: 1rem 0.5rem 0.5rem;
+/* -- The question card: tilted, sitting on two ghost layers behind
+   it, same visual language as the results hero so the quiz and
+   results feel like one continuous object. Ghost layers are sized
+   via percentages of the wrap, not fixed insets, so they track the
+   card's real height as question text length varies. -- */
+.lc-qcard-stack {
   position: relative;
+  padding: 0.75rem 0.4rem 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.lc-likert-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.6rem;
-  padding: 0 0.25rem;
-}
-
-.lc-likert-labels span {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.7rem;
-  color: var(--primary);
-  opacity: 0.5;
-  font-style: italic;
-}
-
-.lc-likert-track {
+.lc-qcard-ghosts {
   position: absolute;
-  top: calc(1rem + 0.6rem + 1.5rem);
-  left: calc(0.5rem + 1.5rem);
-  right: calc(0.5rem + 1.5rem);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(201,161,74,0.15) 0%, rgba(201,161,74,0.45) 50%, rgba(201,161,74,0.15) 100%);
-  pointer-events: none;
-}
-
-.lc-likert-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
+  inset: 0;
   z-index: 1;
 }
 
-.lc-likert-dot {
+.lc-qcard-ghost {
+  position: absolute;
+  top: 10%;
+  bottom: 14%;
+  left: 4%;
+  right: 4%;
+  border-radius: 1.4rem;
+  border: 1px solid var(--border-soft);
+}
+
+.lc-qcard-ghost--back {
+  background: var(--surface-muted);
+  transform: rotate(-3.5deg) translateY(0.5%);
+  opacity: 0.6;
+}
+
+.lc-qcard-ghost--mid {
+  background: var(--accent-soft);
+  transform: rotate(2.5deg) translateY(0.25%);
+  opacity: 0.8;
+}
+
+.lc-qcard-card {
+  position: relative;
+  z-index: 3;
+  transform: rotate(-1deg);
+  background: var(--surface);
+  border-radius: 1.4rem;
+  border: 1px solid var(--border-soft);
+  border-top: 3px solid var(--accent);
+  padding: 1.75rem 1.5rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    0 12px 12px -8px rgba(40, 20, 15, 0.14),
+    0 22px 28px -16px rgba(158, 59, 78, 0.18);
+}
+
+.lc-qcard-question {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.2rem, 5.2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+/* -- Forced-choice: rows below the card, dot indicator instead of
+   emoji/chevron, soft rounded background on tap -- */
+.lc-qoptions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem;
-  min-width: 52px;
-  min-height: 52px;
-  border-radius: 50%;
+  gap: 0.55rem;
+}
+
+.lc-qoption-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 0.95rem;
   background: var(--surface);
-  border: 1.5px solid rgba(201,161,74,0.2);
-  box-shadow: 0 1px 6px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.8);
+  border: 1.5px solid var(--border-soft);
+  border-radius: 1rem;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  animation: lc-qrow-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--row-i, 0) * 0.035s);
+}
+
+.lc-qoption-row:hover,
+.lc-qoption-row:focus-visible {
+  border-color: rgba(201,161,74,0.55);
+  background: var(--accent-soft);
+}
+
+.lc-qoption-row:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.lc-qoption-row:active {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  transform: scale(0.99);
+}
+
+.lc-qoption-dot {
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--accent);
+  opacity: 0.45;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.lc-qoption-row:hover .lc-qoption-dot,
+.lc-qoption-row:active .lc-qoption-dot {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.lc-qoption-text {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--foreground);
+}
+
+/* -- Likert: 5 large square tap targets, generous thumb size -- */
+.lc-qscale {
+  padding: 0.5rem 0.1rem 0.5rem;
+  margin: 0 -0.35rem;
+}
+
+.lc-qscale-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  padding: 0 0.15rem;
+}
+
+.lc-qscale-labels span {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--primary);
+  opacity: 0.55;
+  font-style: italic;
+}
+
+.lc-qscale-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lc-qscale-btn {
+  flex: 1;
+  aspect-ratio: 1;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1.5px solid var(--border-soft);
+  border-radius: 1rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: all 0.15s ease;
-  animation: lc-dot-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--dot-index, 0) * 0.06s);
+  animation: lc-qbtn-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--btn-index, 0) * 0.05s);
 }
 
-.lc-likert-dot:hover,
-.lc-likert-dot:focus-visible {
+.lc-qscale-btn:hover,
+.lc-qscale-btn:focus-visible {
   border-color: rgba(201,161,74,0.6);
-  box-shadow: 0 4px 14px rgba(158,59,78,0.12), inset 0 1px 2px rgba(255,255,255,0.9);
+  box-shadow: 0 4px 14px rgba(158,59,78,0.12);
   transform: translateY(-2px);
 }
 
-.lc-likert-dot:active {
-  transform: scale(0.95);
-  background: var(--primary-soft);
-  border-color: var(--primary);
-}
-
-.lc-likert-dot:focus-visible {
+.lc-qscale-btn:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
-.lc-likert-num {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--accent);
-  line-height: 1;
+.lc-qscale-btn:active {
+  transform: scale(0.94);
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
-.lc-likert-moon {
-  font-size: 0.75rem;
-  line-height: 1;
-  opacity: 0.6;
+/* -- Staggered entrance animations -- */
+@keyframes lc-qrow-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Staggered entrance animations ── */
-@keyframes lc-row-in {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes lc-dot-in {
-  from { opacity: 0; transform: translateY(8px) scale(0.9); }
+@keyframes lc-qbtn-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lc-mcq-row,
-  .lc-likert-dot {
+  .lc-qoption-row,
+  .lc-qscale-btn {
     animation: none !important;
     transition: none !important;
   }
