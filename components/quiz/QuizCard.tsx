@@ -66,6 +66,11 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
     if (quiz.index !== prevIndex.current) {
       prevIndex.current = quiz.index;
       setAnimKey(k => k + 1);
+      // Each question can render a different number of options, so the page
+      // height changes between questions. Without this, advancing from a
+      // question answered near the bottom of a long list leaves the next
+      // question scrolled out of view instead of starting at its heading.
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [quiz.index]);
 

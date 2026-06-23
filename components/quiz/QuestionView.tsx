@@ -3,11 +3,12 @@
 import { useId } from "react";
 import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
 
-function GoldBadge({ label }: { label: string }) {
+function GoldBadge({ label, small }: { label: string; small?: boolean }) {
+  const size = small ? "w-6 h-6" : "w-7 h-7";
   return (
     <span
       aria-hidden="true"
-      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold"
+      className={`flex-shrink-0 ${size} rounded-full flex items-center justify-center text-xs font-semibold`}
       style={{
         background: "var(--accent-soft)",
         color: "var(--accent)",
@@ -66,38 +67,49 @@ export default function QuestionView({
         {question.question}
       </h2>
 
-      <div className="space-y-2 sm:space-y-3" role="radiogroup" aria-labelledby={headingId}>
-        {isScale
-          ? LIKERT_LABELS.map((label, i) => {
-              const value = String(i + 1);
-              return (
-                <button
-                  key={value}
-                  type="button"
-                  onClick={() => onAnswer(value)}
-                  aria-label={`${value} out of 5 — ${label}`}
-                  className="lc-answer-btn lc-paper-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex items-center gap-4"
-                  {...answerButtonPointerHandlers}
-                >
-                  <GoldBadge label={value} />
-                  <span className="text-base font-serif" style={{ color: "var(--foreground)" }}>{label}</span>
-                </button>
-              );
-            })
-          : question.options.map(opt => (
+      {isScale ? (
+        <div className="space-y-2 sm:space-y-3" role="radiogroup" aria-labelledby={headingId}>
+          {LIKERT_LABELS.map((label, i) => {
+            const value = String(i + 1);
+            return (
               <button
-                key={opt.letter}
+                key={value}
                 type="button"
-                onClick={() => onAnswer(opt.letter)}
+                onClick={() => onAnswer(value)}
+                aria-label={`${value} out of 5 — ${label}`}
                 className="lc-answer-btn lc-paper-btn w-full text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex items-center gap-4"
                 {...answerButtonPointerHandlers}
               >
-                <GoldBadge label={opt.letter} />
-                <span className="text-base font-serif" style={{ color: "var(--foreground)" }}>{opt.text}</span>
+                <GoldBadge label={value} />
+                <span className="text-base font-serif" style={{ color: "var(--foreground)" }}>{label}</span>
               </button>
-            ))
-        }
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        // Forced-choice questions always carry all 8 categories as options.
+        // A 2-column grid of compact cards fits roughly twice as much on
+        // screen as a single stacked column, cutting the scroll distance
+        // per question by about half.
+        <div
+          className="grid grid-cols-2 gap-2 sm:gap-3"
+          role="radiogroup"
+          aria-labelledby={headingId}
+        >
+          {question.options.map(opt => (
+            <button
+              key={opt.letter}
+              type="button"
+              onClick={() => onAnswer(opt.letter)}
+              className="lc-answer-btn lc-paper-btn lc-answer-grid-btn text-left rounded-2xl transition-all duration-150 active:scale-[1.02] active:bg-[var(--primary-soft)] flex flex-col gap-2"
+              {...answerButtonPointerHandlers}
+            >
+              <GoldBadge label={opt.letter} small />
+              <span className="text-sm font-serif leading-snug" style={{ color: "var(--foreground)" }}>{opt.text}</span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
