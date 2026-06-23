@@ -2346,36 +2346,88 @@ footer {
 }
 
 /* ══════════════════════════════════════════
-   RESULTS PAGE — REDESIGN (hero / tabs / share strip)
+   RESULTS PAGE — REDESIGN (tilted hero / merged visual / tabs / share strip)
 ══════════════════════════════════════════ */
 
-/* ── Hero: full-bleed manuscript panel with watermark initial ── */
-.lc-results-hero {
+/* ── Hero: faux-3D tilted card, stacked on two ghost layers behind it ── */
+.lc-results-hero-wrap {
   position: relative;
-  overflow: hidden;
-  margin: 0 -1rem;
-  padding: 3rem 1.5rem 2.25rem;
-  background: linear-gradient(160deg, var(--accent-soft) 0%, var(--background) 55%, var(--primary-soft) 100%);
-  border-bottom: 1px solid var(--border-soft);
+  padding: 1.75rem 0.5rem 2rem;
 }
 
-.lc-results-watermark {
+.lc-results-hero-wrap::before,
+.lc-results-hero-wrap::after {
+  content: "";
   position: absolute;
-  top: -1.2rem;
-  right: -0.5rem;
+  inset: 1.5rem 1.25rem 2.25rem 1.25rem;
+  border-radius: 1.6rem;
+  border: 1px solid var(--border-soft);
+}
+
+.lc-results-hero-wrap::before {
+  background: var(--surface-muted);
+  transform: rotate(-5deg) translateY(8px);
+  opacity: 0.65;
+  z-index: 1;
+}
+
+.lc-results-hero-wrap::after {
+  background: var(--accent-soft);
+  transform: rotate(3.5deg) translateY(4px);
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.lc-results-hero-card {
+  position: relative;
+  z-index: 3;
+  transform: rotate(-1.4deg);
+  background: var(--surface);
+  border-radius: 1.6rem;
+  border: 1px solid var(--border-soft);
+  padding: 2.25rem 1.5rem 1.75rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    0 16px 14px -10px rgba(40, 20, 15, 0.16),
+    0 28px 36px -18px rgba(158, 59, 78, 0.22);
+}
+
+.lc-results-hero-card .paper-texture {
+  border-radius: inherit;
+}
+
+/* Wax-seal tag — replaces the dashed pill badge for this page */
+.lc-results-seal {
+  position: absolute;
+  top: -16px;
+  right: 14px;
+  z-index: 4;
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(9deg);
+  background: radial-gradient(circle at 35% 30%, #f8e6a8 0%, #c9a14a 55%, #8a6520 100%);
+  border: 2px solid rgba(255,255,255,0.55);
+  box-shadow: 0 5px 12px rgba(110, 78, 20, 0.35), inset 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.lc-results-seal-text {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(9rem, 38vw, 15rem);
   font-weight: 700;
-  line-height: 1;
-  color: var(--primary);
-  opacity: 0.06;
-  user-select: none;
-  pointer-events: none;
+  font-size: 0.56rem;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4a3410;
 }
 
 .lc-results-hero-inner {
   position: relative;
-  max-width: 42rem;
+  max-width: 40rem;
   margin: 0 auto;
 }
 
@@ -2383,15 +2435,15 @@ footer {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 700;
   letter-spacing: -0.01em;
-  font-size: clamp(2.1rem, 7vw, 3.2rem);
-  line-height: 1.06;
+  font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+  line-height: 1.08;
   color: var(--primary);
 }
 
 .lc-results-tagline {
   font-family: var(--font-serif), Georgia, serif;
   font-style: italic;
-  font-size: clamp(1.02rem, 3vw, 1.18rem);
+  font-size: clamp(1rem, 2.8vw, 1.12rem);
   opacity: 0.72;
   margin-top: 0.4rem;
 }
@@ -2405,7 +2457,7 @@ footer {
   margin-top: 0.85rem;
 }
 
-/* ── "In short" pull-quote card, echoes the editorial-page pull style ── */
+/* "In short" pull-quote, echoes the editorial-page pull style */
 .lc-results-inshort {
   position: relative;
   margin-top: 1.4rem;
@@ -2413,18 +2465,6 @@ footer {
   border-left: 3px solid var(--accent);
   background: linear-gradient(to right, rgba(201,161,74,0.08), rgba(201,161,74,0.02));
   border-radius: 0 0.6rem 0.6rem 0;
-}
-
-.lc-results-inshort-mark {
-  position: absolute;
-  top: 0.1rem;
-  left: -0.1rem;
-  font-size: 2.1rem;
-  font-family: var(--font-serif), Georgia, serif;
-  color: var(--accent);
-  opacity: 0.35;
-  line-height: 1;
-  user-select: none;
 }
 
 .lc-results-inshort-eyebrow {
@@ -2440,13 +2480,31 @@ footer {
 .lc-results-inshort p {
   font-family: var(--font-serif), Georgia, serif;
   font-style: italic;
-  font-size: clamp(1rem, 3vw, 1.08rem);
+  font-size: clamp(0.98rem, 2.8vw, 1.05rem);
   line-height: 1.55;
   color: var(--foreground);
   opacity: 0.92;
 }
 
-/* ── Insight tabs (Strengths / Watch For / From a Partner) ── */
+/* ── Merged visual: compass + score list, one section instead of two ── */
+.lc-results-visual-tag {
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transform: rotate(-1.6deg);
+  margin-bottom: 0.4rem;
+}
+
+.lc-results-visual-divider {
+  height: 1px;
+  margin: 1.6rem 0 1.5rem;
+  background: linear-gradient(90deg, transparent, var(--border-soft) 20%, var(--border-soft) 80%, transparent);
+}
+
+/* ── Insight tabs (Strengths / Growth Edges / From a Partner) ── */
 .lc-results-tabbar {
   display: flex;
   gap: 0.4rem;
@@ -2521,7 +2579,7 @@ footer {
   animation: lc-tab-fade-in 0.25s ease;
 }
 
-/* ── "The full picture" — expanded narrative block further down ── */
+/* "The full picture" — expanded narrative block further down */
 .lc-results-fullpicture-eyebrow {
   font-size: 0.7rem;
   font-weight: 600;
@@ -2552,7 +2610,7 @@ footer {
   padding: 1.25rem 1.4rem;
   border-radius: 1.5rem;
   border: 1.5px solid rgba(201,161,74,0.3);
-  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--surface) 60%);
+  background: var(--surface);
   box-shadow: 0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7);
 }
 
@@ -2591,9 +2649,8 @@ footer {
 }
 
 @media (min-width: 640px) {
-  .lc-results-hero {
-    padding: 4rem 2.5rem 2.75rem;
-    border-radius: 0 0 2rem 2rem;
+  .lc-results-hero-card {
+    padding: 2.75rem 2.5rem 2.25rem;
   }
 
   .lc-results-sharestrip-row {

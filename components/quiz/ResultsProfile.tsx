@@ -2,21 +2,24 @@
 
 import { useMemo, useState } from "react";
 import { CategoryResult, NarrativeResult } from "@/types/quiz";
-import { ProgressBar, PaperCard, FadeIn } from "@/components/ui";
+import { PaperCard, FadeIn } from "@/components/ui";
+import { CompassProfile, ScoreBars } from "@/components/charts";
 import { getIntensity } from "@/lib";
 
-type TabKey = "strengths" | "watchFor" | "partner";
+type TabKey = "strengths" | "growthEdges" | "partner";
 
 export default function ResultsProfile({
   profile,
   result,
   blend,
-  mode = "receiving"
+  mode = "receiving",
+  isSharedView = false,
 }: {
   profile: CategoryResult[];
   result: NarrativeResult;
   blend: CategoryResult[];
   mode?: "receiving" | "giving";
+  isSharedView?: boolean;
 }) {
   const { primary, secondary } = result;
   const [activeTab, setActiveTab] = useState<TabKey>("strengths");
@@ -26,48 +29,44 @@ export default function ResultsProfile({
     [blend, primary.key]
   );
 
-  // Lead paragraph becomes the punchy "In short" pull quote; everything
-  // after that — plus the secondary flavour blurb — becomes "The full picture".
+  // Lead paragraph becomes the "In short" pull quote; everything after that,
+  // plus the secondary flavour blurb, becomes "The full picture" further down.
   const [leadParagraph, ...restParagraphs] = primary.narrative;
-
-  // Watermark initial — skip a leading "The " so e.g. "The Somatic Lover" -> "S".
-  const watermarkLetter = useMemo(() => {
-    const words = primary.name.replace(/^The\s+/i, "").split(" ");
-    return (words[0]?.[0] ?? primary.name[0] ?? "?").toUpperCase();
-  }, [primary.name]);
 
   const tabs: { key: TabKey; label: string; items: string[] }[] = [
     { key: "strengths", label: "Strengths", items: primary.strengths },
-    { key: "watchFor", label: "Watch For", items: primary.watchOuts },
-    {
-      key: "partner",
-      label: mode === "giving" ? "Who Receives You Best" : "From a Partner",
-      items: primary.partnerNeeds,
-    },
+    { key: "growthEdges", label: "Growth Edges", items: primary.watchOuts },
+    { key: "partner", label: "From a Partner", items: primary.partnerNeeds },
   ];
 
   return (
     <div className="space-y-6 sm:space-y-8">
 
-      {/* -- Hero spotlight: full-bleed manuscript panel with watermark initial -- */}
+      {/* -- Hero: faux-3D tilted card, stacked on ghost layers -- */}
       <FadeIn>
-        <div className="lc-results-hero">
-          <span className="lc-results-watermark" aria-hidden="true">{watermarkLetter}</span>
-          <div className="lc-results-hero-inner">
-            <h2 className="lc-results-name">{primary.name}</h2>
-            <p className="lc-results-tagline">{primary.tagline}</p>
+        <div className="lc-results-hero-wrap">
+          <div className="lc-results-hero-card">
+            <span className="lc-results-seal" aria-hidden="true">
+              <span className="lc-results-seal-text">
+                {isSharedView ? <>Their<br />Result</> : <>Your<br />Result</>}
+              </span>
+            </span>
 
-            {profile[0] && (
-              <p className="lc-results-intensity">{getIntensity(profile[0].percentage)}</p>
-            )}
+            <div className="lc-results-hero-inner">
+              <h2 className="lc-results-name">{primary.name}</h2>
+              <p className="lc-results-tagline">{primary.tagline}</p>
 
-            {leadParagraph && (
-              <div className="lc-results-inshort">
-                <span className="lc-results-inshort-mark" aria-hidden="true">&ldquo;</span>
-                <p className="lc-results-inshort-eyebrow">In short</p>
-                <p>{leadParagraph}</p>
-              </div>
-            )}
+              {profile[0] && (
+                <p className="lc-results-intensity">{getIntensity(profile[0].percentage)}</p>
+              )}
+
+              {leadParagraph && (
+                <div className="lc-results-inshort">
+                  <p className="lc-results-inshort-eyebrow">In short</p>
+                  <p>{leadParagraph}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </FadeIn>
@@ -84,18 +83,18 @@ export default function ResultsProfile({
             <p className="text-sm leading-relaxed opacity-80 font-serif" style={{ fontSize: 15 }}>
               You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
               {blendRest.length === 1 && blendRest[0] && (
-                <> -- but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
+                <>, but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
               )}
               {blendRest.length === 2 && blendRest[0] && blendRest[1] && (
-                <> -- but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
+                <>, but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
               )}
-              {" "}Rather than a single fixed label, think of your results as a blend -- these dimensions work alongside your primary type in how you {mode === "giving" ? "naturally express love and desire" : "experience love and connection"}.
+              {" "}Rather than a single fixed label, think of your results as a blend, with these dimensions working alongside your primary type in how you {mode === "giving" ? "naturally express love and desire" : "experience love and connection"}.
             </p>
           </div>
         </PaperCard>
       )}
 
-      {/* -- Insight tabs -- Strengths / Watch For / From a Partner -- */}
+      {/* -- Insight tabs -- Strengths / Growth Edges / From a Partner -- */}
       <PaperCard className="rounded-3xl p-5 sm:p-6" borderColor="rgba(201,161,74,0.25)">
         <div
           className="lc-results-tabbar"
@@ -152,34 +151,19 @@ export default function ResultsProfile({
         </section>
       )}
 
-      {/* -- Full profile breakdown -- */}
+      {/* -- Merged visual: compass + score list, one section instead of two -- */}
       {profile.length > 0 && (
-        <section aria-label="Full Profile Breakdown" className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-[var(--primary)]">
-            Full Profile Breakdown
-          </h2>
-          <div className="space-y-3">
-            {profile.map(cat => {
-              const isPrimary = cat.key === primary.key;
-              return (
-                <div key={cat.key} className="space-y-1">
-                  <div className="flex justify-between text-sm font-serif">
-                    <span className="font-medium" style={{ color: isPrimary ? "var(--primary)" : undefined }}>
-                      {isPrimary && <span aria-hidden="true" style={{ color: "var(--accent)", marginRight: "0.3rem" }}>◆</span>}
-                      {cat.title}
-                    </span>
-                    <span
-                      className="font-semibold"
-                      style={{ color: isPrimary ? "var(--accent)" : undefined, opacity: isPrimary ? 1 : 0.5 }}
-                    >
-                      {cat.percentage}%
-                    </span>
-                  </div>
-                  <ProgressBar value={cat.percentage} />
-                </div>
-              );
-            })}
-          </div>
+        <section aria-label="Your full profile">
+          <PaperCard
+            className="rounded-3xl p-5 sm:p-7"
+            borderColor="rgba(201,161,74,0.25)"
+            shadow="0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)"
+          >
+            <span className="lc-results-visual-tag">Your Full Profile</span>
+            <CompassProfile profile={profile} />
+            <div className="lc-results-visual-divider" aria-hidden="true" />
+            <ScoreBars profile={profile} />
+          </PaperCard>
         </section>
       )}
     </div>

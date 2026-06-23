@@ -22,8 +22,7 @@ import {
 // NOTE: QUESTION_BANK and getAssessmentAssets are now loaded dynamically
 // per quiz type below, so they are NOT imported statically here.
 import { ResultsProfile, ShareCard } from "@/components/quiz";
-import { Button, PaperCard, GoldStampBadge, FadeIn } from "@/components/ui";
-import { CompassProfile, ScoreBars } from "@/components/charts";
+import { Button, PaperCard, FadeIn } from "@/components/ui";
 
 // ── Dynamic asset loader ───────────────────────────────────────────────────
 // Loads only the archetype data + question bank for the quiz type being
@@ -66,7 +65,7 @@ function NoResults() {
             No results found
           </p>
           <p className="font-serif opacity-60 leading-relaxed" style={{ fontSize: 15 }}>
-            Results aren't saved anywhere — they only exist for the
+            Results aren't saved anywhere. They only exist for the
             browser tab that completed the assessment, or in a shared
             link. If you refreshed, closed the tab, or this link is
             incomplete, you'll need to take the assessment again.
@@ -83,14 +82,13 @@ function NoResults() {
 function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quizType: string }) {
   return (
     <div className="space-y-3">
-      <GoldStampBadge>{isSharedView ? "Shared Result" : "Your Result"}</GoldStampBadge>
       <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary)]">
         {isSharedView ? <>Here's who they are<br />in love.</> : <>Here's who you are<br />in love.</>}
       </h1>
       <p className="font-serif leading-relaxed max-w-xl" style={{ fontSize: 15, opacity: 0.7 }}>
         Based on {isSharedView ? "their" : "your"}{" "}
         {getQuizTypeLabel(quizType)}{" "}
-        assessment. {isSharedView ? "" : "Sit with this — most people find it more accurate than they expected."}
+        assessment. {isSharedView ? "" : "Sit with this. Most people find it more accurate than they expected."}
       </p>
 
       {isGivingMode(quizType) && (
@@ -106,7 +104,7 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
         >
           <p className="font-medium text-[var(--foreground)] mb-1">You're looking at how you give.</p>
           <p className="opacity-80">
-            This is how you naturally express love and desire — the specific way you show up for
+            This is how you naturally express love and desire: the specific way you show up for
             a partner without even thinking about it. The interesting part is what happens when
             you compare this to how you need to receive.{" "}
             <Link
@@ -120,42 +118,6 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
         </aside>
       )}
     </div>
-  );
-}
-
-type ViewMode = "bars" | "compass";
-
-function ChartToggle({ profile }: { profile: CategoryResult[] }) {
-  const [view, setView] = useState<ViewMode>("compass");
-  return (
-    <section aria-labelledby="chart-toggle-heading" className="space-y-4">
-      <div className="flex items-center justify-between flex-wrap gap-2">
-        <h2 id="chart-toggle-heading" className="font-serif text-2xl font-bold text-[var(--primary)]">Visual Profile</h2>
-        <div className="flex gap-2" role="group" aria-label="Chart view toggle">
-          <Button
-            variant={view === "compass" ? "primary" : "secondary"}
-            onClick={() => setView("compass")}
-            aria-pressed={view === "compass"}
-          >
-            Compass
-          </Button>
-          <Button
-            variant={view === "bars" ? "primary" : "secondary"}
-            onClick={() => setView("bars")}
-            aria-pressed={view === "bars"}
-          >
-            Bar Chart
-          </Button>
-        </div>
-      </div>
-      <PaperCard
-        className="rounded-3xl p-4"
-        borderColor="rgba(201,161,74,0.25)"
-        shadow="0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)"
-      >
-        {view === "compass" ? <CompassProfile profile={profile} /> : <ScoreBars profile={profile} />}
-      </PaperCard>
-    </section>
   );
 }
 
@@ -309,9 +271,8 @@ function ResultsInner() {
         result={result}
         blend={blend}
         mode={isGivingMode(quizType) ? "giving" : "receiving"}
+        isSharedView={isSharedView}
       />
-
-      <ChartToggle profile={profile} />
 
       {!isSharedView && (
         <FadeIn>
@@ -336,7 +297,7 @@ function ResultsInner() {
 
       <p className="text-xs opacity-40 text-center leading-relaxed">
         Love Compass is a self-reflection tool, not a clinical or psychological assessment.
-        Results reflect patterns and preferences — not fixed traits — and may shift over time.
+        Results reflect patterns and preferences, not fixed traits, and may shift over time.
       </p>
 
     </main>

@@ -40,7 +40,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
 
   const handleCopyText = useCallback(() => {
     const text = [
-      `My Love Compass Result -- ${modeLabel}`,
+      `My Love Compass Result: ${modeLabel}`,
       ``,
       result.primary.name,
       `"${result.primary.tagline}"`,
@@ -50,7 +50,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
         : `This is how I feel most loved and connected.`,
       ``,
       `Top dimensions:`,
-      ...top3.map(c => `  ${c.title} -- ${c.percentage}%`),
+      ...top3.map(c => `  ${c.title}: ${c.percentage}%`),
       ``,
       `Take your own at lovecompass.app`,
     ].join("\n");
@@ -90,12 +90,12 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
 
       {copyState === "error" && (
         <p className="text-xs text-center" style={{ color: "var(--primary)" }}>
-          Couldn't copy automatically -- your browser may be blocking clipboard access.
+          Couldn't copy automatically. Your browser may be blocking clipboard access.
         </p>
       )}
 
       <p className="text-xs opacity-40 text-center">
-        Send the link to a partner -- it opens straight to this result, even if they've never visited before. Ask them to take their own. See where you match, and where you don't.
+        Send the link to a partner. It opens straight to this result, even if they've never visited before. Ask them to take their own. See where you match, and where you don't.
       </p>
     </div>
   );
