@@ -5,7 +5,7 @@ import { ParticleCanvas } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Page Not Found | Love Compass",
-  description: "This page doesn't exist — but your path does.",
+  description: "This page doesn't exist, but your path does.",
 };
 
 export default function NotFound() {
@@ -32,7 +32,7 @@ export default function NotFound() {
           <h1 className="lc-error-h1">You've wandered off the map</h1>
 
           <p className="lc-error-p">
-            This page doesn't exist — but your journey does. Let's find your way back.
+            This page doesn't exist, but your journey does. Let's find your way back.
           </p>
 
           <div className="lc-error-actions">

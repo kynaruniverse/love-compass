@@ -45,7 +45,7 @@ export default function QuestionView({
                   key={value}
                   type="button"
                   onClick={() => onAnswer(value)}
-                  aria-label={`${value} out of 5 — ${label}`}
+                  aria-label={`${value} out of 5: ${label}`}
                   className="lc-likert-dot"
                   style={{ "--dot-index": i } as React.CSSProperties}
                 >

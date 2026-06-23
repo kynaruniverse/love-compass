@@ -313,7 +313,7 @@ export default function CompassProfile({
       <p className="text-sm text-center max-w-xs leading-relaxed" style={{ color: "var(--foreground)", opacity: 0.8 }}>
         Your compass points toward{" "}
         <span className="font-semibold" style={{ color: "var(--accent)" }}>{top.title}</span>
-        {" "}— your strongest dimension at{" "}
+        {" "}: your strongest dimension at{" "}
         <span className="font-semibold" style={{ color: "var(--accent)" }}>{top.percentage}%</span>.
       </p>
       {!hasInteracted && (

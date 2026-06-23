@@ -2564,54 +2564,57 @@ footer {
   color: hsl(var(--lc-archetype-hue) 55% 42%);
 }
 
-/* ── Insight tabs (Strengths / Growth Edges / From a Partner) ── */
-.lc-results-tabbar {
+/* ── Insight groups (Strengths / Growth Edges / From a Partner) ──
+   Always visible, no tap or swipe. Each archetype only ever has 3
+   short items per group (confirmed across the dataset), so hiding
+   any of them behind an interaction cost more than it saved. Each
+   group gets its own left-border accent so they read as distinct
+   at a glance without three different background colors fighting
+   for attention. */
+.lc-results-insight-groups {
   display: flex;
-  gap: 0.4rem;
-  padding: 0.3rem;
-  background: var(--surface-muted);
-  border-radius: 1.1rem;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.lc-results-tab {
-  flex: 1;
-  min-height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.lc-results-insight-group {
+  padding-left: 1rem;
+  border-left: 3px solid var(--border-soft);
+}
+
+.lc-results-insight-group--strengths {
+  border-left-color: var(--accent);
+}
+
+.lc-results-insight-group--growth {
+  border-left-color: #b5793f;
+}
+
+.lc-results-insight-group--partner {
+  border-left-color: hsl(var(--lc-archetype-hue) 50% 48%);
+}
+
+.lc-results-insight-label {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  border-radius: 0.85rem;
-  color: var(--foreground);
-  opacity: 0.55;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 0.65rem;
 }
 
-.lc-results-tab:active {
-  transform: scale(0.97);
-}
+.lc-results-insight-group--strengths .lc-results-insight-label { color: var(--accent); opacity: 0.9; }
+.lc-results-insight-group--growth .lc-results-insight-label { color: #9c6530; opacity: 0.9; }
+.lc-results-insight-group--partner .lc-results-insight-label { color: hsl(var(--lc-archetype-hue) 50% 42%); opacity: 0.9; }
 
-.lc-results-tab--active {
-  background: var(--surface);
-  color: hsl(var(--lc-archetype-hue) 55% 38%);
-  opacity: 1;
-  box-shadow: 0 1px 6px rgba(158,59,78,0.12);
-}
-
-.lc-results-tab-panel {
-  padding: 1.5rem 0.25rem 0.25rem;
-}
-
-.lc-results-tab-panel ul {
+.lc-results-insight-group ul {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
 
-.lc-results-tab-panel li {
+.lc-results-insight-group li {
   display: flex;
   gap: 0.55rem;
   align-items: flex-start;
@@ -2621,22 +2624,14 @@ footer {
   opacity: 0.88;
 }
 
-.lc-results-tab-bullet {
+.lc-results-insight-bullet {
   flex-shrink: 0;
   margin-top: 0.5rem;
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: var(--accent);
-}
-
-@keyframes lc-tab-fade-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.lc-results-tab-panel {
-  animation: lc-tab-fade-in 0.25s ease;
+  background: currentColor;
+  opacity: 0.5;
 }
 
 /* "The full picture" — expanded narrative block further down */
@@ -2732,11 +2727,5 @@ footer {
 
   .lc-results-seal-text {
     font-size: 0.6rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lc-results-tab-panel {
-    animation: none;
   }
 }

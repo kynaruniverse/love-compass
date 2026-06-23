@@ -22,7 +22,7 @@ const SECTIONS = [
     heading: "What Love Compass is",
     weight: "high",
     paragraphs: [
-      "Love Compass is a self-reflection tool. It is designed to help you think more clearly about how you give and receive love — not to diagnose, treat, or assess any psychological or clinical condition.",
+      "Love Compass is a self-reflection tool. It is designed to help you think more clearly about how you give and receive love, not to diagnose, treat, or assess any psychological or clinical condition.",
       "The assessments are built around structured frameworks informed by relationship research, but they are not scientifically validated instruments and do not constitute professional advice of any kind. Your results are a starting point for reflection, not a verdict.",
     ],
   },
@@ -32,7 +32,7 @@ const SECTIONS = [
     weight: "normal",
     paragraphs: [
       "Love Compass is free to use for personal, non-commercial self-reflection. You're welcome to share your results with a partner, therapist, or trusted person as a conversation starter.",
-      "You may not reproduce, repackage, or redistribute the assessments, questions, archetypes, or written content from this site — in whole or in part — without explicit written permission.",
+      "You may not reproduce, repackage, or redistribute the assessments, questions, archetypes, or written content from this site (in whole or in part) without explicit written permission.",
     ],
   },
   {

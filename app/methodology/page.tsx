@@ -21,7 +21,7 @@ const STEPS = [
     num: "01",
     heading: "How the questions are designed",
     body: [
-      "Every question is written to surface genuine relational preference — not the answer that sounds healthiest or most mature. People are remarkably good at answering as the version of themselves they're working toward rather than the one who actually shows up in relationships.",
+      "Every question is written to surface genuine relational preference, not the answer that sounds healthiest or most mature. People are remarkably good at answering as the version of themselves they're working toward rather than the one who actually shows up in relationships.",
       "To counter this, the assessments use two formats: forced-choice questions reveal true relative preferences under constraint; scale questions measure the strength of feeling on a specific dimension. Some questions are reverse-scored to catch automatic or socially desirable answering patterns.",
     ],
     pull: "Answer as you actually are, not as you want to be. The questions only work if you take that seriously.",
@@ -31,7 +31,7 @@ const STEPS = [
     heading: "How scoring works",
     body: [
       "Your answers accumulate weighted scores across eight relational dimensions. Each question maps to one or more dimensions, and the weight reflects how strongly that question distinguishes between them.",
-      "Scores are normalised so your results show a genuine distribution — not just which dimension scored highest, but by how much, and what came close behind. Two people can share the same primary result and feel completely different to love, because their secondary dimensions diverge.",
+      "Scores are normalised so your results show a genuine distribution: not just which dimension scored highest, but by how much, and what came close behind. Two people can share the same primary result and feel completely different to love, because their secondary dimensions diverge.",
     ],
     pull: "The percentage next to each category is signal strength, not a grade.",
   },
@@ -39,7 +39,7 @@ const STEPS = [
     num: "03",
     heading: "Archetypes and flavors",
     body: [
-      "Once your profile is scored, it's matched to an archetype — shorthand for how your top dimensions combine in practice. Archetypes aren't labels. They describe how your relational tendencies show up together, not in isolation.",
+      "Once your profile is scored, it's matched to an archetype, shorthand for how your top dimensions combine in practice. Archetypes aren't labels. They describe how your relational tendencies show up together, not in isolation.",
       "Your secondary dimension is called your flavor. It's where most of the nuance lives. Two people with the same primary archetype can feel very different to be in a relationship with, because their flavors pull in different directions.",
     ],
     pull: null,
@@ -48,16 +48,16 @@ const STEPS = [
     num: "04",
     heading: "What the results mean",
     body: [
-      "A higher score reflects a stronger relative preference — not a fixed trait, not a personality type, and not a prediction about any specific relationship. People are complex, context-dependent, and capable of change. Your results today may look different in three years, and both can be completely accurate.",
+      "A higher score reflects a stronger relative preference, not a fixed trait, not a personality type, and not a prediction about any specific relationship. People are complex, context-dependent, and capable of change. Your results today may look different in three years, and both can be completely accurate.",
     ],
-    pull: "Use your profile as a map. A clearer picture of your actual patterns — not a conclusion about who you are or who you can be.",
+    pull: "Use your profile as a map. A clearer picture of your actual patterns, not a conclusion about who you are or who you can be.",
   },
   {
     num: "05",
     heading: "Limitations",
     body: [
       "Love Compass is not clinically validated and should not be used for psychological diagnosis or any clinical purpose. It is a self-reflection tool, built carefully and grounded in relationship research, but it is not a substitute for therapy or professional support.",
-      "Self-report tools have well-documented limits: social desirability bias is real, and emotional state at the time of answering affects responses. These aren't flaws unique to Love Compass — they're inherent to any tool of this kind. The assessments are designed with those limits in mind. The most useful thing you can bring to them is honesty.",
+      "Self-report tools have well-documented limits: social desirability bias is real, and emotional state at the time of answering affects responses. These aren't flaws unique to Love Compass, they're inherent to any tool of this kind. The assessments are designed with those limits in mind. The most useful thing you can bring to them is honesty.",
     ],
     pull: null,
   },

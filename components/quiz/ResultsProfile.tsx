@@ -1,12 +1,10 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, type CSSProperties } from "react";
 import { CategoryResult, NarrativeResult } from "@/types/quiz";
 import { PaperCard, FadeIn } from "@/components/ui";
 import { CompassProfile, ScoreChips } from "@/components/charts";
 import { getIntensity, getArchetypeHue } from "@/lib";
-
-type TabKey = "strengths" | "growthEdges" | "partner";
 
 // Splits a paragraph at its first sentence boundary. Falls back to the
 // whole paragraph if no clear boundary is found (keeps "in short" honest
@@ -35,7 +33,6 @@ export default function ResultsProfile({
   isSharedView?: boolean;
 }) {
   const { primary, secondary } = result;
-  const [activeTab, setActiveTab] = useState<TabKey>("strengths");
 
   const blendRest = useMemo(
     () => blend.filter(c => c.key !== primary.key),
@@ -62,10 +59,10 @@ export default function ResultsProfile({
     "--lc-archetype-hue": hue,
   } as CSSProperties;
 
-  const tabs: { key: TabKey; label: string; items: string[] }[] = [
-    { key: "strengths", label: "Strengths", items: primary.strengths },
-    { key: "growthEdges", label: "Growth Edges", items: primary.watchOuts },
-    { key: "partner", label: "From a Partner", items: primary.partnerNeeds },
+  const insightGroups = [
+    { key: "strengths", label: "Strengths", items: primary.strengths, role: "strengths" as const },
+    { key: "growthEdges", label: "Growth Edges", items: primary.watchOuts, role: "growth" as const },
+    { key: "partner", label: "From a Partner", items: primary.partnerNeeds, role: "partner" as const },
   ];
 
   return (
@@ -126,50 +123,26 @@ export default function ResultsProfile({
         </PaperCard>
       )}
 
-      {/* -- Insight tabs -- Strengths / Growth Edges / From a Partner -- */}
+      {/* -- Insight groups -- Strengths / Growth Edges / From a Partner --
+           Always visible, no tap or swipe: each archetype only carries
+           3 short items per group, so hiding any of them cost more in
+           scannability than tabs ever saved in tidiness. -- */}
       <PaperCard className="rounded-3xl p-5 sm:p-6" borderColor="rgba(201,161,74,0.25)">
-        <div
-          className="lc-results-tabbar"
-          role="tablist"
-          aria-label="Archetype insights"
-        >
-          {tabs.map(tab => (
-            <button
-              key={tab.key}
-              type="button"
-              role="tab"
-              id={`lc-tab-${tab.key}`}
-              aria-selected={activeTab === tab.key}
-              aria-controls={`lc-tabpanel-${tab.key}`}
-              className={`lc-results-tab ${activeTab === tab.key ? "lc-results-tab--active" : ""}`}
-              onClick={() => setActiveTab(tab.key)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {tabs.map(tab => (
-          <div
-            key={tab.key}
-            role="tabpanel"
-            id={`lc-tabpanel-${tab.key}`}
-            aria-labelledby={`lc-tab-${tab.key}`}
-            hidden={activeTab !== tab.key}
-            className="lc-results-tab-panel"
-          >
-            {activeTab === tab.key && (
+        <div className="lc-results-insight-groups">
+          {insightGroups.map(group => (
+            <div key={group.key} className={`lc-results-insight-group lc-results-insight-group--${group.role}`}>
+              <h3 className="lc-results-insight-label">{group.label}</h3>
               <ul>
-                {tab.items.map((item, i) => (
+                {group.items.map((item, i) => (
                   <li key={i}>
-                    <span className="lc-results-tab-bullet" aria-hidden="true" />
+                    <span className="lc-results-insight-bullet" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            )}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </PaperCard>
 
       {/* -- The full picture -- expanded narrative further down -- */}

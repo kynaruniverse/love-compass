@@ -29,7 +29,7 @@ const COMMITMENTS = [
     number: "02",
     statement: "Your answers live only in your tab.",
     body: [
-      "When you complete an assessment, your answers and results are held temporarily in your browser's session storage — a private, local space that exists only for the duration of your current tab. The moment you close the tab or navigate away, that data is gone.",
+      "When you complete an assessment, your answers and results are held temporarily in your browser's session storage, a private, local space that exists only for the duration of your current tab. The moment you close the tab or navigate away, that data is gone.",
       "Nothing is written to a cookie. Nothing is sent to a third party. Nothing persists between sessions. If you take the same assessment twice, the second run has no memory of the first.",
     ],
   },
