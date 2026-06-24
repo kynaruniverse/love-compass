@@ -217,7 +217,7 @@ export default function HomePage() {
       <section className="lc-bridge" aria-label="Why Love Compass">
         <FadeIn>
           <p className="lc-bridge-text">
-            It's easy to assume everyone wants to be loved the way you do. Love Compass exists to challenge that assumption, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
+            It's easy to assume everyone wants to be loved the way you do. Love Compass exists to challenge that, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
           </p>
         </FadeIn>
       </section>

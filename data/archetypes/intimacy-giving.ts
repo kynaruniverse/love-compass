@@ -180,7 +180,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
     name: "The Safe Harbour",
     tagline: "You make a partner feel trusted enough to be fully open.",
     narrative: [
-      "You create the conditions for intimacy before intimacy happens. Emotional safety, the sense that this person is completely trustworthy, that being fully seen won't be used against them, that they can bring their whole self here, is what you give first. For many people, that foundation is the prerequisite for everything else.",
+      "You create the conditions for intimacy before intimacy happens. Emotional safety, the sense that this person is completely trustworthy, that being fully seen won't be used against them, that they can bring their whole self here, is what you give first. That foundation isn't a warm-up. It's the whole condition.",
       "For you, desire and trust aren't separate channels. They flow from the same source. A partner who feels emotionally safe with you finds their walls come down in ways they didn't expect. Not because you dismantled them, but because you made it clear they never needed to exist with you.",
       "The partner who will feel most desired by you is one for whom emotional safety isn't a nice-to-have but a genuine prerequisite, whose openness in intimacy is directly proportional to how safe they feel. You give that safety, and what it unlocks is profound."
     ],
@@ -215,7 +215,7 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
     tagline: "You make a partner feel like the most wanted version of themselves.",
     narrative: [
       "You have a particular gift in intimacy: you make people feel irresistible. Not through flattery, but through the specific way you direct your attention, your words, your energy. A partner who feels self-conscious, inhibited, or uncertain often finds something changes when they're with you, because you see them clearly and you let that show in how you engage with them.",
-      "This is a profound thing to give. For many people, the biggest obstacle to fully letting go isn't physical. It's internal. It's the voice asking 'are they actually into this?' or 'do I look right?' You quieten that voice, not through abstract reassurance, but by engaging in a way that makes the answer obvious.",
+      "This is a profound thing to give. The biggest obstacle to letting go isn't usually physical. It's the voice asking 'are they actually into this?' or 'do I look right?' You quieten that voice, not through abstract reassurance, but by engaging in a way that makes the answer obvious.",
       "The partner who will feel most desired by you is one whose confidence in intimate moments is tied to feeling seen and wanted, who comes alive when a partner makes it unmistakably clear, through everything they do, that they find them genuinely, specifically irresistible."
     ],
     strengths: [
@@ -279,12 +279,12 @@ export const INTIMACY_GIVING_ARCHETYPES: Record<string, Archetype> = {
 };
 
 export const INTIMACY_GIVING_FLAVORS: Record<string, ArchetypeFlavor> = {
-  A: { key: "A", blurb: "Running alongside this, you also express desire verbally. What you want comes out in words naturally. You don't leave attraction implied when you could say it, and that directness tends to land." },
-  B: { key: "B", blurb: "Woven through this is a natural warmth. You build desire through slow, lingering physical closeness. The unhurried approach isn't hesitation, it's how you communicate that someone is worth taking your time over." },
-  C: { key: "C", blurb: "Alongside this, you bring confident initiation. Your desire is rarely ambiguous or left to implication. When you want something, you move toward it, and that clarity is a gift to a partner who needs to feel actively chosen." },
-  D: { key: "D", blurb: "Running through this is a pursuit quality. You build anticipation and make moves that show you were thinking about a partner well in advance. The desire arrives before you do, and a partner who needs to feel thought about will feel it." },
-  E: { key: "E", blurb: "Woven in is genuine mutual curiosity. You stay interested in a partner's experience and keep intimacy exploratory. You ask rather than assume, and that active interest makes a partner feel attended to rather than moved through." },
-  F: { key: "F", blurb: "Alongside this, you create safety. Emotional groundedness is part of how you express desire. A partner senses they can be fully themselves with you, and that permission is itself a form of wanting them." },
-  G: { key: "G", blurb: "Running through this is a gift for making someone feel irresistible alongside your primary way of desiring. The way you direct your attention quietens their inner critic in a way they probably didn't expect." },
+  A: { key: "A", blurb: "Running alongside this, you also express desire verbally. What you want comes out in words, directly, and a partner who needs to hear it will feel it." },
+  B: { key: "B", blurb: "Woven through this is a natural warmth. Slow, unhurried closeness is part of how you express desire, and the right partner reads it exactly that way." },
+  C: { key: "C", blurb: "Alongside this, you bring confident initiation. Your desire isn't left to implication. When you want something, you move toward it." },
+  D: { key: "D", blurb: "Running through this is a pursuit quality. You build anticipation in advance, and a partner who needs to feel thought about will feel it." },
+  E: { key: "E", blurb: "Woven in is genuine curiosity. You ask rather than assume, and a partner feels attended to rather than moved through." },
+  F: { key: "F", blurb: "Alongside this, you create safety. A partner senses they can be fully themselves with you, and that permission is part of how you want them." },
+  G: { key: "G", blurb: "Running through this is a gift for making someone feel irresistible. The way you direct your attention quietens doubts a partner didn't expect to have answered." },
   H: { key: "H", blurb: "Woven through this is a commitment to equality. You want intimacy to feel genuinely mutual and fully invested on both sides. When the effort is matched, something opens in you that one-sided intimacy simply doesn't reach." }
 };

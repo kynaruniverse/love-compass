@@ -441,31 +441,31 @@ export const LOVE_QUESTIONS: QuizQuestion[] = [
     id: 129,
     type: "forced-choice",
     weight: 2,
-    question: "Imagine you are celebrating a personal achievement. What would mean the most from your partner?",
+    question: "When I'm celebrating a personal achievement, what means the most from a partner is:",
     options: [
-      { letter: "A", text: "Hearing them say they're proud of you, specifically." },
-      { letter: "B", text: "Them clearing their whole day to celebrate with you." },
+      { letter: "A", text: "Hearing them say they're proud of me, specifically." },
+      { letter: "B", text: "Them clearing their whole day to celebrate with me." },
       { letter: "C", text: "A long, warm embrace." },
-      { letter: "D", text: "Them handling everything logistical so you can enjoy it." },
+      { letter: "D", text: "Them handling everything logistical so I can enjoy it." },
       { letter: "E", text: "A carefully chosen gift to mark the moment." },
-      { letter: "F", text: "Knowing they are completely in your corner emotionally." },
-      { letter: "G", text: "Them expressing belief in your next goal." },
-      { letter: "H", text: "Them taking on extra responsibilities so you had space to achieve." }
+      { letter: "F", text: "Knowing they are completely in my corner emotionally." },
+      { letter: "G", text: "Them expressing belief in my next goal." },
+      { letter: "H", text: "Them taking on extra responsibilities so I had space to achieve." }
     ]
   },
   {
     id: 130,
     type: "forced-choice",
     weight: 2,
-    question: "You're going through a difficult period that has lasted several weeks. What sustains you most in a relationship?",
+    question: "When I'm going through a difficult period that's lasted several weeks, what sustains me most in a relationship is:",
     options: [
-      { letter: "A", text: "Regular verbal affirmation that you are loved and capable." },
+      { letter: "A", text: "Regular verbal affirmation that I am loved and capable." },
       { letter: "B", text: "A partner who shows up and stays present." },
       { letter: "C", text: "Physical closeness, sleeping near them, being held." },
-      { letter: "D", text: "A partner who quietly takes burdens off your plate." },
-      { letter: "E", text: "Small gestures that show they're thinking of you." },
+      { letter: "D", text: "A partner who quietly takes burdens off my plate." },
+      { letter: "E", text: "Small gestures that show they're thinking of me." },
       { letter: "F", text: "A partner who remains steady and emotionally available." },
-      { letter: "G", text: "A partner who helps you see the path forward and grow." },
+      { letter: "G", text: "A partner who helps me see the path forward and grow." },
       { letter: "H", text: "A partner who steps up and carries more of the shared load." }
     ]
   },
@@ -489,7 +489,7 @@ export const LOVE_QUESTIONS: QuizQuestion[] = [
     id: 132,
     type: "forced-choice",
     weight: 2,
-    question: "In a long-distance or low-contact period, what would you miss most?",
+    question: "In a long-distance or low-contact period, what I'd miss most is:",
     options: [
       { letter: "A", text: "Hearing their voice saying they love and miss me." },
       { letter: "B", text: "The undivided time we'd normally have together." },

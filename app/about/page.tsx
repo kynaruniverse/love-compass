@@ -72,13 +72,13 @@ export default function AboutPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">On love, intimacy, and why they matter</h2>
         <p className="lc-about-p">
-          Love and intimacy are two of the most overused words in the English language, and two of the least examined. We treat them as feelings, things that arrive or don't. That framing causes more unnecessary pain than most people realise.
+          Love and intimacy are two of the most overused words in the English language, and two of the least examined. We treat them as feelings, things that arrive or don't. That framing costs people more than they realise.
         </p>
         <p className="lc-about-p lc-about-p--emphasis">
           Love is a practice, not a feeling. It's the repeated, deliberate act of making someone feel they matter, in the specific way they receive it, not the way you prefer to deliver it.
         </p>
         <p className="lc-about-p">
-          Intimacy is the other half. It's being fully known and not flinched at. Most couples never have an honest conversation about either one.
+          Intimacy is the other half. It's being fully known and not flinched at. Most couples never actually talk about either one.
         </p>
         <p className="lc-about-p">
           Understanding your own patterns isn't navel-gazing. It's table stakes for being a decent partner.

@@ -10,32 +10,32 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The Verbal Heart",
     tagline: "You need to hear it to believe it.",
     narrative: [
-      "Words carry weight for you. Not as decoration, but as proof. When someone tells you they love you, admire you, or are proud of you, it lands somewhere real. You don't just hear it, you keep it. A specific compliment, a heartfelt thank-you, an unprompted 'I'm glad you're mine'. These aren't small things to you, they're the currency of connection.",
-      "This isn't about needing constant praise or being unable to function without validation. It's that language is how you build a felt sense of being known. Silence, to you, can feel ambiguous. Even when everything is objectively fine, the absence of words can leave a quiet question mark hanging in the air. You'd rather things be said than assumed.",
-      "In relationships, you tend to be generous with this same currency. You notice things about people and you say so. You remember what someone told you three weeks ago and bring it up again because it mattered. For you, love is something you say into existence, and something you need said back."
+      "Words carry weight for you. Not decoration, proof. When someone tells you they love you, admire you, or are proud of you, it lands somewhere real and stays there. A specific compliment, a heartfelt thank-you, an unprompted 'I'm glad you're mine': these are the currency of connection, not small things.",
+      "Silence reads as ambiguous to you, even when nothing is actually wrong. You'd rather things be said than assumed, because language is how you build a felt sense of being known. An objectively fine relationship can still feel like it's missing something if no one's naming what's good about it.",
+      "You give the same way you need to receive. You notice things about people and say so. You remember what someone told you three weeks ago and bring it back up because it mattered. For you, love is something you say into existence, and something you need said back."
     ],
     strengths: [
-      "You make people feel truly seen. Your attention to detail in how you speak to others is rare and meaningful.",
-      "You're emotionally articulate, which makes conflict resolution and deep conversations feel more natural to you than to most.",
-      "You create a verbal record of appreciation that strengthens relationships over time."
+      "You make people feel truly seen. Your attention to how you speak to others is rare and it lands.",
+      "You're emotionally articulate, which makes conflict resolution and hard conversations feel more natural to you than to most.",
+      "You build a verbal record of appreciation that strengthens a relationship over time, not just in the moment."
     ],
     watchOuts: [
-      "You may read more into silence than is actually there. Not everyone communicates affection through words, and that doesn't mean it's absent.",
-      "Without regular verbal affirmation, you might start to feel disconnected even when a relationship is otherwise healthy.",
-      "Be mindful of fishing for compliments or reassurance in ways that put pressure on a partner who expresses love differently."
+      "You may read more into silence than is actually there. Not everyone shows affection through words, and that doesn't mean it's absent.",
+      "Without regular verbal affirmation, you might feel disconnected even when the relationship is genuinely healthy.",
+      "Watch for fishing for compliments or reassurance. It puts pressure on a partner who expresses love differently."
     ],
     partnerNeeds: [
-      "Specific, sincere verbal affirmation. Not generic compliments, but ones that show you were really paying attention.",
-      "A partner willing to say things out loud rather than assuming they're understood.",
-      "Open, honest conversation as a regular part of the relationship, not just during conflict."
+      "Specific, sincere verbal affirmation, not generic compliments, ones that prove someone was actually paying attention.",
+      "A partner willing to say things out loud rather than assume they're understood.",
+      "Honest conversation as a regular habit, not something that only shows up during conflict."
     ],
     pairings: {
-      bestWith: "The Growth Partner tends to pair well with you. They're naturally generous with encouragement and tend to say what they're thinking, which matches how you experience love.",
-      frictionWith: "The One Who Acts can create friction at first. Their care shows up as action rather than words, so it's worth both of you learning to translate."
+      bestWith: "The Growth Partner. They're naturally generous with encouragement and tend to say what they're thinking, which matches exactly how you experience love.",
+      frictionWith: "The One Who Acts. Their care shows up as action rather than words, so it's worth both of you learning to translate the other's language."
     },
     tryThis: [
-      "Next time you feel unheard, try naming it directly: 'I'd love to hear how you're feeling about this',rather than waiting for it to be offered unprompted.",
-      "Try affirming someone's actions, not just their words. It builds a bridge for partners who show love differently than they say it."
+      "Name it directly when you feel unheard: 'I'd love to hear how you're feeling about this,' rather than waiting for it to be offered.",
+      "Try affirming someone's actions, not just their words. It builds a bridge to partners who show love differently than they say it."
     ]
   },
 
@@ -44,32 +44,32 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The Chosen One",
     tagline: "You need to feel chosen, again and again.",
     narrative: [
-      "For you, love isn't loud, it's continuous. It's the choice someone makes, again and again, to put their phone down, sit across from you, and actually be there. You'd take one uninterrupted evening over a grand gesture any day, because what you're really looking for isn't a moment, it's attention sustained over time.",
-      "You probably notice more than most, when someone is physically present but mentally elsewhere. A partner scrolling during a conversation, or rescheduling plans 'just this once' too often, registers as something more than an inconvenience. It reads as a quiet signal about priorities, even when that's not the intention.",
-      "What you offer in return is real presence. When you're with someone, you're with them, fully, without half-measures. You create the kind of shared time that becomes the backbone of a relationship: the routines, the rituals, the ordinary Tuesday evenings that end up mattering the most."
+      "For you, love isn't loud, it's continuous. It's the choice someone makes, again and again, to put their phone down, sit across from you, and actually be there. You'd take one uninterrupted evening over a grand gesture any day, because what you're really looking for is attention sustained over time, not a single moment of it.",
+      "You notice more than most when someone is physically present but mentally elsewhere. A partner scrolling mid-conversation, or rescheduling plans 'just this once' too often, reads as more than an inconvenience. It registers as a quiet signal about priorities, even when that's not the intention behind it.",
+      "What you offer in return is real presence. When you're with someone, you're actually with them, no half-measures. You build the kind of shared time that becomes the backbone of a relationship: the routines, the rituals, the ordinary Tuesday evenings that end up mattering most."
     ],
     strengths: [
-      "You build deep familiarity and closeness through consistency. Your relationships tend to feel stable and well-known.",
-      "You're genuinely present when you're with someone, which makes others feel valued and prioritized.",
-      "You're good at creating shared rituals and routines that give a relationship texture and meaning."
+      "You build deep familiarity through consistency. Your relationships tend to feel stable and genuinely well-known.",
+      "You're fully present when you're with someone, which makes people feel valued rather than fit in.",
+      "You create shared rituals and routines that give a relationship real texture over time."
     ],
     watchOuts: [
-      "A packed schedule, yours or theirs, can feel like rejection even when it isn't personal.",
-      "You may need to communicate clearly that 'quality time' doesn't have to mean elaborate plans; ordinary time together counts too.",
+      "A packed schedule, yours or theirs, can feel like rejection even when it isn't personal at all.",
+      "Say plainly that quality time doesn't need to mean elaborate plans. Ordinary time together counts just as much.",
       "Watch for keeping score of time spent. Connection isn't only quantitative."
     ],
     partnerNeeds: [
-      "Regular, undistracted time together. Even if it's brief, it needs to be genuinely present.",
-      "A partner who treats shared time as a priority worth protecting, not just filling gaps in a schedule.",
-      "Shared activities or rituals that become 'yours' as a couple."
+      "Regular, undistracted time together. Even brief is fine, as long as it's genuinely present.",
+      "A partner who treats shared time as worth protecting, not just something to fill gaps in a schedule.",
+      "Shared activities or rituals that become unmistakably yours as a couple."
     ],
     pairings: {
-      bestWith: "The Verbal Heart often pairs well with you. They'll happily fill quiet, present moments with the kind of warm words that deepen the connection you're already building.",
-      frictionWith: "The Growth Partner can create friction. Their focus on momentum and future goals can feel, to you, like it's pulling attention away from the present moment you value most."
+      bestWith: "The Verbal Heart. They'll happily fill quiet, present moments with the kind of warm words that deepen the connection you're already building.",
+      frictionWith: "The Growth Partner. Their focus on momentum and future goals can feel like it's pulling attention away from the present moment you value most."
     },
     tryThis: [
-      "Try naming what 'quality time' looks like for you specifically. A quiet evening with no agenda counts just as much as a planned outing, but not everyone assumes that.",
-      "Next time plans get rescheduled, try checking in about the reason before reading it as a signal about priorities."
+      "Name what quality time actually looks like for you. A quiet evening with no agenda counts just as much as a planned outing, but not everyone assumes that.",
+      "Next time plans get rescheduled, check in about the reason before reading it as a signal about priorities."
     ]
   },
 
@@ -78,32 +78,32 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The Somatic Lover",
     tagline: "You feel love in your body first.",
     narrative: [
-      "There's a kind of reassurance that only touch can give you. A hand on your shoulder, an arm pulled around you on the sofa, a hug that lasts a beat longer than expected. These aren't just nice, they're grounding. For you, physical affection is often the fastest, most direct route to feeling safe and connected.",
-      "This doesn't have to be about anything romantic or charged. Often it's the small, unspoken stuff: sitting close rather than across the room, a hand finding yours without a word, the simple fact of someone's physical presence nearby. When that's missing, even a relationship that's emotionally fine can start to feel oddly distant.",
-      "You probably express affection this way too. Instinctively reaching out, offering comfort through closeness rather than (or alongside) words. For you, bodies say things that sometimes words can't, and a hug at the right moment can communicate more than a paragraph of explanation."
+      "Touch reassures you in a way nothing else quite does. A hand on your shoulder, an arm pulled around you on the sofa, a hug that lasts a beat longer than expected: these ground you. For you, physical affection is often the fastest, most direct route to feeling safe and connected.",
+      "It doesn't need to be romantic or charged. Often it's the small, unspoken stuff: sitting close instead of across the room, a hand finding yours without a word, the simple fact of someone nearby. When that's missing, even an emotionally healthy relationship can start to feel oddly distant.",
+      "You express affection the same way. You reach out instinctively, offering comfort through closeness alongside, or instead of, words. Bodies say things words sometimes can't, and a hug at the right moment can communicate more than a paragraph of explanation."
     ],
     strengths: [
-      "You're naturally comforting to be around. Your affection is felt immediately and physically, which many people respond to deeply.",
-      "You're attuned to nonverbal cues and closeness, often noticing tension or distress in others before it's said aloud.",
-      "Your way of showing love requires no translation, it's immediate and universal."
+      "You're naturally comforting to be around. Your affection registers immediately and physically, and people feel it.",
+      "You're attuned to nonverbal cues, often noticing tension or distress in someone before they've said a word.",
+      "Your way of showing love needs no translation. It's immediate and it's universal."
     ],
     watchOuts: [
-      "Be mindful that not everyone processes affection through touch the same way, and comfort levels vary. Consent and pacing matter.",
-      "A lack of physical affection can feel like a bigger rupture to you than it might be intended as.",
-      "Touch shouldn't be the only language in the relationship. Pairing it with words or quality time builds a fuller connection."
+      "Not everyone processes affection through touch the same way, and comfort levels vary. Consent and pacing matter.",
+      "A lack of physical affection can feel like a bigger rupture to you than it was ever intended as.",
+      "Touch shouldn't be the only language in the relationship. Pair it with words or time together for a fuller connection."
     ],
     partnerNeeds: [
-      "Regular physical affection, not necessarily sexual, but consistent small gestures of closeness.",
-      "A partner who is comfortable with casual touch as part of everyday life.",
+      "Regular physical affection, not necessarily sexual, just consistent small gestures of closeness.",
+      "A partner genuinely comfortable with casual touch as part of everyday life.",
       "Reassurance through presence: sitting close, holding hands, being physically near."
     ],
     pairings: {
-      bestWith: "The Chosen One often pairs naturally with you. Quiet, present closeness and physical affection tend to go hand in hand, quite literally.",
-      frictionWith: "The Verbal Heart can create friction at first. If words are their main language, physical closeness alone might not feel like 'enough' to them, even when it's everything to you."
+      bestWith: "The Chosen One. Quiet, present closeness and physical affection tend to go hand in hand, quite literally.",
+      frictionWith: "The Verbal Heart. If words are their main language, physical closeness alone might not feel like enough to them, even when it's everything to you."
     },
     tryThis: [
-      "Try pairing a touch with a few words. A hand on the shoulder plus 'I'm glad you're here' can help a partner who needs both register what you're communicating.",
-      "If physical affection feels missing, try naming it specifically rather than waiting: 'I'd love a hug right now' is a small, clear ask."
+      "Pair a touch with a few words. A hand on the shoulder plus 'I'm glad you're here' helps a partner who needs both register what you're communicating.",
+      "If physical affection feels missing, name it specifically rather than waiting: 'I'd love a hug right now' is a small, clear ask."
     ]
   },
 
@@ -112,66 +112,66 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The One Who Acts",
     tagline: "You show love by doing, not saying.",
     narrative: [
-      "You tend to notice what needs doing before anyone says it out loud. For you, doing it is how care gets expressed. A partner who quietly handles something so you don't have to carry it is, in your eyes, saying something significant. Actions aren't a substitute for love; for you, they often are the clearest version of it.",
-      "This means you might feel a flicker of disappointment when someone offers warm words but doesn't follow through on small commitments, when 'I've got this' doesn't actually translate into anything getting done. It's not that words don't matter, it's that for you, the proof tends to be in what changes.",
-      "You likely show love the same way: picking up the slack, taking care of logistics, doing the unglamorous tasks that keep life running smoothly, often without making a big deal of it. Recognition matters less to you than the relief itself, though it's still nice to be noticed."
+      "You show care by doing. Before anyone says what needs handling, you've usually already noticed and started on it. A partner who quietly takes something off your plate is telling you something real. For you, action isn't a substitute for love, it's love in its clearest form.",
+      "Warm words without follow-through land oddly for you, even when they're meant well. 'I've got this' that never actually gets done reads as a gap, not a gesture. That's not because words don't matter to you. It's that you trust what changes, not what's said.",
+      "You give the same way you receive. Picking up the slack, handling logistics, doing the unglamorous work that keeps everything running, usually without making it a moment. Being noticed is nice. Being needed less is the actual point."
     ],
     strengths: [
-      "You're dependable in a way that quietly reduces stress for the people you love.",
-      "You translate care into tangible relief. Your support is practical and immediately useful.",
-      "You tend to follow through, which builds deep trust over time."
+      "You're dependable in a way that quietly lowers everyone's stress, including your own.",
+      "You turn care into something usable. Your support shows up as real, practical relief.",
+      "You follow through, every time, and that builds trust faster than words ever could."
     ],
     watchOuts: [
-      "You may undervalue verbal or emotional expressions of love if they aren't backed by action. Where as for some people, words are the action.",
-      "Doing too much without acknowledgment can lead to quiet resentment if it goes unnoticed for too long.",
-      "Be careful not to use acts of service as a way to avoid emotional conversations."
+      "You may discount verbal or emotional expressions of love that aren't backed by action. For some people, the words are the action.",
+      "Unacknowledged effort can curdle into quiet resentment. It's worth naming before it builds.",
+      "Acts of service can become a way to avoid harder emotional conversations. Notice if that's happening."
     ],
     partnerNeeds: [
-      "A partner who follows through on what they say. Consistency between words and actions matters a great deal.",
-      "Practical support and shared responsibility, especially during stressful periods.",
-      "Occasional acknowledgment of effort, not constant praise, but enough to know it's seen."
+      "Follow-through. When someone says they'll do something, you need them to actually do it.",
+      "Practical support during hard stretches, not just sympathy.",
+      "A little acknowledgment. Not praise, just confirmation that the effort was seen."
     ],
     pairings: {
-      bestWith: "The Equal Measure pairs especially well with you. You both think in terms of shared responsibility, and your styles reinforce each other rather than competing.",
-      frictionWith: "The Verbal Heart can create friction, if 'I love you' isn't followed by action, it may register to you as words without weight, even when it's genuinely meant."
+      bestWith: "The Equal Measure. You both think in terms of shared responsibility, so your instincts reinforce each other instead of competing.",
+      frictionWith: "The Verbal Heart. If 'I love you' isn't followed by something tangible, it can read as weightless to you, even when it's completely sincere."
     },
     tryThis: [
-      "Try voicing appreciation out loud when someone follows through for you. Even a simple acknowledgment helps a partner whose primary language is words feel the connection too.",
-      "Next time you do something practical for someone, try briefly naming it: 'I took care of X so you wouldn't have to', rather than letting it go unnoticed."
+      "Say the appreciation out loud when someone follows through for you. It's a small thing that helps a words-first partner actually feel the connection.",
+      "Name what you did, briefly: 'I handled X so you wouldn't have to.' Letting it go unnoticed teaches no one anything."
     ]
   },
 
   E: {
     key: "E",
     name: "The Detailed Keeper",
-    tagline: "You notice everything And remember it.",
+    tagline: "You notice everything, and remember it.",
     narrative: [
-      "A small, well-chosen gift means something to you that's hard to fully explain to people who don't share this. It's not about the value of the object, it's about what it proves. Someone was thinking of you when you weren't there. They paid attention to something you mentioned once. They translated that attention into something tangible.",
-      "This can get unfairly stereotyped as materialism, but for you it's closer to the opposite: it's about being known well enough that someone can choose something specifically for you. A thoughtful, inexpensive item chosen with you in mind will land far better than something expensive and generic.",
-      "You're probably the person who remembers what others mention in passing, a favorite snack, a band they liked, a book they've been meaning to read, and shows up with it later. For you, gestures like this are a love language with real depth, even if the people around you sometimes miss what's actually being communicated."
+      "A small, well-chosen gift means something to you that's hard to explain to people who don't share this. It's not about the object's value, it's about what it proves: someone was thinking of you when you weren't there, and they translated that attention into something real.",
+      "This gets unfairly stereotyped as materialism, but for you it's closer to the opposite. It's about being known well enough that someone can choose something specifically for you. A thoughtful, inexpensive item picked with you in mind lands harder than something expensive and generic ever could.",
+      "You're probably the one who remembers what people mention in passing, a favorite snack, a band they liked, a book they've been meaning to read, and shows up with it later. For you, this is a love language with real depth, even when the people around you miss what's actually being said."
     ],
     strengths: [
-      "You're attentive to details about the people you love, often remembering things they've forgotten they said.",
-      "You're skilled at translating attention into thoughtful, specific gestures.",
-      "You make people feel individually seen through the things you notice and remember."
+      "You're attentive to detail, often remembering things someone has already forgotten they said.",
+      "You translate attention into thoughtful, specific gestures better than almost anyone.",
+      "You make people feel individually seen through the things you notice and keep."
     ],
     watchOuts: [
-      "Be careful that this doesn't get reduced to 'liking gifts' in others' eyes. The meaning behind the gesture is the real point, and it's worth explaining that.",
-      "If a partner doesn't share this language, gestures might go unreciprocated in kind. Look for the equivalent in how they express care.",
-      "Avoid equating the size or cost of a gesture with how much someone cares."
+      "Don't let this get reduced to 'liking gifts' in others' eyes. The meaning behind the gesture is the real point, and it's worth saying so.",
+      "If a partner doesn't share this language, gestures might not come back in kind. Look for their equivalent instead.",
+      "Avoid equating the size or cost of a gesture with how much someone actually cares."
     ],
     partnerNeeds: [
-      "Thoughtful gestures, even small ones. The effort and attention matter more than the gesture itself.",
-      "A partner who pays attention to the details you share, even in passing.",
-      "Occasional surprises that show someone was thinking about you when you weren't around."
+      "Thoughtful gestures, even small ones. The attention behind it matters more than the gesture itself.",
+      "A partner who actually registers the details you mention, even in passing.",
+      "Occasional surprises that prove someone was thinking about you when you weren't around."
     ],
     pairings: {
-      bestWith: "The Growth Partner tends to pair well with you. They notice things about you and act on them, which lines up closely with how you experience being thought of.",
-      frictionWith: "The One Who Acts can create friction. Their practical, task-focused care might overlook the smaller, symbolic gestures that mean the most to you."
+      bestWith: "The Growth Partner. They notice things about you and act on them, which lines up closely with how you experience being thought of.",
+      frictionWith: "The One Who Acts. Their practical, task-focused care can overlook the smaller, symbolic gestures that mean the most to you."
     },
     tryThis: [
-      "Try explaining what a gesture means to you in the moment: 'this means a lot because you remembered I mentioned it' helps a partner learn what to notice.",
-      "If gestures feel one-sided, try asking what would feel meaningful to your partner, their version of 'thoughtful' might look different from yours."
+      "Say what a gesture meant in the moment: 'this means a lot because you remembered I mentioned it' teaches a partner what to notice.",
+      "If gestures feel one-sided, ask what would feel meaningful to your partner. Their version of thoughtful might look completely different from yours."
     ]
   },
 
@@ -180,32 +180,32 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The Stability Seeker",
     tagline: "You need to know the ground won't shift.",
     narrative: [
-      "More than excitement, more than grand declarations, what you're really looking for is the feeling of being able to fully relax around someone: to stop bracing, stop managing, stop performing. Emotional safety, to you, isn't a baseline assumption; it's something built, carefully, over time, and it's the foundation everything else stands on.",
-      "You probably notice instability quickly: mixed signals, inconsistency, hot-and-cold behavior. These things land harder on you than they might on someone else, because they directly threaten the sense of groundedness you need. A relationship that feels unpredictable, even in small ways, can be quietly exhausting no matter how exciting it might otherwise be.",
-      "In return, you tend to offer a kind of calm that others gravitate toward. You're the person people feel they can say anything to without fear of an overreaction. You create the steady emotional climate that lets both people in a relationship actually be themselves."
+      "More than excitement, more than grand declarations, what you're actually looking for is the ability to fully relax around someone: to stop bracing, stop managing, stop performing. Emotional safety isn't a baseline assumption for you, it's something built carefully over time, and it's the foundation everything else stands on.",
+      "You notice instability fast: mixed signals, inconsistency, hot-and-cold behavior. These land harder on you than they might on someone else, because they directly threaten the groundedness you need. A relationship that feels unpredictable, even in small ways, can be quietly exhausting no matter how exciting it otherwise is.",
+      "In return, you offer a kind of calm that others gravitate toward. You're the person people feel they can say anything to without fear of an overreaction. You create the steady emotional climate that lets both people in a relationship actually be themselves."
     ],
     strengths: [
-      "You create emotional environments where others feel safe to be vulnerable and honest.",
-      "You're a stabilizing presence: calm, consistent, and reliable in how you show up.",
-      "You're skilled at de-escalation and creating a sense of 'we're okay' even during difficult moments."
+      "You create environments where people feel safe to be vulnerable and honest, often without realizing how rare that is.",
+      "You're a stabilizing presence: calm, consistent, reliable in exactly how you show up.",
+      "You're skilled at de-escalation, and at creating a sense of 'we're okay' even during hard moments."
     ],
     watchOuts: [
-      "You may avoid necessary conflict in order to preserve a feeling of calm. Unresolved tension can erode safety over time too.",
-      "Inconsistency from a partner may feel disproportionately destabilizing to you. It helps to name this rather than internalize it as your own oversensitivity.",
-      "Be wary of mistaking excitement or intensity for red flags. Not all unpredictability is instability."
+      "You may avoid necessary conflict to preserve a feeling of calm. Unresolved tension erodes safety too, just more slowly.",
+      "Inconsistency from a partner may hit you disproportionately hard. Name that rather than treat it as your own oversensitivity.",
+      "Watch for mistaking excitement or intensity for red flags. Not all unpredictability means instability."
     ],
     partnerNeeds: [
-      "Consistency in communication, behavior, and follow-through. More than grand gestures.",
+      "Consistency in communication, behavior, and follow-through, more than grand gestures.",
       "A partner who can sit with difficult emotions calmly rather than escalating or withdrawing.",
       "Clear, honest communication that reduces ambiguity, especially during conflict."
     ],
     pairings: {
-      bestWith: "The Equal Measure pairs well with you. Their proactive, fair approach tends to create exactly the kind of predictability that helps you feel settled.",
-      frictionWith: "The Detailed Keeper can occasionally create friction. Surprises, even nice ones, can read as unpredictability if you're not expecting them."
+      bestWith: "The Equal Measure. Their proactive, fair approach creates exactly the kind of predictability that helps you feel settled.",
+      frictionWith: "The Detailed Keeper. Surprises, even nice ones, can read as unpredictability if you're not expecting them."
     },
     tryThis: [
-      "If something feels unsettling, try naming the specific behavior rather than the overall feeling: 'when plans change last-minute it throws me off' is easier for a partner to act on than 'I feel anxious'.",
-      "Try distinguishing excitement from instability out loud. Telling a partner 'this is a good kind of unpredictable' can help recalibrate your own response too."
+      "Name the specific behavior, not the overall feeling: 'when plans change last-minute it throws me off' is easier for a partner to act on than 'I feel anxious.'",
+      "Distinguish excitement from instability out loud. Telling a partner 'this is a good kind of unpredictable' can recalibrate your own response too."
     ]
   },
 
@@ -214,32 +214,32 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The Growth Partner",
     tagline: "You love best when you're both growing.",
     narrative: [
-      "You're drawn to relationships that move, where both people are becoming someone, not just staying comfortable. A partner who asks about your goals, remembers what you're working toward, and genuinely roots for your growth (even when it doesn't directly involve them) is doing something that matters enormously to you.",
-      "This isn't about needing a partner to be a life coach. It's that stagnation, for you, can feel like a quiet kind of loneliness, even within a relationship. You want to feel like you're heading somewhere, and you want someone walking alongside you while you do, celebrating the wins and helping you up after the setbacks.",
-      "You're likely this kind of presence for others too: asking real questions about their ambitions, remembering the goals they mentioned months ago, showing up with encouragement at the right moments. For you, love includes a kind of forward motion, a shared sense that both people are still growing, together or in parallel."
+      "You're drawn to relationships that move, where both people are becoming someone, not just staying comfortable. A partner who asks about your goals, remembers what you're working toward, and genuinely roots for your growth, even when it doesn't involve them directly, is doing something that matters enormously to you.",
+      "This isn't about needing a life coach. It's that stagnation can feel like a quiet kind of loneliness to you, even inside a relationship. You want to feel like you're heading somewhere, with someone walking alongside you, celebrating the wins and helping you back up after the setbacks.",
+      "You're this kind of presence for others too. Asking real questions about their ambitions, remembering the goals they mentioned months ago, showing up with encouragement at the right moment. For you, love includes forward motion, a shared sense that both people are still growing, together or in parallel."
     ],
     strengths: [
-      "You inspire growth in the people around you through genuine interest and encouragement.",
+      "You inspire growth in the people around you through genuine interest, not performance.",
       "You bring energy and forward momentum to relationships. Things rarely feel stagnant around you.",
-      "You're good at celebrating others' wins without making it about yourself."
+      "You celebrate other people's wins without quietly making it about yourself."
     ],
     watchOuts: [
-      "Not everyone is in a growth-oriented season at all times. Be mindful of unintentionally pressuring a partner who needs to simply rest.",
-      "Avoid measuring a relationship's health purely by how much 'progress' is happening.",
-      "Growth-focused relationships can sometimes deprioritize simple presence. Make space for just being, not just becoming."
+      "Not everyone is in a growth-oriented season all the time. Watch for unintentionally pressuring a partner who just needs to rest.",
+      "Don't measure a relationship's health purely by how much progress is happening.",
+      "Growth-focused relationships can deprioritize simple presence. Make room for just being, not just becoming."
     ],
     partnerNeeds: [
-      "A partner who takes genuine interest in your goals and ambitions, not just as small talk.",
+      "A partner who takes genuine interest in your goals, not as small talk but as something they track.",
       "Encouragement and belief, especially during periods of self-doubt.",
-      "A relationship that has room to grow and evolve rather than staying static."
+      "A relationship with room to grow and evolve, not one that stays static by default."
     ],
     pairings: {
-      bestWith: "The Verbal Heart pairs naturally with you. Encouragement said out loud is exactly the fuel that growth-oriented momentum runs on.",
-      frictionWith: "The Chosen One can create friction. Their focus on present, settled time together might read to you as comfortable but static, even when it isn't intended that way."
+      bestWith: "The Verbal Heart. Encouragement said out loud is exactly the fuel that growth-oriented momentum runs on.",
+      frictionWith: "The Chosen One. Their focus on present, settled time together can read to you as comfortable but static, even when that's not the intent."
     },
     tryThis: [
-      "Try asking what 'growth' looks like for your partner right now. Sometimes the most supportive thing is simply being present while someone rests, not pushing forward.",
-      "Next time you notice progress in someone, try naming the specific thing you noticed, it lands more than general encouragement."
+      "Ask what growth actually looks like for your partner right now. Sometimes the most supportive thing is being present while someone rests, not pushing forward.",
+      "When you notice progress in someone, name the specific thing you saw. It lands harder than general encouragement."
     ]
   },
 
@@ -248,32 +248,32 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     name: "The Equal Measure",
     tagline: "You need it to feel genuinely fair.",
     narrative: [
-      "For you, love includes logistics. That's not a compromise, it's part of the point. A partner who shares the mental load, who remembers things without being reminded, who notices what needs doing and steps in without a negotiation, is showing you something real about how much they value the partnership.",
-      "You may have noticed that imbalance in shared responsibility creates a particular kind of friction. Not always dramatic, but persistent, like background noise that never fully goes away. Even in relationships that are loving in every other respect, an uneven division of mental and logistical labor can quietly wear at the connection.",
-      "You likely show up this way yourself. Tracking what needs to happen, anticipating needs, carrying your share without keeping score (though you probably notice if the scales tip too far for too long). For you, a relationship functions best as a genuine team, where both people are invested in the whole picture, not just their half of it."
+      "For you, love includes logistics. That's not a compromise, it's part of the point. A partner who shares the mental load, remembers things without being reminded, and notices what needs doing without a negotiation is showing you something real about how much they value the partnership.",
+      "Imbalance in shared responsibility creates a particular kind of friction for you. Not always dramatic, but persistent, like background noise that never fully clears. Even in relationships that are loving in every other respect, an uneven split of mental and logistical labor quietly wears at the connection.",
+      "You show up this way yourself. Tracking what needs to happen, anticipating needs, carrying your share without keeping score, though you notice if the scales tip too far for too long. For you, a relationship works best as a genuine team, where both people are invested in the whole picture, not just their half of it."
     ],
     strengths: [
-      "You bring a strong sense of fairness and partnership to relationships, which builds long-term trust.",
-      "You're proactive. You notice what needs to happen and act on it without requiring direction.",
-      "You think in terms of 'we' rather than 'me and you', which fosters genuine teamwork."
+      "You bring a strong sense of fairness and partnership to relationships, and it builds trust that lasts.",
+      "You're proactive. You notice what needs to happen and act on it without needing direction.",
+      "You think in terms of 'we,' not 'me and you,' and it shows in how the relationship actually runs."
     ],
     watchOuts: [
-      "Keeping a mental tally of who's done what can become corrosive if it's not occasionally discussed openly.",
-      "Be careful not to assume a partner sees the same things you do. Invisible labor is, by definition, often invisible to others.",
-      "A relationship doesn't need to be perfectly 50/50 at all times. Flexibility over different seasons matters more than constant exact balance."
+      "A mental tally of who's done what can turn corrosive if it's never said out loud.",
+      "Don't assume a partner sees what you see. Invisible labor is, by definition, often invisible to others.",
+      "A relationship doesn't need to be exactly 50/50 at all times. Flexibility across seasons matters more than constant precision."
     ],
     partnerNeeds: [
-      "A partner who proactively shares responsibility rather than needing to be asked repeatedly.",
-      "Open conversations about how labor, emotional, logistical and practical is divided.",
-      "A genuine sense of teamwork, where both people feel invested in the relationship's day-to-day functioning."
+      "A partner who shares responsibility proactively, not one who needs to be asked repeatedly.",
+      "Open conversations about how labor, emotional, logistical, and practical, actually gets divided.",
+      "A genuine sense of teamwork, where both people feel invested in the relationship's day-to-day."
     ],
     pairings: {
-      bestWith: "The One Who Acts pairs especially well with you. Their instinct to quietly take care of things lines up directly with the kind of shared effort you value most.",
-      frictionWith: "The Detailed Keeper can create friction. If gestures substitute for follow-through on shared responsibilities, the imbalance you notice can feel at odds with otherwise generous intentions."
+      bestWith: "The One Who Acts. Their instinct to quietly take care of things lines up directly with the kind of shared effort you value most.",
+      frictionWith: "The Detailed Keeper. If gestures substitute for follow-through on shared responsibilities, the imbalance you notice can sit oddly against otherwise generous intentions."
     },
     tryThis: [
-      "Try raising imbalance as a logistics conversation rather than a complaint. 'Can we look at how we're splitting X' tends to land better than letting it build up silently.",
-      "Next time a partner takes something off your plate, try naming it specifically, it reinforces the pattern and makes invisible labor a little more visible."
+      "Raise imbalance as a logistics conversation, not a complaint. 'Can we look at how we're splitting X' tends to land better than letting it build silently.",
+      "When a partner takes something off your plate, name it specifically. It reinforces the pattern and makes invisible labor a little more visible."
     ]
   }
 };
@@ -286,31 +286,31 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
 export const LOVE_FLAVORS: Record<string, ArchetypeFlavor> = {
   A: {
     key: "A",
-    blurb: "You also light up when people put feelings into words. A heartfelt message or an unexpected compliment carries extra weight for you. It doesn't have to be elaborate. Specific and sincere lands every time, and you keep those moments longer than most people realise."
+    blurb: "You also light up when people put feelings into words. A heartfelt message or an unexpected compliment carries extra weight for you. It doesn't need to be elaborate. Specific and sincere lands every time, and you keep those moments longer than most people realize."
   },
   B: {
     key: "B",
-    blurb: "You also place real value on undistracted time together. Presence, not just words or actions, rounds out how you feel cared for. Not scheduled time, necessarily. Just someone choosing to be fully there, without the pull of everything else competing for their attention."
+    blurb: "You also place real value on undistracted time together. Presence, not just words or actions, rounds out how cared for you feel. Not scheduled time, necessarily, just someone choosing to be fully there, without everything else pulling at their attention."
   },
   C: {
     key: "C",
-    blurb: "You also respond strongly to physical closeness. A hug or a hand to hold adds something words alone can't. It's not about grand displays. The small, instinctive gestures like moving closer, a touch on the arm, sitting side by side they register as something real."
+    blurb: "You also respond strongly to physical closeness. A hug or a hand to hold adds something words alone can't reach. It's not about grand displays. The small, instinctive gestures, moving closer, a touch on the arm, sitting side by side, register as something real."
   },
   D: {
     key: "D",
-    blurb: "You also notice and appreciate practical support. When someone follows through on the small stuff, it adds up for you. Actions that remove friction from your life, done quietly and without fanfare, communicate care in a language you understand immediately."
+    blurb: "You also notice and appreciate practical support. When someone follows through on the small stuff, it adds up for you. Actions that quietly remove friction from your life communicate care in a language you understand immediately."
   },
   E: {
     key: "E",
-    blurb: "You also have a soft spot for thoughtful gestures. A small, well-chosen surprise goes further with you than people might expect. What moves you isn't the gesture itself but the evidence behind it: someone was paying attention, remembered, and acted on it."
+    blurb: "You also have a soft spot for thoughtful gestures. A small, well-chosen surprise goes further with you than people expect. What moves you isn't the gesture itself, it's the evidence behind it: someone paid attention, remembered, and acted on it."
   },
   F: {
     key: "F",
-    blurb: "You also need a baseline of emotional steadiness. Consistency and reassurance matter to you more than you might let on. Not constant check-ins, just the quiet knowledge that the ground beneath the relationship is solid and won't shift without warning."
+    blurb: "You also need a baseline of emotional steadiness. Consistency and reassurance matter to you more than you let on. Not constant check-ins, just the quiet knowledge that the ground beneath the relationship is solid and won't shift without warning."
   },
   G: {
     key: "G",
-    blurb: "You also want to feel like you're growing. Encouragement and shared momentum add an extra layer to how connected you feel. A partner who remembers what you're working toward and asks about it unprompted does something for you that comfort alone can't replicate."
+    blurb: "You also want to feel like you're growing. Encouragement and shared momentum add an extra layer to how connected you feel. A partner who remembers what you're working toward, and asks unprompted, does something comfort alone can't replicate."
   },
   H: {
     key: "H",
