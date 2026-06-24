@@ -117,10 +117,10 @@ export default function HomePage() {
               <Image
                 src="/logo.svg"
                 alt="Love Compass"
-                width={120}
-                height={120}
+                width={220}
+                height={220}
                 priority
-                sizes="120px"
+                sizes="220px"
                 style={{ display: "block" }}
               />
             </Link>
