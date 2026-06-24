@@ -50,6 +50,6 @@ export function decodeShareData(
 export function buildShareUrl(scores: ScoreMap, type: string): string {
   const encoded = encodeShareData(scores, type);
   const origin =
-    typeof window !== "undefined" ? window.location.origin : "https://lovecompass.app";
+    typeof window !== "undefined" ? window.location.origin : "https://lovewired.co.uk";
   return `${origin}/results?d=${encoded}`;
 }

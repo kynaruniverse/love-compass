@@ -56,8 +56,8 @@ const STEPS = [
     num: "05",
     heading: "Limitations",
     body: [
-      "Love Compass is not clinically validated and should not be used for psychological diagnosis or any clinical purpose. It is a self-reflection tool, built carefully and grounded in relationship research, but it is not a substitute for therapy or professional support.",
-      "Self-report tools have well-documented limits: social desirability bias is real, and emotional state at the time of answering affects responses. These aren't flaws unique to Love Compass, they're inherent to any tool of this kind. The assessments are designed with those limits in mind. The most useful thing you can bring to them is honesty.",
+      "Love Wired is not clinically validated and should not be used for psychological diagnosis or any clinical purpose. It is a self-reflection tool, built carefully and grounded in relationship research, but it is not a substitute for therapy or professional support.",
+      "Self-report tools have well-documented limits: social desirability bias is real, and emotional state at the time of answering affects responses. These aren't flaws unique to Love Wired, they're inherent to any tool of this kind. The assessments are designed with those limits in mind. The most useful thing you can bring to them is honesty.",
     ],
     pull: null,
   },
@@ -71,7 +71,7 @@ export default function MethodologyPage() {
         <p className="lc-priv-eyebrow">METHODOLOGY</p>
         <h1 className="lc-priv-h1">How it works</h1>
         <p className="lc-priv-sub">
-          Love Compass isn't a personality quiz. Here's exactly how the assessments
+          Love Wired isn't a personality quiz. Here's exactly how the assessments
           are built, how your answers are scored, and what the results actually mean.
         </p>
       </header>
@@ -113,7 +113,7 @@ export default function MethodologyPage() {
       </div>
 
       <p className="lc-method-disclaimer">
-        Love Compass is a self-reflection tool, not a clinical or psychological
+        Love Wired is a self-reflection tool, not a clinical or psychological
         assessment. Results reflect patterns and preferences, not fixed traits.
       </p>
 

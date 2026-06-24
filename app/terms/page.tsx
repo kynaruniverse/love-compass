@@ -19,10 +19,10 @@ const TERMS_MARQUEE_ITEMS = [
 const SECTIONS = [
   {
     number: "01",
-    heading: "What Love Compass is",
+    heading: "What Love Wired is",
     weight: "high",
     paragraphs: [
-      "Love Compass is a self-reflection tool. It is designed to help you think more clearly about how you give and receive love, not to diagnose, treat, or assess any psychological or clinical condition.",
+      "Love Wired is a self-reflection tool. It is designed to help you think more clearly about how you give and receive love, not to diagnose, treat, or assess any psychological or clinical condition.",
       "The assessments are built around structured frameworks informed by relationship research, but they are not scientifically validated instruments and do not constitute professional advice of any kind. Your results are a starting point for reflection, not a verdict.",
     ],
   },
@@ -31,7 +31,7 @@ const SECTIONS = [
     heading: "How you may use it",
     weight: "normal",
     paragraphs: [
-      "Love Compass is free to use for personal, non-commercial self-reflection. You're welcome to share your results with a partner, therapist, or trusted person as a conversation starter.",
+      "Love Wired is free to use for personal, non-commercial self-reflection. You're welcome to share your results with a partner, therapist, or trusted person as a conversation starter.",
       "You may not reproduce, repackage, or redistribute the assessments, questions, archetypes, or written content from this site (in whole or in part) without explicit written permission.",
     ],
   },
@@ -40,8 +40,8 @@ const SECTIONS = [
     heading: "No clinical or medical use",
     weight: "normal",
     paragraphs: [
-      "Nothing on Love Compass should be used as the basis for medical, psychological, or clinical decision-making. If you're navigating mental health challenges, relationship trauma, or anything that feels beyond self-reflection, please speak with a qualified professional.",
-      "Results from Love Compass are not a substitute for therapy, counseling, or professional relationship advice.",
+      "Nothing on Love Wired should be used as the basis for medical, psychological, or clinical decision-making. If you're navigating mental health challenges, relationship trauma, or anything that feels beyond self-reflection, please speak with a qualified professional.",
+      "Results from Love Wired are not a substitute for therapy, counseling, or professional relationship advice.",
     ],
   },
   {
@@ -49,7 +49,7 @@ const SECTIONS = [
     heading: "Liability",
     weight: "high",
     paragraphs: [
-      "Love Compass is provided as-is, without warranty of any kind. We are not liable for any decisions, interpretations, or actions taken based on your results. How you choose to use what you learn here is entirely your responsibility.",
+      "Love Wired is provided as-is, without warranty of any kind. We are not liable for any decisions, interpretations, or actions taken based on your results. How you choose to use what you learn here is entirely your responsibility.",
       "We make no guarantees about the accuracy, completeness, or fitness of the content for any particular purpose.",
     ],
   },
@@ -58,7 +58,7 @@ const SECTIONS = [
     heading: "Your data",
     weight: "normal",
     paragraphs: [
-      "Love Compass does not collect, store, or transmit your answers. All assessment data lives in your browser session only and is deleted when you close the tab. We have no way of seeing your responses, and that's intentional.",
+      "Love Wired does not collect, store, or transmit your answers. All assessment data lives in your browser session only and is deleted when you close the tab. We have no way of seeing your responses, and that's intentional.",
     ],
     footnote: {
       text: "For full details, see our Privacy Policy.",
@@ -71,7 +71,7 @@ const SECTIONS = [
     heading: "Changes to these terms",
     weight: "normal",
     paragraphs: [
-      "We may update these terms from time to time. Continued use of Love Compass after any changes constitutes acceptance of the revised terms. We'll always keep this page current.",
+      "We may update these terms from time to time. Continued use of Love Wired after any changes constitutes acceptance of the revised terms. We'll always keep this page current.",
     ],
     date: "Last updated: June 2026.",
   },
@@ -86,7 +86,7 @@ export default function TermsPage() {
         <p className="lc-terms-eyebrow">LEGAL</p>
         <h1 className="lc-terms-h1">Terms of Use</h1>
         <p className="lc-terms-sub">
-          Plain language. No surprises. If you use Love Compass, here's what you're agreeing to.
+          Plain language. No surprises. If you use Love Wired, here's what you're agreeing to.
         </p>
       </header>
 
@@ -148,7 +148,7 @@ export default function TermsPage() {
 
       {/* ── Disclaimer ── */}
       <p className="lc-priv-disclaimer">
-        Using Love Compass means you understand what it is: a self-reflection tool,
+        Using Love Wired means you understand what it is: a self-reflection tool,
         not a clinical instrument. Your results are yours to interpret.
       </p>
     </main>

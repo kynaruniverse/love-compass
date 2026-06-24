@@ -21,17 +21,17 @@ export default function AboutPage() {
         <p className="lc-about-eyebrow">ABOUT</p>
         <h1 className="lc-about-h1">Understanding how you love</h1>
         <p className="lc-about-sub">
-          Self-knowledge is the most underrated relationship skill. Love Compass exists to give you more of it.
+          Self-knowledge is the most underrated relationship skill. Love Wired exists to give you more of it.
         </p>
       </section>
 
       <Marquee items={ABOUT_MARQUEE_ITEMS} />
 
-      {/* ── What is Love Compass ── */}
+      {/* ── What is Love Wired ── */}
       <section className="lc-about-block">
-        <h2 className="lc-about-h2">What is Love Compass?</h2>
+        <h2 className="lc-about-h2">What is Love Wired?</h2>
         <p className="lc-about-p">
-          Most relationship tools blur two different things together: how you need to receive love, and how you actually give it. Love Compass keeps them separate, because they rarely match.
+          Most relationship tools blur two different things together: how you need to receive love, and how you actually give it. Love Wired keeps them separate, because they rarely match.
         </p>
         <p className="lc-about-p">
           It maps your relational patterns across eight dimensions and returns a profile built from your real tendencies, not the ones that sound best in a bio.
@@ -92,7 +92,7 @@ export default function AboutPage() {
           Not communication frameworks. Not compatibility algorithms. Actual, honest clarity about what you need, what you bring, and where those two things don't meet.
         </p>
         <p className="lc-about-p">
-          Love Compass doesn't tell you who to be with. It doesn't score you. It gives you a profile, specific to your answers, and trusts you to use it.
+          Love Wired doesn't tell you who to be with. It doesn't score you. It gives you a profile, specific to your answers, and trusts you to use it.
         </p>
         <p className="lc-about-p lc-about-p--emphasis">
           Clarity first. Everything else follows.
@@ -102,7 +102,7 @@ export default function AboutPage() {
       {/* ── Disclaimer note ── */}
       <section className="lc-about-disclaimer">
         <p>
-          Love Compass is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change.
+          Love Wired is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change.
         </p>
       </section>
     </main>

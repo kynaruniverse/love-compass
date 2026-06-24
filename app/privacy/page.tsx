@@ -21,7 +21,7 @@ const COMMITMENTS = [
     number: "01",
     statement: "We don't collect your data.",
     body: [
-      "Love Compass does not collect, store, or transmit personal data of any kind. There are no accounts, no sign-ups, no forms that send information anywhere. Your name, email address, and identity are never asked for. We have no use for them.",
+      "Love Wired does not collect, store, or transmit personal data of any kind. There are no accounts, no sign-ups, no forms that send information anywhere. Your name, email address, and identity are never asked for. We have no use for them.",
       "This isn't just policy. It's how the tool is built. There is no server receiving your answers. There is no database storing your results. We genuinely cannot see what you choose. That's by design, not by accident.",
     ],
   },
@@ -37,7 +37,7 @@ const COMMITMENTS = [
     number: "03",
     statement: "No tracking. No analytics. No watching.",
     body: [
-      "Love Compass does not use analytics platforms, advertising trackers, or third-party scripts that monitor your behaviour. There are no tracking cookies. There is no pixel. We don't know how many people took a particular assessment, how long they spent on it, or what their results were.",
+      "Love Wired does not use analytics platforms, advertising trackers, or third-party scripts that monitor your behaviour. There are no tracking cookies. There is no pixel. We don't know how many people took a particular assessment, how long they spent on it, or what their results were.",
       "A tool designed to help people reflect honestly on their most personal patterns shouldn't be watching them while they do it.",
     ],
   },
@@ -45,15 +45,15 @@ const COMMITMENTS = [
     number: "04",
     statement: "One third party: our host.",
     body: [
-      "Love Compass is hosted on Vercel. As with any web host, Vercel may log standard server-level data such as IP addresses and request timestamps as part of normal infrastructure operation. This is separate from application-level data and is governed by Vercel's privacy policy (vercel.com/legal/privacy-policy).",
-      "No other third-party services are integrated into Love Compass.",
+      "Love Wired is hosted on Vercel. As with any web host, Vercel may log standard server-level data such as IP addresses and request timestamps as part of normal infrastructure operation. This is separate from application-level data and is governed by Vercel's privacy policy (vercel.com/legal/privacy-policy).",
+      "No other third-party services are integrated into Love Wired.",
     ],
   },
   {
     number: "05",
     statement: "You control everything. We control nothing.",
     body: [
-      "Because we hold no personal data about you, there is nothing for us to delete, export, or correct on your behalf. You have full and immediate control over everything associated with your use of Love Compass. It lives in your browser and disappears when you're done.",
+      "Because we hold no personal data about you, there is nothing for us to delete, export, or correct on your behalf. You have full and immediate control over everything associated with your use of Love Wired. It lives in your browser and disappears when you're done.",
       "If you have questions about this policy, reach us at charlesblackwoodofficial@gmail.com.",
     ],
   },
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
 
       {/* ── Disclaimer ── */}
       <p className="lc-priv-disclaimer">
-        Love Compass holds nothing about you. Your data belongs to you
+        Love Wired holds nothing about you. Your data belongs to you
         because we were never in a position to take it.
       </p>
     </main>

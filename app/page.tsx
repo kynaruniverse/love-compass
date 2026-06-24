@@ -113,10 +113,10 @@ export default function HomePage() {
       <section className="lc-hero" aria-label="Introduction">
         <div className="lc-hero-content">
           <FadeIn delay={0}>
-            <Link href="/" aria-label="Love Compass home" className="lc-hero-logo">
+            <Link href="/" aria-label="Love Wired home" className="lc-hero-logo">
               <Image
                 src="/logo.svg"
-                alt="Love Compass"
+                alt="Love Wired"
                 width={220}
                 height={220}
                 priority
@@ -214,10 +214,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Bridge section ── */}
-      <section className="lc-bridge" aria-label="Why Love Compass">
+      <section className="lc-bridge" aria-label="Why Love Wired">
         <FadeIn>
           <p className="lc-bridge-text">
-            It's easy to assume everyone wants to be loved the way you do. Love Compass exists to challenge that, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
+            It's easy to assume everyone wants to be loved the way you do. Love Wired exists to challenge that, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
           </p>
         </FadeIn>
       </section>

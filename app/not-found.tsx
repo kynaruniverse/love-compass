@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ParticleCanvas } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | Love Compass",
+  title: "Page Not Found | Love Wired",
   description: "This page doesn't exist, but your path does.",
 };
 
@@ -17,10 +17,10 @@ export default function NotFound() {
         className="relative z-10 min-h-screen flex items-center justify-center px-6"
       >
         <div className="relative text-center max-w-sm w-full">
-          <Link href="/" aria-label="Love Compass home" className="lc-error-logo">
+          <Link href="/" aria-label="Love Wired home" className="lc-error-logo">
             <Image
               src="/logo.svg"
-              alt="Love Compass"
+              alt="Love Wired"
               width={84}
               height={84}
               priority

@@ -63,7 +63,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
     items: [
       {
         q: "Is this scientifically validated?",
-        a: "Honestly, no. Let's be clear about what that question is really asking. Science is exceptional at measuring repeatable, observable phenomena. Love is neither. No lab has successfully bottled why one person can feel completely known by a partner and completely invisible with another who, on paper, ticks every box. Love Compass doesn't claim clinical validation. What it does is give you a structured mirror built on frameworks grounded in decades of relationship research, filtered through the one variable that actually matters: whether the results make you recognise something true about yourself. That's the only measure worth having here."
+        a: "Honestly, no. Let's be clear about what that question is really asking. Science is exceptional at measuring repeatable, observable phenomena. Love is neither. No lab has successfully bottled why one person can feel completely known by a partner and completely invisible with another who, on paper, ticks every box. Love Wired doesn't claim clinical validation. What it does is give you a structured mirror built on frameworks grounded in decades of relationship research, filtered through the one variable that actually matters: whether the results make you recognise something true about yourself. That's the only measure worth having here."
       },
       {
         q: "What's the difference between the receiving and giving tests?",
@@ -120,7 +120,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
         a: "No account, no sign-up, no email required. You open the assessment, you take it, you get your results. That's it. We think that's how it should be."
       },
       {
-        q: "Is Love Compass free?",
+        q: "Is Love Wired free?",
         a: "Completely free. No paywalls, no premium tier, no 'unlock your full results' gate. What you see is what you get."
       },
     ]
@@ -138,7 +138,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
       },
       {
         q: "Can I use this to find a compatible partner?",
-        a: "Not yet. Love Compass is currently a self-reflection tool, not a matching platform. But here's the thing: most people go looking for a partner before they've done this work, which is a bit like shopping without knowing what you actually need. Taking both your receiving and giving assessments gives you a genuinely clear picture of what you're looking for and what you bring. That clarity is more useful than any algorithm."
+        a: "Not yet. Love Wired is currently a self-reflection tool, not a matching platform. But here's the thing: most people go looking for a partner before they've done this work, which is a bit like shopping without knowing what you actually need. Taking both your receiving and giving assessments gives you a genuinely clear picture of what you're looking for and what you bring. That clarity is more useful than any algorithm."
       },
     ]
   },
@@ -202,7 +202,7 @@ export default function FAQPage() {
       </div>
 
       <p className="lc-priv-disclaimer">
-        Love Compass is a self-reflection tool. If something in your results raises
+        Love Wired is a self-reflection tool. If something in your results raises
         deeper questions, a qualified professional is the right next step.
       </p>
     </main>

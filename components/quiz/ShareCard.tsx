@@ -40,7 +40,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
 
   const handleCopyText = useCallback(() => {
     const text = [
-      `My Love Compass Result: ${modeLabel}`,
+      `My Love Wired Result: ${modeLabel}`,
       ``,
       result.primary.name,
       `"${result.primary.tagline}"`,
@@ -52,7 +52,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
       `Top dimensions:`,
       ...top3.map(c => `  ${c.title}: ${c.percentage}%`),
       ``,
-      `Take your own at lovecompass.app`,
+      `Take your own at lovewired.co.uk`,
     ].join("\n");
     copyString(text, "text");
   }, [copyString, giving, modeLabel, result.primary.name, result.primary.tagline, top3]);

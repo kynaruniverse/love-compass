@@ -123,10 +123,10 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
 
 function SaveResults({ primary, profile }: { primary: Archetype; profile: CategoryResult[] }) {
   function handleExportTXT() {
-    exportText("love-compass-results.txt", buildResultTXT(primary, profile));
+    exportText("love-wired-results.txt", buildResultTXT(primary, profile));
   }
   function handleExportMD() {
-    exportMarkdown("love-compass-results.md", buildResultMD(primary, profile));
+    exportMarkdown("love-wired-results.md", buildResultMD(primary, profile));
   }
   return (
     <details className="group" aria-label="Save your results">
@@ -296,7 +296,7 @@ function ResultsInner() {
       <SaveResults primary={result.primary} profile={profile} />
 
       <p className="text-xs opacity-40 text-center leading-relaxed">
-        Love Compass is a self-reflection tool, not a clinical or psychological assessment.
+        Love Wired is a self-reflection tool, not a clinical or psychological assessment.
         Results reflect patterns and preferences, not fixed traits, and may shift over time.
       </p>
 

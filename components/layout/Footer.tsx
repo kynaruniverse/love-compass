@@ -102,7 +102,7 @@ export default function Footer() {
               <Link href="/faq"        className="lc-footer-link">FAQ</Link>
             </div>
             <p className="lc-footer-copy">
-              © {new Date().getFullYear()} Love Compass
+              © {new Date().getFullYear()} Love Wired
             </p>
           </div>
 

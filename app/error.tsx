@@ -23,10 +23,10 @@ export default function Error({
           aria-live="assertive"
           className="relative text-center max-w-sm w-full"
         >
-          <Link href="/" aria-label="Love Compass home" className="lc-error-logo">
+          <Link href="/" aria-label="Love Wired home" className="lc-error-logo">
             <Image
               src="/logo.svg"
-              alt="Love Compass"
+              alt="Love Wired"
               width={84}
               height={84}
               priority
@@ -35,7 +35,7 @@ export default function Error({
             />
           </Link>
 
-          <h1 className="lc-error-h1">The compass lost its way</h1>
+          <h1 className="lc-error-h1">you lost your way</h1>
 
           <p className="lc-error-p">
             Something didn't load correctly. It's not you, let's try that again together.

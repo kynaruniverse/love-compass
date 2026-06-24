@@ -42,11 +42,11 @@ export function getArchetypeHue(angle: number): number {
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 
 export const siteMeta = {
-  title: "Love Compass",
+  title: "Love Wired",
   description:
-    "Discover how you give and receive love. Love Compass is a free self-reflection tool built around four structured assessments. No sign-up required.",
-  url: "https://lovecompass.app",
-  siteName: "Love Compass",
+    "Discover how you give and receive love. Love Wired is a free self-reflection tool built around four structured assessments. No sign-up required.",
+  url: "https://lovewired.co.uk",
+  siteName: "Love Wired",
 };
 
 export function generateMeta({
