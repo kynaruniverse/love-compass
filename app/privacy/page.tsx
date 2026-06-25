@@ -1,5 +1,6 @@
 import { generateMeta } from "@/lib";
 import Image from "next/image";
+import Link from "next/link";
 import { Marquee } from "@/components/ui/Marquee";
 import { ShieldCheck, EyeOff, WifiOff } from "lucide-react";
 
@@ -76,6 +77,8 @@ const TRUST_PILLARS = [
 export default function PrivacyPage() {
   return (
     <main id="main-content" className="lc-priv-page">
+
+      <Link href="/" className="lc-page-back">← Home</Link>
 
       {/* ── Header ── */}
       <header className="lc-priv-header">

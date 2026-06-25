@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { assessments } from "@/data/assessments";
 import { Marquee } from "@/components/ui/Marquee";
 
 const ABOUT_MARQUEE_ITEMS = [
@@ -45,22 +44,7 @@ export default function AboutPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">What can you do here?</h2>
         <p className="lc-about-p">
-          Four assessments. Two sides of the same question: how love finds you, and how you love in return.
-        </p>
-
-        <ul className="lc-about-list">
-          {assessments.map((a) => (
-            <li key={a.slug} className="lc-about-list-item">
-              <Link href={`/assessments/${a.slug}`} className="lc-about-list-link">
-                <span className="lc-about-list-title">{a.title}</span>
-                <span className="lc-about-list-arrow">→</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <p className="lc-about-note">
-          5–10 minutes each. Your answers never leave your browser. Nothing is stored, nothing is transmitted.
+          Four assessments. Two sides of the same question: how love finds you, and how you love in return. Five to ten minutes each. Nothing stored, nothing transmitted.
         </p>
 
         <Link href="/assessments" className="lc-about-cta">
@@ -102,7 +86,7 @@ export default function AboutPage() {
       {/* ── Disclaimer note ── */}
       <section className="lc-about-disclaimer">
         <p>
-          Love Wired is a self-reflection tool, not a clinical or psychological assessment. Results map patterns and preferences, not fixed traits. People change.
+          Not a clinical tool — see our <Link href="/disclaimer">Disclaimer</Link>.
         </p>
       </section>
     </main>

@@ -4,7 +4,42 @@ const KEYS = {
   results:   "lc_results",
   questions: "lc_questions",
   type:      "lc_type",
+  progress:  "lc_progress",
 } as const;
+
+export interface QuizProgress {
+  slug:    string;
+  index:   number;
+  answers: string[];
+}
+
+export function saveQuizProgress(slug: string, index: number, answers: string[]): void {
+  try {
+    sessionStorage.setItem(KEYS.progress, JSON.stringify({ slug, index, answers }));
+  } catch {
+    // sessionStorage unavailable — fail silently
+  }
+}
+
+export function loadQuizProgress(slug: string): QuizProgress | null {
+  try {
+    const raw = sessionStorage.getItem(KEYS.progress);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as QuizProgress;
+    if (parsed.slug !== slug || typeof parsed.index !== "number" || !Array.isArray(parsed.answers)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+export function clearQuizProgress(): void {
+  try {
+    sessionStorage.removeItem(KEYS.progress);
+  } catch {
+    // fail silently
+  }
+}
 
 export interface QuizSession {
   scores:    ScoreMap;

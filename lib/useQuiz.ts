@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ScoreMap, QuizQuestion } from "@/types/quiz";
 import { createEmptyScores, applyAnswer, tallyAnswers } from "./scoring";
+import { saveQuizProgress } from "./session";
 
 export interface QuizState {
   index: number;
@@ -19,10 +20,12 @@ export interface QuizState {
   canGoBack: boolean;
 }
 
-export function useQuiz(questions: QuizQuestion[]): QuizState {
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
-  const [scores, setScores] = useState<ScoreMap>(createEmptyScores());
+export function useQuiz(questions: QuizQuestion[], slug?: string, initialAnswers?: string[], initialIndex?: number): QuizState {
+  const [index, setIndex] = useState(initialIndex ?? 0);
+  const [answers, setAnswers] = useState<string[]>(initialAnswers ?? []);
+  const [scores, setScores] = useState<ScoreMap>(() =>
+    initialAnswers?.length ? tallyAnswers(initialAnswers, questions) : createEmptyScores()
+  );
   // Guard against double-tap: lock until the answer state has been applied.
   const answering = useRef(false);
 
@@ -56,6 +59,12 @@ export function useQuiz(questions: QuizQuestion[]): QuizState {
     });
     setIndex(prev => Math.max(0, prev - 1));
   }, [index, questions]);
+
+  // Persist progress on every answer
+  useEffect(() => {
+    if (!slug || questions.length === 0 || answers.length === 0) return;
+    saveQuizProgress(slug, index, answers);
+  }, [slug, index, answers, questions.length]);
 
   // Release the double-tap lock after React has committed the updated index.
   // useEffect fires after commit, which is later than a microtask — ensuring

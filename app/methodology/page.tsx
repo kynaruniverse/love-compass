@@ -1,5 +1,6 @@
 import { generateMeta } from "@/lib";
 import Image from "next/image";
+import Link from "next/link";
 import { Marquee } from "@/components/ui/Marquee";
 
 const METHODOLOGY_MARQUEE_ITEMS = [
@@ -67,6 +68,8 @@ export default function MethodologyPage() {
   return (
     <main id="main-content" className="lc-method-page">
 
+      <Link href="/" className="lc-page-back">← Home</Link>
+
       <header className="lc-priv-header">
         <p className="lc-priv-eyebrow">METHODOLOGY</p>
         <h1 className="lc-priv-h1">How it works</h1>
@@ -113,11 +116,8 @@ export default function MethodologyPage() {
       </div>
 
       <p className="lc-method-disclaimer">
-        Love Wired is a self-reflection tool, not a clinical or psychological
-        assessment. Results reflect patterns and preferences, not fixed traits.
+        Not a clinical tool — see our <Link href="/disclaimer">Disclaimer</Link>.
       </p>
-
-      <Marquee items={METHODOLOGY_MARQUEE_ITEMS} />
 
     </main>
   );

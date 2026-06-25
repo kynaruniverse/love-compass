@@ -76,14 +76,25 @@ export default function CompassProfile({
   const activeProfile = activeCat ? (profile.find(c => c.key === activeCat) ?? null) : null;
   const calloutPos = activeProfile ? point(activeProfile.angle, outerRadius * 0.62) : null;
 
+  const activeAnnouncement = activeProfile
+    ? `${activeProfile.title}: ${activeProfile.percentage}%`
+    : "";
+
   return (
-    <div className="flex flex-col items-center gap-5 w-full">
+    <div
+      className="flex flex-col items-center gap-5 w-full"
+      role="region"
+      aria-label="Your result compass"
+    >
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {activeAnnouncement}
+      </div>
       <svg
         width="100%"
         height="auto"
         viewBox={`0 0 ${size} ${size}`}
         style={{ maxWidth: size, display: "block" }}
-        role="img"
+        role="group"
         aria-label={`Compass pointing toward ${top.title}, your strongest category at ${top.percentage}%`}
       >
         <defs>
@@ -212,6 +223,11 @@ export default function CompassProfile({
                 fill="transparent"
                 style={{ cursor: "pointer" }}
                 onClick={() => handleCatTap(cat.key)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleCatTap(cat.key); } }}
+                role="button"
+                tabIndex={0}
+                aria-label={`${cat.title}: ${cat.percentage}%${activeCat === cat.key ? ", selected" : ""}`}
+                aria-pressed={activeCat === cat.key}
               />
 
               {/* Label */}

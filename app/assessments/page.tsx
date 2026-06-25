@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { assessments, type Assessment } from "@/data/assessments";
@@ -33,20 +30,14 @@ const TILT_DECK: Record<string, number> = {
 };
 
 // ── Badge card ───────────────────────────────────────────────────────────
-function BadgeCard({
-  assessment,
-  onSelect,
-}: {
-  assessment: Assessment;
-  onSelect: (slug: string) => void;
-}) {
+function BadgeCard({ assessment }: { assessment: Assessment }) {
   const tilt = TILT_DECK[assessment.slug] ?? 0;
   const badge = BADGE_MAP[assessment.slug];
   const isReceiving = assessment.mode === "receiving";
 
   return (
-    <button
-      onClick={() => onSelect(assessment.slug)}
+    <Link
+      href={`/assessments/${assessment.slug}`}
       className="lc-badgecard"
       data-mode={assessment.mode}
       style={{ "--lc-tilt": `${tilt}deg` } as React.CSSProperties}
@@ -66,7 +57,8 @@ function BadgeCard({
         )}
       </div>
       <h3 className="lc-badgecard-title">{assessment.title}</h3>
-    </button>
+      <p className="lc-badgecard-desc">{assessment.description}</p>
+    </Link>
   );
 }
 
@@ -77,14 +69,12 @@ function AssessmentSection({
   sub,
   color,
   items,
-  onSelect,
 }: {
   eyebrow: string;
   heading: string;
   sub: string;
   color: string;
   items: Assessment[];
-  onSelect: (slug: string) => void;
 }) {
   return (
     <section className="lc-badge-section" aria-labelledby={`section-${heading}`}>
@@ -96,7 +86,7 @@ function AssessmentSection({
 
       <div className="lc-badgecard-grid">
         {items.map((a) => (
-          <BadgeCard key={a.slug} assessment={a} onSelect={onSelect} />
+          <BadgeCard key={a.slug} assessment={a} />
         ))}
       </div>
     </section>
@@ -107,11 +97,44 @@ function AssessmentSection({
 function AssessmentModal({
   assessment,
   onClose,
+  triggerRef,
 }: {
   assessment: Assessment;
   onClose: () => void;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
 }) {
   const badge = BADGE_MAP[assessment.slug];
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  // Move focus to close button when modal opens
+  useEffect(() => {
+    closeRef.current?.focus();
+    return () => {
+      triggerRef.current?.focus();
+    };
+  }, [triggerRef]);
+
+  // Trap focus within modal
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") { onClose(); return; }
+    if (e.key !== "Tab") return;
+    const modal = modalRef.current;
+    if (!modal) return;
+    const focusable = Array.from(
+      modal.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }, [onClose]);
 
   return (
     <>
@@ -121,12 +144,15 @@ function AssessmentModal({
         aria-hidden="true"
       />
       <div
+        ref={modalRef}
         className="lc-modal"
         role="dialog"
         aria-modal="true"
         aria-label={assessment.title}
+        onKeyDown={handleKeyDown}
       >
         <button
+          ref={closeRef}
           onClick={onClose}
           className="lc-modal-close"
           aria-label="Close"
@@ -158,11 +184,8 @@ function AssessmentModal({
 
 // ── Page ───────────────────────────────────────────────────────────────────
 export default function AssessmentsPage() {
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-
   const receiving = assessments.filter((a) => a.mode === "receiving");
   const giving = assessments.filter((a) => a.mode === "giving");
-  const selected = selectedSlug ? assessments.find((a) => a.slug === selectedSlug) ?? null : null;
 
   return (
     <main id="main-content" className="lc-assess-page">
@@ -182,25 +205,19 @@ export default function AssessmentsPage() {
         sub="The love you receive isn't always the love you need."
         color="var(--primary)"
         items={receiving}
-        onSelect={setSelectedSlug}
       />
 
       <AssessmentSection
         eyebrow="HOW YOU SHOW LOVE"
         heading="Giving"
-        sub="Everyone has a default way of loving, this finds yours."
+        sub="How you show love and how your partner feels it are rarely the same thing."
         color="var(--accent)"
         items={giving}
-        onSelect={setSelectedSlug}
       />
 
       <section className="lc-assess-footnote">
         <p>Each assessment takes 5–10 minutes. Nothing you answer leaves your browser. No account. No record. Just you.</p>
       </section>
-
-      {selected && (
-        <AssessmentModal assessment={selected} onClose={() => setSelectedSlug(null)} />
-      )}
 
     </main>
   );

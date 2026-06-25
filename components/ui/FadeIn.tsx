@@ -10,6 +10,7 @@ export default function FadeIn({
   role,
   "aria-label": ariaLabel,
   as: Tag = "div",
+  subtle = false,
 }: {
   children: React.ReactNode;
   delay?: number;
@@ -17,6 +18,7 @@ export default function FadeIn({
   role?: string;
   "aria-label"?: string;
   as?: "div" | "span";
+  subtle?: boolean;
 }) {
   const ref = useRef<HTMLDivElement & HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
@@ -43,12 +45,15 @@ export default function FadeIn({
     return () => obs.disconnect();
   }, [prefersReduced]);
 
+  const translateY = subtle ? "8px" : "20px";
+  const duration   = subtle ? "0.35s" : "0.6s";
+
   const style = prefersReduced
     ? { opacity: 1 }
     : {
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(20px)",
-        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
+        transform: visible ? "translateY(0)" : `translateY(${translateY})`,
+        transition: `opacity ${duration} ease ${delay}ms, transform ${duration} ease ${delay}ms`,
       };
 
   return (

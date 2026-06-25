@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -47,7 +45,7 @@ function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
         role="region"
         aria-label={q}
         className="lc-faq-answer-wrap"
-        style={{ maxHeight: open ? "600px" : "0px", opacity: open ? 1 : 0 }}
+        data-open={open ? "true" : "false"}
       >
         <div className="lc-faq-answer">{a}</div>
       </div>
@@ -138,7 +136,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
       },
       {
         q: "Can I use this to find a compatible partner?",
-        a: "Not yet. Love Wired is currently a self-reflection tool, not a matching platform. But here's the thing: most people go looking for a partner before they've done this work, which is a bit like shopping without knowing what you actually need. Taking both your receiving and giving assessments gives you a genuinely clear picture of what you're looking for and what you bring. That clarity is more useful than any algorithm."
+        a: "Love Wired is a self-reflection tool, not a matching platform. But here's the thing: most people go looking for a partner before they've done this work, which is a bit like shopping without knowing what you actually need. Taking both your receiving and giving assessments gives you a genuinely clear picture of what you're looking for and what you bring. That clarity is more useful than any algorithm."
       },
     ]
   },

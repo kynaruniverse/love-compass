@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, type CSSProperties } from "react";
+import { useId, useState, type CSSProperties } from "react";
 import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
 
 export default function QuestionView({
@@ -13,6 +13,13 @@ export default function QuestionView({
   const type = question.type ?? "forced-choice";
   const isScale = type === "likert" || type === "reverse";
   const headingId = useId();
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  function handleScale(value: string) {
+    if (selectedValue) return; // block double-tap
+    setSelectedValue(value);
+    setTimeout(() => onAnswer(value), 180);
+  }
 
   return (
     <div className="lc-qcard-wrap">
@@ -37,24 +44,24 @@ export default function QuestionView({
       {isScale ? (
         /* -- Likert: 5 large square tap targets, generous thumb size -- */
         <div className="lc-qscale" role="radiogroup" aria-labelledby={headingId}>
-          <div className="lc-qscale-labels">
-            <span>Not me</span>
-            <span>Exactly me</span>
-          </div>
           <div className="lc-qscale-row">
             {LIKERT_LABELS.map((label, i) => {
               const value = String(i + 1);
+              const SHORT = ["Not at all", "Slightly", "Moderately", "Quite a lot", "Exactly me"];
               return (
-                <button
-                  key={value}
-                  type="button"
-                  onClick={() => onAnswer(value)}
-                  aria-label={`${value} out of 5: ${label}`}
-                  className="lc-qscale-btn"
-                  style={{ "--btn-index": i } as CSSProperties}
-                >
-                  {value}
-                </button>
+                <div key={value} className="lc-qscale-col">
+                  <button
+                    type="button"
+                    onClick={() => handleScale(value)}
+                    aria-label={`${value} out of 5: ${label}`}
+                    className={`lc-qscale-btn${selectedValue === value ? " lc-qscale-btn--selected" : ""}`}
+                    style={{ "--btn-index": i } as CSSProperties}
+                    disabled={selectedValue !== null}
+                  >
+                    {value}
+                  </button>
+                  <span className="lc-qscale-sublabel">{SHORT[i]}</span>
+                </div>
               );
             })}
           </div>

@@ -7,9 +7,31 @@ import { QUESTION_BANK } from "@/data/assessments";
  * QUESTION_BANK[type] already has it, so re-deriving max-possible-score
  * normalization works identically for anyone who opens the link, without
  * bloating the URL with the full question text.
+ *
+ * ENCODING FORMAT (URL-safe Base64):
+ *   1. Build a JSON payload: { v: number, s: ScoreMap, t: string }
+ *      - v: payload version (currently 1). Increment if ScoreMap shape changes.
+ *      - s: raw category scores (keys A–H, numeric values)
+ *      - t: assessment slug (e.g. "love", "intimacy-giving")
+ *   2. UTF-8 encode the JSON string.
+ *   3. Standard Base64-encode the bytes.
+ *   4. Make URL-safe: replace + → -, / → _, strip trailing = padding.
+ *
+ * To decode server-side (Node.js):
+ *   const restored = encoded.replace(/-/g, '+').replace(/_/g, '/');
+ *   const padded   = restored + '='.repeat((4 - (restored.length % 4)) % 4);
+ *   const json     = Buffer.from(padded, 'base64').toString('utf-8');
+ *   const payload  = JSON.parse(json); // { v, s, t }
+ *
+ * If payload.v is undefined, the URL predates versioning (treat as v0).
+ * If payload.v > CURRENT_SHARE_VERSION, show an "outdated link" message.
  */
+
+/** Increment this when the ScoreMap structure or payload shape changes. */
+const CURRENT_SHARE_VERSION = 1;
+
 export function encodeShareData(scores: ScoreMap, type: string): string {
-  const payload = JSON.stringify({ s: scores, t: type });
+  const payload = JSON.stringify({ v: CURRENT_SHARE_VERSION, s: scores, t: type });
   const base64 = typeof window !== "undefined"
     ? window.btoa(String.fromCharCode(...Array.from(new TextEncoder().encode(payload))))
     : Buffer.from(payload, "utf-8").toString("base64");
@@ -25,7 +47,11 @@ export function decodeShareData(
     const json = typeof window !== "undefined"
       ? new TextDecoder().decode(Uint8Array.from(window.atob(padded), c => c.charCodeAt(0)))
       : Buffer.from(padded, "base64").toString("utf-8");
-    const parsed = JSON.parse(json) as { s: ScoreMap; t: string };
+    const parsed = JSON.parse(json) as { v?: number; s: ScoreMap; t: string };
+    // Payload version check — v is absent on pre-versioning URLs (treat as v0).
+    // We accept v0 and v1 silently; future versions may warrant a user-facing warning.
+    const payloadVersion = parsed.v ?? 0;
+    if (payloadVersion > CURRENT_SHARE_VERSION) return null;
     // Basic structural validation for scores (s) and type (t)
     if (!parsed.s || typeof parsed.s !== 'object' || !parsed.t || typeof parsed.t !== 'string') return null;
 

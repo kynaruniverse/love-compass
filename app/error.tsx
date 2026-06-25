@@ -35,7 +35,7 @@ export default function Error({
             />
           </Link>
 
-          <h1 className="lc-error-h1">you lost your way</h1>
+          <h1 className="lc-error-h1">You've lost your way</h1>
 
           <p className="lc-error-p">
             Something didn't load correctly. It's not you, let's try that again together.

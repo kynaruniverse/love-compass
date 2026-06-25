@@ -81,6 +81,8 @@ export default function TermsPage() {
   return (
     <main id="main-content" className="lc-terms-page">
 
+      <Link href="/" className="lc-page-back">← Home</Link>
+
       {/* ── Header ── */}
       <header className="lc-terms-header">
         <p className="lc-terms-eyebrow">LEGAL</p>

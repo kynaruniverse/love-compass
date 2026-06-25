@@ -25,28 +25,9 @@ function BackToTop() {
       aria-label="Back to top"
       className="lc-back-to-top"
       style={{
-        position: "fixed",
-        bottom: "5.5rem",
-        right: "1.25rem",
-        zIndex: 40,
-        width: "44px",
-        height: "44px",
-        borderRadius: "9999px",
-        background: "rgba(201,161,74,0.18)",
-        border: "1px solid rgba(201,161,74,0.45)",
-        color: "var(--accent)",
-        fontSize: "1.1rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backdropFilter: "blur(8px)",
-        boxShadow: "0 4px 20px rgba(0,0,0,0.35)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(8px)",
-        transition: "opacity 0.3s ease, transform 0.3s ease",
         pointerEvents: visible ? "auto" : "none",
-        cursor: "pointer",
-        WebkitTapHighlightColor: "transparent",
       }}
     >
       ↑
@@ -74,7 +55,7 @@ export default function Footer() {
           </div>
 
           <p className="lc-footer-tagline">
-            For self-knowledge and better love. A tool built around one idea: knowing yourself in relationships changes everything.
+            Knowing yourself. For the people worth loving.
           </p>
 
           {/* Divider */}
@@ -83,7 +64,7 @@ export default function Footer() {
           {/* Methodology — prominent, own row */}
           <div className="lc-footer-methodology-row">
             <Link href="/methodology" className="lc-footer-methodology">
-              ◈ Read our Methodology
+              ✦ Read our Methodology
             </Link>
             <p className="lc-footer-methodology-sub">
               How these assessments were built and what they measure.

@@ -69,7 +69,7 @@ export default function ResultsProfile({
     <div className="space-y-6 sm:space-y-8" style={accentStyle}>
 
       {/* -- Hero: faux-3D tilted card, stacked on ghost layers -- */}
-      <FadeIn>
+      <FadeIn subtle>
         <div className="lc-results-hero-wrap">
           <div className="lc-results-hero-stack" aria-hidden="true">
             <div className="lc-results-hero-ghost lc-results-hero-ghost--back" />
@@ -100,27 +100,20 @@ export default function ResultsProfile({
         </div>
       </FadeIn>
 
-      {/* -- Profile Mix -- */}
-      {blendRest.length > 0 && (
-        <PaperCard
-          className="rounded-3xl p-6"
-          borderColor="var(--border-soft)"
-          shadow="0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)"
-        >
-          <div className="space-y-2">
-            <h3 className="font-serif font-semibold text-[var(--primary)]">Your Profile Mix</h3>
-            <p className="text-sm leading-relaxed opacity-80 font-serif" style={{ fontSize: 15 }}>
-              You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
-              {blendRest.length === 1 && blendRest[0] && (
-                <>, but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
-              )}
-              {blendRest.length === 2 && blendRest[0] && blendRest[1] && (
-                <>, but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
-              )}
-              {" "}Rather than a single fixed label, think of your results as a blend, with these dimensions working alongside your primary type in how you {mode === "giving" ? "naturally express love and desire" : "experience love and connection"}.
-            </p>
-          </div>
-        </PaperCard>
+      {/* -- Your Full Profile: compass + always-visible chips, one real visual -- */}
+      {profile.length > 0 && (
+        <section aria-label="Your full profile">
+          <PaperCard
+            className="rounded-3xl p-5 sm:p-7"
+            borderColor="rgba(201,161,74,0.25)"
+            shadow="0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)"
+          >
+            <span className="lc-results-visual-tag">Your Full Profile</span>
+            <CompassProfile profile={profile} />
+            <div className="lc-results-visual-divider" aria-hidden="true" />
+            <ScoreChips profile={profile} />
+          </PaperCard>
+        </section>
       )}
 
       {/* -- Insight groups -- Strengths / Growth Edges / From a Partner --
@@ -145,6 +138,29 @@ export default function ResultsProfile({
         </div>
       </PaperCard>
 
+      {/* -- Profile Mix -- */}
+      {blendRest.length > 0 && (
+        <PaperCard
+          className="rounded-3xl p-6"
+          borderColor="var(--border-soft)"
+          shadow="0 1px 8px rgba(158,59,78,0.06), inset 0 1px 2px rgba(255,255,255,0.6)"
+        >
+          <div className="space-y-2">
+            <h3 className="font-serif font-semibold text-[var(--primary)]">Your Profile Mix</h3>
+            <p className="text-sm leading-relaxed opacity-80 font-serif" style={{ fontSize: 15 }}>
+              You're primarily <span className="font-medium text-[var(--primary)]">{primary.name}</span>
+              {blendRest.length === 1 && blendRest[0] && (
+                <>, but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) is close behind, and shapes your profile too.</>
+              )}
+              {blendRest.length === 2 && blendRest[0] && blendRest[1] && (
+                <>, but <span className="font-medium">{blendRest[0].title}</span> ({blendRest[0].percentage}%) and <span className="font-medium">{blendRest[1].title}</span> ({blendRest[1].percentage}%) are both close behind, and shape your profile too.</>
+              )}
+              {" "}Rather than a single fixed label, think of your results as a blend, with these dimensions working alongside your primary type in how you {mode === "giving" ? "naturally express love and desire" : "experience love and connection"}.
+            </p>
+          </div>
+        </PaperCard>
+      )}
+
       {/* -- The full picture -- expanded narrative further down -- */}
       {(fullPictureParagraphs.length > 0 || secondary) && (
         <section aria-label="The full picture" className="space-y-3">
@@ -153,22 +169,6 @@ export default function ResultsProfile({
             {fullPictureParagraphs.map((para, i) => <p key={i}>{para}</p>)}
             {secondary && <p>{secondary.blurb}</p>}
           </div>
-        </section>
-      )}
-
-      {/* -- Your Full Profile: compass + always-visible chips, one real visual -- */}
-      {profile.length > 0 && (
-        <section aria-label="Your full profile">
-          <PaperCard
-            className="rounded-3xl p-5 sm:p-7"
-            borderColor="rgba(201,161,74,0.25)"
-            shadow="0 2px 16px rgba(158,59,78,0.07), inset 0 1px 2px rgba(255,255,255,0.7)"
-          >
-            <span className="lc-results-visual-tag">Your Full Profile</span>
-            <CompassProfile profile={profile} />
-            <div className="lc-results-visual-divider" aria-hidden="true" />
-            <ScoreChips profile={profile} />
-          </PaperCard>
         </section>
       )}
     </div>

@@ -22,18 +22,18 @@ export const metadata: Metadata = {
     title: "Love Wired",
     description: siteMeta.description,
     type: "website",
-    url: "https://lovewired.app",
+    url: "https://lovewired.co.uk",
     siteName: "Love Wired",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Love Wired" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Love Wired" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Love Wired",
     description: siteMeta.description,
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://lovewired.app",
+    canonical: "https://lovewired.co.uk",
   },
   robots: {
     index: true,

@@ -44,7 +44,7 @@ function AssessmentCard({
   const modeBg    = isReceiving ? "var(--primary-soft)" : "var(--accent-soft)";
 
   return (
-    <FadeIn delay={index * 80}>
+    <FadeIn delay={index * 80} subtle>
       <Link
         href={`/assessments/${slug}`}
         className="lc-acard"
@@ -151,11 +151,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Bridge section ── */}
+      <section className="lc-bridge" aria-label="Why Love Wired">
+        <FadeIn subtle>
+          <p className="lc-bridge-text">
+            It's easy to assume everyone wants to be loved the way you do. Love Wired exists to challenge that, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
+          </p>
+        </FadeIn>
+      </section>
+
       <QuoteMarquee />
 
       {/* ── Stat strip ── */}
       <section className="lc-stat-strip" aria-label="At a glance">
-        <FadeIn>
+        <FadeIn subtle>
           <p className="lc-stat-strip-text">
             4 assessments · 10 minutes each · No sign-up · Nothing stored
           </p>
@@ -167,7 +176,7 @@ export default function HomePage() {
         <div className="lc-assessments-inner">
 
           {/* Receiving */}
-          <FadeIn>
+          <FadeIn subtle>
             <div className="lc-group-header">
               <p className="lc-group-eyebrow" style={{ color: "var(--primary)" }}>
                 DISCOVER THE LOVE YOU NEED
@@ -190,7 +199,7 @@ export default function HomePage() {
           <Divider />
 
           {/* Giving */}
-          <FadeIn>
+          <FadeIn subtle>
             <div className="lc-group-header">
               <p className="lc-group-eyebrow" style={{ color: "var(--accent)" }}>
                 DISCOVER YOUR WAY OF LOVING
@@ -211,15 +220,6 @@ export default function HomePage() {
           </ul>
 
         </div>
-      </section>
-
-      {/* ── Bridge section ── */}
-      <section className="lc-bridge" aria-label="Why Love Wired">
-        <FadeIn>
-          <p className="lc-bridge-text">
-            It's easy to assume everyone wants to be loved the way you do. Love Wired exists to challenge that, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
-          </p>
-        </FadeIn>
       </section>
     </main>
   );

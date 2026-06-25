@@ -62,13 +62,10 @@ function NoResults() {
       >
         <div className="space-y-4">
           <p className="font-serif font-semibold" style={{ fontSize: 17, color: "var(--primary)" }}>
-            No results found
+            Your results are private by design
           </p>
           <p className="font-serif opacity-60 leading-relaxed" style={{ fontSize: 15 }}>
-            Results aren't saved anywhere. They only exist for the
-            browser tab that completed the assessment, or in a shared
-            link. If you refreshed, closed the tab, or this link is
-            incomplete, you'll need to take the assessment again.
+            Nothing is stored on our end, which means we can't recover your results for you. To see them again, take the assessment once more — it only takes 5–10 minutes.
           </p>
           <Button onClick={() => router.push("/assessments")} variant="primary">
             Take an Assessment
@@ -118,35 +115,6 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
         </aside>
       )}
     </div>
-  );
-}
-
-function SaveResults({ primary, profile }: { primary: Archetype; profile: CategoryResult[] }) {
-  function handleExportTXT() {
-    exportText("love-wired-results.txt", buildResultTXT(primary, profile));
-  }
-  function handleExportMD() {
-    exportMarkdown("love-wired-results.md", buildResultMD(primary, profile));
-  }
-  return (
-    <details className="group" aria-label="Save your results">
-      <summary
-        className="cursor-pointer text-sm opacity-50 active:opacity-70 transition-opacity list-none flex items-center gap-2 select-none"
-        style={{ WebkitTapHighlightColor: "transparent" }}
-      >
-        <span
-          className="inline-block transition-transform duration-200 group-open:rotate-180"
-          aria-hidden="true"
-        >
-          ↓
-        </span>
-        Save your results
-      </summary>
-      <div className="mt-3 flex flex-wrap gap-3">
-        <Button onClick={handleExportTXT} variant="secondary">Export TXT</Button>
-        <Button onClick={handleExportMD} variant="secondary">Export Markdown</Button>
-      </div>
-    </details>
   );
 }
 
@@ -241,7 +209,7 @@ function ResultsInner() {
   }
 
   return (
-    <main id="main-content" className="max-w-3xl mx-auto px-4 pt-16 pb-28 sm:pb-16 space-y-10 sm:space-y-12">
+    <main id="main-content" className="mx-auto px-4 pt-16 pb-28 sm:pb-16 space-y-10 sm:space-y-12" style={{ maxWidth: "38rem" }}>
 
       {isSharedView && (
         <div
@@ -275,25 +243,38 @@ function ResultsInner() {
       />
 
       {!isSharedView && (
-        <FadeIn>
-          <section aria-label="Share your result">
+        <FadeIn subtle>
+          <section aria-label="Share and save your result">
             <ShareCard
               result={result}
               profile={profile}
               quizType={quizType}
               shareUrl={scoresForShare ? buildShareUrl(scoresForShare, quizType) : undefined}
             />
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Button onClick={() => exportText("love-wired-results.txt", buildResultTXT(result.primary, profile))} variant="secondary">Save as TXT</Button>
+              <Button onClick={() => exportMarkdown("love-wired-results.md", buildResultMD(result.primary, profile))} variant="secondary">Save as Markdown</Button>
+            </div>
           </section>
         </FadeIn>
       )}
 
-      <div className="flex flex-wrap gap-3">
-        <Button onClick={() => router.push("/assessments")} variant="primary">
-          Take Another Assessment
-        </Button>
-      </div>
-
-      <SaveResults primary={result.primary} profile={profile} />
+      {isSharedView ? (
+        <div className="flex flex-wrap gap-3">
+          <Button onClick={() => router.push(`/assessments/${quizType}`)} variant="primary">
+            Take Your Own →
+          </Button>
+          <Button onClick={() => router.push("/assessments")} variant="secondary">
+            Browse Assessments
+          </Button>
+        </div>
+      ) : (
+        <div className="flex flex-wrap gap-3">
+          <Button onClick={() => router.push("/assessments")} variant="primary">
+            Take Another Assessment
+          </Button>
+        </div>
+      )}
 
       <p className="text-xs opacity-40 text-center leading-relaxed">
         Love Wired is a self-reflection tool, not a clinical or psychological assessment.
@@ -308,7 +289,7 @@ export default function ResultsPage() {
   return (
     <Suspense
       fallback={
-        <main className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center">
+        <main id="main-content" className="max-w-3xl mx-auto px-4 py-16 flex items-center justify-center">
           <p
             className="font-serif italic text-center"
             style={{ color: "var(--primary)", fontSize: 18, opacity: 0.7 }}
