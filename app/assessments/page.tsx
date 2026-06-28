@@ -126,8 +126,9 @@ function AssessmentModal({
   // Move focus to close button when modal opens
   useEffect(() => {
     closeRef.current?.focus();
+    const trigger = triggerRef.current;
     return () => {
-      triggerRef.current?.focus();
+      trigger?.focus();
     };
   }, [triggerRef]);
 
@@ -206,9 +207,14 @@ export default function AssessmentsPage() {
   const [activeAssessment, setActiveAssessment] = useState<Assessment | null>(null);
   const [activeTriggerRef, setActiveTriggerRef] = useState<React.RefObject<HTMLButtonElement | null> | null>(null);
 
-  const triggerRefs = Object.fromEntries(
-    assessments.map((a) => [a.slug, useRef<HTMLButtonElement | null>(null)])
-  ) as Record<string, React.RefObject<HTMLButtonElement | null>>;
+  const ref0 = useRef<HTMLButtonElement | null>(null);
+  const ref1 = useRef<HTMLButtonElement | null>(null);
+  const ref2 = useRef<HTMLButtonElement | null>(null);
+  const ref3 = useRef<HTMLButtonElement | null>(null);
+  const triggerRefs = assessments.reduce((acc, a, i) => {
+    acc[a.slug] = [ref0, ref1, ref2, ref3][i];
+    return acc;
+  }, {} as Record<string, React.RefObject<HTMLButtonElement | null>>);
 
   const handleOpen = (a: Assessment, ref: React.RefObject<HTMLButtonElement | null>) => {
     setActiveAssessment(a);

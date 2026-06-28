@@ -35,7 +35,7 @@ export default function Navbar() {
     if (y < lastY.current - 8) setVisible(true);
     if (y > lastY.current + 8) setVisible(false);
     lastY.current = y;
-  }, [isResults]);
+  }, [isResults, reducedMotion]);
 
   useEffect(() => {
     if (isResults || reducedMotion) { setVisible(true); return; }
