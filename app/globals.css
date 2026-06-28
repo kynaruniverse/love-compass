@@ -4,12 +4,23 @@
    DESIGN TOKENS
 ══════════════════════════════════════════ */
 :root {
+  color-scheme: light;
+  --lc-bottom-safe: calc(64px + env(safe-area-inset-bottom, 0px));
+
+  /* Backgrounds & surfaces */
   --background:    #faf8f5;
-  --foreground:    #1c1612;
   --surface:       #ffffff;
   --surface-muted: #f0ece6;
-  --border-soft:   #e8e2d9;
 
+  /* Foregrounds */
+  --foreground:       #1c1612;
+  --foreground-muted: #75706d;  /* descriptive / secondary text */
+  --cta-text:         #1C0A0E;  /* text on gold CTA backgrounds */
+
+  /* Borders */
+  --border-soft: #e8e2d9;
+
+  /* Brand */
   --primary:      #9E3B4E;   /* deep rose */
   --primary-soft: #F5E0E5;   /* pale rose tint */
   --accent:       #c9a14a;   /* warm gold */
@@ -24,6 +35,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   line-height: 1.6;
+}
+
+/* Global focus ring — ensures keyboard nav is always visible */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 /* Smooth transitions — scoped to interactive elements only */
@@ -63,6 +80,8 @@ h1, h2, h3 {
 .stamp-badge {
   border: 1.5px dashed currentColor;
   border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 /* Quiz page — zero top padding so progress bar is flush to viewport top */
@@ -135,6 +154,20 @@ h1, h2, h3 {
   opacity: 0.4;
   white-space: nowrap;
 }
+
+.lc-progress-exit {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.7rem;
+  color: var(--primary);
+  opacity: 0.35;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+  margin-right: -0.25rem;
+  min-height: 32px;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.lc-progress-exit:active { opacity: 0.8; }
 
 /* ══════════════════════════════════════════
    QUIZ — QUESTION CARD (compass-card design)
@@ -484,7 +517,7 @@ h1, h2, h3 {
   min-height: 44px;
   border-radius: 2rem;
   background: var(--accent);
-  color: #1C0A0E;
+  color: var(--cta-text);
   font-weight: 600;
   letter-spacing: 0.01em;
   box-shadow: 0 4px 24px rgba(201, 161, 74, 0.35);
@@ -517,7 +550,7 @@ h1, h2, h3 {
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #75706d;
+  color: var(--foreground-muted);
   font-style: normal;
 }
 
@@ -559,7 +592,7 @@ h1, h2, h3 {
 .lc-group-sub {
   font-size: 0.93rem;
   line-height: 1.7;
-  color: #75706d;
+  color: var(--foreground-muted);
   font-style: italic;
   max-width: 30rem;
   text-align: center;
@@ -688,7 +721,7 @@ h1, h2, h3 {
 .lc-acard-desc {
   font-size: 0.78rem;
   line-height: 1.55;
-  color: #75706d;
+  color: var(--foreground-muted);
   font-style: italic;
 }
 
@@ -731,7 +764,7 @@ h1, h2, h3 {
 .lc-bridge-text {
   font-size: 0.88rem;
   line-height: 1.7;
-  color: #75706d;
+  color: var(--foreground-muted);
   font-style: italic;
   max-width: 36rem;
   margin: 0 auto;
@@ -830,7 +863,7 @@ h1, h2, h3 {
 ══════════════════════════════════════════ */
 @media (min-width: 640px) {
   .lc-hero {
-    padding: 1rem 3rem 6rem;
+    padding: 1rem 3rem var(--lc-bottom-safe);
   }
 
   .lc-assessments {
@@ -839,6 +872,13 @@ h1, h2, h3 {
 
   .lc-final-cta {
     padding: 5rem 2.5rem 6rem;
+  }
+}
+
+@media (min-height: 800px) and (max-width: 1023px) {
+  .lc-hero {
+    justify-content: center;
+    padding-top: 2rem;
   }
 }
 
@@ -1016,7 +1056,7 @@ footer {
 
 .lc-footer-copy {
   font-size: 0.7rem;
-  color: #75706d;
+  color: var(--foreground-muted);
 }
 
 @media (min-width: 640px) {
@@ -1062,7 +1102,7 @@ footer {
   flex: 1;
   min-height: 48px;
   padding: 0.25rem 0;
-  color: #75706d;
+  color: var(--foreground-muted);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -1246,6 +1286,28 @@ footer {
 }
 
 /* ══════════════════════════════════════════
+   ASSESSMENTS PAGE — RECEIVING / GIVING MODEL
+══════════════════════════════════════════ */
+.lc-assess-callout {
+  max-width: 38rem;
+  margin: 0 auto 0.5rem;
+  padding: 0 1.5rem;
+}
+
+.lc-assess-callout p {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--foreground);
+  opacity: 0.75;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 1rem;
+}
+
+/* ══════════════════════════════════════════
    ASSESSMENTS PAGE — SECTION (shared w/ homepage tokens)
 ══════════════════════════════════════════ */
 .lc-badge-section {
@@ -1286,10 +1348,15 @@ footer {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
-  transform: rotate(var(--lc-tilt, 0deg));
   box-shadow: 0 4px 14px rgba(28, 22, 18, 0.08);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.35s ease;
+}
+
+@media (hover: hover) {
+  .lc-badgecard {
+    transform: rotate(var(--lc-tilt, 0deg));
+  }
 }
 
 .lc-badgecard[data-mode="receiving"] {
@@ -1411,6 +1478,17 @@ footer {
   z-index: 40;
 }
 
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-50% + 12px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
 .lc-modal {
   position: fixed;
   left: 1.25rem;
@@ -1487,7 +1565,7 @@ footer {
   min-height: 48px;
   border-radius: 9999px;
   background: var(--accent);
-  color: #1C0A0E;
+  color: var(--cta-text);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -1671,7 +1749,7 @@ footer {
   min-height: 48px;
   border-radius: 9999px;
   background: var(--accent);
-  color: #1C0A0E;
+  color: var(--cta-text);
   font-weight: 600;
   font-size: 0.92rem;
   text-decoration: none;
@@ -1796,6 +1874,36 @@ footer {
 .lc-page-back:hover,
 .lc-page-back:focus-visible {
   opacity: 0.85;
+}
+
+.lc-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0.5rem 1.5rem 0;
+  max-width: 34rem;
+}
+
+.lc-legal-nav-link {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--primary);
+  opacity: 0.35;
+  text-decoration: none;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.15s ease;
+}
+
+.lc-legal-nav-link:hover,
+.lc-legal-nav-link:focus-visible {
+  opacity: 0.7;
+}
+
+.lc-legal-nav-link[aria-current="page"] {
+  opacity: 1;
+  font-weight: 600;
 }
 
 .lc-priv-page {
@@ -2181,13 +2289,13 @@ footer {
 /* Large display numeral — the "bigger moment" vs Privacy/Terms' small flush numbers */
 .lc-method-step-num {
   font-family: var(--font-serif, "Lora", serif);
-  font-size: clamp(3.4rem, 16vw, 4.6rem);
+  font-size: clamp(2.6rem, 10vw, 4.6rem);
   font-weight: 600;
   line-height: 1;
   color: var(--accent);
   opacity: 0.16;
   letter-spacing: -0.03em;
-  margin-bottom: -1.4rem;
+  margin-bottom: -1.1rem;
   user-select: none;
 }
 
@@ -2689,6 +2797,10 @@ footer {
   border-left-color: hsl(var(--lc-archetype-hue) 50% 48%);
 }
 
+.lc-results-insight-group--try {
+  border-left-color: #5a8a6a;
+}
+
 .lc-results-insight-label {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 0.78rem;
@@ -2702,6 +2814,7 @@ footer {
 .lc-results-insight-group--strengths .lc-results-insight-label { color: var(--accent); opacity: 0.9; }
 .lc-results-insight-group--growth .lc-results-insight-label { color: #9c6530; opacity: 0.9; }
 .lc-results-insight-group--partner .lc-results-insight-label { color: hsl(var(--lc-archetype-hue) 50% 42%); opacity: 0.9; }
+.lc-results-insight-group--try .lc-results-insight-label { color: #3d6b4f; opacity: 0.9; }
 
 .lc-results-insight-group ul {
   display: flex;
@@ -2730,6 +2843,42 @@ footer {
 }
 
 /* "The full picture" — expanded narrative block further down */
+.lc-results-pairings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lc-results-pairing {
+  padding-left: 1rem;
+  border-left: 3px solid var(--border-soft);
+}
+
+.lc-results-pairing--best {
+  border-left-color: #5a8a6a;
+}
+
+.lc-results-pairing--friction {
+  border-left-color: #b5793f;
+}
+
+.lc-results-pairing-label {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.35rem;
+}
+
+.lc-results-pairing-text {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
 .lc-results-fullpicture-eyebrow {
   font-size: 0.7rem;
   font-weight: 600;
@@ -2864,6 +3013,13 @@ footer {
   .lc-hero {
     background-image: none;
     background-color: Canvas;
+  }
+
+  .lc-qscale-btn--selected {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
   }
 
   .lc-hero-h1-answer {

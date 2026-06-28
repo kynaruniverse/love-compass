@@ -80,12 +80,12 @@ function ResultsHeader({ isSharedView, quizType }: { isSharedView: boolean; quiz
   return (
     <div className="space-y-3">
       <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary)]">
-        {isSharedView ? <>Here's who they are<br />in love.</> : <>Here's who you are<br />in love.</>}
+        {isSharedView ? <>Here's their<br />love profile.</> : <>Here's who you are<br />in love.</>}
       </h1>
       <p className="font-serif leading-relaxed max-w-xl" style={{ fontSize: 15, opacity: 0.7 }}>
         Based on {isSharedView ? "their" : "your"}{" "}
         {getQuizTypeLabel(quizType)}{" "}
-        assessment. {isSharedView ? "" : "Sit with this. Most people find it more accurate than they expected."}
+        assessment.{isSharedView ? "" : " Sit with this. Most people find it more accurate than they expected."}
       </p>
 
       {isGivingMode(quizType) && (
@@ -209,7 +209,7 @@ function ResultsInner() {
   }
 
   return (
-    <main id="main-content" className="mx-auto px-4 pt-16 pb-28 sm:pb-16 space-y-10 sm:space-y-12" style={{ maxWidth: "38rem" }}>
+    <main id="main-content" className="mx-auto px-4 pt-16 sm:pb-16 space-y-10 sm:space-y-12" style={{ maxWidth: "38rem", paddingBottom: "var(--lc-bottom-safe)" }}>
 
       {isSharedView && (
         <div
@@ -252,21 +252,30 @@ function ResultsInner() {
               shareUrl={scoresForShare ? buildShareUrl(scoresForShare, quizType) : undefined}
             />
             <div className="mt-4 flex flex-wrap gap-3">
-              <Button onClick={() => exportText("love-wired-results.txt", buildResultTXT(result.primary, profile))} variant="secondary">Save as TXT</Button>
-              <Button onClick={() => exportMarkdown("love-wired-results.md", buildResultMD(result.primary, profile))} variant="secondary">Save as Markdown</Button>
+              <Button onClick={() => { const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); const base = `love-wired-${slug(getQuizTypeLabel(quizType))}-${slug(result.primary.name)}`; exportText(`${base}.txt`, buildResultTXT(result.primary, profile)); }} variant="secondary">Save as TXT</Button>
+              <Button onClick={() => { const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); const base = `love-wired-${slug(getQuizTypeLabel(quizType))}-${slug(result.primary.name)}`; exportMarkdown(`${base}.md`, buildResultMD(result.primary, profile)); }} variant="secondary">Save as Markdown</Button>
             </div>
           </section>
         </FadeIn>
       )}
 
       {isSharedView ? (
-        <div className="flex flex-wrap gap-3">
-          <Button onClick={() => router.push(`/assessments/${quizType}`)} variant="primary">
-            Take Your Own →
-          </Button>
-          <Button onClick={() => router.push("/assessments")} variant="secondary">
-            Browse Assessments
-          </Button>
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-3">
+            <Button onClick={() => router.push(`/assessments/${quizType}`)} variant="primary">
+              Take Your Own →
+            </Button>
+            <Button onClick={() => router.push("/assessments")} variant="secondary">
+              Browse Assessments
+            </Button>
+          </div>
+          <Link
+            href="/methodology"
+            className="block text-sm text-center font-serif underline"
+            style={{ color: "var(--foreground)", opacity: 0.45 }}
+          >
+            Learn how this works →
+          </Link>
         </div>
       ) : (
         <div className="flex flex-wrap gap-3">

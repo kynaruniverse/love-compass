@@ -9,16 +9,17 @@ function DotProgress({
   current,
   canGoBack,
   onBack,
+  onExit,
 }: {
   total: number;
   current: number;
   canGoBack: boolean;
   onBack: () => void;
+  onExit: () => void;
 }) {
   const questionNum = Math.min(current + 1, total);
   const pct = Math.round((current / total) * 100);
   const remaining = total - current;
-  const minsLeft = Math.ceil((remaining * 5.5) / 60);
 
   return (
     <div className="lc-progress-shell">
@@ -53,9 +54,17 @@ function DotProgress({
           <span className="lc-progress-count">
             {questionNum} <span style={{ opacity: 0.4 }}>of</span> {total}
           </span>
-          {minsLeft > 0 && (
-            <span className="lc-progress-time">· ~{minsLeft} min left</span>
+          {remaining > 0 && (
+            <span className="lc-progress-time">· {remaining} left</span>
           )}
+          <button
+            type="button"
+            onClick={onExit}
+            className="lc-progress-exit"
+            aria-label="Exit assessment and save progress"
+          >
+            Exit
+          </button>
         </div>
       </div>
     </div>
@@ -93,6 +102,7 @@ export default function QuizCard({ quiz }: { quiz: QuizState }) {
           current={quiz.index}
           canGoBack={quiz.canGoBack}
           onBack={quiz.goBack}
+          onExit={quiz.onExit}
         />
       </div>
 

@@ -1,57 +1,24 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { generateMeta } from "@/lib";
 import { PageHero } from "@/components/ui";
 import { Marquee } from "@/components/ui/Marquee";
-import { Plus } from "lucide-react";
+import { FAQItem } from "@/components/ui/FAQItem";
+
+export const metadata = generateMeta({
+  title: "FAQ",
+  description: "Answers to common questions about Love Wired — how the assessments work, what your results mean, and how your data is handled.",
+});
 
 const FAQ_MARQUEE_ITEMS = [
   "Honest answers. No filler.",
   "Your questions are worth asking.",
-  "Nothing stored. Nothing watched. Nothing sold.",
+  "Nothing persisted. Nothing watched. Nothing sold.",
   "Self-knowledge has no wrong answers.",
   "Results are a mirror, not a verdict.",
   "Still curious? Take an assessment.",
   "Free to use. Yours to interpret.",
 ];
-
-function FAQItem({ q, a }: { q: string; a: string | React.ReactNode }) {
-  const [open, setOpen] = useState(false);
-  const id = q.toLowerCase().replace(/[^a-z0-9]/g, "-").slice(0, 40);
-  const answerId = `faq-answer-${id}`;
-
-  return (
-    <li className="lc-faq-item">
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="lc-faq-question"
-        aria-expanded={open}
-        aria-controls={answerId}
-        style={{ WebkitTapHighlightColor: "transparent" }}
-      >
-        <span className="lc-faq-question-text">{q}</span>
-        <Plus
-          size={18}
-          strokeWidth={2}
-          aria-hidden="true"
-          className="lc-faq-icon"
-          style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
-        />
-      </button>
-      <div
-        id={answerId}
-        role="region"
-        aria-label={q}
-        className="lc-faq-answer-wrap"
-        data-open={open ? "true" : "false"}
-      >
-        <div className="lc-faq-answer">{a}</div>
-      </div>
-    </li>
-  );
-}
 
 // ── FAQ data ──────────────────────────────────────────────────────────────────
 
@@ -61,7 +28,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
     items: [
       {
         q: "Is this scientifically validated?",
-        a: "Honestly, no. Let's be clear about what that question is really asking. Science is exceptional at measuring repeatable, observable phenomena. Love is neither. No lab has successfully bottled why one person can feel completely known by a partner and completely invisible with another who, on paper, ticks every box. Love Wired doesn't claim clinical validation. What it does is give you a structured mirror built on frameworks grounded in decades of relationship research, filtered through the one variable that actually matters: whether the results make you recognise something true about yourself. That's the only measure worth having here."
+        a: <>Honestly, no. Let's be clear about what that question is really asking. Science is exceptional at measuring repeatable, observable phenomena. Love is neither. No lab has successfully bottled why one person can feel completely known by a partner and completely invisible with another who, on paper, ticks every box. Love Wired doesn't claim clinical validation. What it does is give you a structured mirror built on frameworks grounded in decades of relationship research, filtered through the one variable that actually matters: whether the results make you recognise something true about yourself. That's the only measure worth having here. <Link href="/methodology" className="underline" style={{ color: "var(--primary)" }}>Read more about our methodology →</Link></>
       },
       {
         q: "What's the difference between the receiving and giving tests?",
@@ -111,7 +78,7 @@ const faqs: { category: string; items: { q: string; a: string | React.ReactNode 
     items: [
       {
         q: "Is my data stored anywhere?",
-        a: "No. Your answers live only in your browser session and disappear the moment you close the tab. Nothing is sent to a server. Nothing sits in a database. We genuinely cannot see your answers. That's by design, not just policy."
+        a: <>No. Your answers live only in your browser session and disappear the moment you close the tab. Nothing is sent to a server. Nothing sits in a database. We genuinely cannot see your answers. That's by design, not just policy. <Link href="/privacy" className="underline" style={{ color: "var(--primary)" }}>Read our Privacy Policy →</Link></>
       },
       {
         q: "Do I need to create an account?",

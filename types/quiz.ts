@@ -62,13 +62,24 @@ export interface CategoryResult {
   angle: number;       // position in degrees around the compass rose
 }
 
-/** Likert scale labels (index 0 = value 1, index 4 = value 5) */
+/** Likert scale labels — full and abbreviated versions of the same five-point scale.
+ *  SHORT is used as visual sub-labels in the quiz UI where space is constrained.
+ *  Both arrays must remain semantically aligned if either is changed.
+ */
 export const LIKERT_LABELS = [
   "Not at all like me",
   "Slightly like me",
   "Moderately like me",
   "Quite a lot like me",
-  "Exactly like me"
+  "Exactly like me",
+] as const;
+
+export const LIKERT_LABELS_SHORT = [
+  "Not at all",
+  "Slightly",
+  "Moderately",
+  "Quite a lot",
+  "Exactly like me",
 ] as const;
 
 /** A full narrative result profile tied to a dominant category */

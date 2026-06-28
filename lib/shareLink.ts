@@ -1,5 +1,6 @@
 import { ScoreMap } from "@/types/quiz";
-import { QUESTION_BANK } from "@/data/assessments";
+
+const VALID_QUIZ_TYPES = new Set(["love", "intimacy", "love-giving", "intimacy-giving"]);
 
 /**
  * Encodes only the raw category scores + quiz type into a compact,
@@ -58,13 +59,14 @@ export function decodeShareData(
     // Further validate that all expected keys in ScoreMap are present and are numbers
     const scoreKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     for (const key of scoreKeys) {
-      if (!(key in parsed.s) || typeof parsed.s[key as keyof ScoreMap] !== 'number') {
+      const val = parsed.s[key as keyof ScoreMap];
+      if (!(key in parsed.s) || typeof val !== 'number' || val < 0 || val > 500) {
         return null;
       }
     }
 
-    // Validate that the quiz type exists in the QUESTION_BANK
-    if (!QUESTION_BANK[parsed.t]) return null;
+    // Validate that the quiz type is recognised
+    if (!VALID_QUIZ_TYPES.has(parsed.t)) return null;
 
     return { scores: parsed.s, type: parsed.t };
   } catch {

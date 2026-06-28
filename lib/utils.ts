@@ -12,8 +12,8 @@ export function getQuizTypeLabel(quizType: string): string {
   switch (quizType) {
     case "love":            return "Love Preference";
     case "intimacy":        return "Intimacy Style";
-    case "love-giving":     return "Love Expression";
-    case "intimacy-giving": return "Desire Expression";
+    case "love-giving":     return "How You Love";
+    case "intimacy-giving": return "How You Desire";
     default:                return "Love Preference";
   }
 }

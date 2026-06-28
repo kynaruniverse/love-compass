@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams, useRouter, notFound } from "next/navigation";
 import { QuizQuestion } from "@/types/quiz";
-import { useQuiz, tallyAnswers, saveQuizSession, loadQuizProgress, clearQuizProgress } from "@/lib";
+import { useQuiz, tallyAnswers, saveQuizSession, loadQuizProgress, clearQuizProgress, encodeShareData } from "@/lib";
 import { QuizCard, QuizErrorBoundary } from "@/components/quiz";
 import { ParticleCanvas } from "@/components/ui";
 import { assessments } from "@/data/assessments";
@@ -130,14 +130,26 @@ function QuizIntro({ title, description, onBegin }: { title: string; description
           {title}
         </h1>
         <p
-          className="font-serif leading-relaxed mb-8"
+          className="font-serif leading-relaxed mb-4"
           style={{ fontSize: 15, opacity: 0.7 }}
         >
-          {description} Answer honestly. There are no right answers, only yours.
+          {description}
+        </p>
+        <p
+          className="font-serif italic mb-6"
+          style={{ fontSize: 13, opacity: 0.5 }}
+        >
+          Answer honestly. There are no right answers, only yours.
         </p>
         <button onClick={onBegin} className="lc-cta-primary">
           Begin →
         </button>
+        <p
+          className="font-serif italic mt-5"
+          style={{ fontSize: 13, opacity: 0.4 }}
+        >
+          You can pause and return — your progress saves automatically.
+        </p>
       </div>
     </main>
   );
@@ -188,9 +200,13 @@ export default function QuizPage() {
     if (!quiz.isComplete || !questions || navigated.current) return;
     navigated.current = true;
     const results = tallyAnswers(quiz.answers, questions);
-    saveQuizSession(results, questions, slug);
+    const saved = saveQuizSession(results, questions, slug);
     clearQuizProgress();
-    router.push("/results");
+    if (saved) {
+      router.push("/results");
+    } else {
+      router.push(`/results?d=${encodeShareData(results, slug)}&own=true`);
+    }
   }, [quiz.isComplete, quiz.answers, questions, slug, router]);
 
   // Show skeleton while the question chunk is downloading.
@@ -221,7 +237,7 @@ export default function QuizPage() {
             className="font-serif font-bold mb-4"
             style={{ color: "var(--primary)", fontSize: 24 }}
           >
-            Continue where you left off?
+            Continue your {title}?
           </h1>
           <p
             className="font-serif leading-relaxed mb-8"
@@ -264,11 +280,11 @@ export default function QuizPage() {
     return (
       <main
         id="main-content"
-        className="min-h-[60vh] flex items-center justify-center px-4"
+        className="min-h-screen flex items-center justify-center px-6"
         aria-live="polite"
         aria-label="Loading results"
       >
-        <div className="text-center">
+        <div className="text-center max-w-sm w-full" style={{ animation: "quiz-bloom-in 0.4s cubic-bezier(0.22, 1, 0.36, 1)" }}>
           <div className="flex items-center justify-center mb-4" aria-hidden="true">
             <svg
               width="36"

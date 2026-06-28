@@ -21,6 +21,7 @@ export default function NotFound() {
             <Image
               src="/logo.svg"
               alt="Love Wired"
+              unoptimized
               width={84}
               height={84}
               priority
@@ -40,7 +41,7 @@ export default function NotFound() {
               Back to Home
             </Link>
             <Link href="/assessments" className="lc-error-home-link">
-              Start an Assessment
+              Browse Assessments
             </Link>
           </div>
         </div>

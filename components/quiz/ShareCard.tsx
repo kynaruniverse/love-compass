@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { NarrativeResult, CategoryResult } from "@/types/quiz";
 import { Button } from "@/components/ui";
-import { getQuizTypeLabel, isGivingMode } from "@/lib";
+import { getQuizTypeLabel, isGivingMode, siteMeta } from "@/lib";
 
 type CopyState = "idle" | "text" | "link" | "error";
 
@@ -60,7 +60,7 @@ export default function ShareCard({ result, profile, quizType, shareUrl }: Share
       `Top dimensions:`,
       ...top3.map(c => `  ${c.title}: ${c.percentage}%`),
       ``,
-      `Take your own at lovewired.co.uk`,
+      `Discover yours at ${siteMeta.url.replace("https://", "")}`,       `Send me your link when you're done.`,
     ].join("\n");
     copyString(text, "text", "Result text copied to clipboard.");
   }, [copyString, giving, modeLabel, result.primary.name, result.primary.tagline, top3]);

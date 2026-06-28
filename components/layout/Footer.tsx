@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
 
           <p className="lc-footer-tagline">
-            Knowing yourself. For the people worth loving.
+            Knowing yourself. Because the people you love deserve it.
           </p>
 
           {/* Divider */}
@@ -77,6 +77,7 @@ export default function Footer() {
           {/* Legal links + copyright */}
           <div className="lc-footer-bottom">
             <div className="lc-footer-links">
+              <Link href="/about"      className="lc-footer-link">About</Link>
               <Link href="/privacy"    className="lc-footer-link">Privacy</Link>
               <Link href="/terms"      className="lc-footer-link">Terms</Link>
               <Link href="/disclaimer" className="lc-footer-link">Disclaimer</Link>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type CSSProperties } from "react";
-import { QuizQuestion, LIKERT_LABELS } from "@/types/quiz";
+import { QuizQuestion, LIKERT_LABELS, LIKERT_LABELS_SHORT } from "@/types/quiz";
 
 export default function QuestionView({
   question,
@@ -47,7 +47,6 @@ export default function QuestionView({
           <div className="lc-qscale-row">
             {LIKERT_LABELS.map((label, i) => {
               const value = String(i + 1);
-              const SHORT = ["Not at all", "Slightly", "Moderately", "Quite a lot", "Exactly me"];
               return (
                 <div key={value} className="lc-qscale-col">
                   <button
@@ -57,10 +56,11 @@ export default function QuestionView({
                     className={`lc-qscale-btn${selectedValue === value ? " lc-qscale-btn--selected" : ""}`}
                     style={{ "--btn-index": i } as CSSProperties}
                     disabled={selectedValue !== null}
+                    aria-pressed={selectedValue === value}
                   >
                     {value}
                   </button>
-                  <span className="lc-qscale-sublabel">{SHORT[i]}</span>
+                  <span className="lc-qscale-sublabel">{LIKERT_LABELS_SHORT[i]}</span>
                 </div>
               );
             })}

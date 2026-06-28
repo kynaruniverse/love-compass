@@ -7,7 +7,13 @@ import { useMemo } from "react";
 import { ChevronRight } from "lucide-react";
 import { assessments } from "@/data/assessments";
 import { FadeIn } from "@/components/ui";
-import { AssessmentIcon } from "@/components/ui/AssessmentIcon";
+
+const ASSESSMENT_ICON: Record<string, string> = {
+  love: "/icons/preference-badge.png",
+  intimacy: "/icons/intimacy-badge.png",
+  "love-giving": "/icons/love-badge.png",
+  "intimacy-giving": "/icons/desire-badge.png",
+};
 
 const CompassCanvas = dynamic(() => import("@/components/ui/CompassCanvas"), {
   ssr: false,
@@ -54,7 +60,9 @@ function AssessmentCard({
       >
         {/* Icon */}
         <span className="lc-acard-icon">
-          <AssessmentIcon slug={slug} />
+          {ASSESSMENT_ICON[slug] && (
+            <Image src={ASSESSMENT_ICON[slug]} alt="" width={80} height={80} aria-hidden="true" style={{ objectFit: "contain" }} />
+          )}
         </span>
 
         <div className="lc-acard-body">
@@ -120,6 +128,7 @@ export default function HomePage() {
                 width={220}
                 height={220}
                 priority
+                unoptimized
                 sizes="220px"
                 style={{ display: "block" }}
               />
@@ -131,7 +140,7 @@ export default function HomePage() {
               Have you ever asked yourself how you love, and how you want to be loved?
             </FadeIn>
             <FadeIn as="span" delay={550} className="lc-hero-h1-answer">
-              You're exactly where you need to be.
+              Let's find out.
             </FadeIn>
           </h1>
 
@@ -155,7 +164,17 @@ export default function HomePage() {
       <section className="lc-bridge" aria-label="Why Love Wired">
         <FadeIn subtle>
           <p className="lc-bridge-text">
-            It's easy to assume everyone wants to be loved the way you do. Love Wired exists to challenge that, gently. Four quiet assessments, ten minutes each, mapping what you need and what you give. No sign-up. No diagnosis. Just honest reflection, at your own pace.
+            <>
+              <p>
+                It's easy to assume everyone wants to be loved the way you do. Love Wired
+                exists to challenge that, gently.
+              </p>
+
+              <p>
+                Four quiet assessments, each designed to help you understand what you
+                need, what you give, and where those patterns meet.
+              </p>
+            </>
           </p>
         </FadeIn>
       </section>
@@ -166,7 +185,7 @@ export default function HomePage() {
       <section className="lc-stat-strip" aria-label="At a glance">
         <FadeIn subtle>
           <p className="lc-stat-strip-text">
-            4 assessments · 10 minutes each · No sign-up · Nothing stored
+            4 assessments · 10 minutes each · No sign-up · Nothing persisted
           </p>
         </FadeIn>
       </section>

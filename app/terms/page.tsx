@@ -2,6 +2,7 @@ import { generateMeta } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
 import { Marquee } from "@/components/ui/Marquee";
+import LegalNav from "@/components/ui/LegalNav";
 
 export const metadata = generateMeta({
   title: "Terms of Use"
@@ -61,9 +62,10 @@ const SECTIONS = [
       "Love Wired does not collect, store, or transmit your answers. All assessment data lives in your browser session only and is deleted when you close the tab. We have no way of seeing your responses, and that's intentional.",
     ],
     footnote: {
-      text: "For full details, see our Privacy Policy.",
+      before: "For full details, see our ",
       href: "/privacy",
       linkText: "Privacy Policy",
+      after: ".",
     },
   },
   {
@@ -82,6 +84,7 @@ export default function TermsPage() {
     <main id="main-content" className="lc-terms-page">
 
       <Link href="/" className="lc-page-back">← Home</Link>
+      <LegalNav />
 
       {/* ── Header ── */}
       <header className="lc-terms-header">
@@ -117,7 +120,7 @@ export default function TermsPage() {
 
               {s.footnote && (
                 <p className="lc-terms-footnote">
-                  {s.footnote.text.replace(s.footnote.linkText, "")}{" "}
+                  {s.footnote.before}
                   <Link
                     href={s.footnote.href}
                     className="lc-terms-link"
@@ -125,6 +128,7 @@ export default function TermsPage() {
                   >
                     {s.footnote.linkText}
                   </Link>
+                  {s.footnote.after}
                 </p>
               )}
 

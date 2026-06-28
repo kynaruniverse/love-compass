@@ -18,9 +18,11 @@ export interface QuizState {
   /** Step back one question and clear that question's recorded answer. No-op on the first question. */
   goBack: () => void;
   canGoBack: boolean;
+  /** Navigate away from the quiz. Progress is already saved continuously. */
+  onExit: () => void;
 }
 
-export function useQuiz(questions: QuizQuestion[], slug?: string, initialAnswers?: string[], initialIndex?: number): QuizState {
+export function useQuiz(questions: QuizQuestion[], slug?: string, initialAnswers?: string[], initialIndex?: number, onExitPath?: string): QuizState {
   const [index, setIndex] = useState(initialIndex ?? 0);
   const [answers, setAnswers] = useState<string[]>(initialAnswers ?? []);
   const [scores, setScores] = useState<ScoreMap>(() =>
@@ -77,6 +79,12 @@ export function useQuiz(questions: QuizQuestion[], slug?: string, initialAnswers
     return Math.round((index / questions.length) * 100);
   }, [index, questions.length]);
 
+  const handleExit = useCallback(() => {
+    if (typeof window !== "undefined") {
+      window.location.href = onExitPath ?? "/assessments";
+    }
+  }, [onExitPath]);
+
   const isComplete = index >= questions.length;
 
   // Empty array is a legitimate transient state (questions still loading)
@@ -97,6 +105,7 @@ export function useQuiz(questions: QuizQuestion[], slug?: string, initialAnswers
     answerQuestion,
     goBack,
     canGoBack: index > 0,
+    onExit: handleExit,
     scores,
     answers,
     progress,

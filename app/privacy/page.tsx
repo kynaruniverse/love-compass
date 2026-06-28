@@ -2,6 +2,7 @@ import { generateMeta } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
 import { Marquee } from "@/components/ui/Marquee";
+import LegalNav from "@/components/ui/LegalNav";
 import { ShieldCheck, EyeOff, WifiOff } from "lucide-react";
 
 export const metadata = generateMeta({
@@ -13,7 +14,7 @@ const PRIVACY_MARQUEE_ITEMS = [
   "No accounts. No records. No trace.",
   "We built it this way on purpose.",
   "Honest reflection deserves honest privacy.",
-  "Nothing stored. Nothing transmitted. Nothing seen.",
+  "Nothing persisted. Nothing transmitted. Nothing seen.",
   "Privacy isn't a policy here. It's the architecture.",
 ];
 
@@ -79,6 +80,7 @@ export default function PrivacyPage() {
     <main id="main-content" className="lc-priv-page">
 
       <Link href="/" className="lc-page-back">← Home</Link>
+      <LegalNav />
 
       {/* ── Header ── */}
       <header className="lc-priv-header">

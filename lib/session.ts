@@ -51,10 +51,15 @@ export function saveQuizSession(
   scores: ScoreMap,
   questions: QuizQuestion[],
   type: string
-): void {
-  sessionStorage.setItem(KEYS.results,   JSON.stringify(scores));
-  sessionStorage.setItem(KEYS.questions, JSON.stringify(questions));
-  sessionStorage.setItem(KEYS.type,      type);
+): boolean {
+  try {
+    sessionStorage.setItem(KEYS.results,   JSON.stringify(scores));
+    sessionStorage.setItem(KEYS.questions, JSON.stringify(questions));
+    sessionStorage.setItem(KEYS.type,      type);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function loadQuizSession(): QuizSession | null {

@@ -5,12 +5,21 @@ import Image from "next/image";
 import { ParticleCanvas } from "@/components/ui";
 
 export default function Error({
-  error: _error,
+  error,
   reset,
 }: {
   error: Error;
   reset: () => void;
 }) {
+  if (process.env.NODE_ENV === "development") {
+    console.error("[ErrorBoundary]", error.name, error.message);
+  }
+
+  const isNetwork =
+    error.message.toLowerCase().includes("network") ||
+    error.message.toLowerCase().includes("fetch") ||
+    error.message.toLowerCase().includes("load");
+
   return (
     <>
       <ParticleCanvas />
@@ -27,6 +36,7 @@ export default function Error({
             <Image
               src="/logo.svg"
               alt="Love Wired"
+              unoptimized
               width={84}
               height={84}
               priority
@@ -38,7 +48,9 @@ export default function Error({
           <h1 className="lc-error-h1">You've lost your way</h1>
 
           <p className="lc-error-p">
-            Something didn't load correctly. It's not you, let's try that again together.
+            {isNetwork
+              ? "A connection issue stopped things loading. Check your signal and try again."
+              : "Something didn't load correctly. It's not you, let's try that again together."}
           </p>
 
           <div className="lc-error-actions">

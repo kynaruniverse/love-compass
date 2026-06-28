@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Home, ClipboardList, HelpCircle, Info } from "lucide-react";
+import { Home, ClipboardList, HelpCircle, FlaskConical } from "lucide-react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const tabs = [
-  { href: "/",            label: "Home",        Icon: Home },
-  { href: "/assessments", label: "Assessments", Icon: ClipboardList },
-  { href: "/faq",         label: "FAQ",         Icon: HelpCircle },
-  { href: "/about",       label: "About",       Icon: Info },
+  { href: "/",             label: "Home",        Icon: Home },
+  { href: "/assessments",  label: "Assessments", Icon: ClipboardList },
+  { href: "/faq",          label: "FAQ",         Icon: HelpCircle },
+  { href: "/methodology",  label: "Methodology", Icon: FlaskConical },
 ];
 
 export default function Navbar() {
@@ -55,7 +55,10 @@ export default function Navbar() {
       }}
     >
       {tabs.map(({ href, label, Icon }) => {
-        const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+        // Active if exact match, or if the pathname is a genuine child route
+        // (starts with href + "/"). Simple startsWith would false-positive on
+        // routes that share a prefix, e.g. /faq-something lighting up /faq.
+        const active = href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
         return (
           <Link
             key={href}

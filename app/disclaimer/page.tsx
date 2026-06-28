@@ -1,8 +1,12 @@
-"use client";
-
+import { generateMeta } from "@/lib";
 import Image from "next/image";
 import Link from "next/link";
 import { Marquee } from "@/components/ui/Marquee";
+
+export const metadata = generateMeta({
+  title: "Disclaimer",
+  description: "What Love Wired is, and what it isn't. An honest overview of what this self-reflection tool can and cannot tell you.",
+});
 
 const DISCLAIMER_MARQUEE_ITEMS = [
   "A starting point, not a conclusion.",

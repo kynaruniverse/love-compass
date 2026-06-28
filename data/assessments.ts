@@ -21,25 +21,25 @@ export const assessments: Assessment[] = [
   {
     slug: "love",
     title: "Love Preference",
-    description: "Some people feel loved through words, others through time, touch, or care. This shows your pattern.",
+    description: "Discover the ways you most naturally receive love and affection, and learn what helps you feel valued, connected, and understood.",
     mode: "receiving"
   },
   {
     slug: "intimacy",
     title: "Intimacy Style",
-    description: "What you crave in the moments before, during, and after. This finds the shape of your desire.",
+    description: "Explore the emotional and physical connection you seek in intimate relationships, and understand what helps you feel safe, desired, and fulfilled.",
     mode: "receiving"
   },
   {
     slug: "love-giving",
     title: "How You Love",
-    description: "However you express it, through words, actions, or somewhere between, this shows your style.",
+    description: "Understand how you naturally express love and care for others, and discover the patterns that shape your relationships.",
     mode: "giving"
   },
   {
     slug: "intimacy-giving",
     title: "How You Desire",
-    description: "The way you build anticipation, initiate, and make someone feel wanted. This is your style of desire.",
+    description: "Discover how you create attraction, express desire, and make others feel wanted, and learn the patterns behind your romantic chemistry.",
     mode: "giving"
   },
 ];

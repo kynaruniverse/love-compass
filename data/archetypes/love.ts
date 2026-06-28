@@ -31,7 +31,7 @@ export const LOVE_ARCHETYPES: Record<string, Archetype> = {
     ],
     pairings: {
       bestWith: "The Growth Partner. They're naturally generous with encouragement and tend to say what they're thinking, which matches exactly how you experience love.",
-      frictionWith: "The One Who Acts. Their care shows up as action rather than words, so it's worth both of you learning to translate the other's language."
+      frictionWith: "The One Who Acts. Their care shows up as action rather than words. It helps to name this difference early — ask what love looks like to them, and tell them what it looks like to you."
     },
     tryThis: [
       "Name it directly when you feel unheard: 'I'd love to hear how you're feeling about this,' rather than waiting for it to be offered.",

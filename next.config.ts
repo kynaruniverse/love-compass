@@ -18,9 +18,7 @@ const nextConfig: NextConfig = {
   // without an external loader while retaining optimisation for raster assets.
   images: {
     formats: ["image/avif", "image/webp"],
-    dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // ── Experimental ──────────────────────────────────────────────────────

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { assessments, type Assessment } from "@/data/assessments";
 import { Marquee } from "@/components/ui/Marquee";
 
@@ -30,18 +33,27 @@ const TILT_DECK: Record<string, number> = {
 };
 
 // ── Badge card ───────────────────────────────────────────────────────────
-function BadgeCard({ assessment }: { assessment: Assessment }) {
+function BadgeCard({
+  assessment,
+  onOpen,
+  triggerRef,
+}: {
+  assessment: Assessment;
+  onOpen: (a: Assessment, ref: React.RefObject<HTMLButtonElement | null>) => void;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
+}) {
   const tilt = TILT_DECK[assessment.slug] ?? 0;
   const badge = BADGE_MAP[assessment.slug];
   const isReceiving = assessment.mode === "receiving";
 
   return (
-    <Link
-      href={`/assessments/${assessment.slug}`}
+    <button
+      ref={triggerRef}
+      onClick={() => onOpen(assessment, triggerRef)}
       className="lc-badgecard"
       data-mode={assessment.mode}
       style={{ "--lc-tilt": `${tilt}deg` } as React.CSSProperties}
-      aria-label={`${assessment.title}, ${isReceiving ? "Receiving" : "Giving"} assessment`}
+      aria-label={`${assessment.title}, ${isReceiving ? "Receiving" : "Giving"} assessment. Opens preview.`}
     >
       <span className="lc-badgecard-glow" aria-hidden="true" />
       <div className="lc-badgecard-badge">
@@ -58,7 +70,7 @@ function BadgeCard({ assessment }: { assessment: Assessment }) {
       </div>
       <h3 className="lc-badgecard-title">{assessment.title}</h3>
       <p className="lc-badgecard-desc">{assessment.description}</p>
-    </Link>
+    </button>
   );
 }
 
@@ -69,12 +81,16 @@ function AssessmentSection({
   sub,
   color,
   items,
+  onOpen,
+  triggerRefs,
 }: {
   eyebrow: string;
   heading: string;
   sub: string;
   color: string;
   items: Assessment[];
+  onOpen: (a: Assessment, ref: React.RefObject<HTMLButtonElement | null>) => void;
+  triggerRefs: Record<string, React.RefObject<HTMLButtonElement | null>>;
 }) {
   return (
     <section className="lc-badge-section" aria-labelledby={`section-${heading}`}>
@@ -86,7 +102,7 @@ function AssessmentSection({
 
       <div className="lc-badgecard-grid">
         {items.map((a) => (
-          <BadgeCard key={a.slug} assessment={a} />
+          <BadgeCard key={a.slug} assessment={a} onOpen={onOpen} triggerRef={triggerRefs[a.slug]} />
         ))}
       </div>
     </section>
@@ -187,8 +203,32 @@ export default function AssessmentsPage() {
   const receiving = assessments.filter((a) => a.mode === "receiving");
   const giving = assessments.filter((a) => a.mode === "giving");
 
+  const [activeAssessment, setActiveAssessment] = useState<Assessment | null>(null);
+  const [activeTriggerRef, setActiveTriggerRef] = useState<React.RefObject<HTMLButtonElement | null> | null>(null);
+
+  const triggerRefs = Object.fromEntries(
+    assessments.map((a) => [a.slug, useRef<HTMLButtonElement | null>(null)])
+  ) as Record<string, React.RefObject<HTMLButtonElement | null>>;
+
+  const handleOpen = (a: Assessment, ref: React.RefObject<HTMLButtonElement | null>) => {
+    setActiveAssessment(a);
+    setActiveTriggerRef(ref);
+  };
+
+  const handleClose = () => {
+    setActiveAssessment(null);
+    setActiveTriggerRef(null);
+  };
+
   return (
     <main id="main-content" className="lc-assess-page">
+      {activeAssessment && activeTriggerRef && (
+        <AssessmentModal
+          assessment={activeAssessment}
+          onClose={handleClose}
+          triggerRef={activeTriggerRef}
+        />
+      )}      
       <section className="lc-assess-hero">
         <p className="lc-assess-eyebrow">ASSESSMENTS</p>
         <h1 className="lc-assess-h1">Stop guessing. Start knowing.</h1>
@@ -199,12 +239,21 @@ export default function AssessmentsPage() {
 
       <Marquee items={ASSESSMENTS_MARQUEE_ITEMS} />
 
+      <section className="lc-assess-callout">
+        <p>
+          Relationships have two sides: how you receive connection and how you express it.
+          These four assessments help you understand both.
+        </p>
+      </section>
+
       <AssessmentSection
         eyebrow="HOW LOVE FINDS YOU"
         heading="Receiving"
         sub="The love you receive isn't always the love you need."
         color="var(--primary)"
         items={receiving}
+        onOpen={handleOpen}
+        triggerRefs={triggerRefs}
       />
 
       <AssessmentSection
@@ -213,6 +262,8 @@ export default function AssessmentsPage() {
         sub="How you show love and how your partner feels it are rarely the same thing."
         color="var(--accent)"
         items={giving}
+        onOpen={handleOpen}
+        triggerRefs={triggerRefs}
       />
 
       <section className="lc-assess-footnote">

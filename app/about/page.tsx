@@ -1,7 +1,11 @@
-"use client";
-
+import { generateMeta } from "@/lib";
 import Link from "next/link";
 import { Marquee } from "@/components/ui/Marquee";
+
+export const metadata = generateMeta({
+  title: "About",
+  description: "Love Wired is a self-reflection tool built around four structured assessments. Understand how you give and receive love — no sign-up required.",
+});
 
 const ABOUT_MARQUEE_ITEMS = [
   "Self-knowledge is the most underrated relationship skill.",
@@ -44,7 +48,7 @@ export default function AboutPage() {
       <section className="lc-about-block">
         <h2 className="lc-about-h2">What can you do here?</h2>
         <p className="lc-about-p">
-          Four assessments. Two sides of the same question: how love finds you, and how you love in return. Five to ten minutes each. Nothing stored, nothing transmitted.
+          <Link href="/assessments" className="underline" style={{ color: "var(--primary)" }}>Four assessments</Link>. Two sides of the same question: how love finds you, and how you love in return. Five to ten minutes each. Nothing persisted, nothing transmitted.
         </p>
 
         <Link href="/assessments" className="lc-about-cta">
