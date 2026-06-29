@@ -144,8 +144,8 @@ function AssessmentModal({
       )
     );
     if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
+    const first = focusable[0]!;
+    const last = focusable[focusable.length - 1]!;
     if (e.shiftKey) {
       if (document.activeElement === first) { e.preventDefault(); last.focus(); }
     } else {
@@ -212,7 +212,7 @@ export default function AssessmentsPage() {
   const ref2 = useRef<HTMLButtonElement | null>(null);
   const ref3 = useRef<HTMLButtonElement | null>(null);
   const triggerRefs = assessments.reduce((acc, a, i) => {
-    acc[a.slug] = [ref0, ref1, ref2, ref3][i];
+    acc[a.slug] = [ref0, ref1, ref2, ref3][i]!;
     return acc;
   }, {} as Record<string, React.RefObject<HTMLButtonElement | null>>);
 
