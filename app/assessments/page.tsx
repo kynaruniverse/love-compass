@@ -102,7 +102,7 @@ function AssessmentSection({
 
       <div className="lc-badgecard-grid">
         {items.map((a) => (
-          <BadgeCard key={a.slug} assessment={a} onOpen={onOpen} triggerRef={triggerRefs[a.slug]} />
+          <BadgeCard key={a.slug} assessment={a} onOpen={onOpen} triggerRef={triggerRefs[a.slug]!} />
         ))}
       </div>
     </section>
