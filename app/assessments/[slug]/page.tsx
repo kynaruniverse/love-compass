@@ -167,6 +167,8 @@ export default function QuizPage() {
     notFound();
   }
 
+  const meta = assessments.find((a) => a.slug === slug);
+
   const [questions, setQuestions] = useState<QuizQuestion[] | null>(null);
   const [started, setStarted] = useState(false);
   const [resumeData, setResumeData] = useState<{ index: number; answers: string[] } | null>(null);
@@ -266,7 +268,6 @@ export default function QuizPage() {
 
   // Show intro screen before questions begin.
   if (!started) {
-    const meta = assessments.find((a) => a.slug === slug);
     return (
       <QuizIntro
         title={meta?.title ?? "Assessment"}
