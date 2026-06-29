@@ -21,25 +21,25 @@ export const assessments: Assessment[] = [
   {
     slug: "love",
     title: "Love Preference",
-    description: "Discover the ways you most naturally receive love and affection, and learn what helps you feel valued, connected, and understood.",
+    description: "Discover how you naturally receive love and what makes you feel truly valued.",
     mode: "receiving"
   },
   {
     slug: "intimacy",
     title: "Intimacy Style",
-    description: "Explore the emotional and physical connection you seek in intimate relationships, and understand what helps you feel safe, desired, and fulfilled.",
+    description: "Explore the connection you seek in relationships and what makes you feel safe and desired.",
     mode: "receiving"
   },
   {
     slug: "love-giving",
     title: "How You Love",
-    description: "Understand how you naturally express love and care for others, and discover the patterns that shape your relationships.",
+    description: "Understand how you express love and the patterns that shape how you care for others.",
     mode: "giving"
   },
   {
     slug: "intimacy-giving",
     title: "How You Desire",
-    description: "Discover how you create attraction, express desire, and make others feel wanted, and learn the patterns behind your romantic chemistry.",
+    description: "Discover how you create attraction and what drives your romantic chemistry.",
     mode: "giving"
   },
 ];

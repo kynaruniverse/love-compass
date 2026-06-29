@@ -60,13 +60,13 @@ export function PageHero({
   subheading?: string;
 }) {
   return (
-    <div className="space-y-3 pb-2">
-      <GoldStampBadge>{badge}</GoldStampBadge>
-      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary)] leading-tight">
+    <div className="lc-page-hero-wrap">
+      <p className="lc-page-hero-eyebrow">{badge}</p>
+      <h1 className="lc-page-hero-h1">
         {heading}
       </h1>
       {subheading && (
-        <p className="text-lg opacity-70 leading-relaxed max-w-xl font-serif">
+        <p className="lc-page-hero-sub">
           {subheading}
         </p>
       )}
