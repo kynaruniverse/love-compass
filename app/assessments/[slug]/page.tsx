@@ -237,7 +237,7 @@ export default function QuizPage() {
             className="font-serif font-bold mb-4"
             style={{ color: "var(--primary)", fontSize: 24 }}
           >
-            Continue your {title}?
+            Continue your {meta?.title ?? "assessment"}?
           </h1>
           <p
             className="font-serif leading-relaxed mb-8"
